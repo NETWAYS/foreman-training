@@ -1,0 +1,46 @@
+dn: ou=users,dc=localdomain
+objectClass: organizationalUnit
+ou: users
+description: Users
+
+dn: cn=administrator,ou=users,dc=localdomain
+objectClass: inetOrgPerson
+cn: administrator
+sn: User
+description: Administrator
+userPassword: {SSHA}pQjSq3J3wXsHahiaYh6UyQpCTFx4G80s
+givenName: Administrator
+mail: administrator@localdomain
+uid: administrator
+
+dn: cn=viewer,ou=users,dc=localdomain
+objectClass: inetOrgPerson
+cn: viewer
+sn: User
+description: Viewer
+userPassword: {SSHA}pQjSq3J3wXsHahiaYh6UyQpCTFx4G80s
+givenName: Viewer
+mail: viewer@localdomain
+uid: viewer
+
+dn: cn=selfservice,ou=users,dc=localdomain
+objectClass: inetOrgPerson
+cn: selfservice
+sn: User
+description: Selfservice
+userPassword: {SSHA}pQjSq3J3wXsHahiaYh6UyQpCTFx4G80s
+givenName: Selfservice
+mail: selfservice@localdomain
+uid: selfservice
+
+dn: ou=groups,dc=localdomain
+objectClass: organizationalUnit
+ou: groups
+description: Groups
+
+dn: cn=admins,ou=groups,dc=localdomain
+objectClass: posixGroup
+cn: admins
+description: Admins
+gidNumber: 666
+memberUid: administrator

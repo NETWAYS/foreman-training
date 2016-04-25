@@ -1,0 +1,35 @@
+{ 
+  "name": "Foreman | Lifecyclemanagement for Server",
+  "location": "Nuremberg",
+  "author": "Dirk Götz",
+  "release": "1.0",
+
+  "favicon": "image/global/favicon.ico",
+
+  "protected": ["presenter", "onepage", "print"],
+  "user": "foreman",
+  "password": "awesome",
+
+  "templates" : {
+       "default"   : "global/templates/default.tpl"
+  },
+
+  "sections": [
+   {"section":"global/Pre/Title"},
+   {"section":"global/Pre/Training"},
+
+   {"section":"training"}, 
+
+   {"section":"architecture"}, 
+   {"section":"installation"}, 
+   {"section":"provisioning"}, 
+   {"section":"configmanagement"}, 
+   {"section":"usermanagement"}, 
+   {"section":"plugins"}, 
+   {"section":"advanced"}, 
+   {"section":"katello"}, 
+
+   {"section":"global/Post"}
+  ]
+}
+

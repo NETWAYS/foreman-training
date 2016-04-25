@@ -1,0 +1,5550 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Foreman | Lifecyclemanagement for Server</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+
+  <link rel="stylesheet" href=".//css/reset.css" type="text/css"/>
+
+  
+  <link rel="icon" href="image/global/favicon.ico"/>
+  
+
+  <link type="text/css" href=".//css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href=".//css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href=".//css/sh_style.css" rel="stylesheet" />
+  <link type="text/css" href=".//css/tipsy.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href=".//css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src=".//js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src=".//js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src=".//js/jquery-print.js"></script>
+  <script type="text/javascript" src=".//js/jquery.batchImageLoad.js"></script>
+  <script type="text/javascript" src=".//js/jquery.parsequery.min.js"></script>
+  <script type="text/javascript" src=".//js/jquery.doubletap-0.1.js"></script>
+  <script type="text/javascript" src=".//js/jquery.tipsy.js"></script>
+
+  <script type="text/javascript" src=".//js/fg.menu.js"></script>
+  <script type="text/javascript" src=".//js/showoff.js"></script>
+  <script type="text/javascript" src=".//js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src=".//js/sh_main.min.js"></script>
+  <script type="text/javascript" src=".//js/core.js"></script>
+  <script type="text/javascript" src=".//js/showoffcore.js"></script>
+  <script type="text/javascript" src=".//js/coffee-script.js"></script>
+
+  
+    
+  
+
+  
+    
+    <link rel="stylesheet" href=".//file/foreman.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+    $(function(){
+      setupPreso(false, './');
+    });
+
+    editUrl  = "";
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+<a tabindex="1" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="stylemenu"><span class="ui-icon ui-icon-triangle-1-s"></span>styles</a>
+<div id="stylepicker" class="hidden"></div>
+
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">b</td><td>blank screen</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">g</td><td>toggle follow</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+    <tr><td class="key">P</td><td>toggle pause</td></tr>
+    <tr><td class="key">s</td><td>choose style</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso"><center>loading presentation...</center></div>
+<div id="footer">
+  <span id="followMode"></span>
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+  <span id="slideFilename"></span>
+  <img id="disconnected" src=".//css/disconnected.png" />
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div id="global_Pre_Title_01_Title" class="slide noprint" data-transition="none">
+<div class="content noprint" ref="global/Pre/Title/01_Title/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<div class="title-name"><p>Foreman | Lifecyclemanagement for Server</p></div>
+
+<div class="title-location"><p>created by NETWAYS GmbH</p></div>
+
+<div class="title-author"><p>Original Author: Dirk Götz</p></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Pre_Training_01_Netways" class="slide noprint" data-transition="none">
+<div class="content noprint" ref="global/Pre/Training/01_Netways">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Author</h1>
+
+<p>Provided by: </p>
+
+<p><img src="./file/global/Pre/Training/../../_images/netways-logo-1366.png" width="3045" height="589" style="max-width:400px; max-height: 200px; width: auto; height: auto; margin-left: 50px" alt="NETWAYS Logo"></p>
+
+<p><a href="https://www.netways.de">www.netways.de</a> - <a href="https://github.com/NETWAYS">github.com/NETWAYS</a> - <a href="https://twitter.com/netways">@netways</a></p>
+
+<p>To Support:</p>
+
+<p><img src="./file/global/Pre/Training/../../_images/foreman/foremanhelmet.png" width="213" height="182" style="max-width:400px; max-height: 150px; width: auto; height: auto; margin-left: 50px" alt="Foreman Logo"></p>
+
+<p><a href="https://www.theforeman.org">www.theforeman.org</a> - <a href="https://github.com/theforeman">github.com/theforeman</a> - <a href="https://twitter.com/ForemanProject">@ForemanProject</a></p>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Pre_Training_02_Forthcoming_Training" class="slide small noprint" data-transition="none">
+<div class="content small noprint" ref="global/Pre/Training/02_Forthcoming_Training/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Forthcoming Hands-on Training</h1>
+
+<ul>
+<li>26.07.2016 - 27.07.2016 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>06.10.2016 - 07.10.2016 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Pre_Training_02_Forthcoming_Training" class="slide center noprint" data-transition="none">
+<div class="content center noprint" ref="global/Pre/Training/02_Forthcoming_Training/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Forthcoming Hands-on Training</h1>
+
+<p>For other events and trainings hosted by NETWAYS see our</p>
+
+<p><a href="https://www.netways.de/en/about_netways/events/">event calendar</a></p>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="training_01_training" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="training/01_training/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>1 Introduction</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="training_01_training" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="training/01_training/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Training</h1>
+
+<p>This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
+The configuration management solution used will be Puppet.</p>
+
+<ul>
+<li>Foreman architecture</li>
+<li>Installation</li>
+<li>Provisioning</li>
+<li>Configuration management</li>
+<li>User management</li>
+<li>Advanced Use</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
+The configuration management solution used will be Puppet.</p>
+
+<h2>Foreman architecture</h2>
+
+<p>This chapter will give you a basic understanding of the architecture of Foreman, its Smart proxies and Compute Resources.</p>
+
+<div class="break">continued...</div>
+
+<h2>Installation</h2>
+
+<p>In this chapter you will get an idea on the different setups you can create, what is required for running foreman, 
+how the installer works and will create an All-in-one setup including DNS and DHCP in preparation for unattended installations.</p>
+
+<h2>Provisioning</h2>
+
+<p>This chapter provides basic knowledge on automated installation mechnism for Linux. You will learn how to configure them
+in the Foreman Web GUI. Afterwards several installation scenarios will be covered from bare metal installation using PXE
+over creating virtual machines using Compute Resources and metal as a service with Foreman's Discovery Plugin to creating
+a setup using installation media instead of PXE.</p>
+
+<h2>Configuration management</h2>
+
+<p>Some basic explainations will give you enough knowledge to understand how Puppet works and to use it to configure newly provisioned
+systems to your needs. Some existing Puppet modules will be imported, parameterized and assigned to the systems directly or
+via a host group. Configuration runs will be reported back to Foreman so the administrator can see success and failure.</p>
+
+<div class="break">continued...</div>
+
+<h2>User management</h2>
+
+<p>To give more users access to the Foreman Web GUI LDAP authentication will be added. Privileges will be added to the new users.
+Also the auditing capabilities of Foreman will be covered so you can see what your new users do.</p>
+
+<h2>Advanced Use</h2>
+
+<p>Some advanced topics like debugging, clean up, backup and restore will be covered in this chapter. Also the usage of the API
+and CLI will be shown. Furthermore additional plugins helpful in some environments will be introduced. And last but not least
+the trainer will show you Katello. This project adds content and subscription management to Foreman and is the upstream project
+for Red Hat Satellite 6.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="training_02_hints" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="training/02_hints">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Training Hints</h1>
+
+<ul>
+<li>Ask questions! Dumb questions do not exist.</li>
+<li>Add your own notes! Having learnt something is reflected best with your own additions.</li>
+<li>Join the conversation! Many of these exercises require real world scenarios and your feedback and questions.</li>
+<li><p>Work together! Be part of the training team and find solutions together.</p></li>
+<li><p>Additional documentation in your browser at <a href="http://theforeman.org/manuals/latest">http://theforeman.org/manuals/latest</a></p></li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="training_03_enviroment" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="training/03_enviroment/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Training Environment</h1>
+
+<div style="text-align: center"><img src="./file/training/./_images/environment.png" width="892" height="481" style="float: center; margin-left: 50px; width: 794px; height: 428px;" alt="Training Environment"></div>
+
+<div class="notes">
+
+<ul>
+<li>Note on the flipchart the address of the repos you are hosting</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_00_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="architecture/00_overview/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>2 Foreman Architecture</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_00_overview" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/00_overview/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman Project</h1>
+
+<ul>
+<li>Open Source Project
+
+<ul>
+<li>Homepage: <a href="http://theforeman.org">http://theforeman.org</a>
+</li>
+<li>Initial release: 10 September 2009</li>
+<li>Written in Ruby and Javascript</li>
+</ul>
+</li>
+<li>Lifecyclemanagement for servers
+
+<ul>
+<li>provisioning</li>
+<li>configuration</li>
+<li>orchestration</li>
+<li>monitoring</li>
+</ul>
+</li>
+<li>Web based GUI</li>
+<li>Utilizes other tools via smart proxy</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Original authors are Paul Kelly and Ohad Levy, now working for Red Hat.</li>
+<li>More than 200 contributors, open bug tracker, IRC support.</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman was originally writen by Paul Kelly and Ohad Levy and initially released on 10 September 2009.</p>
+
+<p>Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Network Satellite
+and Red Hat OpenStack distribution.</p>
+
+<div class="break">continued...</div>
+
+<p>It is writen in Ruby and Javascript to provide a Web based GUI for server lifecyclemanagement, from provisioning and
+configuration to orchestration and monitoring. For integration in the IT infrastructure it utilizes other tools via
+its smart proxy architecture.</p>
+
+<p>The project provides an open bug tracker for bug reporting and feature requests, its code on github, IRC support to 
+help the community and consists of more than 200 contributors.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_00_overview" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="architecture/00_overview/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Architecture</h1>
+
+<p><img src="./file/architecture/./_images/foreman_architecture.png" width="1188" height="717" style="float: center; margin-left: 50px; width: 772px; height: 466px;" alt="Foreman - Architecture"></p>
+
+<div class="notes">
+
+<ul>
+<li>Only required Foreman, all other optional</li>
+<li>Next slides provide deeper information on Smart proxies and Compute resources </li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_01_foreman" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/01_foreman">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman</h1>
+
+<ul>
+<li>Web Interface + API + CLI</li>
+<li>Supported plattforms:
+
+<ul>
+<li>Server: RHEL/Fedora, Debian/Ubuntu, (Linux)</li>
+<li>DB: PostgreSQL, MySQL, SQLite</li>
+<li>Provisioning: RHEL/Fedora, Debian/Ubuntu, Solaris, SuSE, CoreOS, FreeBSD, Juniper Junos, Cisco NX-OS, (Windows, MacOS)</li>
+</ul>
+</li>
+<li>Usermanagement:
+
+<ul>
+<li>Users and Groups</li>
+<li>Internal / LDAP / Kerberos (via Apache Authentication)</li>
+<li>Fine role based privileges</li>
+</ul>
+</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/architecture/./_images/foreman_loginscreen.png" width="1795" height="785" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Foreman Loginscreen">
+</div>
+
+<div class="notes">
+
+<ul>
+<li>Other Linux distributions are supported via source installation</li>
+<li>Windows and MacOS are not officially supported but reported by the community</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman provides in addition to the Web Interface an API and CLI.</p>
+
+<p>It supports as plattform RHEL/Fedora and Debian/Ubuntu via packages and via installation from source
+also other Linux distribution. </p>
+
+<p>As database backend PostgreSQL, MySQL and SQLite are supported, while the default is PostgreSQL, 
+SQLite is not recommended for productive usage.</p>
+
+<p>The following operating systems are known to successfully install from Foreman: <br>
+* RHEL/Fedora <br>
+* Debian/Ubuntu <br>
+* Solaris <br>
+* SuSE <br>
+* CoreOS <br>
+* FreeBSD <br>
+* Juniper Junos <br>
+* Cisco NX-OS</p>
+
+<p>Also reported by the community are: <br>
+* Windows <br>
+* MacOS</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_02_smart_proxy" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/02_smart_proxy/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Smart Proxy</h1>
+
+<ul>
+<li>Autonomous web-based component
+
+<ul>
+<li>Restful API to connect to various systems from Foreman</li>
+</ul>
+</li>
+<li>Supported Plattforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)</li>
+<li>Supported Subsystems:
+
+<ul>
+<li>DHCP - ISC DHCP, MS DHCP Servers, Libvirt</li>
+<li>DNS - Bind, PowerDNS, Route53, MS DNS Server, Libvirt</li>
+<li>BMC - IPMI</li>
+<li>Puppet &amp; Puppet CA / Salt / Chef</li>
+<li>Realm - FreeIPA</li>
+<li>TFTP </li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Support for the realm subsystem to join an active directory is in development</li>
+<li>Additional subsystems are added by plugins</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>The smart proxy is an autonomous web-based component providing a restful API to connect to varios
+systems from higher ochestration tools such as Foreman. </p>
+
+<p>The Project provides packages for installation on RHEL/Fedora and Debian/Ubuntu. Installing from
+source allows to support other Linux distributions and also Windows which is required for some 
+implementations of subsystems.</p>
+
+<div class="break">continued...</div>
+
+<p>There are different implementations of various subsystems included in the smart proxy by default
+and it easily allows to add additional subsystems and implementations as plugins. For configuration
+management the solutions differ to much to be covered by one subsystem. For joining a realm support
+for active directory is in development but for now only FreeIPA (an Open Source aquivalent to Active
+Directory focused on Linux) is supported.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_02_smart_proxy" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/02_smart_proxy/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Smart Proxy - DHCP</h1>
+
+<ul>
+<li>Adds and removes host reservations</li>
+<li>Requires subnets to be configured</li>
+<li><p>Supports: ISC DHCP, MS DHCP, Libvirt</p></li>
+<li>
+<p>ISC DHCP:</p>
+
+<ul>
+<li>uses OMAPI </li>
+</ul>
+</li>
+<li>
+<p>MS DHCP:</p>
+
+<ul>
+<li>uses netsh on a windows server</li>
+<li>needs administrative privileges</li>
+</ul>
+</li>
+<li>
+<p>Libvirt:</p>
+
+<ul>
+<li>not for productive use</li>
+<li>uses virsh to manage dnsmasq for libvirt</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Libvirt is recommended for local test environments (desktop running kvm and libvirt)</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Smart Proxy DHCP is used to add and remove host reservations to preconfigured subnets and allows to
+import them to foreman.</p>
+
+<div class="break">continued...</div>
+
+<p>On Linux typically a ISC compatible implementation is used to manage DHCP which allows to send commands
+via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server system is required which
+needs netsh command installed and the user running the service needs administrative privileges, but the
+server does not need to be the DHCP server. For testing enviroments also an implementation for Libvirt
+using virsh to manage the dnsmasq underneath is available, a productive use is not recommended.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_02_smart_proxy" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/02_smart_proxy/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Smart Proxy - DNS</h1>
+
+<ul>
+<li>Adds and removes dns records of type A and PTR</li>
+<li>Requires zone to be configured as dynamic zones</li>
+<li><p>Supports: Bind, PowerDNS, Route53, MS DNS, Libvirt</p></li>
+<li>
+<p>Bind:</p>
+
+<ul>
+<li>uses nsupdate with preshared key or Kerberos principal</li>
+</ul>
+</li>
+<li>
+<p>MS DNS:</p>
+
+<ul>
+<li>uses nsupdate with Kerberos principal</li>
+<li>alternativly: uses dnscmd on a windows server</li>
+</ul>
+</li>
+<li>
+<p>PowerDNS:</p>
+
+<ul>
+<li>directly connects to the database backend</li>
+</ul>
+</li>
+<li>
+<p>Route53 (DNS in AWS cloud):</p>
+
+<ul>
+<li>requires Amazon Web Service account</li>
+<li>access and secret key of IAM account with access to Route53</li>
+</ul>
+</li>
+<li>
+<p>Libvirt:</p>
+
+<ul>
+<li>not for productive use</li>
+<li>uses virsh to manage dnsmasq for libvirt</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Foreman does not support IPv6 at the moment, so no AAAA records</li>
+<li>Also no support for additional records like CNAME </li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Smart Proxy DNS is used to add and remove dns records of type A and PTR, at the moment there is no
+support for IPv6 and additional records. For doing such updates it requires the zone to be a dynamic zone.</p>
+
+<p>Commonly used on Linux is Bind which takes updates via nsupdate with preshared keys or if used in FreeIPA
+with Kerberos principal. The same mechanism could be used for sending updates to Microsofts DNS. Another
+possibilty is to install the Smart Proxy on a Windows server and give it the privileges to run dnscmd.
+Other implementations like PowerDNS and Route53 are also supported. Libvirt is again only supported as a
+testing environment.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_02_smart_proxy" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/02_smart_proxy/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Smart Proxy - TFTP</h1>
+
+<ul>
+<li>Used to provide boot-images for PXE boot</li>
+<li>Downloads the required files with wget</li>
+<li>Creates and deletes PXE configuration based on MAC address</li>
+<li>Automatically configured during installation</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Smart Proxy TFTP provides boot-images for PXE boot, these files are simply downloaded using wget the
+first time needed. PXE configuration is created during provisioning based on MAC address. For this subsystem
+in the most cases no manual configuration is required because it is completly included in the basic setup.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_02_smart_proxy" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/02_smart_proxy/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Smart Proxy - Puppet / Puppet CA</h1>
+
+<ul>
+<li>
+<p>Puppet:</p>
+
+<ul>
+<li>connects to Puppets API</li>
+<li>allows to import puppet environments and classes</li>
+<li>optionally triggers immediate Puppet runs</li>
+<li>accepts facts and reports</li>
+<li>uses Foreman as ENC</li>
+</ul>
+</li>
+<li>
+<p>Puppet CA:</p>
+
+<ul>
+<li>requires access to ssl directory, autosign configuration and puppet cert command</li>
+<li>allows certificate management using the Web GUI</li>
+<li>creates autosign entry for hosts during provisioning</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Smart Proxy Puppet connects to the API of Puppet to query puppet environments and classes for import. It
+optionally triggers immediate Puppet runs using the deprecated puppet kick command, mcollective, executing puppet
+agent command via ssh on the remote system, salt or any custom script. </p>
+
+<div class="break">continued...</div>
+
+<p>Also it automatically allows a Puppet master known to Foreman as Smart Proxy to upload facts and reports. In addition
+the Puppet master can access Foreman as an External Node Classifier to build its catalog.</p>
+
+<p>The Smart Proxy Puppet CA is independent from the one for Puppet. It requires access to Puppet's ssl directory, the 
+autosign configuration and puppet cert command via sudo. The Web GUI utilizes the Smart Proxy for certificate management
+and creates autosign entry for hosts during provisioning for accessing puppet without manual intervention.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="architecture_03_compute_resource" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="architecture/03_compute_resource">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Compute Resource</h1>
+
+<ul>
+<li>Plugin to create and manage virtual hosts
+
+<ul>
+<li>based on fog (ruby cloud service library)</li>
+</ul>
+</li>
+<li>Depending on virtualization provider
+
+<ul>
+<li>Unattended / Image-based installation</li>
+<li>Console access</li>
+<li>Power management</li>
+<li>Changing virtual machine configuration</li>
+</ul>
+</li>
+<li>Compute Profiles - predefined template for virtual hardware</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Compute Resource refers to a virtualization or cloud service which is integrate into Foreman
+as a plugin. Those plugins are based on the ruby cloud service library named fog and allows
+to create and manage virtual hosts. Depending on the provider machines are installed from an
+image or unattended in the same fashion like a bare metal host. It allows to access the console
+and do power management operations like shutting down or resetting the system. Some providers
+also allow to change the virtual hardware afterwards.</p>
+
+<div class="break">continued...</div>
+
+<p>The table shows the providers directly supported by the Foreman Project and its capabilities,
+additional providers like OpenNebula are community contributed.</p>
+
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Package</th>
+<th>Unattended installation</th>
+<th>Image-based</th>
+<th>Console</th>
+<th>Power management</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC2</td>
+<td>foreman-ec2</td>
+<td>no</td>
+<td>yes</td>
+<td>read-only</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Google Compute Engine</td>
+<td>foreman-gce</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Libvirt</td>
+<td>foreman-libvirt</td>
+<td>yes</td>
+<td>yes</td>
+<td>VNC or SPICE</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>OpenStack Nova</td>
+<td>foreman-compute</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>oVirt / RHEV</td>
+<td>foreman-ovirt</td>
+<td>yes</td>
+<td>yes</td>
+<td>VNC or SPICE</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Rackspace</td>
+<td>foreman-compute</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>VMware</td>
+<td>foreman-vmware</td>
+<td>yes</td>
+<td>yes</td>
+<td>VNC</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+
+<p>Compute Profiles allow to predefine the virtual hardware as a template to select for provisioning.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_00_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="installation/00_overview">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>3 Installation</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_01_requirements" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/01_requirements/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Requirements - Operating System</h1>
+
+<ul>
+<li>Red Hat Enterprise Linux 6 &amp; 7
+
+<ul>
+<li>EPEL repository</li>
+<li>Optional and RHSCL Channel</li>
+<li>optionally: Puppetlabs Repository</li>
+</ul>
+</li>
+<li>CentOS, Scientific Linux, Oracle Linux 6 &amp; 7
+
+<ul>
+<li>EPEL repository</li>
+<li>optionally: Puppetlabs Repository</li>
+</ul>
+</li>
+<li>Fedora (not recommended) </li>
+<li>Debian 7
+
+<ul>
+<li>optionally: Puppetlabs Repository</li>
+</ul>
+</li>
+<li>Debian 8
+
+<ul>
+<li>optionally: Puppetlabs Repository</li>
+</ul>
+</li>
+<li>Ubuntu 12.04 &amp; 14.04
+
+<ul>
+<li>optionally: Puppetlabs Repository</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>On the mentioned operating systems packages are provided by the project, a installation from source
+is not recommended. On all plattforms all updates should be applied before installation. Using the
+Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_01_requirements" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="installation/01_requirements/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Requirements - Puppet &amp; Facter</h1>
+
+<ul>
+<li>Support matrix</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Puppet version</th>
+<th>Foreman installer</th>
+<th>Smart proxy</th>
+<th>Report/fact processors</th>
+<th>ENC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.25.x</td>
+<td>Not supported</td>
+<td>Untested</td>
+<td>Untested</td>
+<td>No Parametrized Classes</td>
+</tr>
+<tr>
+<td>2.6.0 - 2.6.5</td>
+<td>Not supported</td>
+<td>Untested</td>
+<td>Untested</td>
+<td>No Parametrized Classes</td>
+</tr>
+<tr>
+<td>2.6.5+</td>
+<td>Not supported</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>2.7.x</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>3.0.x</td>
+<td>Limited support</td>
+<td>1.1 or higher</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>3.1.x - 3.4.x</td>
+<td>1.1 or higher</td>
+<td>1.1 or higher</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>3.5.x</td>
+<td>1.4.3 or higher</td>
+<td>1.4.2 or higher</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>3.6.0+</td>
+<td>1.4.3 or higher</td>
+<td>1.5.1 or higher</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>4.x</td>
+<td>Not supported</td>
+<td>Partial support</td>
+<td>Untested</td>
+<td>Untested</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>Puppet Enterprise is not supported</li>
+<li>Facter 1.x is supported, 2.x requires Foreman &gt;= 1.4.2, Structured Facts are not supported for now</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_01_requirements" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/01_requirements/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Requirements - Communication</h1>
+
+<ul>
+<li>Port matrix (depending on installation)</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Protocol</th>
+<th>Required For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>53</td>
+<td>TCP &amp; UDP</td>
+<td>DNS Server</td>
+</tr>
+<tr>
+<td>67, 68</td>
+<td>UDP</td>
+<td>DHCP Server</td>
+</tr>
+<tr>
+<td>69</td>
+<td>UDP</td>
+<td>TFTP Server</td>
+</tr>
+<tr>
+<td>80, 443</td>
+<td>TCP</td>
+<td>HTTP &amp; HTTPS access to Foreman web UI - using Apache + Passenger</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>TCP</td>
+<td>HTTP access to Foreman web UI - using standalone WEBrick service</td>
+</tr>
+<tr>
+<td>3306</td>
+<td>TCP</td>
+<td>Separate MySQL database</td>
+</tr>
+<tr>
+<td>5910 - 5930</td>
+<td>TCP</td>
+<td>Server VNC Consoles</td>
+</tr>
+<tr>
+<td>5432</td>
+<td>TCP</td>
+<td>Separate PostgreSQL database</td>
+</tr>
+<tr>
+<td>8140</td>
+<td>TCP</td>
+<td>Puppet Master</td>
+</tr>
+<tr>
+<td>8443</td>
+<td>TCP</td>
+<td>Smart Proxy, open only to Foreman</td>
+</tr>
+</tbody>
+</table>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>Depending on your installation the ports above are required to be accessable on the Foreman server,
+by Foreman and the managed systems.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_02_installer" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/02_installer">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman Installer</h1>
+
+<ul>
+<li>Separate project named kafo</li>
+<li>Recommended way of installation</li>
+<li>Utilizes Puppet modules to install and configure
+
+<ul>
+<li>Foreman web UI</li>
+<li>Smart Proxy</li>
+<li>Passenger (for Puppet master and Foreman)</li>
+<li>TFTP</li>
+<li>DNS</li>
+<li>DHCP</li>
+</ul>
+</li>
+<li>Runs parameterized or interactive</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman installer is a separate project named kafo (Katello/Foreman Installer) which could also
+be used by other projects. It utilizes existing Puppet modules to install and configure all required
+components. Module parameter are provided as commandline arguments to the installer or by running 
+the installer in interactive mode.</p>
+
+<div class="break">continued...</div>
+
+<p>In a default installation this would be:</p>
+
+<ul>
+<li>Apache HTTP with SSL (using a certificate signed by Puppet CA)</li>
+<li>Foreman running under mod_passenger</li>
+<li>Puppet master running under mod_passenger</li>
+<li>TFTP server (on RHEL and derivates under xinetd)</li>
+<li>Smart Proxy using SSL configured for Puppet and TFTP</li>
+</ul>
+
+<p>Depending on provided parameters other modules are enabled:</p>
+
+<ul>
+<li>ISC DHCP server</li>
+<li>Bind DNS server</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_03_scenarios" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/03_scenarios/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Scenarios</h1>
+
+<ul>
+<li>All-in-one</li>
+<li>All-in-one with additional Puppet masters</li>
+<li>Separate Puppet masters</li>
+<li>Smart proxies</li>
+<li>Integration of PuppetDB</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman installer allows to setup different scenarios depending on its parameters or answers in interactive mode.
+All the scenarios above are explained in the course material, commands required can be found in the Foreman manual on
+the project homepage. For the training we will stick to the default all-in-one setup and add additional Smart proxies.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_03_scenarios" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="installation/03_scenarios/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>All-in-one</h1>
+
+<ul>
+<li>Default setup on unparameterized run</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/installation/./_images/installation_all-in-one.png" width="680" height="377" style="float: center; margin-left: 50px; width: 680px; height: 377px;" alt="Installation All-in-one"></div>
+
+<ul>
+<li>Expandable with additional plugins and Smart proxies</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Plugins can be added simply as parameter during installation or later on</li>
+<li>Smart proxies are covered later because it is same procedure for installation on Foreman host or others</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_03_scenarios" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="installation/03_scenarios/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>All-in-one with additional Puppet masters</h1>
+
+<ul>
+<li>Default setup on Foreman host</li>
+<li>Precreate certificates on Puppet CA</li>
+<li>Run installer with parameters to disable Foreman on additional Puppet Masters</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/installation/./_images/installation_additional-masters.png" width="684" height="480" style="float: center; margin-left: 50px; width: 616px; height: 432px;" alt="Installation Additional Puppet Masters"></div>
+
+<div class="notes">
+
+<ul>
+<li>Preferred scenario for growing the Infrastructure and making Puppet Master high available.</li>
+<li>But all Puppet Master depend on Foreman so place it on a high available machine.</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_03_scenarios" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="installation/03_scenarios/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Separate Puppet masters</h1>
+
+<ul>
+<li>Setup on Foreman host with Puppet Master and Smart Proxies disabled</li>
+<li>Run installer with parameters to disable Foreman on separate Puppet Masters</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/installation/./_images/installation_separate-masters.png" width="684" height="510" style="float: center; margin-left: 50px; width: 616px; height: 459px;" alt="Installation Separate Puppet Masters"></div>
+
+<div class="notes">
+
+<ul>
+<li>Same as the scenario before but removes load created by Puppet Master from the Foreman server</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_03_scenarios" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="installation/03_scenarios/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Smart Proxies</h1>
+
+<ul>
+<li>Foreman installer helps to setup Smart Proxies</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/installation/./_images/installation_smart-proxies.png" width="964" height="377" style="float: center; margin-left: 50px; width: 771px; height: 301px;" alt="Installation Smart proxies"></div>
+
+<div class="notes">
+
+<ul>
+<li>Smart Proxies can also be added to the All-in-one Foreman host - we will do so in the Training</li>
+<li>Requires certificate for communication and OAuth provided in the settings of Foreman.</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_03_scenarios" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="installation/03_scenarios/6">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Integration of PuppetDB</h1>
+
+<ul>
+<li>Foreman installer helps to integrate PuppetDB</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/installation/./_images/installation_puppetdb.png" width="966" height="377" style="float: center; margin-left: 50px; width: 773px; height: 302px;" alt="Installation PuppetDB"></div>
+
+<div class="notes">
+
+<ul>
+<li>Integration of existing PuppetDB, no installation!</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_04_installation" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/04_installation/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 3.1: Prepare Installation</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Prepare the installation of Foreman</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Make Puppetlabs repository available</li>
+<li>Make EPEL repository available</li>
+<li>Make Foreman repository available</li>
+<li>Install foreman-installer</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_04_installation" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/04_installation/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 3.2: Install an All-in-one setup</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Install an All-in-one setup of Foreman with DNS and DHCP</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Run foreman-installer with additional parameters</li>
+</ul>
+</li>
+<li>Notes:
+
+<ul>
+<li>DNS (interface=eth0, zone=localdomain, reverse=0.0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)</li>
+<li>DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.1)</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Show the students the interactive mode in advance - we will not use it to prevent typos</li>
+<li>Show the students the answer file - it provides information for further runs of the installer</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_04_installation" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/04_installation/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 3.3: Add DNS configuration to Foreman</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Create the domain 'localdomain' and associate Smart proxy</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Login to Foreman</li>
+<li>Navigate to 'Infrastructure &gt; Domains'</li>
+<li>Add the domain 'localdomain' and associate Smart Proxy 'foreman.localdomain'</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>If the Puppet agent on the Foreman server has already run the domain will already be created
+but not associated.</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="installation_04_installation" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/04_installation/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 3.4: Add DHCP configuration to Foreman</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Create the subnet 'foreman' and associate Smart proxies</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Login to Foreman</li>
+<li>Navigate to 'Infrastructure &gt; Smart proxies'</li>
+<li>Add the subnet 'foreman' by importing from the Smart Proxy </li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Subnets are not automatically created like domains.</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_01_basics" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="provisioning/01_basics/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>4 Provisioning</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_01_basics" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/01_basics/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning</h1>
+
+<ul>
+<li>Definition:</li>
+</ul>
+
+<p><em>Server provisioning is a set of actions to prepare a server with appropriate systems, data and software,
+and make it ready for network operation.</em> </p>
+
+<ul>
+<li>Task:</li>
+</ul>
+
+<p>Automate it!</p>
+
+<div class="handouts">
+
+<hr>
+
+<p>Wikipedia defines server provisioning as <em>a set of actions to prepare a server with appropriate systems, data and software,
+and make it ready for network operation</em> and your task will be to automated it.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_01_basics" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/01_basics/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Basics on automated installation</h1>
+
+<ul>
+<li>Installer asks questions during installation</li>
+<li>Answer file could be provided in several ways
+
+<ul>
+<li>Basic configuration like timezone and language settings</li>
+<li>Partition layout</li>
+<li>Software installation</li>
+<li>Registration to management tools</li>
+</ul>
+</li>
+<li>Additional scripts during and after installation</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Simple installation than use configuration management</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>For an automated installation it is required that the installer of the operating system allows to answer the questions
+normally asked to the users by providing an answer file. </p>
+
+<p>The different Linux installers can handle answer files provided via network protocols like http and ftp, network file
+systems or placed on the installation media. In this way basic configuration like timezone, language or network settings 
+can be handled, furthermore partition layout can be created, software is installed and depending on the solution also 
+registration to management tools is directly integrated. </p>
+
+<div class="break">continued...</div>
+
+<p>If the installer could not solve requirements directly, scripts could be provided to be executed during and after installation.</p>
+
+<p>The mechanism differs for the distributions.</p>
+
+<table>
+<thead>
+<tr>
+<th>Operating system family</th>
+<th>Installer</th>
+<th>Answer files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red Hat</td>
+<td>Anaconda</td>
+<td>Kickstart</td>
+</tr>
+<tr>
+<td>Debian</td>
+<td>Debian-Installer</td>
+<td>Preseed</td>
+</tr>
+<tr>
+<td>SuSE</td>
+<td>YaST2</td>
+<td>AutoYaST2</td>
+</tr>
+</tbody>
+</table>
+
+<p>Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires
+answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or usb.</p>
+
+<p>Regardless of the capabilities with configuration management in place do a simple installation and let the configuration
+management solution do its work.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_01_basics" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/01_basics/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Kickstart</h1>
+
+<ul>
+<li>Simple textfile with different sections
+
+<ul>
+<li>Main section with commands for basic configuration and partitioning</li>
+<li>Package section for software installation</li>
+<li>Pre and post scripts during installation</li>
+<li>Additional sections can be added by addons</li>
+</ul>
+</li>
+<li>Added as kernel parameter to boot media</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>If someone asks show them the file in Foreman, but we will have a look into in the exercise, too</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Kickstart is the answer file to the installer used by Red Hat Enterprise Linux, CentOS, Scientific Linux, other
+derivates and Fedora.</p>
+
+<p>It is basicly a simple text file providing commands for basic configuration and partitioning in its main section
+and a list of packages and package groups to install in addition to the core system in a package section. Skripts
+can be added in separate sections to run as pre-installation task or post-installation on the installer or using
+chroot on the installed system.</p>
+
+<p>Lastest versions allow to extend the installer with addons which can also provide its own kickstart section for
+automation. One example is the OSCAP Anaconda Addon which allows to validate against a security profile already
+during installation.</p>
+
+<div class="break">continued...</div>
+
+<p>The URL to the kickstart file can be provided during installation or for automation added as a kernel parameter
+to the boot media. Necessary answers missing will be queried.</p>
+
+<p>Additional information: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_01_basics" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/01_basics/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Preseed</h1>
+
+<ul>
+<li>Simple textfile with answers
+
+<ul>
+<li>Basic configuration and partitioning</li>
+<li>Software installation</li>
+<li>Scripts after installation</li>
+</ul>
+</li>
+<li>Added as kernel parameter to boot media</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Preseed is the answer file for the Debian Installer used by Debian and Ubuntu.</p>
+
+<p>It is basicly a simple text file providing answers to the installation questions. It uses for all types of 
+configuration the same syntax. Scripts can be downloaded to the system and be executed after the installation.</p>
+
+<p>The URL to the preseed file can be added to the boot menu entry or as a kernel parameter to the boot media for
+automation, an additional parameter tells the installer to run unattended or use the answers only as default.</p>
+
+<p>Additional information: <a href="https://wiki.debian.org/DebianInstaller/Preseed">https://wiki.debian.org/DebianInstaller/Preseed</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_01_basics" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/01_basics/6">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>AutoYaST2</h1>
+
+<ul>
+<li>Structured XML file
+
+<ul>
+<li>Basic configuration and partitioning</li>
+<li>Software installation</li>
+<li>Scripts during and after installation on different times</li>
+<li>Configuration of selected software and devices</li>
+</ul>
+</li>
+<li>Added as kernel parameter to boot media</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>AutoYaST2 is the answer file for SuSE Linux Enterprise Server, Desktop and openSuSE using YaST2 as installer.</p>
+
+<p>It is a structured XML file meant to be created by YaST and not by hand which provides answers to the installer
+quests. Different data structures are used for all kinds of configuration. It can run scripts before installation
+starts, after partitioning, after package installation using chroot, post installation on first boot before 
+and after starting services. In addition it can configure selected software and devices like printing service
+or soundcards. Other services can be configured with an file based configuration management.</p>
+
+<p>The URL to the autoyast file has to be added as a kernel parameter to the boot media. Furthermore it allows
+to create a control server providing rules to automatically select autoyast files.</p>
+
+<p>Additional information: <a href="http://doc.opensuse.org/projects/autoyast/">http://doc.opensuse.org/projects/autoyast/</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_02_configuration" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/02_configuration/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Configuration in Foreman</h1>
+
+<ul>
+<li>Operating System Version must be associated to:
+
+<ul>
+<li>Architecture</li>
+<li>Installation media</li>
+<li>Partition tables</li>
+<li>Provisioning templates</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>In Foreman the provisioning is centred on the operating system which has to be associated to
+the hardware architectures like i386 or x86_64, the installation media being the URL where
+to find the boot media and software packages, partition tables and provisioning templates.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_02_configuration" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/02_configuration/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning templates</h1>
+
+<ul>
+<li>ERB-Templates allow scripting and inclusion of snippets</li>
+<li>Types:
+
+<ul>
+<li>PXELinux</li>
+<li>Provision</li>
+<li>Finish</li>
+<li>user_data</li>
+<li>Script</li>
+<li>iPXE</li>
+</ul>
+</li>
+<li>Selected on best match:
+
+<ul>
+<li>Host group and Environment</li>
+<li>Host group</li>
+<li>Environment</li>
+<li>Operating system</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The templates are using ERB (embedded ruby) which allows to use parameters in the files, basic scripting
+like conditionals and inclusion of snippets. Snippets can be everything from scripts to configuration files
+you want to maintain independently because it is the same configuration for inclusion in different other
+files or it will bloat up one file to render it unmaintainable.</p>
+
+<div class="break">continued...</div>
+
+<p>Depending on different provisioning mechanisms and methods other kinds of templates are required.</p>
+
+<ul>
+<li>PXELinux - Deployed to the TFTP server to ensure the Host boots the correct installer with the correct kernel options</li>
+<li>Provision - The main unattended installation file, e.g. Kickstart or Preseed</li>
+<li>Finish - A post-install script used to make custom actions after the main provisioning is complete</li>
+<li>user_data - Similar to a Finish script, this can be assigned to hosts built on user_data-capable images (e.g. Openstack, EC2, etc)</li>
+<li>Script - An arbitrary script, not used by default, useful for certain custom tasks</li>
+<li>iPXE - Used in {g,i}PXE environments in place of PXELinux</li>
+</ul>
+
+<p>Templates can be associated to operating systems, host groups, environments or combinations of host group and environment.
+It will then select the templates to use on best match.</p>
+
+<p>Partition tables are handled separately to allow the usage of the same host template with different disk layouts.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_02_configuration" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/02_configuration/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.1: Prepare PXE installation of CentOS</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Prepare the installation of CentOS using PXE</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Change the Installation media "CentOS mirror" to the local repo</li>
+<li>Associate the PXELinux template "Kickstart default PXELinux" with CentOS</li>
+<li>Associate the Provision template "Kickstart RHEL default" with CentOS</li>
+<li>Associate the operating system with the Partition table "Kickstart default", Installation media "CentOS mirror",
+select the Templates, set Parameter "enable-puppetlabs-repo" to "true" and change Minor version to "2.1511"</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_02_configuration" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/02_configuration/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.2: Prepare PXE installation of Debian</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Prepare the installation of Debian using PXE</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Change the Installation media "Debian mirror" to the local repo</li>
+<li>Create the Operating system "Debian" with Major version "8", Minor version "3", Description "Debian jessie",
+Family "Debian", Release name "jessie"</li>
+<li>Associate the PXELinux template "Preseed default PXELinux" with Debian</li>
+<li>Associate the Provision template "Preseed default" with Debian</li>
+<li>Associate the finish template "Preseed default finish" with Debian</li>
+<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM"
+and "Preseed default", Installation media "Debian mirror"</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_03_pxe" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="provisioning/03_pxe/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning using PXE</h1>
+
+<ul>
+<li>Identifier is the mac address</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/provisioning/./_images/pxe.png" width="760" height="340" style="float: center; margin-left: 50px; width: 760px; height: 340px;" alt="Provisioning PXE"></div>
+
+<div class="notes">
+
+<ul>
+<li>Additional communication to Foreman, Puppet and other systems depending on the PXE configuration/answer file</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_03_pxe" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/03_pxe/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.3: Create a virtual machine "pxe"</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Create a virtual machine "pxe" for PXE installation</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Open "Virtual Machine Manager" application</li>
+<li>Select "New virtual machine" from the menu or by pressing the button</li>
+<li>Select PXE boot</li>
+<li>Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences</li>
+<li>Keep the minimum requirements for RAM, CPU and Disk</li>
+<li>Name your VM "pxe" and select the network "foreman"</li>
+<li>Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
+and start it up again later</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_03_pxe" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/03_pxe/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.4: Configure the system "pxe" in Foreman</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Configure the system "pxe" in Foreman and start the installation</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Open Foreman's host dialog using "Host &gt; New Host"</li>
+<li>On the Host tab name it "pxe" and select the Environment, Puppet CA and Master</li>
+<li>On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.</li>
+<li>On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.</li>
+<li>Unpause the VM</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>In the Interface tab it is possible to add multiple interfaces and also virtual interfaces like VLAN tagged interfaces or aliases.
+Only one can be assigned as the primary interface mapped to the DNS record and only one as provisioning interface for PXE configuration
+or connecting for executing scripts during installation. This can be the same interface but does not have to be in cases you have a
+dedicated installation network.</p>
+
+<p>Instead of setting the root password for every host created, a default can be set by providing a password hash on "Administer &gt; Settings"
+in the Provisioning tab as Root password. This is an MD5 hash for being supported by every Linux distribution.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_03_pxe" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/03_pxe/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Hostgroups</h1>
+
+<ul>
+<li>Grouping Hosts
+
+<ul>
+<li>Nested groups in a hierarchical way</li>
+</ul>
+</li>
+<li>Adds defaults to hosts
+
+<ul>
+<li>Required options for provisioning</li>
+<li>Options for configuration management</li>
+<li>Options for compute resources</li>
+<li>Parameters</li>
+</ul>
+</li>
+<li>Allows to associate templates</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Hostgroups are used to group hosts, the groups can be organized in a hierarchical way by nesting them.</p>
+
+<p>The Hostgroups allows to add defaults for all options required by Foreman for provisioning and depending on your environment also
+for configuration management and compute resources. Additional parameters can be set.</p>
+
+<p>Furthermore to providing defaults configured at the hostgroup "Provisioning templates" can be associated to change from the operating
+system default.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_04_compute_resource" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="provisioning/04_compute_resource/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning using Compute resource libvirt</h1>
+
+<ul>
+<li>Identifier is the name of the system</li>
+</ul>
+
+<div style="text-align: center"><img src="./file/provisioning/./_images/compute_resource.png" width="795" height="445" style="float: center; margin-left: 50px; width: 795px; height: 445px;" alt="Provisioning Compute resource libvirt"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_04_compute_resource" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/04_compute_resource/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.5: Prepare Compute resource libvirt</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Prepare Compute resource libvirt to install a virtual machine</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Compute resource using the Foreman installer</li>
+<li>Create a passphraseless ssh-key for user foreman</li>
+<li>Copy the public key to the root account of the host</li>
+<li>Configure the Compute resource in Foreman Web GUI</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Compute resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
+unmanaged systems and to deleted them from the virtualization plattform. Also assiocating an unmanaged system to an already existing one
+is possible.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_04_compute_resource" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/04_compute_resource/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.6: Create the virtual machine "compute" from Foreman</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Create the virtual machine "compute" from Foreman Web GUI and start an unattended installation</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Open Foreman's host dialog using "Host &gt; New Host"</li>
+<li>In the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master</li>
+<li>In the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
+the suggested IP address, for the Libvirt options choose the virtual network "foreman"</li>
+<li>In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.</li>
+<li>In the Virtual Machine tab change the Storage type to "QCOW2"</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>Compute resource options depend on the used Compute resource so other options will be available for VMware than for libvirt.</p>
+
+<p>Defaults for the Compute resource options can be set using a Compute profile.</p>
+
+<p>Storage type "QCOW2" enables you to use snapshots unlike "RAW".</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_04_compute_resource" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/04_compute_resource/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Compute profiles</h1>
+
+<ul>
+<li>Used to provide defaults for virtual machine creation</li>
+<li>Default provides three for different sized VMs</li>
+<li>Same profile names could be used for different Compute resources
+
+<ul>
+<li>Different defaults for same type of systems based on virtualization plattform</li>
+<li>Only available to Compute resource if configured</li>
+</ul>
+</li>
+<li>Available in "New Host" dialog</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Compute profiles are used to provide defaults for the virtual machine creation. Per default three profiles
+are available and only have to be configured, but you can create as many as needed. The same profile can differ
+based on the Compute resource used to provide defaults matching the virtualization plattform.</p>
+
+<p>If one is configured for a Compute resource option to choose from it is available on new host dialog after choosing
+the Compute resource to deploy on.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_04_compute_resource" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/04_compute_resource/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Images</h1>
+
+<ul>
+<li>Available to install from instead of unattended installation</li>
+<li>Image has to be configured
+
+<ul>
+<li>On Compute resource using "New image"</li>
+<li>Has to provide access via ssh to run finish scripts</li>
+<li>API can allow to run user_data scripts for additional changes</li>
+</ul>
+</li>
+<li>Available in "New host" dialog
+
+<ul>
+<li>Speeds up installation</li>
+<li>Should be very basic image, but of course can be very featureful if required</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Images are available as install source to all Compute resources, for some as the only source. To be available to Foreman
+it has also to be configured using the "New image" dialog after selecting a Compute resource. The image has to be created
+with an user which has shell access to run finish scripts and depending on the Compute resource also user_data scripts can run
+during virtual machine creation to change settings.</p>
+
+<div class="break">continued...</div>
+
+<p>If a image is configured it is possible to choose it from the "New host" dialog on the "Operating system" tab. In some cases
+it can speed up the installation process, but of course an unattended installation will give you a cleaner and more up to date
+system. If using a configuration management a very basic image should be prefered, but if required a image can be very featureful
+like having some proprietary software installed which is quite complicated to install with configuration management.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_04_compute_resource" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/04_compute_resource/6">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Console</h1>
+
+<ul>
+<li>Direct console access on virtual machines</li>
+<li>Javascript library noVNC</li>
+<li>Protocols: VNC or SPICE</li>
+<li>Depending on Compute Resource provider</li>
+<li>Encryption and Authentication based on environment</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman uses the javascript library noVNC to give the user direct access to the console
+of a virtual machine depending on the Compute Resource provider. The Foreman manual
+explains additional steps required on the Compute Resource if not available by default.</p>
+
+<p>The protocols available are VNC and SPICE, encryption and authentication depends on
+your setup.</p>
+
+<p>If you want to try it in the training environment you have to enable the connection by
+executing the following command on the laptop.</p>
+
+<pre><code># iptables -I INPUT -p tcp -m multiport --dports 5901:6000 -i virbr1 -j ACCEPT
+</code></pre>
+
+<p>Furthermore Firefox will block the websocket connection unless you change setting 
+network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_05_discovery" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="provisioning/05_discovery/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning using Discovery plugin</h1>
+
+<ul>
+<li>Identifies itself as discovered host with its mac address</li>
+</ul>
+
+<div style="text-align: center"><img src="./file/provisioning/./_images/discovery.png" width="590" height="336" style="float: center; margin-left: 50px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_05_discovery" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/05_discovery/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.7: Install and configure the Discovery plugin</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Install and configure the Discovery plugin</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Run the Foreman installer to install the Discovery plugin and download the image</li>
+<li>Adjust and deploy the PXE default configuration</li>
+<li>Enable the discovery widget in the dashboard</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_05_discovery" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/05_discovery/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.8: Create a virtual machine "discovery"</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Create a virtual machine "pxe" for PXE installation</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Open "Virtual Machine Manager" application</li>
+<li>Select "New virtual machine" from the menu or by pressing the button</li>
+<li>Select PXE boot</li>
+<li>Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences</li>
+<li>Keep the minimum requirements for RAM, CPU and Disk</li>
+<li>Name your virtual machine "discovery" and select the network "foreman"</li>
+<li>Create the virtual machine and when the PXE menu appears select "(discovery)"</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_05_discovery" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/05_discovery/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.9: Configure the system "discovery" in Foreman</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Configure the system "discovery" in Foreman and start installation</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Select the newly discoverd host from the widget</li>
+<li>On the Host tab name it "discovery" and select the Environment, Puppet CA and Master</li>
+<li>On the Interface tab click edit to configure the interface add the Domain "localdomain"</li>
+<li>On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password</li>
+<li>Submit to start the installation</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_05_discovery" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/05_discovery/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Discovery rules</h1>
+
+<ul>
+<li>Automatic rule based installation
+
+<ul>
+<li>Located in "Configure &gt; Discovery rules"</li>
+<li>Match on facts provided by the discovery image</li>
+<li>Naming based on template</li>
+<li>Installation and configuration based on hostgroup</li>
+<li>Provides a limit and a priority for ordering </li>
+</ul>
+</li>
+<li>Not enabled by default
+
+<ul>
+<li>Requires setting "discovery_auto" changed to "true"</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Discovery rules allow an automatic rule based installation. Depending on facts provided by the discovery image a rule is selected
+and the system is installed based on the configuration of the selected hostgroup. Naming is done based on a template using ERB which
+allows to use facts or random numbers, by default the macaddress is used. Setting a limit and a priority allows some ordering like
+deploy first two backend systems of this size and then two frontend systems.</p>
+
+<p>Usage of the rule based installation is not enabled by default but simple switched on by changing the setting "discovery_auto" to "true".</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_05_discovery" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/05_discovery/6">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Discovery image</h1>
+
+<ul>
+<li>Provided by the project
+
+<ul>
+<li>Allows to add custom facts</li>
+<li>Allows to add custom extensions like drivers</li>
+<li>Could be remastered to provide defaults</li>
+<li>Can use kexec to directly boot a new kernel</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The discovery image is provided by the project also with corresponding tools and documentation on extending and remastering it.</p>
+
+<p>It also allows to add custom facts in its interface, as boot parameter or as an extension which enables a workflow like booting the image
+and adding desired system type as fact.</p>
+
+<p>Furthermore it could be used in enviroments without PXE and DHCP by providing all settings including an ip address and boot directly
+into a new kernel with kexec. This is only available for Red Hat derivates at the moment.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_06_bootdisk" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/06_bootdisk/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning using Bootdisk plugin</h1>
+
+<ul>
+<li>Foreman Plugin Bootdisk provides 4 kinds of boot images
+
+<ul>
+<li>Host images</li>
+<li>Full host image</li>
+<li>Generic image</li>
+<li>Subnet image</li>
+</ul>
+</li>
+<li>Based on iPXE for environments without control over network</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>For the installation in an environment you do not have total control over the network infrastructure the
+Foreman Plugin Bootdisk provides 4 kinds of boot images based on iPXE.</p>
+
+<p>The host image contains a static network configuration, loads the installer from the media configured in Foreman
+and the Provisioning configuration from Foreman itself. So it requires no DHCP and TFTP in the network.</p>
+
+<div class="break">continued...</div>
+
+<p>The full host image contains the operating system specific installer so it requires no downloading of it, but is
+configured to boot from DHCP instead of having a static network configuration. To get its Provisioning configuration
+from Foreman it identifies itself with a token only valid for one deployment.</p>
+
+<p>The generic image boots from a dynamic IP address of the DHCP pool and is identified by the MAC address for Foreman
+providing the correct installer via TFTP and Provisioning configuration to load.</p>
+
+<p>The subnet image is basicly the same as the generic image but uses another TFTP server specified for the subnet.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_06_bootdisk" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/06_bootdisk/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.10: Install and configure the Bootdisk plugin</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Install and configure the Bootdisk plugin</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Run the Foreman installer to install the Bootdisk plugin</li>
+<li>Associate iPXE template for operating systems</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_06_bootdisk" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/06_bootdisk/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 4.11: Reinstall the virtual machine "pxe"</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Reinstall the virtual machine "pxe" from a host image</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Set the Host in "Build" mode and download image</li>
+<li>Configure virtual machine to boot from image</li>
+<li>Boot and reinstall the virtual machine</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_01_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="configmanagement/01_overview/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>5 Configuration management</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_01_overview" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/01_overview/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Configuration management</h1>
+
+<ul>
+<li>Definition:</li>
+</ul>
+
+<p><em>Configuration management is a systems engineering process for establishing and maintaining consistency of a 
+product performance, functional, and physical attributes with its requirements, design and operational 
+information throughout its life.</em></p>
+
+<ul>
+<li>Tools integrated in Foreman:
+
+<ul>
+<li>Puppet</li>
+<li>Chef</li>
+<li>Salt</li>
+<li>Ansible</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Wikipedia defines configuration management as a <em>systems engineering process for establishing and maintaining consistency of a 
+product's performance, functional, and physical attributes with its requirements, design and operational information throughout
+its life.</em></p>
+
+<p>So configuration management software is used to describe a desired state, configure a system to be in this state and recognize
+drifts from this state to revert them.</p>
+
+<div class="break">continued...</div>
+
+<p>Foreman integrates different tools to solve this task. Puppet is deeply integrated because Foreman started as a WebGUI for it,
+but it is planned to move on to a state being a plugin equal to all the other solutions. The features of the plugins differ depending
+on the capabilities based ont the tools they depend on. For example some can only report system information and state while others can assign a configuration
+using the web interface. Some tools also have a focus more on rapid deployment than on managing the system state.</p>
+
+<p>We will use puppet in this training because it provides the complete feature set and its descriptive language is also quite accessible/readable
+without knowing puppet in-depth.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Puppet</h1>
+
+<ul>
+<li>Written in ruby</li>
+<li>Choice between Open Source or Enterprise version</li>
+<li>Runs on Linux, Unix, Windows</li>
+<li>Describes state in its own declarative language or a Ruby DSL</li>
+</ul>
+
+<pre>
+    package { 'openssh':
+      ensure =&gt; 'installed'
+    }
+</pre>
+
+<ul>
+<li>Workflow
+
+<ul>
+<li>Manifests stored on a central server "Puppet Master"</li>
+<li>Agent collects system information using facter</li>
+<li>Agent contacts central server with this information</li>
+<li>Master compiles catalog for agent to realize using an abstraction layer</li>
+<li>Agent reports back to master</li>
+<li>Master transfers reports to other tools</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Next slide provides a diagram of the workflow.</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Puppet is written in ruby and provided as a true Open Source version and as an Enterprise version with additional features and
+packages with a defined software stack for easier support.</p>
+
+<div class="break">continued...</div>
+
+<p>Independently of the version it runs on Linux, Unix and Windows it can also configure some network devices. For configuration
+it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example) or it can also use a Ruby DSL.
+The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
+configuration items with the node to be configured these central servers can use an ENC (External Node Classifier). The agent runs
+on the nodes and collects system information using a tool named facter before contacting the central server. The master compiles then
+a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an 
+abstraction layer and also sends a report to the master. The master uses different handlers to send the report to other tools.</p>
+
+<p>A diagram showing this workflow is provided on the next page.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="configmanagement/02_puppet/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Puppet Workflow</h1>
+
+<div style="text-align: center"><img src="./file/configmanagement/./_images/puppet_workflow.png" width="720" height="354" style="float: center; margin-left: 50px; width: 720px; height: 354px;" alt="Puppet Workflow"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman Puppet Integration</h1>
+
+<ul>
+<li>
+<p>Foreman -&gt; Puppet</p>
+
+<ul>
+<li>Smart proxy Puppet allows to import Puppet modules</li>
+<li>Smart proxy Puppet allows to trigger agent runs</li>
+<li>Smart proxy Puppet CA integrates certificate handling</li>
+</ul>
+</li>
+<li>
+<p>Puppet -&gt; Foreman</p>
+
+<ul>
+<li>Puppet uploads facts to Foreman</li>
+<li>Puppet uses Foreman as ENC</li>
+<li>Puppet transfers reports to Foreman</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled 
+using the Smart proxy from Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
+The Smart Proxy Puppet CA integrates certificate handling into provisioning so auto signing of the agents certificate requests during build
+is allowed and also allows to manage the complete CA in the WebGUI.</p>
+
+<div class="break">continued...</div>
+
+<p>On the Puppet master a script is deployed which integrates Foreman as an ENC so classes selected in the WebGUI are deployed on the system.
+This mechanism is also used to upload the facts provided by the agent during Puppet agent run and creating a host entry if facts are provided
+for an not already existing system. Also Puppet is integrated as a reporting target to enable the web interface to show reports.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 5.1: Import of Puppet classes</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Make Puppet code available to Puppet and Foreman</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Place Puppet modules in Puppet environment "production"</li>
+<li>Import classes in Foreman</li>
+</ul>
+</li>
+<li>Optional:
+
+<ul>
+<li>Configure Foreman to ignore specific classes</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Parameters vs. Smart class parameters vs. Smart Variables</h1>
+
+<ul>
+<li>
+<p>Parameters</p>
+
+<ul>
+<li>Simple string</li>
+<li>Usable in Foreman's Provisioning Templates</li>
+<li>Usable in Puppet as global parameters</li>
+<li>Override by creating one of the same name in a more specific scope</li>
+</ul>
+</li>
+<li>
+<p>Smart class parameters</p>
+
+<ul>
+<li>Available from Puppet classes</li>
+<li>Different types</li>
+<li>Validators</li>
+<li>Override options to handle override order and behaviour</li>
+</ul>
+</li>
+<li>
+<p>Smart variables</p>
+
+<ul>
+<li>Global parameters assigned to a Puppet class</li>
+<li>Same options like Smart class parameters</li>
+</ul>
+</li>
+<li><p>All are hideable from unprivileged users</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>Foreman does differentiate between three kinds of parameters.</p>
+
+<p>Parameters are global parameters in a very simple fashion. Their values can only be strings and override is simply
+done by creating a parameter with the same name in a more specific scope. To Puppet they are presented as a global
+parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.</p>
+
+<p>Smart class parameters become available from imported Puppet classes and can have different types like boolean, hash
+or yaml. For this types an input validator can be created to verify user input. An override behavior and order can be
+defined to enable merging values depending on facts.</p>
+
+<p>Smart variable provides the same options as Smart class parameters but are manually assigned to a Puppet Class and
+provided to Puppet as global parameters and not class parameters.</p>
+
+<p>All types have to be created on the global scope to be available in more specific scopes and all allow to hide them
+from unprivileged users.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/6">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 5.2: Parameterize and assign Puppet classes</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Parameterize and assign Puppet classes to at least one host</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Set defaults to the Smart class parameters provided by the imported class</li>
+<li>Assign the Puppet class in the host menu to one host</li>
+</ul>
+</li>
+<li>Optional:
+
+<ul>
+<li>Assign the Puppet class to another host and override the defaults</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/7">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 5.3: Trigger Puppet agent run and inspect the report</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Trigger an Puppet agent run and inspect the report</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Run the Puppet agent on the host you assigned the class</li>
+<li>Inspect the report of the Puppet agent run</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/8">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Triggering an Puppet agent run</h1>
+
+<ul>
+<li>
+<p>Multiple protocols available</p>
+
+<ul>
+<li>Puppet kick - requires Puppet agent to listen for incoming events</li>
+<li>Mcollective - requires a message queue and the Mcollective framework</li>
+<li>Puppetssh - runs Puppet agent command via ssh</li>
+<li>Salt - uses Salts remote execution to trigger a Puppet agent run</li>
+<li>Customrun - runs whatever script you provide</li>
+</ul>
+</li>
+<li><p>Has to be enabled via a setting</p></li>
+<li><p>Remote Execution plugin provides more flexibility</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Smart proxy Puppet allows to trigger the Puppet run we manually triggered in the last exercise from the WebGUI.
+For this we enable it by setting the option "Puppetrun" to true and configure the Smart Proxy to use one of the mentioned
+providers, but all of them will also require some configuration on the agent side.</p>
+
+<p>The Foreman plugin Remote Execution is more flexible and also handles the agent configuration but only provides SSH for now.
+We will have a deeper look into this instead of configuring the "Puppetrun" feature.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/9">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Managing Foreman with Puppet</h1>
+
+<ul>
+<li>Puppet modules provided by Foreman Project
+
+<ul>
+<li>Already utilized by Foreman Installer</li>
+<li>Compatible with all supported plattforms</li>
+<li>Version compatibility to observe</li>
+</ul>
+</li>
+<li>Configuration of:
+
+<ul>
+<li>Foreman</li>
+<li>Smart Proxy</li>
+<li>Puppet - in the Foreman way</li>
+<li>Depending and managed services</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Show the students "puppet module list --modulepath=/usr/share/foreman-installer/modules" for a list of the modules</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>It is also possible to manage Foreman and/or its Smart Proxies using Puppet. The modules to do so are provided by the
+Foreman Project itself and are already used in the Foreman Installer. The modules are written to be compatible with
+all supported plattforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
+in the README. File.</p>
+
+<p>The modules provided can configure Foreman, the Smart Proxy and Puppet in the way it is required by Foreman and the services
+required to run Foreman or managed by the Smart Proxy.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/10">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Utilizing Foreman within Puppet</h1>
+
+<ul>
+<li>Function to query the API
+
+<ul>
+<li>Alternative to exported resources and PuppetDB query</li>
+<li>Login data and query as hash</li>
+<li>Returns hash</li>
+</ul>
+</li>
+</ul>
+
+<pre>
+$foreman = foreman({ item =&gt; 'hosts',
+                     search =&gt; 'status.failed = 0',
+                     per_page =&gt; 1000,
+                     foreman_url =&gt; 'https://foreman.localdomain',
+                     foreman_user =&gt; 'admin',
+                     foreman_pass =&gt; 'PASSWORD' })
+</pre>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Puppet module "foreman" provided by the Foreman project includes a function to query the Foreman API in a puppet class.
+This is an alternative for exported resources or a PuppetDB query. It takes a hash with the login data and the query and returns
+a result hash including an array of hashes describing the hosts. </p>
+
+<p>The hash is best used with a defined resource and create_resource function or within a template.</p>
+
+<p>Next release of the function will also allow to provide a filter for reducing the data for easier handling.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_00_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="usermanagement/00_overview">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>6 User management</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_01_ldap" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/01_ldap/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>LDAP</h1>
+
+<ul>
+<li>Natively supported including webbased configuration</li>
+<li>Supports:
+
+<ul>
+<li>Protocol: LDAP, LDAPS, no StartTLS</li>
+<li>Schema: POSIX, Active Directory, FreeIPA</li>
+</ul>
+</li>
+<li>Allows multiple backends</li>
+<li>Autocreation of user possible</li>
+<li>Optional synchronisation of group membership</li>
+<li>Getting stored avatars</li>
+</ul>
+
+<div class="notes">
+
+<p>Avatar feature seems to be broken: <a href="http://projects.theforeman.org/issues/13749">http://projects.theforeman.org/issues/13749</a></p>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman supports LDAP authentication natively and provides a webbased configuration for it.</p>
+
+<p>Supported are LDAP and LDAPS as protocol, (at the moment) for now no StartTLS. If using certificate based encyrption
+trust to the certificate is mandatory. It supports the POSIX, Active Directory and FreeIPA schema
+for storing users and groups, but attribute mapping can be configured manually. For the autocreation
+of users the attributes "Login Name", "First Name", "Surname" and "Email" are required, optionally a
+avatar can be stored as base64 encoded string in a "Photo" attribute.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_01_ldap" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/01_ldap/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 6.1: LDAP Authentication</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Allow the administrative accounts from the LDAP to work as Foreman admins</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Configure the LDAP authentication including group synchronisation</li>
+<li>Add a administrative group to grant the administrative accounts from the LDAP privileges</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_02_external" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/02_external">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>External Authentication</h1>
+
+<ul>
+<li>External authentication utilizing the webserver</li>
+<li>Kerberos
+
+<ul>
+<li>Foreman Installer can handle FreeIPA automatically</li>
+<li>Manual configuration and tell Foreman to trust</li>
+</ul>
+</li>
+<li>PAM
+
+<ul>
+<li>Apache module to validate login form input against PAM</li>
+</ul>
+</li>
+<li>Autocreation of user possible</li>
+<li>Differentiates between WebGUI and API</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman can also be configure to use an external authentication provided by the webserver.</p>
+
+<p>In most cases this will be Kerberos to achieve a true Single Sign-On. If you use FreeIPA as your
+authentication provider the Foreman Installer can create the required configuration by passing the
+corresponding parameters to it.</p>
+
+<div class="break">continued...</div>
+
+<p>If you use another provider like Active Directory or a manually managed Kerberos it is possible to
+create the required Kerberos and PAM authentication on your own and tell Foreman to accept external
+users.</p>
+
+<p>Another way to configure Foreman to use external authentication providers is by using the Apache
+module "intercept_form_submit" to pass the login form input to PAM for validation.</p>
+
+<p>It is also possible to enable autocreation of users in Foreman for external authentication.</p>
+
+<p>Also note that Foreman differentiates between WebGUI and API login for external authentication
+so it is possible to allow external users to only connect to one or both.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_03_permissions" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/03_permissions/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Permissions</h1>
+
+<ul>
+<li>Fine granular permission system</li>
+<li>Abstracted to roles</li>
+<li>Complemented by filters</li>
+<li>Plugins can add to the permission system</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_03_permissions" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/03_permissions/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 6.2: Add unprivileged users</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Grant access and privileges for some unprivileged users</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Assign the role "Viewer" to the user "viewer"</li>
+<li>Create a role "Selfservice" to allow creation of new hosts and management of own hosts</li>
+<li>Assign the new role "Selfservice" to the user "selfservice"</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_04_auditing" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/04_auditing">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Auditing</h1>
+
+<ul>
+<li>Almost all changes from WebGUI and API</li>
+<li>User, timestamp, change and parent object</li>
+<li>For templates additional diff of the changes</li>
+<li>Browse and searchable in the WebGUI</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/usermanagement/./_images/foreman_auditing.png" width="1726" height="592" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Auditing">
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>Foreman logs almost all changes from the WebGUI and API including the user, a timestamp, the change and
+the parent object like the host or a parameter got changed. For templates an additional diff of the changes
+is provided.</p>
+
+<p>All this auditing data are browse and searchable in the WebGUI via "Monitor &gt; Audits". To get detailed
+auditing data or specific change history simply select an entry.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_05_email" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/05_email">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Email Notifications</h1>
+
+<ul>
+<li>General configuration via Foreman Installer or configuration file </li>
+<li>Optional setting by user</li>
+<li>Frequent summary of specific audit events</li>
+<li>Finished host provisioning</li>
+<li>Puppet run with error on every run or as frequent summary</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/usermanagement/./_images/foreman_email.png" width="1754" height="879" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Email">
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman can send email notifications to the user. This requires email settings configured in Foreman via the Foreman Installer
+or manual editing of the configuration file "/etc/foreman/email.yaml". With this configuration in place a user can decide to
+opt-in for several kinds of notification. It can send a daily, weekly or monthly summary of audit events which allows to add a
+search to specify a subset of events. It also can notify on every successful host build and for Puppet runs on every failed run
+or as a frequent summary.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_00_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="plugins/00_overview/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>7 Plugins</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_00_overview" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/00_overview/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Plugins</h1>
+
+<ul>
+<li>
+<p>Extend Foreman</p>
+
+<ul>
+<li>Add permissions and roles</li>
+<li>Alter the menu </li>
+<li>Provide dashboard widgets and pagelets</li>
+<li>Add URLs and actions</li>
+<li>Deface existing views and add new ones</li>
+<li>Add parameters to a host</li>
+<li>Authenticate a Smart proxy</li>
+<li>Add to the database</li>
+<li>Create their own logging</li>
+</ul>
+</li>
+<li>
+<p>Extend Smart Proxy</p>
+
+<ul>
+<li>Additional providers for existing services</li>
+<li>Additional services</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Plugins can extend Foreman and the Smart proxy in many different ways and depending on the needs
+it can be very simple or highly complex.</p>
+
+<p>Some of the options will be shown in the next slides where some of the plugins are introduced.</p>
+
+<p>For all options have a look at the "how to create a plugin" at <a href="http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin">http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_01_default_hostgroup" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/01_default_hostgroup">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Default Hostgroup</h1>
+
+<ul>
+<li>Sets a default hostgroup on host creation</li>
+<li><p>Configured as a yaml hash</p></li>
+<li><p><u>Use case:</u> Introduce Foreman in an already puppetized environment</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>If a host does not already exist, it will be created when the first puppet run triggers
+the upload of the facts. Normally the host is added without any additional configuration
+in Foreman, the plugin "Default Hostgroup" simply adds the possibility to set a default
+hostgroup to assign to these newly created hosts. This allows to add a classification
+via the hostgroup already on the first run and without manual intervention.</p>
+
+<p>To use it simply install the package and create a file "/etc/foreman/plugins/default_hostgroup.yaml"
+containing a hash which maps facts to hostgroups to assign.</p>
+
+<pre><code>---
+:default_hostgroup:
+  :facts_map:
+    "Default":
+      "hostname": ".*"
+</code></pre>
+
+<div class="break">continued...</div>
+
+<p>The plugin is very useful if you plan to embed Foreman in an already puppetized
+environment as Puppet ENC.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_default_hostgroup">https://github.com/theforeman/foreman_default_hostgroup</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_02_templates" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/02_templates/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Templates</h1>
+
+<ul>
+<li>
+<p>Creates a synchronisation job for templates</p>
+
+<ul>
+<li>Community Templates</li>
+<li>Your own git repository</li>
+</ul>
+</li>
+<li>
+<p><u>Use case:</u></p>
+
+<ul>
+<li>Get additional templates maintained by the community</li>
+<li>Manage your own templates with external versioning</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>By installing the plugin you get a synchronisation job for templates which per default
+import the community templates from <a href="https://github.com/theforeman/community-templates">https://github.com/theforeman/community-templates</a>
+matching your Foreman version and adding support for more operating systems. This job can
+also be used to import your own git repository if you want to manage the templates on
+an external version control system. In addition the imported templates will also be associated
+to the existing operating systems.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_templates">https://github.com/theforeman/foreman_templates</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_02_templates" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/02_templates/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.1: Templates</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Import the Community templates</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin Templates</li>
+<li>Run the synchronisation job</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_03_dhcp_browser" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/03_dhcp_browser/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>DHCP Browser</h1>
+
+<ul>
+<li>
+<p>Adds the DHCP management interface</p>
+
+<ul>
+<li>Browse DHCP reservations</li>
+<li>Create DHCP reservations for hosts not managed by Foreman</li>
+</ul>
+</li>
+<li><p><u>Use case:</u> More transparency for the DHCP management</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman Plugin DHCP Browser adds a DHCP management interface to the Foreman WebGUI next to the
+subnets which allows to browse DHCP reservations and it is also quite useful for managing reservations
+for hosts not managed by the Foreman.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_dhcp_browser">https://github.com/theforeman/foreman_dhcp_browser</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_03_dhcp_browser" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/03_dhcp_browser/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.2: DHCP Browser</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Inspect DHCP reservations</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin DHCP Browser</li>
+<li>Inspect DHCP reservations via the Plugin</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_04_hooks" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/04_hooks">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Hooks</h1>
+
+<ul>
+<li>
+<p>Adds hooks to events in Foreman</p>
+
+<ul>
+<li>Run additional scripts on events</li>
+<li>Show status of the scripts during orchestration</li>
+<li>Handles failure and rollback</li>
+</ul>
+</li>
+<li>
+<p><u>Use case:</u> </p>
+
+<ul>
+<li>Extend the Foreman without writing a plugin</li>
+<li>Work around the limitations and problems of existing tools</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman Plugin Hooks allows to add scripts on events handled by the Foreman. Typically it is used
+to integrate other tools during the orchestration process of deploying new hosts instead of writing
+a new plugin. For this the status of a script executed is also shown in the WebGUI and handling for
+failures and rollback is also provided.</p>
+
+<p>Another use case is to work around the limitations and problems of tools like changing parameters of
+VMs which is only available after the creation but are required before starting them.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_hooks">https://github.com/theforeman/foreman_hooks</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_05_puppetdb" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/05_puppetdb">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>PuppetDB</h1>
+
+<ul>
+<li>Disable hosts in the PuppetDB during deletion</li>
+<li><p>Display the PuppetDB in the dashboard</p></li>
+<li><p><u>Use case:</u> Should always be installed when using PuppetDB with Foreman</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>When PuppetDB is used with Foreman there is normally no interaction between both, they are completely
+two different independent report targets. With this plugin a host is also disabled in PuppetDB when it is deleted in
+Foreman.</p>
+
+<p>In addition the PuppetDB dashboard is also integrated in the Foreman WebGUI to display the performance of
+the backend.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/puppetdb_foreman">https://github.com/theforeman/puppetdb_foreman</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_06_column_view" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/06_column_view/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Column View</h1>
+
+<ul>
+<li><p>Adds additional columns to the "All Hosts" view</p></li>
+<li>
+<p><u>Use case:</u> </p>
+
+<ul>
+<li>Present more information in the WebGUI</li>
+<li>Add links to the other webinterfaces</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman Plugin Column View is a very simple example of enhancement an existing view
+in Foreman but could be verify useful in combination with some custom facts like
+showing the responsible team or project. It is also capable of adding additional links to
+other webinterfaces providing additional information.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_column_view">https://github.com/theforeman/foreman_column_view</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_06_column_view" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/06_column_view/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.3: Column View</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Add Architecture and Uptime to the "All Hosts" view</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin Column View</li>
+<li>Configure it to show the facts for architecture and uptime</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_07_abrt" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/07_abrt/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>ABRT</h1>
+
+<ul>
+<li>Automatic Bug Reporting Tool</li>
+<li>Available on RHEL, CentOS, Fedora, OpenSuSE, Mandriva</li>
+<li>Collects crash dumps</li>
+<li><p>Forwards them to a retracing server</p></li>
+<li>
+<p><u>Use case:</u> </p>
+
+<ul>
+<li>Get detailed crash reports from your systems</li>
+<li>Forward crash reports for easier bug analyses</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Automatic Bug Reporting Tool is per default installed on Fedora and RHEL derivates and also available
+for OpenSuSE and Mandriva to automatically open bug reports on their bug trackers to provide a crash dump
+for easier bug analyses. The retracing server allows for grouping and prioritizing.</p>
+
+<p>With the Foreman Plugin ABRT you can collect those crash dumps on the Foreman host instead of directly 
+forwarding them to the internet. It also allows to forward them automatically to the upstream retracing
+server, your own or manual selection which crash report is forwarded.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_abrt">https://github.com/theforeman/foreman_abrt</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_07_abrt" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="plugins/07_abrt/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>ABRT - Workflow</h1>
+
+<div style="text-align: center"><img src="./file/plugins/./_images/foreman_abrt_workflow.png" width="950" height="293" style="float: center; margin-left: 50px; width: 760px; height: 235px;" alt="Foreman Plugin ABRT workflow"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_07_abrt" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/07_abrt/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.4: ABRT</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Collect crash dumps on your Foreman server</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin ABRT</li>
+<li>Set up the Smart proxy</li>
+<li>Configure the host</li>
+<li>Create a crash dump to test the setup</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_08_openscap" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/08_openscap/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>OpenSCAP</h1>
+
+<ul>
+<li>Open Source implementation of Security Content Automation Protocol</li>
+<li>Combines different security standards</li>
+<li>Validate systems for security compliance
+
+<ul>
+<li>Provides guides</li>
+<li>Provides reports and remediation</li>
+</ul>
+</li>
+<li>
+<p>Profiles provided by different resources</p>
+
+<ul>
+<li>Files to start with included</li>
+<li>Other resources like the "National Institute of Standards and Technology"</li>
+</ul>
+</li>
+<li><p><u>Use case:</u> Collect security compliance reports in the WebGUI</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>OpenSCAP is the Open Source implementation of Security Content Automation Protocol which combines
+different pre-existing security standards like CVE, CCE, CPE, CVSS, XCCDF, OVAL, OCIL, AI, ARF, CCSS
+and TMSAD.  All these informations are combined in datastream files which can contain different profiles
+a system can be validated against. To get a compliant system a guide can be created or a compliance report
+including some remediation scripts. The required files can be created by hand but are in XML so best practice is to use
+a tool like the Workbench to tailor the existing files to the like of the one provided by the OpenSCAP project or
+the "National Institute of Standards and Technology" (NIST).</p>
+
+<p>Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
+as part of the installation process.</p>
+
+<p>With Foreman 1.11 the Plugin will get a rewrite to remove the dependency on "scaptimony"!</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_openscap">https://github.com/theforeman/foreman_openscap</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_08_openscap" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/08_openscap/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.5: OpenSCAP</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Inspect the Security compliance of your system</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin OpenSCAP</li>
+<li>Install the Smart Proxy Plugin OpenSCAP</li>
+<li>Make the Puppet Module "foreman_scap_client" available</li>
+<li>Create a Policy for CentOS 7 and assign it to a host</li>
+<li>Initiate a Puppet agent run on the host</li>
+<li>Create a report on the host and upload it to the Smart proxy</li>
+<li>Upload the report from the Smart proxy to the Foreman</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_09_cockpit" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/09_cockpit/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Cockpit</h1>
+
+<ul>
+<li>WebGUI to manage your server</li>
+<li>Available on RHEL, CentOS, Fedora, Arch Linux and Ubuntu</li>
+<li><p>Available as native package or docker container for atomic</p></li>
+<li>
+<p><u>Use case:</u> </p>
+
+<ul>
+<li>Manage atomic installations</li>
+<li>Manage servers via WebGUI instead of direct console access</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>Cockpit runs on Port 9090 and encryption depends on the protocol used to connect</li>
+<li>If not all URLs work have a look if a pull request is pending:  <a href="https://github.com/theforeman/foreman_cockpit/pull/3">https://github.com/theforeman/foreman_cockpit/pull/3</a>
+</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Cockpit project provides a WebGUI to manage Linux servers. It is available as native package or
+priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and Ubuntu.</p>
+
+<p>The Foreman plugin searches for an existing installation and integrates it into the Foreman WebGUI.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_cockpit">https://github.com/theforeman/foreman_cockpit</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_09_cockpit" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/09_cockpit/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.6: Cockpit</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Inspect your system using Cockpit integrated in the Foreman</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install and enable Cockpit</li>
+<li>Install the Foreman Plugin Cockpit</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_10_remote_execution" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/10_remote_execution/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Remote Execution</h1>
+
+<ul>
+<li>Execute jobs on remote systems from the Foreman WebGUI</li>
+<li>
+<p>It can handle different protocols</p>
+
+<ul>
+<li>SSH - completed</li>
+<li>Ansible - work in progress</li>
+<li>Salt - planned</li>
+<li>Mcollective - planned</li>
+</ul>
+</li>
+<li>
+<p><u>Use case:</u> </p>
+
+<ul>
+<li>Trigger configuration management runs immediately</li>
+<li>Execute one-time or irregular commands</li>
+<li>Orchestrate operations on servers</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<ul>
+<li>URL for the WIP provider ansible: <a href="https://github.com/iNecas/smart_proxy_ansible">https://github.com/iNecas/smart_proxy_ansible</a>
+</li>
+</ul>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
+It utilizes different providers, but for now only SSH is implemented. In the design concept are plans
+for more providers, Ansible which is already work in progress, Salt and Mcollective.</p>
+
+<p>The SSH provider runs per default command as root, but can also be configure to run as unpriviledged
+user and run sudo to accquire elevated privileges.</p>
+
+<div class="break">continued...</div>
+
+<p>It is usefully to trigger configuration management runs immediately to get an adhoc deployment,
+execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
+It also allows to schedule jobs or reoccurring execution.</p>
+
+<p>More details on: <a href="http://theforeman.org/plugins/foreman_remote_execution/">http://theforeman.org/plugins/foreman_remote_execution/</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_10_remote_execution" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/10_remote_execution/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.7: Remote Execution</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Trigger a Puppet run on a remote system</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin Remote Execution</li>
+<li>Bring out the SSH key</li>
+<li>Initiate the Puppet run</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_10_remote_execution" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/10_remote_execution/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Remote Execution - Job Templates</h1>
+
+<ul>
+<li>Similar to Provisioning Templates</li>
+<li>Input
+
+<ul>
+<li>User Input - free-form or list of values</li>
+<li>Fact value</li>
+<li>Variable</li>
+<li>Puppet parameter</li>
+<li>Reference on other templates</li>
+<li>Special ERB function "input"</li>
+</ul>
+</li>
+<li>Default Templates:
+
+<ul>
+<li>Puppet Run Once</li>
+<li>Package Action</li>
+<li>Service Action</li>
+<li>Run Command</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>It is also possible to write templates for jobs in a similar manner like Provisioning Templates. In this
+templates you can use a special function "input" to get the value of input fields associated to it. These
+fields can be a free-form or list of values for a user to add, facts, variables or Puppet parameters. </p>
+
+<div class="break">continued...</div>
+
+<p>Furthermore you can reference another template, which you can also render in your newly created one with the
+"render_template" function.</p>
+
+<p>The default templates provided are "Puppet Run Once" to trigger a puppet run, "Package Action" for handling
+package management and "Service Action" for managing service which both include operating system specific 
+handling and "Run Command" to run a simple commandline.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_10_remote_execution" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/10_remote_execution/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.8: Remote Execution - Job Template</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Create a Job Template "ping" to run the ping command on remote hosts</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Create a Job Template to run ping with default values and input field</li>
+<li>Run it without input</li>
+<li>Run it with input</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_00_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="advanced/00_overview">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>8 Advanced Topics</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_01_web" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/01_web/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>WebGUI</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_01_web" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/01_web/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Searches</h1>
+
+<ul>
+<li>Almost all views are simple lists</li>
+<li>Some views like "Reports" have a default filter</li>
+<li>Most views provide additional searches</li>
+<li>Bookmark and share your own search</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/advanced/./_images/foreman-searches.png" width="1233" height="659" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Searches">
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>In the Foreman WebGUI almost all views are simple unfiltered lists, some views like the "Reports" view are filtered by
+default using a search and most provide additional searches to quickly filter for typically views like 'all hosts
+out of sync'. But the WebGUI is not limited to these searches you can always create your own and bookmark it for later.
+Setting a bookmark to public allows to share it with other users.</p>
+
+<p>The search field can be used for a free text search but gets more powerful if using the autosuggestions. It provides
+different comparison operators depending on the type of the field compared including SQL like wildcard matching.</p>
+
+<p>For more details see: <a href="http://theforeman.org/manuals/latest/index.html#4.1.5Searching">http://theforeman.org/manuals/latest/index.html#4.1.5Searching</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_01_web" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/01_web/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Trends</h1>
+
+<ul>
+<li>Graphs changes in your enviroment</li>
+<li>Configured in the WebGUI and collected by a cronjob</li>
+<li>Internal Host parameters or Facts provided by Configuration Management</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/advanced/./_images/foreman-trend-puppetversion.png" width="1220" height="719" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Trends">
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<div class="break">continued...</div>
+
+<p>Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
+"Monitor &gt; Trends" and a cronjob is performs the data collection. By default this cronjob runs every 30 minutes matching 
+Puppet's default run interval because most trends will be based on the facts collected by the configuration management
+solution, another source are Foreman's internal parameters like the operatingsystem of the host.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_02_cleanup" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/02_cleanup/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Cleanup / Backup / Restore / Upgrade</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_02_cleanup" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/02_cleanup/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Cleanup</h1>
+
+<ul>
+<li>
+<p>Reports are send to the Foreman and stored in the database</p>
+
+<ul>
+<li>Puppet reports every 30 minutes</li>
+<li>Chef reports every 30 minutes</li>
+<li>Salt reports every 10 minutes</li>
+<li>Ansible reports on every run</li>
+<li>Requires a lot of space</li>
+</ul>
+</li>
+<li>
+<p>Cleanup job is provided by the Foreman</p>
+
+<ul>
+<li>Execute via cron</li>
+<li>Can run with different parameters</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The configuration management solution sends reports to Foreman which are then stored in the database afterwards.
+Depending on the solution, configuration and interval the required storage space can differ.</p>
+
+<p>Foreman provides a cleanup job for this. Best Practice would be an execution as a cronjob. The command takes parameters
+for the maximum age to keep the status of the reports.</p>
+
+<div class="break">continued...</div>
+
+<p>Depending on your needs configure a daily cronjob like this to delete all reports 'without event', 'after one day' or
+those with events 'after 7 days'.</p>
+
+<pre><code>#!/bin/sh
+foreman-rake reports:expire days=1 status=0
+foreman-rake reports:expire days=7
+</code></pre>
+
+<p></p>
+</div>~
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_02_cleanup" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/02_cleanup/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Backup</h1>
+
+<ul>
+<li><p><u>In a regular interval, at least before an upgrade!</u></p></li>
+<li>
+<p>Foreman </p>
+
+<ul>
+<li>Configuration - Archive the configuration directory</li>
+<li>Database - Backupjob provided by Foreman</li>
+</ul>
+</li>
+<li>
+<p>Puppet </p>
+
+<ul>
+<li>CA - Archive the certificates </li>
+<li>Puppet Code - Archive the modules</li>
+</ul>
+</li>
+<li>
+<p>Smart proxies </p>
+
+<ul>
+<li>Smart proxies itself - Archive the Smart proxy configuration </li>
+<li>Managed Service - Follow instructions for the service</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Backup should be done in a regular interval, but at least performed before any upgrade, and it should cover all components.</p>
+
+<div class="break">continued...</div>
+
+<p>Foreman backup can be done by archiving the configuration directory "/etc/foreman" and for the database a dump can
+be generated with the following command "foreman-rake db:dump" provided by the Foreman.</p>
+
+<p>The Puppet backup should include the certificates which are located in "/var/lib/puppet/ssl" on the Puppet CA server and the
+Puppet Code underneath "/etc/puppet/environments". Other configuration management solutions will be handled in a similar
+way.</p>
+
+<p>To backup the Smart proxy, archive the folder "/etc/foreman-proxy" and do not forget about the managed service. 
+For this follow the instructions for the service. With the "Orchestration rebuilder" feature, the Foreman can also rebuild all configuration issued via the Smart proxy from the "All Hosts" menu as an action.</p>
+
+<p></p>
+</div>~
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_02_cleanup" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/02_cleanup/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Restore</h1>
+
+<ul>
+<li><p><u>Always stop the service before doing any restore!</u></p></li>
+<li>
+<p>Foreman </p>
+
+<ul>
+<li>Configuration - Restore the configuration directory</li>
+<li>Database - Restorejob provided by Foreman</li>
+</ul>
+</li>
+<li>
+<p>Puppet </p>
+
+<ul>
+<li>CA - Restore the certificates </li>
+<li>Puppet Code - Restore the modules</li>
+</ul>
+</li>
+<li>
+<p>Smart proxies </p>
+
+<ul>
+<li>Smart proxies itself - Restore the Smart proxy configuration </li>
+<li>Managed Service - Follow instructions for the service</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Before starting a restore always stop the service!</p>
+
+<div class="break">continued...</div>
+
+<p>Restore the configuration directory of the Foreman carefully and inspect it before overwritting the current one. The database
+dump can be restored with the command "foreman-rake db:import_dump file=/usr/share/foreman/db/foreman.TIMESTAMP.sql". Drop
+an existing database in advance to have a clean restore.</p>
+
+<p>For Puppet restore simply copy back the files, the same goes for the Smart proxy. The managed services should be restored according to
+their instructions.</p>
+
+<p></p>
+</div>~
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_02_cleanup" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/02_cleanup/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Upgrade</h1>
+
+<ul>
+<li><p><u>Always follow the instructions in the Foreman manual!</u></p></li>
+<li>
+<p>In General:</p>
+
+<ul>
+<li><u>Backup</u></li>
+<li>Change package repository to the new release</li>
+<li>Update the packages</li>
+<li>Run Database migration and seed script</li>
+<li>Clear the cache and sessions</li>
+<li>Optionally run the foreman-installer to verify</li>
+<li>Restart the service</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Always follow the instructions in the Foreman manual providing release and operating system specific steps to do.</p>
+
+<div class="break">continued...</div>
+
+<p>In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages. It should run the database migration and seed script during the package update but if running them manually will show you any error then clear the cache and existing sessions. As a last step
+before restarting the service you can optionally run the foreman-installer in simulation mode to verify the installation
+and see pending config changes, if some are shown run the foreman-installer again to apply them finally.</p>
+
+<p></p>
+</div>~
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_03_api" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/03_api/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>API</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_03_api" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/03_api/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>API</h1>
+
+<ul>
+<li>Version 1 of the API is deprecated</li>
+<li>Version 2 
+
+<ul>
+<li>JSON API</li>
+<li>Shared with Katello</li>
+<li>Requires username and password</li>
+<li>Collections are paged</li>
+<li>Search strings like provided in the WebGUI</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman provides a web based JSON API which is shared with Katello. This is Version 2 of the
+API which is favored instead of the already deprecated version 1. It requires an authentication
+by username and password. Perhaps unusal is the handling of collections which are paged in the
+same way like in the webinterface. The same way it handles search strings like they are provided
+in the WebGUI but they have to be URL encoded.</p>
+
+<p>Usage explainations can be found at <a href="http://theforeman.org/manuals/latest/index.html#5.1API">http://theforeman.org/manuals/latest/index.html#5.1API</a></p>
+
+<p>API documentation is located at <a href="http://theforeman.org/api/1.10/index.html">http://theforeman.org/api/1.10/index.html</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_03_api" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/03_api/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 8.1: Working with the API</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Use the API to query, create and update objects</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Query the API for all subnets</li>
+<li>Query the API for all Debian hosts</li>
+<li>Create a hostgroup "training" using the API</li>
+<li>Rename the hostgroup "training" to "renamed" using the API</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_04_cli" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/04_cli/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>CLI</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_04_cli" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/04_cli/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Hammer CLI</h1>
+
+<ul>
+<li>Written in Ruby based on clamp</li>
+<li>Modular CLI
+
+<ul>
+<li>Basicly a framework</li>
+<li>Plugins for Foreman</li>
+<li>Some Foreman plugins provide a Hammer plugin</li>
+<li>Other tools (especially around Katello)</li>
+<li>Create your own plugin</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The commandline interface for Foreman is based on the Hammer CLI which is basicly a framework
+written in Ruby based on clamp. Foreman provides a plugin to manage most aspects of Foreman
+like the WebGUI and the API. Some of the Foreman plugins also provide a Hammer plugin, like 
+some other tools especially around Katello do. But the framework is not limited to the Foreman
+environment, so feel free to create your own plugins to solve your own administrative tasks.</p>
+
+<p>A list of plugins is provided by the Github page of the framework: <a href="https://github.com/theforeman/hammer-cli">https://github.com/theforeman/hammer-cli</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_04_cli" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/04_cli/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 8.2: Working with the CLI</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Use the CLI to prepare a new Operatingsystem entry</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Create the new Operatingsystem entry for "CentOS 6.8"</li>
+<li>Associate the template "Kickstart default PXELinux" and set it as default template</li>
+<li>Associate the template "Kickstart RHEL default" and set it as default template</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_05_multitenancy" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/05_multitenancy/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Multitenancy</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_05_multitenancy" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/05_multitenancy/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Multitenancy</h1>
+
+<ul>
+<li>Adds Organizations and/or Locations
+
+<ul>
+<li>Can be nested</li>
+</ul>
+</li>
+<li>All Objects require one context</li>
+<li>User
+
+<ul>
+<li>can have multiple contexts</li>
+<li>can have a default context</li>
+<li>keep care of in which context he works</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman has build in multitenancy which is not enabled by default. To enable it run the Foreman Installer
+with the corresponding parameters or edit "/etc/foreman/settings.yaml". </p>
+
+<p>Depending on your needs you can add Organizations and/or Locations. After that every object will require 
+exactly one context with the exception of users who can have multiple contexts and one of these assigned
+as their default context. But he has to keep care of in which context he works because objects he creates
+will be in this context.</p>
+
+<p>Organization and Location can both be nested to represent a hierarchy with a top-down approach.</p>
+
+<div class="break">continued...</div>
+
+<p>The best way to think about multitenancy is in advance and if it could be required directly from the start of your enviroment. 
+Later enabling is possible but migration is a quite challenging and time consuming task.  </p>
+
+<p>In Katello it is enabled by default, so we will see it in the last chapter.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_06_troubleshooting" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/06_troubleshooting/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Troubleshooting</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_06_troubleshooting" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/06_troubleshooting/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Logging</h1>
+
+<ul>
+<li>
+<p>Foreman</p>
+
+<ul>
+<li>Increase log level in general</li>
+<li>Enable additional specific logs</li>
+</ul>
+</li>
+<li>
+<p>Smart proxy</p>
+
+<ul>
+<li>Increase log level</li>
+</ul>
+</li>
+<li><p>Plugins can add their own logging</p></li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Both Foreman and the Smart proxy write an excellent log file.</p>
+
+<p>Foreman log files are located in "/var/log/foreman" and its main log is called "production.log".
+You can find all accessed URLs and errors generated by accessing it. If the standard log level 
+does not provide any information it is possible to increase the log level by changing the configuration
+in the "/etc/foreman/settings.yaml".</p>
+
+<pre><code>:logging:
+  :level: debug
+</code></pre>
+
+<div class="break">continued...</div>
+
+<p>Furthermore it is possible to enable additional specific loggers.</p>
+
+<ul>
+<li>app - web requests and all general application logs (default: true)</li>
+<li>ldap - high level LDAP queries (e.g. find users in group) and LDAP operations performed (default: false)</li>
+<li>permissions - evaluation of user roles, filters and permissions when loading pages (default: false)</li>
+<li>sql - SQL queries made through Rails ActiveRecord, only debug (default: false)</li>
+</ul>
+
+<p>For those add following to the configuration:</p>
+
+<pre><code>:loggers:
+  :ldap:
+    :enabled: true
+</code></pre>
+
+<p>The log files of the Smart proxy are located in "/var/log/foreman-proxy" containing all errors issued by the
+Smart proxy like downloading of boot images failed and failed updates of services. If additional details are
+needed increase the log level in "/etc/foreman-proxy/settings.yml".</p>
+
+<pre><code>:log_level: DEBUG
+</code></pre>
+
+<p>Plugins to both components can add directly to the log or write their own, so have a look into their configuration
+if attempting any troubleshooting with a specific plugin.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_06_troubleshooting" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/06_troubleshooting/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Provisioning process</h1>
+
+<ul>
+<li>Watch the output in the WebGUI</li>
+<li>Spoof the provisioning configuration</li>
+<li>Find the communication in Foreman log</li>
+<li>In the Smart proxy log
+
+<ul>
+<li>Download of boot images</li>
+<li>Configuration changes failing</li>
+</ul>
+</li>
+<li>On the TFTP server
+
+<ul>
+<li>Checksum of boot image</li>
+<li>PXE configuration</li>
+</ul>
+</li>
+<li>Reports of configuration management</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Troubleshooting of the provisioning process can be required if deployment of a system fails or differs from expectation.
+In most cases the output of the WebGUI is quite useful, but sometimes a deeper look is required to find a solution.</p>
+
+<p>You can get the provisioning configuration files by spoofing the URL:</p>
+
+<pre><code> https://foreman.localdomain/unattended/provision?spoof=10.0.0.100
+</code></pre>
+
+<div class="break">continued...</div>
+
+<p>In this URL you can change the template type provision to every other type to get those files.</p>
+
+<p>If everything here seems to be correct, check the communication in the Foreman log. Getting the exact URLs from the log
+and browsing them can help to find issues like token on a boot disk expired.</p>
+
+<p>Next step would be to look for errors in the Smart proxy log if the download of the boot images or some configuration
+changes issued to the managed services have failed.</p>
+
+<p>On the TFTP server have a look at the boot image, it is downloaded only once during the first deployment of a host started.
+If somehow the image was already downloaded you will not find any new log entry about the failed download. Also in some rare
+cases distribution releases a newer version of the boot image to fix some installation issues. So check the size and checksum
+of the image if the boot fails. </p>
+
+<p>In the case there is no PXE configuration you can cancel and restart the build process or execute a rebuild from the "All Hosts" menu.</p>
+
+<p>If the deployment of the system works but something is not configured in the expected way have a look in the reports of
+the configuration management. In many cases Puppet code is not well designed or has some cross system dependencies so
+the agent has to run more than once to complete the full configuration.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_06_troubleshooting" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/06_troubleshooting/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Upstream support</h1>
+
+<ul>
+<li>Common issues in the Wiki</li>
+<li>IRC
+
+<ul>
+<li>User channel for support</li>
+<li>Developer channel for development support</li>
+</ul>
+</li>
+<li>Mailing lists
+
+<ul>
+<li>Users list for support, questions, etc</li>
+<li>Developer list for development support</li>
+</ul>
+</li>
+<li>Server fault</li>
+<li>Youtube</li>
+<li>Issue tracker</li>
+<li>Debug tool</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman team tries to help with issues as good as they can. To achieve this there are several ways to get support available.</p>
+
+<p>First have a look into the Wiki page collecting common issues: <a href="http://projects.theforeman.org/projects/1/wiki/Troubleshooting">http://projects.theforeman.org/projects/1/wiki/Troubleshooting</a></p>
+
+<div class="break">continued...</div>
+
+<p>If your problem is not covered there the fastest way to get in touch with the team is the IRC Channel. The channel #theforeman is
+hosted on irc.freenode.net, the developer channel #theforeman-dev is only for support on development of Foreman and plugins.</p>
+
+<p>Same goes for the mailing lists hosted via Google Groups. To subscribe simply send a email to <a href="mailto:foreman-users+subscribe@googlegroups.com">foreman-users+subscribe@googlegroups.com</a> for the user list, to <a href="mailto:foreman-dev+subscribe@googlegroups.com">foreman-dev+subscribe@googlegroups.com</a> for development support and for release and security information to <a href="mailto:foreman-announce+subscribe@googlegroups.com">foreman-announce+subscribe@googlegroups.com</a>.</p>
+
+<p>On 'Server Fault' you can ask questions and find answers tagged with foreman: <a href="http://serverfault.com/questions/tagged/foreman">http://serverfault.com/questions/tagged/foreman</a></p>
+
+<p>On Youtube in the Foreman channel you can find introductions, deep dives, community demos and other ressources which can also
+be very useful: <a href="https://www.youtube.com/channel/UCCo7AZ1oG6TbG0-dwjRqCmw">https://www.youtube.com/channel/UCCo7AZ1oG6TbG0-dwjRqCmw</a></p>
+
+<p>Looking at all those resources will solve most issues, if not it is probably a bug, so search for it in the issue tracker
+and if you can not find a similar issue file create a new one with as much information as possible to help fixing the bug and others with the same issue. 
+<a href="http://projects.theforeman.org/projects/foreman/issues">http://projects.theforeman.org/projects/foreman/issues</a></p>
+
+<p>Sometimes you could be asked to send a debug report which could be generated with "foreman-debug" including the complete
+configuration stripped of security data. With "foreman-debug -u" it could be uploaded to a location only accessable by the
+Foreman core developers.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_01_overview" class="slide subsection" data-transition="none">
+<div class="content subsection" ref="katello/01_overview/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>9 Katello</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_01_overview" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="katello/01_overview/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Katello</h1>
+
+<ul>
+<li>Defined set of Foreman plugins to provide Content management:
+
+<ul>
+<li>YUM repositories (RPM + Errata)</li>
+<li>Puppet modules</li>
+<li>Docker container</li>
+</ul>
+</li>
+<li>Subscription Management
+
+<ul>
+<li>Red Hat Subscriptions</li>
+<li>Track internal use</li>
+</ul>
+</li>
+<li>Provides its own installer</li>
+<li>Multitenancy is enabled by default</li>
+<li>Upstream project for Red Hat Network Satellite 6</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/katello/./_images/katello-logo.png" width="256" height="256" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo">
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_02_content" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="katello/02_content/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Content management - Products</h1>
+
+<ul>
+<li>Content management is based on products</li>
+<li>Products consists of one or more repositories of any content type</li>
+</ul>
+
+<div style="text-align: center"><img src="./file/katello/./_images/products.png" width="3190" height="845" style="float: center; margin-left: 50px; width: 798px; height: 211px;" alt="Katello - Products"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_02_content" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="katello/02_content/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Content management - Content Views</h1>
+
+<ul>
+<li>Content Views create versioned snapshots of one or more repositories</li>
+<li>Allow to filter several software packages</li>
+<li>Composite Content Views are possible</li>
+</ul>
+
+<div style="text-align:center"><img src="./file/katello/./_images/contentviews.png" width="3182" height="743" style="float: center; margin-left: 50px; width: 796px; height: 186px;" alt="Katello - Content Views"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_02_content" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="katello/02_content/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Content management - Lifecycle Environments</h1>
+
+<ul>
+<li>Lifecycle Environments represent different stages</li>
+<li>Multiple Lifecycle Environments Paths allow different staging models</li>
+</ul>
+
+<div style="text-align: center"><img src="./file/katello/./_images/lifecycle.png" width="3190" height="640" style="float: center; margin-left: 50px; width: 798px; height: 160px;" alt="Katello - Lifecycle Environments"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_02_content" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="katello/02_content/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Content management - Content Hosts</h1>
+
+<ul>
+<li>Consumer of content and subscriptions - different view on a host than Hosts in Foreman</li>
+<li>Optional Agent allows to execute commands</li>
+</ul>
+
+<div styele="text-align: center"><img src="./file/katello/./_images/contenthost.png" width="3174" height="1389" style="float: center; margin-left: 50px; width: 794px; height: 347px;" alt="Katello - Content Host"></div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_03_subscription" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="katello/03_subscription">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Subscription management</h1>
+
+<ul>
+<li>
+<p>Red Hat</p>
+
+<ul>
+<li>Subscription Manifest - certificates for communication and subscription data</li>
+<li>Red Hat Repositories - available products and repositories</li>
+<li>Products and Repositories on click</li>
+<li>Content Hosts consume subscriptions</li>
+</ul>
+</li>
+<li>
+<p>Other software</p>
+
+<ul>
+<li>Tracks subscribed Content Hosts for products</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Subscription management is primarily implemented for cosuming Red Hat Content you subcribed.</p>
+
+<p>Red Hat allows to create a Subscription Manifest to move Subscription management from Red Hat
+Network to your environment. This manifest includes the certificates required for communication
+and the subscription data. Red Hat Repositories View shows available products and repositories
+covered by the subscription data and allows to select them which will automatically create and
+synchronize them to your system.</p>
+
+<div class="break">continued...</div>
+
+<p>The Content Hosts cosume these subscriptions in the same way like they were directly connected to
+the Red Hat Network. If you purchased Virtual Subscriptions it requires you to run virt-what and
+report your virtualization hosts before you can consume subscriptions with the virtual machines.</p>
+
+<p>For other software Subscription Management can also be useful by simply tracking all subscribed
+Content Hosts for products.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="katello_04_demo" class="slide center noprint" data-transition="none">
+<div class="content center noprint" ref="katello/04_demo/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Demo</h1>
+
+<p>Katello Demo</p>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Post_01_Feedback" class="slide noprint center" data-transition="none">
+<div class="content noprint center" ref="global/Post/01_Feedback">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>FEEDBACK</h1>
+
+<p>We look forward to your feedback</p>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Post_02_Thanks" class="slide noprint center" data-transition="none">
+<div class="content noprint center" ref="global/Post/02_Thanks">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>THANK YOU</h1>
+
+<p>Thank you for your attention!</p>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Post_03_Contributors" class="slide noprinti small" data-transition="none">
+<div class="content noprinti small" ref="global/Post/03_Contributors">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Contributors</h1>
+
+<pre>
+David Okon
+Dirk Götz
+Markus Waldmüller
+</pre>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+</div>
+<div id="pauseScreen">
+  PAUSED
+</div>
+
+</body>
+</html>
