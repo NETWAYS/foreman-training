@@ -7,6 +7,7 @@
  * optionally: Puppetlabs Repository
 * CentOS, Scientific Linux, Oracle Linux 6 & 7
  * EPEL repository
+ * SCLorg SIG repository
  * optionally: Puppetlabs Repository
 * Fedora (not recommended) 
 * Debian 7
