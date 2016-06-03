@@ -361,7 +361,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 * Configuration of:
  * Foreman
  * Smart Proxy
- * Puppet - in the Foreman way
+ * Puppet
  * Depending and managed services
 
 ~~~SECTION:notes~~~
