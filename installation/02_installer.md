@@ -1,7 +1,7 @@
 !SLIDE smbullets small
 # Foreman Installer
 
-* Separate project named kafo
+* Based on a separate project named kafo (ruby gem)
 * Recommended way of installation
 * Utilizes Puppet modules to install and configure
  * Foreman web UI
@@ -16,7 +16,7 @@
 
 ****
 
-The Foreman installer is a separate project named kafo (Katello/Foreman Installer) which could also
+The Foreman installer is based on a separate project named kafo (Katello/Foreman Installer) which could also
 be used by other projects. It utilizes existing Puppet modules to install and configure all required
 components. Module parameter are provided as commandline arguments to the installer or by running 
 the installer in interactive mode.
