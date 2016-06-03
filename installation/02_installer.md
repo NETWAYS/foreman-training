@@ -10,7 +10,9 @@
  * TFTP
  * DNS
  * DHCP
-* Runs parameterized or interactive
+* Runs parameterized or interactively
+ * command line flags
+ * answers file
 
 ~~~SECTION:handouts~~~
 
@@ -18,8 +20,9 @@
 
 The Foreman installer is a separate project named kafo (Katello/Foreman Installer) which could also
 be used by other projects. It utilizes existing Puppet modules to install and configure all required
-components. Module parameter are provided as commandline arguments to the installer or by running 
-the installer in interactive mode.
+components. Module parameters are provided as commandline arguments to the installer,
+as an answers file formatted in yaml (can be autosaved) or by running the installer
+in interactive mode.
 
 ~~~PAGEBREAK~~~
 
