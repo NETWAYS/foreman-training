@@ -23,7 +23,7 @@
 ~~~PAGEBREAK~~~
 
 On the mentioned operating systems packages are provided by the project, a installation from source
-is not recommended. On all plattforms all updates should be applied before installation. Using the
+is not recommended. On all platforms all updates should be applied before installation. Using the
 Puppetlabs Repository providing an up-to-date version of Puppet is preferred.
 
 ~~~ENDSECTION~~~

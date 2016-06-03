@@ -47,7 +47,7 @@ Then the virtual machine is powered on and it works the same way like simple PXE
 ****
 
 The Compute resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
-unmanaged systems and to deleted them from the virtualization plattform. Also assiocating an unmanaged system to an already existing one
+unmanaged systems and to deleted them from the virtualization platform. Also assiocating an unmanaged system to an already existing one
 is possible.
 
 ~~~ENDSECTION~~~
@@ -200,7 +200,7 @@ will show you the virtual machine created with fqdn.
 * Used to provide defaults for virtual machine creation
 * Default provides three for different sized VMs
 * Same profile names could be used for different Compute resources
- * Different defaults for same type of systems based on virtualization plattform
+ * Different defaults for same type of systems based on virtualization platform
  * Only available to Compute resource if configured
 * Available in "New Host" dialog
 
@@ -210,7 +210,7 @@ will show you the virtual machine created with fqdn.
 
 Compute profiles are used to provide defaults for the virtual machine creation. Per default three profiles
 are available and only have to be configured, but you can create as many as needed. The same profile can differ
-based on the Compute resource used to provide defaults matching the virtualization plattform.
+based on the Compute resource used to provide defaults matching the virtualization platform.
 
 If one is configured for a Compute resource option to choose from it is available on new host dialog after choosing
 the Compute resource to deploy on.
