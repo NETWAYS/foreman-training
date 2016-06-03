@@ -4,7 +4,7 @@
 * Fine granular permission system
 * Abstracted to roles
 * Complemented by filters
-* Plugins can add to the permission system
+* Plugins can add items to the permission system
 
 
 !SLIDE smbullets small
