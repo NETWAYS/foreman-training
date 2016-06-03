@@ -356,7 +356,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 
 * Puppet modules provided by Foreman Project
  * Already utilized by Foreman Installer
- * Compatible with all supported plattforms
+ * Compatible with all supported platforms
  * Version compatibility to observe
 * Configuration of:
  * Foreman
@@ -376,7 +376,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 
 It is also possible to manage Foreman and/or its Smart Proxies using Puppet. The modules to do so are provided by the
 Foreman Project itself and are already used in the Foreman Installer. The modules are written to be compatible with
-all supported plattforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
+all supported platforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
 in the README. File.
 
 The modules provided can configure Foreman, the Smart Proxy and Puppet in the way it is required by Foreman and the services

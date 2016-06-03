@@ -3,7 +3,7 @@
 
 * Autonomous web-based component
  * Restful API to connect to various systems from Foreman
-* Supported Plattforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)
+* Supported Platforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)
 * Supported Subsystems:
  * DHCP - ISC DHCP, MS DHCP Servers, Libvirt
  * DNS - Bind, PowerDNS, Route53, MS DNS Server, Libvirt
