@@ -3,12 +3,13 @@
 
 * Written in ruby
 * Choice between Open Source or Enterprise version
-* Runs on Linux, Unix, Windows
-* Describes state in its own declarative language or a Ruby DSL
+ * Enterprise edition is not supported by Foreman
+* Runs on Linux, Unix, Windows, …
+* Describes desired state in its own declarative language
 
 <pre>
     package { 'openssh':
-      ensure => 'installed'
+      ensure => 'installed',
     }
 </pre>
 
@@ -37,11 +38,11 @@ packages with a defined software stack for easier support.
 ~~~PAGEBREAK~~~
 
 Independently of the version it runs on Linux, Unix and Windows it can also configure some network devices. For configuration
-it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example) or it can also use a Ruby DSL.
+it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
 The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
 configuration items with the node to be configured these central servers can use an ENC (External Node Classifier). The agent runs
 on the nodes and collects system information using a tool named facter before contacting the central server. The master compiles then
-a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an 
+a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an
 abstraction layer and also sends a report to the master. The master uses different handlers to send the report to other tools.
 
 A diagram showing this workflow is provided on the next page.
