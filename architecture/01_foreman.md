@@ -2,7 +2,7 @@
 # Foreman
 
 * Web Interface + API + CLI
-* Supported plattforms:
+* Supported platforms:
  * Server: RHEL/Fedora, Debian/Ubuntu, (Linux)
  * DB: PostgreSQL, MySQL, SQLite
  * Provisioning: RHEL/Fedora, Debian/Ubuntu, Solaris, SuSE, CoreOS, FreeBSD, Juniper Junos, Cisco NX-OS, (Windows, MacOS)
@@ -28,7 +28,7 @@
 
 Foreman provides in addition to the Web Interface an API and CLI.
 
-It supports as plattform RHEL/Fedora and Debian/Ubuntu via packages and via installation from source
+It supports as platform RHEL/Fedora and Debian/Ubuntu via packages and via installation from source
 also other Linux distribution. 
 
 As database backend PostgreSQL, MySQL and SQLite are supported, while the default is PostgreSQL, 
