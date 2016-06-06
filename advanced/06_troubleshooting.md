@@ -10,7 +10,7 @@
 
 * Smart proxy
  * Increase log level
- * Smart proxies log can be read on the GUI
+ * Smart proxies log can be read on the WebGUI
 
 * Plugins can add their own logging
 
@@ -52,7 +52,7 @@ needed increase the log level in "/etc/foreman-proxy/settings.yml".
 Plugins to both components can add directly to the log or write their own, so have a look into their configuration
 if attempting any troubleshooting with a specific plugin.
 
-You can enable Logs access from the GUI by adding in
+You can enable Logs access from the WebGUI by adding in
 "/etc/foreman-proxy/settings.d/logs.yml":
 
     :enabled: https
