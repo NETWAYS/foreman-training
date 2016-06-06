@@ -1,4 +1,13 @@
-<!SLIDE noprinti small>
+<!SLIDE noprint center>
+
+# Contributing
+
+Contribute to the Foreman training on [Github](https://github.com/NETWAYS/foreman-training) to make it even better.
+
+Material is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).
+
+
+<!SLIDE noprint small>
 
 # Contributors
 

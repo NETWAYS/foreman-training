@@ -429,7 +429,7 @@ help the community and consists of more than 200 contributors.</p>
 
 <ul>
 <li>Web Interface + API + CLI</li>
-<li>Supported plattforms:
+<li>Supported platforms:
 
 <ul>
 <li>Server: RHEL/Fedora, Debian/Ubuntu, (Linux)</li>
@@ -466,7 +466,7 @@ help the community and consists of more than 200 contributors.</p>
 
 <p>Foreman provides in addition to the Web Interface an API and CLI.</p>
 
-<p>It supports as plattform RHEL/Fedora and Debian/Ubuntu via packages and via installation from source
+<p>It supports as platform RHEL/Fedora and Debian/Ubuntu via packages and via installation from source
 also other Linux distribution. </p>
 
 <p>As database backend PostgreSQL, MySQL and SQLite are supported, while the default is PostgreSQL, 
@@ -507,9 +507,10 @@ SQLite is not recommended for productive usage.</p>
 
 <ul>
 <li>Restful API to connect to various systems from Foreman</li>
+<li>Decentralisation of some Foreman features (templates) for isolated networks</li>
 </ul>
 </li>
-<li>Supported Plattforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)</li>
+<li>Supported Platforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)</li>
 <li>Supported Subsystems:
 
 <ul>
@@ -955,6 +956,7 @@ additional providers like OpenNebula are community contributed.</p>
 
 <ul>
 <li>EPEL repository</li>
+<li>SCLorg SIG repository</li>
 <li>optionally: Puppetlabs Repository</li>
 </ul>
 </li>
@@ -986,7 +988,7 @@ additional providers like OpenNebula are community contributed.</p>
 <div class="break">continued...</div>
 
 <p>On the mentioned operating systems packages are provided by the project, a installation from source
-is not recommended. On all plattforms all updates should be applied before installation. Using the
+is not recommended. On all platforms all updates should be applied before installation. Using the
 Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p>
 
 </div>
@@ -1197,7 +1199,7 @@ by Foreman and the managed systems.</p>
 <h1>Foreman Installer</h1>
 
 <ul>
-<li>Separate project named kafo</li>
+<li>Based on a separate project named kafo (ruby gem)</li>
 <li>Recommended way of installation</li>
 <li>Utilizes Puppet modules to install and configure
 
@@ -1210,17 +1212,24 @@ by Foreman and the managed systems.</p>
 <li>DHCP</li>
 </ul>
 </li>
-<li>Runs parameterized or interactive</li>
+<li>Runs parameterized or interactively
+
+<ul>
+<li>command line flags</li>
+<li>answers file</li>
+</ul>
+</li>
 </ul>
 
 <div class="handouts">
 
 <hr>
 
-<p>The Foreman installer is a separate project named kafo (Katello/Foreman Installer) which could also
+<p>The Foreman installer is based on a separate project named kafo (Katello/Foreman Installer) which could also
 be used by other projects. It utilizes existing Puppet modules to install and configure all required
-components. Module parameter are provided as commandline arguments to the installer or by running 
-the installer in interactive mode.</p>
+components. Module parameters are provided as commandline arguments to the installer,
+as an answers file formatted in yaml (can be autosaved) or by running the installer
+in interactive mode.</p>
 
 <div class="break">continued...</div>
 
@@ -1451,6 +1460,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <ul>
 <li>Make Puppetlabs repository available</li>
 <li>Make EPEL repository available</li>
+<li>Make SCLorg repository available</li>
 <li>Make Foreman repository available</li>
 <li>Install foreman-installer</li>
 </ul>
@@ -2265,7 +2275,7 @@ system default.</p>
 <hr>
 
 <p>The Compute resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
-unmanaged systems and to deleted them from the virtualization plattform. Also assiocating an unmanaged system to an already existing one
+unmanaged systems and to deleted them from the virtualization platform. Also assiocating an unmanaged system to an already existing one
 is possible.</p>
 
 </div>
@@ -2338,7 +2348,7 @@ the suggested IP address, for the Libvirt options choose the virtual network "fo
 <li>Same profile names could be used for different Compute resources
 
 <ul>
-<li>Different defaults for same type of systems based on virtualization plattform</li>
+<li>Different defaults for same type of systems based on virtualization platform</li>
 <li>Only available to Compute resource if configured</li>
 </ul>
 </li>
@@ -2351,7 +2361,7 @@ the suggested IP address, for the Libvirt options choose the virtual network "fo
 
 <p>Compute profiles are used to provide defaults for the virtual machine creation. Per default three profiles
 are available and only have to be configured, but you can create as many as needed. The same profile can differ
-based on the Compute resource used to provide defaults matching the virtualization plattform.</p>
+based on the Compute resource used to provide defaults matching the virtualization platform.</p>
 
 <p>If one is configured for a Compute resource option to choose from it is available on new host dialog after choosing
 the Compute resource to deploy on.</p>
@@ -2856,14 +2866,19 @@ without knowing puppet in-depth.</p>
 
 <ul>
 <li>Written in ruby</li>
-<li>Choice between Open Source or Enterprise version</li>
-<li>Runs on Linux, Unix, Windows</li>
-<li>Describes state in its own declarative language or a Ruby DSL</li>
+<li>Choice between Open Source or Enterprise version
+
+<ul>
+<li>Enterprise edition is not supported by Foreman</li>
+</ul>
+</li>
+<li>Runs on Linux, Unix, Windows, …</li>
+<li>Describes desired state in its own declarative language</li>
 </ul>
 
 <pre>
     package { 'openssh':
-      ensure =&gt; 'installed'
+      ensure =&gt; 'installed',
     }
 </pre>
 
@@ -2899,11 +2914,11 @@ packages with a defined software stack for easier support.</p>
 <div class="break">continued...</div>
 
 <p>Independently of the version it runs on Linux, Unix and Windows it can also configure some network devices. For configuration
-it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example) or it can also use a Ruby DSL.
+it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
 The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
 configuration items with the node to be configured these central servers can use an ENC (External Node Classifier). The agent runs
 on the nodes and collects system information using a tool named facter before contacting the central server. The master compiles then
-a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an 
+a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an
 abstraction layer and also sends a report to the master. The master uses different handlers to send the report to other tools.</p>
 
 <p>A diagram showing this workflow is provided on the next page.</p>
@@ -3212,7 +3227,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 
 <ul>
 <li>Already utilized by Foreman Installer</li>
-<li>Compatible with all supported plattforms</li>
+<li>Compatible with all supported platforms</li>
 <li>Version compatibility to observe</li>
 </ul>
 </li>
@@ -3221,7 +3236,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 <ul>
 <li>Foreman</li>
 <li>Smart Proxy</li>
-<li>Puppet - in the Foreman way</li>
+<li>Puppet</li>
 <li>Depending and managed services</li>
 </ul>
 </li>
@@ -3241,7 +3256,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 
 <p>It is also possible to manage Foreman and/or its Smart Proxies using Puppet. The modules to do so are provided by the
 Foreman Project itself and are already used in the Foreman Installer. The modules are written to be compatible with
-all supported plattforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
+all supported platforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
 in the README. File.</p>
 
 <p>The modules provided can configure Foreman, the Smart Proxy and Puppet in the way it is required by Foreman and the services
@@ -3467,7 +3482,7 @@ so it is possible to allow external users to only connect to one or both.</p>
 <li>Fine granular permission system</li>
 <li>Abstracted to roles</li>
 <li>Complemented by filters</li>
-<li>Plugins can add to the permission system</li>
+<li>Plugins can add items to the permission system</li>
 </ul>
 
 <div id="net-footer">
@@ -5086,6 +5101,7 @@ Later enabling is possible but migration is a quite challenging and time consumi
 
 <ul>
 <li>Increase log level</li>
+<li>Smart proxies log can be read on the WebGUI</li>
 </ul>
 </li>
 <li><p>Plugins can add their own logging</p></li>
@@ -5133,6 +5149,12 @@ needed increase the log level in "/etc/foreman-proxy/settings.yml".</p>
 
 <p>Plugins to both components can add directly to the log or write their own, so have a look into their configuration
 if attempting any troubleshooting with a specific plugin.</p>
+
+<p>You can enable Logs access from the WebGUI by adding in
+"/etc/foreman-proxy/settings.d/logs.yml":</p>
+
+<pre><code>:enabled: https
+</code></pre>
 
 </div>
 
@@ -5521,8 +5543,26 @@ Content Hosts for products.</p>
 </div>
 </div>
 </div>
-<div id="global_Post_03_Contributors" class="slide noprinti small" data-transition="none">
-<div class="content noprinti small" ref="global/Post/03_Contributors">
+<div id="global_Post_03_Contributors" class="slide noprint center" data-transition="none">
+<div class="content noprint center" ref="global/Post/03_Contributors/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Contributing</h1>
+
+<p>Contribute to the Foreman training on <a href="https://github.com/NETWAYS/foreman-training">Github</a> to make it even better.</p>
+
+<p>Material is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.</p>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="global_Post_03_Contributors" class="slide noprint small" data-transition="none">
+<div class="content noprint small" ref="global/Post/03_Contributors/2">
 <div id="net-header">
     <div class="logo"></div>
 </div>
@@ -5532,6 +5572,7 @@ Content Hosts for products.</p>
 <pre>
 David Okon
 Dirk Götz
+Julien Pivotto
 Markus Waldmüller
 </pre>
 
