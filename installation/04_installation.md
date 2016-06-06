@@ -6,6 +6,7 @@
 * Steps:
  * Make Puppetlabs repository available
  * Make EPEL repository available
+ * Make SCLorg repository available
  * Make Foreman repository available
  * Install foreman-installer
 
@@ -36,6 +37,18 @@ Install the release package provided by the EPEL repository to make it available
 installation required as dependency.
 
 URL: http://fedoraproject.org/wiki/EPEL
+
+Command: yum install epel-release
+
+* Make SCLorg repository available
+
+Install the release package provided by CentOS repository to make it available for package
+installation required as dependency.
+
+URL: https://wiki.centos.org/AdditionalResources/Repositories/SCL
+
+Command: yum install centos-release-scl
+
 
 * Make Foreman repository available
 
@@ -76,10 +89,17 @@ installation of open source version of Puppet.
 
 ### Make EPEL repository available
 
-Install the release package provided by the EPEL repository to make it available for package
+Install the release package provided by the CentOS to make it available for package
 installation required as dependency.
 
-    # yum install http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+    # yum install epel-release -y
+
+### Make SCLorg repository available
+
+Install the release package provided by the CentOS to make it available for package
+installation required as dependency.
+
+    # yum install centos-release-scl -y
 
 ### Make Foreman repository available
 
