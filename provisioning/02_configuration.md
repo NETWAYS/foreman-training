@@ -128,6 +128,9 @@ tab select "Kickstart default", on the tab "Installation media" select "CentOS m
 templates associated earlier and on the "Parameters" tab add the parameter "enable-puppetlabs-repo" with value "true".
 Click on "Submit".
 
+If using Puppet 4 the parameter "enable-puppetlabs-pc1-repo" will add the required Puppet Collection also to the newly deployed
+systems.
+
 
 !SLIDE smbullets small
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare PXE installation of Debian

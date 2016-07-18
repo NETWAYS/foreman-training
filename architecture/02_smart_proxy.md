@@ -85,7 +85,7 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 !SLIDE smbullets small
 # Smart Proxy - DNS
 
-* Adds and removes dns records of type A and PTR
+* Adds and removes dns records of type A, AAAA and PTR
 * Requires zone to be configured as dynamic zones
 * Supports: Bind, PowerDNS, Route53, MS DNS, Libvirt
 
@@ -109,8 +109,8 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 
 ~~~SECTION:notes~~~
 
-* Foreman does not support IPv6 at the moment, so no AAAA records
-* Also no support for additional records like CNAME 
+* Foreman does support IPv6 from 1.12 onwards
+* No support for additional records like CNAME
 
 ~~~ENDSECTION~~~
 
@@ -118,8 +118,9 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 
 ****
 
-The Smart Proxy DNS is used to add and remove dns records of type A and PTR, at the moment there is no
-support for IPv6 and additional records. For doing such updates it requires the zone to be a dynamic zone.
+The Smart Proxy DNS is used to add and remove dns records of type A and PTR, Foreman 1.12 introduced
+support for IPv6, but there is no support for additional records. For doing such updates it requires
+the zone to be a dynamic zone.
 
 Commonly used on Linux is Bind which takes updates via nsupdate with preshared keys or if used in FreeIPA
 with Kerberos principal. The same mechanism could be used for sending updates to Microsofts DNS. Another

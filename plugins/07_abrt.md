@@ -106,6 +106,7 @@ next to the Smart proxy in "Infrastructure > Smart Proxies".
 
 Enable the automatic reporting of crashes.
 
+    # yum install abrt-cli
     # abrt-auto-reporting enabled
     
 Edit the Configuration file "/etc/libreport/plugins/ureport.conf" to include the following lines.

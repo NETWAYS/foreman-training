@@ -72,9 +72,8 @@ Add the parameters to enable the Discovery plugin and download the image to the 
 
 ### Adjust and deploy the PXE default configuration
 
-Navigate to "Hosts > Provisioning Templates" and search for the "PXELinux global default". Adjust the 
-proxy.url to "https://foreman.localdomain" and submit your change. Afterwards click on "Build PXE Default"
-to deploy it on the TFTP server.
+Navigate to "Hosts > Provisioning Templates" and click on "Build PXE Default" to deploy the "PXELinux global default"
+on the TFTP server which includes a snippet "pxelinux_discovery".
 
 ### Enable the discovery widget on the dashboard
 
@@ -84,7 +83,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Create a virtual machine "discovery"
 
 * Objective:
- * Create a virtual machine "pxe" for PXE installation
+ * Create a virtual machine "discovery" for PXE installation
 * Steps:
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
@@ -174,13 +173,13 @@ named after the mac address with prefix "mac".
  * Submit to start the installation
 
 !SLIDE supplemental exercises
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure the system "pxe" in Foreman
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure the system "discovery" in Foreman
 
 ## Objective:
 
 ****
 
-* Configure the system "pxe" in Foreman and start installation
+* Configure the system "discovery" in Foreman and start installation
 
 ## Steps:
 

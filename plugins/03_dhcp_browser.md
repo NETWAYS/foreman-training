@@ -41,7 +41,7 @@ More details on: https://github.com/theforeman/foreman_dhcp_browser
 
 ****
 
-* Install the Foreman Plugin DHCP Browser using the package "tfm-rubygem-foreman_dhcp_browser"
+* Install the Foreman Plugin DHCP Browser using the foreman-installer
 * Inspect DHCP reservations of the subnet "foreman"
 
 #### Expected result:
@@ -57,10 +57,9 @@ You will find one reservation for every host created earlier.
 
 ****
 
-### Install the Foreman Plugin DHCP Browser using the package "tfm-rubygem-foreman_dhcp_browser"
+### Install the Foreman Plugin DHCP Browser using the foreman-installer
 
-    # yum install tfm-rubygem-foreman_dhcp_browser -y
-    # service httpd restart
+    # foreman-installer --enable-foreman-plugin-dhcp-browser
 
 ### Inspect DHCP reservations of the subnet "foreman"
 

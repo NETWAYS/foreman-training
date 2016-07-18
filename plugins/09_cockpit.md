@@ -52,7 +52,7 @@ More details on: https://github.com/theforeman/foreman_cockpit
 ****
 
 * Install Cockpit and enable the Cockpit websocket
-* Install the Foreman Plugin Cockpit using the package "tfm-rubygem-foreman_cockpit"
+* Install the Foreman Plugin Cockpit using the foreman-installer
 
 #### Expected result:
 
@@ -74,8 +74,7 @@ Cockpit action menu shows up in the Host detail view and allows to inspect the s
     # systemctl enable cockpit.socket
     # systemctl start cockpit.socket
 
-### Install the Foreman Plugin Cockpit using the package "tfm-rubygem-foreman_cockpit"
+### Install the Foreman Plugin Cockpit using the foreman-installer
 
-    # yum install tfm-rubygem-foreman_cockpit -y
-    # service httpd restart
+    # foreman-installer --enable-foreman-plugin-cockpit
 

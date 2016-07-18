@@ -46,7 +46,7 @@ More details on: https://github.com/theforeman/foreman_templates
 
 ****
 
-* Install the Foreman Plugin Templates using the package "tfm-rubygem-foreman_templates"
+* Install the Foreman Plugin Templates using the foreman-installer
 * Run the synchronisation job with "foreman-rake templates:sync"
 
 #### Expected result:
@@ -62,9 +62,9 @@ Additional templates with the prefix "Community" are available in the WebGUI.
 
 ****
 
-### Install the Foreman Plugin Templates using the package "tfm-rubygem-foreman_templates"
+### Install the Foreman Plugin Templates using the foreman-installer
 
-    # yum install tfm-rubygem-foreman_templates -y
+    # foreman-installer --enable-foreman-plugin-templates
 
 ### Run the synchronisation job with "foreman-rake templates:sync"
 

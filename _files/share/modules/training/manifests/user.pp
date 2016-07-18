@@ -1,0 +1,32 @@
+class training::user (
+  $id,
+  $ssh_pub_key,
+  $ssh_key_type = "ssh-rsa",
+  $sudo = false
+) {
+  validate_string($id)
+  validate_string($ssh_pub_key)
+  validate_re($ssh_key_type, [ '^ssh-dss$', '^dsa$', '^ssh-rsa$', '^rsa$', '^ecdsa-sha2-nistp256$', '^ecdsa-sha2-nistp384$', '^ecdsa-sha2-nistp521$', '^ssh-ed25519$', '^ed25519$' ])
+  validate_bool($sudo)
+
+  user { $id:
+    ensure     => present,
+    managehome => true,
+  }
+
+  ssh_authorized_key { $id:
+    user => $id,
+    type => $ssh_key_type,
+    key  => $ssh_pub_key,
+  }
+
+  if $sudo {
+    file { "/etc/sudoers.d/$id":
+      ensure => file,
+      mode   => '0400',
+      owner  => 'root',
+      group  => 'root',
+      content => "$id ALL=(ALL) NOPASSWD: ALL",
+    }
+  }
+}

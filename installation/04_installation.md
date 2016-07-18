@@ -6,7 +6,6 @@
 * Steps:
  * Make Puppetlabs repository available
  * Make EPEL repository available
- * Make SCLorg repository available
  * Make Foreman repository available
  * Install foreman-installer
 
@@ -39,16 +38,6 @@ installation required as dependency.
 URL: http://fedoraproject.org/wiki/EPEL
 
 Command: yum install epel-release
-
-* Make SCLorg repository available
-
-Install the release package provided by CentOS repository to make it available for package
-installation required as dependency.
-
-URL: https://wiki.centos.org/AdditionalResources/Repositories/SCL
-
-Command: yum install centos-release-scl
-
 
 * Make Foreman repository available
 
@@ -85,7 +74,14 @@ The Foreman installer is installed and "foreman-installer --help" could be run f
 Install the release package provided by the Puppetlabs repository to make it available for package
 installation of open source version of Puppet.
 
-    # yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.rpm -y
+    # yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm -y
+
+In the training we will stick with Puppet 3 and the Puppet Master because it does require much less
+initial resources allowing us to run more virtual machines in parallel. If you really want to run
+Puppet 4, increase the memory of the virtual machine at least to 3 GB and install the Puppet Collection
+repository.
+
+    # yum install http://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm -y
 
 ### Make EPEL repository available
 
@@ -93,13 +89,6 @@ Install the release package provided by the CentOS to make it available for pack
 installation required as dependency.
 
     # yum install epel-release -y
-
-### Make SCLorg repository available
-
-Install the release package provided by the CentOS to make it available for package
-installation required as dependency.
-
-    # yum install centos-release-scl -y
 
 ### Make Foreman repository available
 
@@ -196,7 +185,7 @@ To install run the following command:
     --foreman-proxy-dhcp-interface=eth0 \
     --foreman-proxy-dhcp-gateway=10.0.0.1 \
     --foreman-proxy-dhcp-range="10.0.0.100 10.0.0.200" \
-    --foreman-proxy-dhcp-nameservers="10.0.0.1"
+    --foreman-proxy-dhcp-nameservers="10.0.0.2"
 
 This will output on success something similar:
 

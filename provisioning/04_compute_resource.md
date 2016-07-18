@@ -96,6 +96,7 @@ Switch to the user foreman and create an passphraseless ssh-key using ssh-keygen
     $ ssh-keygen
     [ENTER]
     [ENTER]
+    [ENTER]
 
 ### Copy the public key to the root account of the host using ssh-copy-id
 

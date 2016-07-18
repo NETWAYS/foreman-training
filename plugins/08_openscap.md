@@ -29,7 +29,7 @@ the "National Institute of Standards and Technology" (NIST).
 Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
 as part of the installation process.
 
-With Foreman 1.11 the Plugin will get a rewrite to remove the dependency on "scaptimony"!
+With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"!
 
 More details on: https://github.com/theforeman/foreman_openscap
 
@@ -41,8 +41,7 @@ More details on: https://github.com/theforeman/foreman_openscap
 * Objective:
  * Inspect the Security compliance of your system
 * Steps:
- * Install the Foreman Plugin OpenSCAP
- * Install the Smart Proxy Plugin OpenSCAP
+ * Install the Foreman and Smart Proxy Plugin OpenSCAP
  * Make the Puppet Module "foreman_scap_client" available
  * Create a Policy for CentOS 7 and assign it to a host
  * Initiate a Puppet agent run on the host
@@ -62,8 +61,7 @@ More details on: https://github.com/theforeman/foreman_openscap
 
 ****
 
-* Install the Foreman Plugin OpenSCAP using the package "tfm-rubygem-foreman_openscap"
-* Install the Smart Proxy Plugin OpenSCAP using the package "rubygem-smart_proxy_openscap"
+* Install the Foreman and Smart Proxy Plugin OpenSCAP using the foreman-installer
 * Make the Puppet Module "foreman_scap_client" available
 * Create a Policy for CentOS 7 and assign it to a host
 * Initiate a Puppet agent run on the host
@@ -84,29 +82,9 @@ Compliance Report is available in the Foreman WebGUI.
 
 ****
 
-### Install the Foreman Plugin OpenSCAP using the package "tfm-rubygem-foreman_openscap"
+### Install the Foreman and Smart Proxy Plugin OpenSCAP using the foreman-installer
 
-    # yum install tfm-rubygem-foreman_openscap -y
-    # service httpd restart
-
-### Install the Smart Proxy Plugin OpenSCAP using the package "rubygem-smart_proxy_openscap"
-
-Make the plugin available to the Smart proxy.
-
-    # yum install rubygem-smart_proxy_openscap -y
-    
-Uncomment the following lines in "/etc/foreman-proxy/settings.d/openscap.yml".
-
-    :openscap_send_log_file: /var/log/foreman-proxy/openscap-send.log
-    :contentdir: /var/lib/openscap/content
-
-Allow the access to the content directory and restart the Service
-
-    # chown foreman-proxy.foreman-proxy /var/lib/openscap/content
-    # service foreman-proxy restart
-
-Let the Foreman know about the new feature so it accepts reports by executing the action "Refresh features"
-next to the Smart proxy in "Infrastructure > Smart Proxies".
+    # foreman-installer --enable-foreman-plugin-openscap --enable-foreman-proxy-plugin-openscap
 
 ### Make the Puppet Module "foreman_scap_client" available
 
@@ -114,13 +92,17 @@ Install the module on the Puppet master.
 
     # puppet module install isimluk-foreman_scap_client
 
-Import the Puppet Class from the WebGUI ("Configure > Puppet Environments" or "Configure > Puppet Classes").
+Import the Puppet Class from the WebGUI ("Configure > Puppet Environments" or "Configure > Classes").
 
 ### Create a Policy for CentOS 7 and assign it to a host
 
 Create a Hostgroup "Scap" via "Configure > Host groups" with only the name set.
 
-Content files are avaiable per default so navigate to "Hosts > Policies" to create a "New Compliance Policy".
+Content files are provided by the package "scap-security-guide" and located in "/usr/share/xml/scap/ssg/content".
+The Foreman plugin requires the datastream files which have "ds" in their name. You can upload them via
+"Hosts > SCAP content".
+
+Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Compliance Policy".
 Name it "Centos-7-Common", choose SCAP Content "Red Hat centos7 default content" and XCCDF Profile 
 "Common Profile for General-Purpose System", schedule it "Weekly" on "Sunday" and assign it to Hostgroup
 "SCAP".

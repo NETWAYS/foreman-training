@@ -19,7 +19,8 @@
 ****
 
 In Katello the Content management is based on products which consist of one or more repositories of
-any content type.
+any content type. For packages different sync options are available in Katello >= 3.0 which allow to
+sync packages also only on demand.
 
 This allows different configurations depending on your focus. For example you can create a product
 named after the operatingsystem you run and add all repositories you require and have a second product
@@ -114,8 +115,8 @@ different workflows of projects or departments.
 ****
 
 The Content Host is a different view on the host representing it as consumer of content and subscriptions
-for Katello. The Host in Foreman is used for provisioning and configuration management. A host can be represented
-as both or only one in Katello.
+for Katello. The Host in Foreman is used for provisioning and configuration management. A host is always
+represented as both starting with the ongoing process to unify the views starting with Katello 3.0.
 
 ~~~PAGEBREAK~~~
 

@@ -637,7 +637,7 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 <h1>Smart Proxy - DNS</h1>
 
 <ul>
-<li>Adds and removes dns records of type A and PTR</li>
+<li>Adds and removes dns records of type A, AAAA and PTR</li>
 <li>Requires zone to be configured as dynamic zones</li>
 <li><p>Supports: Bind, PowerDNS, Route53, MS DNS, Libvirt</p></li>
 <li>
@@ -683,8 +683,8 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 <div class="notes">
 
 <ul>
-<li>Foreman does not support IPv6 at the moment, so no AAAA records</li>
-<li>Also no support for additional records like CNAME </li>
+<li>Foreman does support IPv6 from 1.12 onwards</li>
+<li>No support for additional records like CNAME</li>
 </ul>
 
 </div>
@@ -693,8 +693,9 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 
 <hr>
 
-<p>The Smart Proxy DNS is used to add and remove dns records of type A and PTR, at the moment there is no
-support for IPv6 and additional records. For doing such updates it requires the zone to be a dynamic zone.</p>
+<p>The Smart Proxy DNS is used to add and remove dns records of type A and PTR, Foreman 1.12 introduced
+support for IPv6, but there is no support for additional records. For doing such updates it requires
+the zone to be a dynamic zone.</p>
 
 <p>Commonly used on Linux is Bind which takes updates via nsupdate with preshared keys or if used in FreeIPA
 with Kerberos principal. The same mechanism could be used for sending updates to Microsofts DNS. Another
@@ -961,19 +962,13 @@ additional providers like OpenNebula are community contributed.</p>
 </ul>
 </li>
 <li>Fedora (not recommended) </li>
-<li>Debian 7
-
-<ul>
-<li>optionally: Puppetlabs Repository</li>
-</ul>
-</li>
 <li>Debian 8
 
 <ul>
 <li>optionally: Puppetlabs Repository</li>
 </ul>
 </li>
-<li>Ubuntu 12.04 &amp; 14.04
+<li>Ubuntu 14.04 &amp; 16.04
 
 <ul>
 <li>optionally: Puppetlabs Repository</li>
@@ -990,6 +985,9 @@ additional providers like OpenNebula are community contributed.</p>
 <p>On the mentioned operating systems packages are provided by the project, a installation from source
 is not recommended. On all platforms all updates should be applied before installation. Using the
 Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p>
+
+<p>Please note that support for Foreman on Red Hat Enterprise Linux 6 and all its derivates is deprecated
+and upgrading to 7 is recommended.</p>
 
 </div>
 
@@ -1023,14 +1021,7 @@ Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p
 </thead>
 <tbody>
 <tr>
-<td>0.25.x</td>
-<td>Not supported</td>
-<td>Untested</td>
-<td>Untested</td>
-<td>No Parametrized Classes</td>
-</tr>
-<tr>
-<td>2.6.0 - 2.6.5</td>
+<td>0.25.x, 2.6.0 - 2.6.5</td>
 <td>Not supported</td>
 <td>Untested</td>
 <td>Untested</td>
@@ -1080,17 +1071,20 @@ Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p
 </tr>
 <tr>
 <td>4.x</td>
-<td>Not supported</td>
-<td>Partial support</td>
-<td>Untested</td>
-<td>Untested</td>
+<td>1.12 or higher</td>
+<td>1.12 or higher</td>
+<td>Supported</td>
+<td>Supported</td>
 </tr>
 </tbody>
 </table>
 
 <ul>
 <li>Puppet Enterprise is not supported</li>
-<li>Facter 1.x is supported, 2.x requires Foreman &gt;= 1.4.2, Structured Facts are not supported for now</li>
+<li>All-in-one and FHS packaging model are both supported for Puppet 4</li>
+<li>Puppet Master and Puppet Server are both supported</li>
+<li>Facter 1.x is supported, 2.x requires Foreman &gt;= 1.4.2</li>
+<li>Structured Facts are supported with Foreman &gt;= 1.12</li>
 </ul>
 
 <div id="net-footer">
@@ -1217,6 +1211,7 @@ by Foreman and the managed systems.</p>
 <ul>
 <li>command line flags</li>
 <li>answers file</li>
+<li>scenarios</li>
 </ul>
 </li>
 </ul>
@@ -1229,7 +1224,7 @@ by Foreman and the managed systems.</p>
 be used by other projects. It utilizes existing Puppet modules to install and configure all required
 components. Module parameters are provided as commandline arguments to the installer,
 as an answers file formatted in yaml (can be autosaved) or by running the installer
-in interactive mode.</p>
+in interactive mode. The installer supports also predefined scenarios which is only used by Katello for now.</p>
 
 <div class="break">continued...</div>
 
@@ -1460,7 +1455,6 @@ the project homepage. For the training we will stick to the default all-in-one s
 <ul>
 <li>Make Puppetlabs repository available</li>
 <li>Make EPEL repository available</li>
-<li>Make SCLorg repository available</li>
 <li>Make Foreman repository available</li>
 <li>Install foreman-installer</li>
 </ul>
@@ -2532,7 +2526,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Objective:
 
 <ul>
-<li>Create a virtual machine "pxe" for PXE installation</li>
+<li>Create a virtual machine "discovery" for PXE installation</li>
 </ul>
 </li>
 <li>Steps:
@@ -3309,6 +3303,71 @@ a result hash including an array of hashes describing the hosts. </p>
 <p>The hash is best used with a defined resource and create_resource function or within a template.</p>
 
 <p>Next release of the function will also allow to provide a filter for reducing the data for easier handling.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/11">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Replace Puppet's default lookup</h1>
+
+<ul>
+<li>Puppet uses Hiera as default lookup for parameters</li>
+<li>Can be replaced with Foreman</li>
+<li>Requires two plugins
+
+<ul>
+<li>Param lookup - Exposes parameters via API</li>
+<li>Data binding - Replaces Puppet's lookup</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>You can replace Puppet's default lookup with Foreman by installing Param lookup and Data binding plugin. This allows to
+use the Roles-Profiles-Pattern or similar concepts which do not directly assign classes and still use Foreman to configure
+parameters.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_03_configgroups" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/03_configgroups">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Config Groups</h1>
+
+<ul>
+<li>Allows to group classes</li>
+<li>Assign like single classes</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Config Groups allow to group classes and assign them in the same way you would use single classes.
+This follows the same ideas like the very popular Roles-Profiles-Pattern used in Puppet to simplify
+assignment via another layer of abstraction.</p>
 
 </div>
 
@@ -4155,7 +4214,7 @@ the "National Institute of Standards and Technology" (NIST).</p>
 <p>Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
 as part of the installation process.</p>
 
-<p>With Foreman 1.11 the Plugin will get a rewrite to remove the dependency on "scaptimony"!</p>
+<p>With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"!</p>
 
 <p>More details on: <a href="https://github.com/theforeman/foreman_openscap">https://github.com/theforeman/foreman_openscap</a></p>
 
@@ -4185,8 +4244,7 @@ as part of the installation process.</p>
 <li>Steps:
 
 <ul>
-<li>Install the Foreman Plugin OpenSCAP</li>
-<li>Install the Smart Proxy Plugin OpenSCAP</li>
+<li>Install the Foreman and Smart Proxy Plugin OpenSCAP</li>
 <li>Make the Puppet Module "foreman_scap_client" available</li>
 <li>Create a Policy for CentOS 7 and assign it to a host</li>
 <li>Initiate a Puppet agent run on the host</li>

@@ -62,8 +62,8 @@ Afterwards you can add filters to the role.
 
 Resource         | Permissions                                                       | Unlimited | Search
 -----------------|-------------------------------------------------------------------|-----------|----------------------
-Host/managed     | build_hosts, create_hosts                                         |     X     | none
-Host/managed     | edit_hosts, power_hosts, console_hosts, view_hosts, destroy_hosts |           | owner = current_user
+Host             | build_hosts, create_hosts                                         |     X     | none
+Host             | edit_hosts, power_hosts, console_hosts, view_hosts, destroy_hosts |           | owner = current_user
 Compute Resource | view_compute_resources, create_compute_resources_vms              |     X     | none
 Subnet           | view_subnets                                                      |     X     | none
 Domain           | view_domains                                                      |     X     | none

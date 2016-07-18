@@ -257,7 +257,7 @@ from unprivileged users.
 ### Set defaults to the Smart class parameters provided by the imported class
 
 Navigate to "Configure > Classes" and select the class "training::user". In the "Smart Class Parameter" tab
-insert your name as Default Value for the name for the user, add a ssh public key as Default Value for ssh_pub_key,
+insert your name as Default Value for the id of the user, add a ssh public key as Default Value for ssh_pub_key,
 for the parameter sudo select override and set the default to true.
 
 Hint: To create a ssh key pair run "ssh-key-gen". The key string required for the puppet module is the second part
@@ -414,5 +414,25 @@ a result hash including an array of hashes describing the hosts.
 The hash is best used with a defined resource and create_resource function or within a template.
 
 Next release of the function will also allow to provide a filter for reducing the data for easier handling.
+
+~~~ENDSECTION~~~
+
+
+!SLIDE smbullets small
+# Replace Puppet's default lookup
+
+* Puppet uses Hiera as default lookup for parameters
+* Can be replaced with Foreman
+* Requires two plugins
+ * Param lookup - Exposes parameters via API
+ * Data binding - Replaces Puppet's lookup
+
+~~~SECTION:handouts~~~
+
+****
+
+You can replace Puppet's default lookup with Foreman by installing Param lookup and Data binding plugin. This allows to
+use the Roles-Profiles-Pattern or similar concepts which do not directly assign classes and still use Foreman to configure
+parameters.
 
 ~~~ENDSECTION~~~
