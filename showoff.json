@@ -28,6 +28,7 @@
    {"section":"plugins"}, 
    {"section":"advanced"}, 
    {"section":"katello"}, 
+   {"section":"docker"}, 
 
    {"section":"global/Post"}
   ]
