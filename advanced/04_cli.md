@@ -66,7 +66,7 @@ A list of plugins is provided by the Github page of the framework: https://githu
 
 ### Create the new Operatingsystem entry for "CentOS 6.8"
 
-    # hammer os create --name CentOS --major 6 --minor 8 --description "CentOS 6.8" --architecture x86_64 --family "Redhat" \
+    # hammer os create --name CentOS --major 6 --minor 8 --description "CentOS 6.8" --architectures x86_64 --family "Redhat" \
     --password-hash SHA256 --media "CentOS mirror" --partition-tables "Kickstart default"
 
 ### Associate the template "Kickstart default PXELinux" and set as default template
