@@ -113,7 +113,7 @@ Install the package "foreman-installer" from the now available repositories.
  * Run foreman-installer with additional parameters
 * Notes:
  * DNS (interface=eth0, zone=localdomain, reverse=0.0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
- * DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.1)
+ * DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)
 
 ~~~SECTION:notes~~~
 

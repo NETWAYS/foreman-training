@@ -90,14 +90,14 @@ Crash reports show up in the Foreman WebGUI
 ### Install the Foreman Plugin ABRT using the package "tfm-rubygem-foreman_abrt"
 
     # yum install tfm-rubygem-foreman_abrt -y
-    # service httpd restart
+    # systemctl restart httpd.service
 
 ### Set up the Smart proxy by installing the package "rubygem-smart_proxy_abrt" and enabling it
 
 Make the plugin available to the Smart proxy.
 
     # yum install rubygem-smart_proxy_abrt -y
-    # service foreman-proxy restart
+    # systemctl restart foreman-proxy.service
 
 Let the Foreman know about the new feature so it accepts reports by executing the action "Refresh features" 
 next to the Smart proxy in "Infrastructure > Smart Proxies".

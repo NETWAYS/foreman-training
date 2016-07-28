@@ -67,4 +67,4 @@ a Puppet run.
 ### Configure it to show the facts architecture and uptime and restart the service
 
     # cp /etc/foreman/plugins/foreman_column_view.yaml.example /etc/foreman/plugins/foreman_column_view.yaml
-    # service httpd restart
+    # systemctl restart httpd.service

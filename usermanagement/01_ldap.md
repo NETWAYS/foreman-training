@@ -91,7 +91,7 @@ Navigate to "Administer > LDAP Authentication" and press the "New LDAP Source" b
 
 * Name: Foreman
 * Server: foreman.localdomain
-* LDAP: *unchecked*
+* LDAPS: *unchecked*
 * Port: 389
 * Server Type: POSIX
 * Account username: *keep empty*

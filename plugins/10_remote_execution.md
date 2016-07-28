@@ -97,7 +97,7 @@ You can use the "ssh-copy-id":
 
 Or get it via the Smart proxy:
 
-    # curl https://foreman.localdomain:8443/ssh/pubkey >> ~/.ssh/authorized_keys
+    # curl -k https://foreman.localdomain:8443/ssh/pubkey >> ~/.ssh/authorized_keys
 
 ### Trigger the Puppet run
 
