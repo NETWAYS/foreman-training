@@ -153,7 +153,6 @@
 <h1>Forthcoming Hands-on Training</h1>
 
 <ul>
-<li>26.07.2016 - 27.07.2016 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
 <li>06.10.2016 - 07.10.2016 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
 </ul>
 
@@ -1492,7 +1491,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 
 <ul>
 <li>DNS (interface=eth0, zone=localdomain, reverse=0.0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)</li>
-<li>DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.1)</li>
+<li>DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)</li>
 </ul>
 </li>
 </ul>
@@ -2043,6 +2042,53 @@ and "Preseed default", Installation media "Debian mirror"</li>
 </ul>
 </li>
 </ul>
+
+<div class="handouts">
+
+<ul>
+<li>Tell the students to skip Debian if only providing a local CentOS-Mirror.</li>
+</ul>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="provisioning_02_configuration" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="provisioning/02_configuration/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman Setup</h1>
+
+<ul>
+<li>A plugin installed by default</li>
+<li>Designed to help with the initial setup
+
+<ul>
+<li>Subnet and Domain information as input</li>
+<li>Foreman-Installer commands as output</li>
+<li>Configuration of Foreman host</li>
+<li>Templates and Operating systems association</li>
+<li>Installation media</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman Plugin Setup is installed by default to help with the initial setup (the steps we did manually).
+It asks for domain and subnet information as input and will output Foreman-Installer commands. In addition
+it will ensure configuration of the Foreman host, association of templates and operating systems and existence
+of installation media.</p>
+
+</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -4527,6 +4573,85 @@ handling and "Run Command" to run a simple commandline.</p>
 </div>
 </div>
 </div>
+<div id="plugins_11_expire_hosts" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/11_expire_hosts/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Expire Hosts</h1>
+
+<ul>
+<li>
+<p>Set an expiration date on hosts</p>
+
+<ul>
+<li>Notify owners and admins in advance</li>
+<li>Shutdown on expiration date</li>
+<li>Delete afterwards</li>
+</ul>
+</li>
+<li>
+<p><u>Use case:</u> </p>
+
+<ul>
+<li>Autoremove virtual machines of developers and testers</li>
+<li>At least notify for hardware machines no longer required</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Foreman Plugin Expire Hosts allows to add an expiration date on hosts and to
+configure notifications for owners and admins in advance, automatically shutdown
+when the hosts is expired and delete it also automatically afterwards. This is
+quite useful on virtual machines used for development and testing, for hardware
+shutdown and deletion can not be automated but it will at least notify.</p>
+
+<p>More details on: <a href="https://github.com/theforeman/foreman_expire_hosts">https://github.com/theforeman/foreman_expire_hosts</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_11_expire_hosts" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/11_expire_hosts/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.9: Expire Hosts</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Set a host to expire</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install the Foreman Plugin Expire Hosts</li>
+<li>Configure notifications</li>
+<li>Set a host to expire</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
 <div id="advanced_00_overview" class="slide subsection" data-transition="none">
 <div class="content subsection" ref="advanced/00_overview">
 <div id="net-header">
@@ -4956,7 +5081,7 @@ in the WebGUI but they have to be URL encoded.</p>
 <li>Query the API for all subnets</li>
 <li>Query the API for all Debian hosts</li>
 <li>Create a hostgroup "training" using the API</li>
-<li>Rename the hostgroup "training" to "renamed" using the API</li>
+<li>Change the root password for the hostgroup "training" using the API</li>
 </ul>
 </li>
 </ul>
@@ -5632,6 +5757,7 @@ David Okon
 Dirk Götz
 Julien Pivotto
 Markus Waldmüller
+Simon Hönscheid
 </pre>
 
 <div id="net-footer">

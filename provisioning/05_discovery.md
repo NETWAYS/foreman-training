@@ -70,6 +70,9 @@ Add the parameters to enable the Discovery plugin and download the image to the 
     # foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true
     # service httpd restart
 
+If the trainer provides a local copy of the image add the parameter --foreman-plugin-discovery-source-url and
+the provided URL.
+
 ### Adjust and deploy the PXE default configuration
 
 Navigate to "Hosts > Provisioning Templates" and click on "Build PXE Default" to deploy the "PXELinux global default"

@@ -11,7 +11,8 @@ Afterwards run the finish.sh provided in the _files directory to setup host entr
 ## Local mirror
 
 A Vagrant file is provided in the directory to setup a local mirror of CentOS 7 x86_64, EPEL 7 x86_64
-and Puppetlabs EPEL 7 x86_64. This machine will require about 20GB.
+Puppetlabs EPEL 7 x86_64, Foreman EPEL 7 x86_64 and the Discovery Image. This machine will require about
+25GB.
 
 ## Katello Demo
 

@@ -12,7 +12,6 @@
 ~~~SECTION:notes~~~
 
 * Cockpit runs on Port 9090 and encryption depends on the protocol used to connect
-* If not all URLs work have a look if a pull request is pending:  https://github.com/theforeman/foreman_cockpit/pull/3
 
 ~~~ENDSECTION~~~
 

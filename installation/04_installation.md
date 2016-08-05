@@ -147,12 +147,12 @@ DNS should be enabled and configured with the following parameters:
  * reverse=0.0.10.in-addr.arpa
  * forwarders=8.8.8.8,8.8.4.4
 
-DNS should be enabled and configured with the following parameters:
+DHCP should be enabled and configured with the following parameters:
 
  * interface=eth0
  * gateway=10.0.0.1
  * range=10.0.0.100-10.0.0.200
- * nameserver=10.0.0.1
+ * nameserver=10.0.0.2
 
 #### Expected result:
 
@@ -331,7 +331,7 @@ Select 'Import subnets' from the drop down menu next to the Smart Proxy 'foreman
  * Network address: '10.0.0.0' 
  * Network mask: '255.255.0.0' 
  * Gateway address: '10.0.0.1' 
- * Primary DNS server: '10.0.0.1' 
+ * Primary DNS server: '10.0.0.2' 
  * IPAM: 'DHCP'
  * Start of IP range: '10.0.0.100'
  * End of IP range: '10.0.0.200'

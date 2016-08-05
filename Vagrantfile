@@ -81,5 +81,11 @@ Vagrant.configure(2) do |config|
     sudo rsync -av --copy-links --del rsync://yum.puppetlabs.com/packages/yum/el/7/dependencies/x86_64/ /var/www/html/puppetlabs/el/7/dependencies/x86_64/
     sudo mkdir -p /var/www/html/puppetlabs/el/7/products/x86_64/
     sudo rsync -av --copy-links --del rsync://yum.puppetlabs.com/packages/yum/el/7/products/x86_64/ /var/www/html/puppetlabs/el/7/products/x86_64/
+    sudo mkdir -p /var/www/html/foreman/releases/latest/el7/x86_64/
+    sudo rsync -av --copy-links --del rsync://yum.theforeman.org/yum/releases/latest/el7/x86_64/ /var/www/html/foreman/releases/latest/el7/x86_64/
+    sudo mkdir -p /var/www/html/foreman/plugins/latest/el7/x86_64/
+    sudo rsync -av --copy-links --del rsync://yum.theforeman.org/yum/plugins/latest/el7/x86_64/ /var/www/html/foreman/plugins/latest/el7/x86_64/
+    sudo mkdir -p /var/www/html/foreman/discovery
+    sudo wget -P /var/www/html/foreman/discovery http://downloads.theforeman.org/discovery/releases/latest/fdi-image-latest.tar
   SHELL
 end

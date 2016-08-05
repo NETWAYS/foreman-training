@@ -111,6 +111,7 @@ URL the trainer provided.
 ### Associate the PXELinux template "Kickstart default PXELinux" with CentOS
 
 Navigate to "Hosts > Provisioning templates" and search "Kickstart default PXELinux".
+If using a local mirror adjust the URLs in this template.
 Click it and in the dialog on the "Association" tab move the entry for CentOS to the "Selected Items".
 Click on "Submit".
 
@@ -146,6 +147,12 @@ Family "Debian", Release name "jessie"
  * Associate the finish template "Preseed default finish" with Debian
  * Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM"
 and "Preseed default", Installation media "Debian mirror"
+
+~~~SECTION:handouts~~~
+
+* Tell the students to skip Debian if only providing a local CentOS-Mirror.
+
+~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare PXE installation of Debian
@@ -216,3 +223,26 @@ Click it and in the dialog on the "Operating System" tab select the "Architectur
 tab select "Preseed custom LVM" and "Preseed default", on the tab "Installation media" select "Debian mirror", on the 
 "Templates" tab select the templates associated earlier.
 Click on "Submit".
+
+
+!SLIDE smbullets small
+# Foreman Setup
+
+* A plugin installed by default
+* Designed to help with the initial setup
+ * Subnet and Domain information as input
+ * Foreman-Installer commands as output
+ * Configuration of Foreman host
+ * Templates and Operating systems association
+ * Installation media
+
+~~~SECTION:handouts~~~
+
+****
+
+The Foreman Plugin Setup is installed by default to help with the initial setup (the steps we did manually).
+It asks for domain and subnet information as input and will output Foreman-Installer commands. In addition
+it will ensure configuration of the Foreman host, association of templates and operating systems and existence
+of installation media.
+
+~~~ENDSECTION~~~

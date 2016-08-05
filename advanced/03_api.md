@@ -37,7 +37,7 @@ API documentation is located at http://theforeman.org/api/1.10/index.html
  * Query the API for all subnets
  * Query the API for all Debian hosts
  * Create a hostgroup "training" using the API
- * Rename the hostgroup "training" to "renamed" using the API
+ * Change the root password for the hostgroup "training" using the API
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Working with the API
