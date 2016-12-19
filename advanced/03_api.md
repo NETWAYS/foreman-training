@@ -77,7 +77,7 @@ If you want to see all systems configured in Foreman with operating system "Debi
 This will also include hosts with provisioning pending.
 
     # curl -k -u admin:PASSWORD -H "Accept: version=2,application/json" \ 
-    https://foreman.localdomain/api/hosts?search=facts.osfamily%3DDebian | python -m json.tool
+    https://foreman.localdomain/api/hosts?search=os%3DDebian | python -m json.tool
 
 If you want to see all systems reported to run operating system "Debian" :
 
@@ -90,7 +90,7 @@ In the following command the ids depend on your environment and may differ:
 
     # curl -k -u admin:PASSWORD -H "Accept: version=2,application/json" -H "Content-Type: application/json" \ 
     -X POST -d '{ "name":"training", "environment_id":"1", "puppet_ca_proxy_id":"1", "puppet_proxy_id":"1", 
-    "subnet_id":"1", "domain_id":"1", "architecture_id":"1", "operatingsystem_id":"1", medium_id":"1", "ptable_id":"55", 
+    "subnet_id":"1", "domain_id":"1", "architecture_id":"1", "operatingsystem_id":"1", medium_id":"1", "ptable_id":"80", 
     "root_pass":"start123" }' \
     https://foreman.localdomain/api/hostgroups | python -m json.tool
 

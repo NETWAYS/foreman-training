@@ -16,18 +16,18 @@ Puppetlabs EPEL 7 x86_64, Foreman EPEL 7 x86_64 and the Discovery Image. This ma
 
 ## Katello Demo
 
-To setup the Katello demo follow this guide:
+To setup the Katello demo follow this guide (it requires vagrant and ansible to be installed):
 
     # git clone https://github.com/Katello/forklift.git
     # cd forklift
-    # vagrant up centos7-katello-3.0
+    # vagrant up centos7-katello-3.2
 
 This will setup your Katello server, login with the provided credentials and add the following content:
 
 * GPG Key "RPM-GPG-KEY-CentOS-7" by uploading the key from a CentOS 7 system
 * Product "CentOS7" with the key assigned
 * Repository "CentOS7-Base-x86_64" of type "yum" and URL "http://mirror.centos.org/centos/7/os/x86_64/"
-* Sync this repository - it will consume about 7GB (or choose "On Demand to save some storage)
+* Sync this repository - it will consume about 7GB (or choose "On Demand" to save some storage)
 * Life Cycle Environment "Test" and "Production"
 * Content View "CentOS7"
  * Add the Repository "CentOS7-Base-x86_64"
@@ -43,4 +43,11 @@ Use this information to deploy some docker containers as Content Hosts:
     # cp docker-compose.yml.example docker-compose.yml
     # vi docker-compose.yml
     # docker-compose scale el7=5
+
+Or register the system to itself:
+
+    # vagrant ssh centos7-katello-3.2
+    # yum -y install https://fedorapeople.org/groups/katello/releases/yum/3.2/client/el7/x86_64/katello-client-repos-latest.rpm
+    # yum -y install katello-agent http://$(hostname -f)/pub/katello-ca-consumer-latest.noarch.rpm
+    # subscription-manager register --org Default_Organization --activationkey="CentOS7-Test"
 

@@ -4,7 +4,7 @@
 * Execute jobs on remote systems from the Foreman WebGUI
 * It can handle different protocols
  * SSH - completed
- * Ansible - work in progress
+ * Ansible - first release
  * Salt - planned
  * Mcollective - planned
 
@@ -15,7 +15,7 @@
 
 ~~~SECTION:notes~~~
 
-* URL for the WIP provider ansible: https://github.com/iNecas/smart_proxy_ansible
+* URL for the provider ansible (first release): https://github.com/theforeman/smart_proxy_ansible
 
 ~~~ENDSECTION~~~
 

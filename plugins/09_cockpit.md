@@ -73,7 +73,10 @@ Cockpit action menu shows up in the Host detail view and allows to inspect the s
     # systemctl enable cockpit.socket
     # systemctl start cockpit.socket
 
+Afterwards connect one-time to the systems port 9090 using your browser to trust the certificate.
+
 ### Install the Foreman Plugin Cockpit using the foreman-installer
 
     # foreman-installer --enable-foreman-plugin-cockpit
 
+Now you can connect to cockpit on the system from the Host detail view in Foreman and manage it graphically.

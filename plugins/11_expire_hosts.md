@@ -49,7 +49,7 @@ More details on: https://github.com/theforeman/foreman_expire_hosts
 
 ****
 
-* Install the Foreman Plugin Expire Hosts using yum
+* Install the Foreman Plugin Expire Hosts using the Foreman Installer
 * Configure notifications in the settings menu
 * Set a host to expire on its "Additional Information" tab
 
@@ -67,14 +67,9 @@ Host would be expired on the date set
 
 ****
 
-### Install the Foreman Plugin Expire Hosts using yum
+### Install the Foreman Plugin Expire Hosts using the Foreman Installer
 
-For now the plugin is only packaged as RPM and not available in the Foreman Installer, so we install it
-using yum, run the Rake job to update the database and restart Foreman.
-
-     # yum install tfm-rubygem-foreman_expire_hosts
-     # foreman-rake db:migrate
-     # systemctl restart httpd.service
+     # foreman-installer --enable-foreman-plugin-expire-hosts
 
 ### Configure notifications in the settings menu
 

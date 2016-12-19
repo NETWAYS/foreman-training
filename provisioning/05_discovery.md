@@ -68,7 +68,6 @@ For this communication the discovery image uses the Smart proxy included in it.
 Add the parameters to enable the Discovery plugin and download the image to the Foreman installer
 
     # foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true
-    # service httpd restart
 
 If the trainer provides a local copy of the image add the parameter --foreman-plugin-discovery-source-url and
 the provided URL.
@@ -94,7 +93,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
  * Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your virtual machine "discovery" and select the network "foreman"
- * Create the virtual machine and when the PXE menu appears select "(discovery)"
+ * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
 
 !SLIDE supplemental exercises
@@ -116,7 +115,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 * Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your virtual machine "discovery" and select the network "foreman"
-* Create the virtual machine and when the PXE menu appears select "(discovery)"
+* Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
 #### Expected result:
 
@@ -156,11 +155,11 @@ In the forth step keep the disk as small as possible but it will not matter as l
 
 Name the virtual machine "discovery" so you know which system was deployed in which lab. Select the network "foreman" instead of "default".
 
-### Create the virtual machine and when the PXE menu appears select "(discovery)"
+### Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
-Finish the wizard and let it boot from the default PXE configuration when the PXE menu appears select "(discovery)" instead of "(default)".
-The discovery image should boot now and report status "SUCCESS" on the console, then a system appears in the Foreman Web GUI in the "Discovery widget"
-named after the mac address with prefix "mac".
+Finish the wizard and let it boot from the default PXE configuration when the PXE menu appears select "Foreman Discovery Image" instead of
+"Chainload into bootloader on first disk".  The discovery image should boot now and report status "SUCCESS" on the console, then a system
+appears in the Foreman Web GUI in the "Discovery widget" named after the mac address with prefix "mac".
 
 
 !SLIDE smbullets small
@@ -170,10 +169,17 @@ named after the mac address with prefix "mac".
  * Configure the system "discovery" in Foreman and start installation
 * Steps:
  * Select the newly discoverd host from the widget
+ * On the Discovered host view select the action "Provision" and then "Create Host"
  * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
  * On the Interface tab click edit to configure the interface add the Domain "localdomain"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
  * Submit to start the installation
+
+~~~SECTION:notes~~~
+
+Bug http://projects.theforeman.org/issues/17651 breaks this exercise, use of a Hostgroup to provide defaults can workaround this.
+
+~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure the system "discovery" in Foreman
@@ -189,6 +195,7 @@ named after the mac address with prefix "mac".
 ****
 
 * Select the newly discoverd host form the widget
+* On the Discovered host view select the action "Provision" and then "Create Host"
 * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
 * On the Interface tab click edit to configure the interface add the Domain "localdomain"
 * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
@@ -205,6 +212,8 @@ named after the mac address with prefix "mac".
 ****
 
 ### Select the newly discoverd host from the widget
+
+### On the Discovered host view select the action "Provision" and then "Create Host"
 
 ### On the Host tab name it "discovery" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
 

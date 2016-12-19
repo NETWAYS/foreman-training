@@ -198,6 +198,8 @@ This will output on success something similar:
 
 With the provided credentials login to 'https://foreman.localdomain' using your browser.
 
+**Hint:** You can change password and language settings on the "My Account" page when clicking on the username in the upper right corner.
+
 
 !SLIDE smbullets small
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add DNS configuration to Foreman
@@ -324,17 +326,19 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 
 ### Add the subnet 'foreman' by importing from the Smart Proxy
 
-Select 'Import subnets' from the drop down menu next to the Smart Proxy 'foreman.localdomain' and in the dialog insert:
+Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'foreman.localdomain' and in the dialog insert:
 
 * Subnet tab:
  * Name: 'foreman'
+ * Protocol: IPv4
  * Network address: '10.0.0.0' 
  * Network mask: '255.255.0.0' 
+ * Network prefix: '16' 
  * Gateway address: '10.0.0.1' 
  * Primary DNS server: '10.0.0.2' 
+ * Secondary DNS server: keep empty
  * IPAM: 'DHCP'
- * Start of IP range: '10.0.0.100'
- * End of IP range: '10.0.0.200'
+ * VLAN ID: keep empty
  * Boot mode: 'DHCP'
 
 * Domain tab:
@@ -346,3 +350,11 @@ Select 'Import subnets' from the drop down menu next to the Smart Proxy 'foreman
  * DNS Proxy: 'foreman.localdomain'
 
 Press 'Submit' to store the configuration.
+
+Afterwards we have to return to the configuration to add the IP range:
+
+* Subnet tab:
+ * Start of IP range: '10.0.0.100'
+ * End of IP range: '10.0.0.200'
+
+Press 'Submit' to store the configuration with this change.

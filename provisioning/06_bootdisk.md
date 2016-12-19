@@ -121,7 +121,8 @@ Navigate to "Hosts > Operating systems" and select the iPXE templates associated
 ### Set the Host "pxe" in "Build" mode and download the host image
 
 Navigate to the Host view of your virtual machine "pxe" and press "Build", accept the dialog telling you
-it will delete reports and then download the host image.
+it will delete reports and then download the host image. If "Build" warns you about possible errors, edit
+the host accordingly.
 
 ### Configure virtual machine to boot from image by adding a "CDROM" device and selecting it as boot media
 

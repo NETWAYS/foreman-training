@@ -65,6 +65,10 @@ Resource         | Permissions                                                  
 Host             | build_hosts, create_hosts                                         |     X     | none
 Host             | edit_hosts, power_hosts, console_hosts, view_hosts, destroy_hosts |           | owner = current_user
 Compute Resource | view_compute_resources, create_compute_resources_vms              |     X     | none
+Architecture     | view_architectures                                                |     X     | none
+Operatingsystem  | view_operatingsystems                                             |     X     | none
+Partition Table  | view_ptables                                                      |     X     | none
+Medium           | view_media                                                        |     X     | none
 Subnet           | view_subnets                                                      |     X     | none
 Domain           | view_domains                                                      |     X     | none
 

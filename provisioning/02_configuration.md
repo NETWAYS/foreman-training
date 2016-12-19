@@ -111,8 +111,9 @@ URL the trainer provided.
 ### Associate the PXELinux template "Kickstart default PXELinux" with CentOS
 
 Navigate to "Hosts > Provisioning templates" and search "Kickstart default PXELinux".
-If using a local mirror adjust the URLs in this template.
 Click it and in the dialog on the "Association" tab move the entry for CentOS to the "Selected Items".
+If no "Applicable Operating System" is shown, no puppet run on the Foreman server occurred, run it manually by excuting "puppet agent -t".
+If using a local mirror adjust the URLs in this template.
 Click on "Submit".
 
 ### Associate the Provision template "Kickstart RHEL default" with CentOS
@@ -124,9 +125,9 @@ Click on "Submit".
 ### Associate the operating system with the Partition table "Kickstart default", Installation media "CentOS mirror", select the Templates and set parameter "enable-puppetlabs-repo" to "true"
 
 Navigate to "Hosts > Operating systems" and search the CentOS entry.
-Click it and in the dialog on the "Operating System" tab change the "Minor version" to "2.1511", on the "Partition table"
-tab select "Kickstart default", on the tab "Installation media" select "CentOS mirror", on the "Templates" tab select the
-templates associated earlier and on the "Parameters" tab add the parameter "enable-puppetlabs-repo" with value "true".
+Click it and in the dialog on the "Partition table" tab select "Kickstart default", on the tab "Installation media"
+select "CentOS mirror", on the "Templates" tab select the templates associated earlier and on the "Parameters" tab
+add the parameter "enable-puppetlabs-repo" with value "true".
 Click on "Submit".
 
 If using Puppet 4 the parameter "enable-puppetlabs-pc1-repo" will add the required Puppet Collection also to the newly deployed
@@ -140,13 +141,11 @@ systems.
  * Prepare the installation of Debian using PXE
 * Steps:
  * Change the Installation media "Debian mirror" to the local repo
- * Create the Operating system "Debian" with Major version "8", Minor version "3", Description "Debian jessie",
-Family "Debian", Release name "jessie"
+ * Create the Operating system "Debian" with Major version "8", Description "Debian jessie", Family "Debian", Release name "jessie"
  * Associate the PXELinux template "Preseed default PXELinux" with Debian
  * Associate the Provision template "Preseed default" with Debian
  * Associate the finish template "Preseed default finish" with Debian
- * Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM"
-and "Preseed default", Installation media "Debian mirror"
+ * Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM" and "Preseed default", Installation media "Debian mirror"
 
 ~~~SECTION:handouts~~~
 
@@ -168,13 +167,11 @@ and "Preseed default", Installation media "Debian mirror"
 ****
 
 * Change the Installation media "Debian mirror" to the local repo
-* Create the Operating system "Debian" with Major version "8", Minor version "3", Description "Debian jessie",
-Family "Debian", Release name "jessie"
+* Create the Operating system "Debian" with Major version "8", Description "Debian jessie", Family "Debian", Release name "jessie"
 * Associate the PXELinux template "Preseed default PXELinux" with Debian
 * Associate the Provision template "Preseed default" with Debian
 * Associate the finish template "Preseed default finish" with Debian
-* Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM"
-and "Preseed default", Installation media "Debian mirror"
+* Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM" and "Preseed default", Installation media "Debian mirror"
 
 
 !SLIDE supplemental solutions
@@ -191,10 +188,10 @@ and "Preseed default", Installation media "Debian mirror"
 Navigate to "Hosts > Installation media", select the entry "Debian mirror", change the "Path" to the
 URL the trainer provided. 
 
-### Create the Operating system "Debian" with Major version "8", Minor version "3", Description "Debian jessie", Family "Debian", Release name "jessie"
+### Create the Operating system "Debian" with Major version "8", Description "Debian jessie", Family "Debian", Release name "jessie"
 
 Navigate to "Hosts > Operating systems" and click on "New operating system".
-In the dialog on the "Operating System" tab set the "Name" to "Debian", "Major version" to "8", "Minor version" to "3",
+In the dialog on the "Operating System" tab set the "Name" to "Debian", "Major version" to "8",
 "Description" to "Debian jessie", "Family" to "Debian", "Release name" to "jessie".
 Click on "Submit".
 

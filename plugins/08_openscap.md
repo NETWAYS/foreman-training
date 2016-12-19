@@ -90,26 +90,25 @@ Compliance Report is available in the Foreman WebGUI.
 
 Install the module on the Puppet master.
 
-    # puppet module install isimluk-foreman_scap_client
+    # puppet module install theforeman-foreman_scap_client
 
-Import the Puppet Class from the WebGUI ("Configure > Puppet Environments" or "Configure > Classes").
+Import the Puppet Class from the WebGUI ("Configure > Environments" or "Configure > Classes").
 
 ### Create a Policy for CentOS 7 and assign it to a host
 
-Create a Hostgroup "Scap" via "Configure > Host groups" with only the name set.
+Create a Hostgroup "Scap" via "Configure > Host groups" with only the "Name" and the "Openscap Proxy" set.
 
 Content files are provided by the package "scap-security-guide" and located in "/usr/share/xml/scap/ssg/content".
 The Foreman plugin requires the datastream files which have "ds" in their name. You can upload them via
-"Hosts > SCAP content".
+"Hosts > SCAP content" and name it "Centos-7".
 
 Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Compliance Policy".
-Name it "Centos-7-Common", choose SCAP Content "Red Hat centos7 default content" and XCCDF Profile 
-"Common Profile for General-Purpose System", schedule it "Weekly" on "Sunday" and assign it to Hostgroup
-"SCAP".
+Name it "Centos-7-Common", choose SCAP Content "Centos-7" and XCCDF Profile "Common Profile for General-Purpose System",
+schedule it "Weekly" on "Sunday" and assign it to Hostgroup "SCAP".
 
 To view the guide click on the "Show Guide" button next to the policy.
 
-Assign this Hostgroup to one off your CentOs 7 systems.
+Assign this Hostgroup to one off your CentOS 7 systems.
 
 ### Execute a Puppet agent run on the host
 
@@ -123,7 +122,7 @@ Login to the host you assigned the Hostgroup with the Policy and execute
 
 The Puppet agent prepared a cronjob on your system, get it and execute its content.
 
-    # crontab -l
+    # cat /etc/cron.d/foreman_scap_client_cron
     # /usr/bin/foreman_scap_client 1
 
 ### Upload the report from the Smart proxy to Foreman
@@ -133,5 +132,5 @@ immediately.
 
     # sudo -u foreman-proxy smart-proxy-openscap-send
 
-Now you should find a report in the WebGUI next to the Host in the "All Hosts" view, in the Host details and "Hosts > Reports".
-Navigate to that report and then press the "View Report" button to inspect it.
+Now you should find a status in the WebGUI in the Host details and the report at "Hosts > Reports".
+Navigate to that report and then press the "Report at" column to inspect it.

@@ -1,7 +1,8 @@
 !SLIDE small noprint
 # Forthcoming Hands-on Training
 
-* 06.10.2016 - 07.10.2016 [NETWAYS](https://www.netways.de/events_schulungen/foreman/) (German)
+* 27.06.2017 - 28.06.2017 [NETWAYS](https://www.netways.de/events_schulungen/foreman/) (German)
+* 26.09.2017 - 27.09.2017 [NETWAYS](https://www.netways.de/events_schulungen/foreman/) (German)
 
 
 !SLIDE center noprint

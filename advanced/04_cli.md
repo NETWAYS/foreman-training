@@ -32,6 +32,7 @@ A list of plugins is provided by the Github page of the framework: https://githu
 * Objective:
  * Use the CLI to prepare a new Operatingsystem entry
 * Steps:
+ * Make sure to provide the correct credentials.
  * Create the new Operatingsystem entry for "CentOS 6.8"
  * Associate the template "Kickstart default PXELinux" and set it as default template
  * Associate the template "Kickstart RHEL default" and set it as default template
@@ -50,6 +51,7 @@ A list of plugins is provided by the Github page of the framework: https://githu
 
 ****
 
+* Make sure to provide the correct credentials.
 * Create the new Operatingsystem entry for "CentOS 6.8"
 * Associate the template "Kickstart default PXELinux" and set it as default template
 * Associate the template "Kickstart RHEL default" and set it as default template
@@ -64,19 +66,30 @@ A list of plugins is provided by the Github page of the framework: https://githu
 
 ****
 
+### Make sure to provide the correct credentials.
+
+Adjust the configuration if required in `~/.hammer/cli.modules.d/foreman.yml`:
+
+   # vi ~/.hammer/cli.modules.d/foreman.yml
+   :foreman:
+     :username: 'admin'
+     :password: 'PASSWORD'
+
 ### Create the new Operatingsystem entry for "CentOS 6.8"
 
-    # hammer os create --name CentOS --major 6 --minor 8 --description "CentOS 6.8" --architectures x86_64 --family "Redhat" \
-    --password-hash SHA256 --media "CentOS mirror" --partition-tables "Kickstart default"
+    # hammer os create --name CentOS --major 6 --minor 8 --description "CentOS 6.8" --architectures x86_64 \ 
+    --family "Redhat" --password-hash SHA256 --media "CentOS mirror" --partition-tables "Kickstart default"
 
 ### Associate the template "Kickstart default PXELinux" and set as default template
 
 The ids may vary depending on our environment but you can get them with the list subcommands.
 
-    # hammer template add-operatingsystem --name "Kickstart default PXELinux" --operatingsystem "CentOS 6.8"
+    # hammer template add-operatingsystem --name "Kickstart default PXELinux" \
+    --operatingsystem "CentOS 6.8"
     # hammer os set-default-template --config-template-id 24 --id 4
 
 ### Associate the template "Kickstart RHEL default" and set as default template
 
-    # hammer template add-operatingsystem --name "Kickstart RHEL default" --operatingsystem "CentOS 6.8"
+    # hammer template add-operatingsystem --name "Kickstart RHEL default" \
+    --operatingsystem "CentOS 6.8"
     # hammer os set-default-template --config-template-id 22 --id 4

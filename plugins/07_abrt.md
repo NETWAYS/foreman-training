@@ -55,6 +55,12 @@ Image copyright by the Foreman Project.
  * Configure the host
  * Create a crash dump to test the setup
 
+~~~SECTION:notes~~~
+
+Bug http://projects.theforeman.org/issues/15714 / https://github.com/theforeman/smart_proxy_abrt/issues/8 breaks this exercise
+
+~~~ENDSECTION~~~
+
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: ABRT
 
@@ -99,7 +105,7 @@ Make the plugin available to the Smart proxy.
     # yum install rubygem-smart_proxy_abrt -y
     # systemctl restart foreman-proxy.service
 
-Let the Foreman know about the new feature so it accepts reports by executing the action "Refresh features" 
+Let the Foreman know about the new feature so it accepts reports by executing the action "Refresh" 
 next to the Smart proxy in "Infrastructure > Smart Proxies".
 
 ### Configure the host to automatically send bug reports to the Smart Proxy

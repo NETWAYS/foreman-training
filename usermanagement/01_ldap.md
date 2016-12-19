@@ -87,7 +87,7 @@ Details on the LDAP server:
 
 ### Configure the LDAP authentication including group synchronisation
 
-Navigate to "Administer > LDAP Authentication" and press the "New LDAP Source" button. In the dialog add the following values:
+Navigate to "Administer > LDAP Authentication" and press the "New authentication source" button. In the dialog add the following values:
 
 * Name: Foreman
 * Server: foreman.localdomain

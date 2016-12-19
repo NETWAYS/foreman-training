@@ -63,5 +63,5 @@ You will find one reservation for every host created earlier.
 
 ### Inspect DHCP reservations of the subnet "foreman"
 
-Navigate to "Infrastructure > Subnets" and press the "DHCP" button next the subnet "foreman".
+Navigate to "Infrastructure > Subnets" and press the "DHCP" button next to the subnet "foreman".
 In the following DHCP Browser you will find one reservation for every host created earlier.
