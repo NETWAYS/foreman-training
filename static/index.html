@@ -153,7 +153,8 @@
 <h1>Forthcoming Hands-on Training</h1>
 
 <ul>
-<li>06.10.2016 - 07.10.2016 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>27.06.2017 - 28.06.2017 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>26.09.2017 - 27.09.2017 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
 </ul>
 
 <div id="net-footer">
@@ -2032,13 +2033,11 @@ select the Templates, set Parameter "enable-puppetlabs-repo" to "true" and chang
 
 <ul>
 <li>Change the Installation media "Debian mirror" to the local repo</li>
-<li>Create the Operating system "Debian" with Major version "8", Minor version "3", Description "Debian jessie",
-Family "Debian", Release name "jessie"</li>
+<li>Create the Operating system "Debian" with Major version "8", Description "Debian jessie", Family "Debian", Release name "jessie"</li>
 <li>Associate the PXELinux template "Preseed default PXELinux" with Debian</li>
 <li>Associate the Provision template "Preseed default" with Debian</li>
 <li>Associate the finish template "Preseed default finish" with Debian</li>
-<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM"
-and "Preseed default", Installation media "Debian mirror"</li>
+<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM" and "Preseed default", Installation media "Debian mirror"</li>
 </ul>
 </li>
 </ul>
@@ -2584,7 +2583,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences</li>
 <li>Keep the minimum requirements for RAM, CPU and Disk</li>
 <li>Name your virtual machine "discovery" and select the network "foreman"</li>
-<li>Create the virtual machine and when the PXE menu appears select "(discovery)"</li>
+<li>Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"</li>
 </ul>
 </li>
 </ul>
@@ -2614,6 +2613,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 
 <ul>
 <li>Select the newly discoverd host from the widget</li>
+<li>On the Discovered host view select the action "Provision" and then "Create Host"</li>
 <li>On the Host tab name it "discovery" and select the Environment, Puppet CA and Master</li>
 <li>On the Interface tab click edit to configure the interface add the Domain "localdomain"</li>
 <li>On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password</li>
@@ -2621,6 +2621,12 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 </ul>
 </li>
 </ul>
+
+<div class="notes">
+
+<p>Bug <a href="http://projects.theforeman.org/issues/17651">http://projects.theforeman.org/issues/17651</a> breaks this exercise, use of a Hostgroup to provide defaults can workaround this.</p>
+
+</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -4208,6 +4214,12 @@ server, your own or manual selection which crash report is forwarded.</p>
 </li>
 </ul>
 
+<div class="notes">
+
+<p>Bug <a href="http://projects.theforeman.org/issues/15714">http://projects.theforeman.org/issues/15714</a> / <a href="https://github.com/theforeman/smart_proxy_abrt/issues/8">https://github.com/theforeman/smart_proxy_abrt/issues/8</a> breaks this exercise</p>
+
+</div>
+
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
     <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
@@ -4332,8 +4344,6 @@ as part of the installation process.</p>
 
 <ul>
 <li>Cockpit runs on Port 9090 and encryption depends on the protocol used to connect</li>
-<li>If not all URLs work have a look if a pull request is pending:  <a href="https://github.com/theforeman/foreman_cockpit/pull/3">https://github.com/theforeman/foreman_cockpit/pull/3</a>
-</li>
 </ul>
 
 </div>
@@ -4402,7 +4412,7 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 
 <ul>
 <li>SSH - completed</li>
-<li>Ansible - work in progress</li>
+<li>Ansible - first release</li>
 <li>Salt - planned</li>
 <li>Mcollective - planned</li>
 </ul>
@@ -4421,7 +4431,7 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 <div class="notes">
 
 <ul>
-<li>URL for the WIP provider ansible: <a href="https://github.com/iNecas/smart_proxy_ansible">https://github.com/iNecas/smart_proxy_ansible</a>
+<li>URL for the provider ansible (first release): <a href="https://github.com/theforeman/smart_proxy_ansible">https://github.com/theforeman/smart_proxy_ansible</a>
 </li>
 </ul>
 
@@ -5166,6 +5176,7 @@ environment, so feel free to create your own plugins to solve your own administr
 <li>Steps:
 
 <ul>
+<li>Make sure to provide the correct credentials.</li>
 <li>Create the new Operatingsystem entry for "CentOS 6.8"</li>
 <li>Associate the template "Kickstart default PXELinux" and set it as default template</li>
 <li>Associate the template "Kickstart RHEL default" and set it as default template</li>
@@ -5483,6 +5494,153 @@ Foreman core developers.</p>
 </div>
 </div>
 </div>
+<div id="advanced_07_monitoring" class="slide subsectionnonum" data-transition="none">
+<div class="content subsectionnonum" ref="advanced/07_monitoring/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Monitoring</h1>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_07_monitoring" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/07_monitoring/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman &amp; Smart Proxy</h1>
+
+<ul>
+<li>
+<p>Foreman</p>
+
+<ul>
+<li>Webinterface should be available using HTTPs include "Welcome to foreman"</li>
+<li>Provisioning requires also HTTP requests being answered</li>
+<li>Foreman log should not have entries "500 Internal Server Error"</li>
+</ul>
+</li>
+<li>
+<p>Smart proxy</p>
+
+<ul>
+<li>Query the feature list for expected features</li>
+<li>Smart proxies log should not have entries "ERROR"</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>For monitoring Foreman you should include a check to verify if the Webinterface is available using HTTPs and
+if it includes the string "Welcome to foreman" as it is possible that it shows a stracktrace if something is
+goes wrong. If using monitoring plugins with Icinga or something similar you could use check_http.</p>
+
+<pre><code>check_http -H foreman.localdomain -p 443 -S -f follow -s 'Welcome to Foreman'
+</code></pre>
+
+<p>During provisioning also plain HTTP requests will be required, but you can not simulate exactly this request
+because of redirect rules directing the request to HTTPs.</p>
+
+<pre><code>check_http -H foreman.localdomain -e 301
+</code></pre>
+
+<p>Log entries containing "500 Internal Server Error" will typically indicate a software failure caused by
+something not running properly or a bug. Check_logfiles provided at <a href="http://labs.consol.de">http://labs.consol.de</a> could be used
+to monitor.</p>
+
+<pre><code>check_logfiles --logfile /var/log/foreman/production.log --rotation loglogdate8logdate8gz \
+--criticalpattern '500 Internal Server Error' --tag foreman
+</code></pre>
+
+<div class="break">continued...</div> 
+
+<p>To monitor the Smart proxy query the feature list for expected features as a feature will be deactivated if
+an error during startup occures.</p>
+
+<pre><code>check_http -H foreman.localdomain -S -p 8443 -u /features -s '["dhcp","dns","logs","puppet","puppetca","tftp"]'
+</code></pre>
+
+<p>In the log monitor for entries marked as "ERROR".</p>
+
+<pre><code>check_logfiles --logfile /var/log/foreman-proxy/proxy.log --rotation loglogdate8gz \
+--criticalpattern 'ERROR' --tag foreman-proxy
+</code></pre>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="advanced_07_monitoring" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/07_monitoring/3">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Managed Services</h1>
+
+<ul>
+<li>Puppet: Query for a catalog</li>
+<li>TFTP: Try to get a small file like pxelinux.cfg/default</li>
+<li>DNS: Query DNS for a specific combination of name and address</li>
+<li>DHCP: Try to get a DHCPOFFER from a system not being the DHCP server</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Best way to verify that Puppet is available is trying to get a catalog and check it for some
+content like the name. It will require to use the client certificate of the host for authentication.
+For Puppet 3 this could look like this.</p>
+
+<pre><code>check_http -H foreman.localdomain -S -p 8140 \ 
+-J /var/lib/puppet/ssl/certs/foreman.localdomain.pem \
+-K /var/lib/puppet/ssl/private_keys/foreman.localdomain.pem \
+-u /production/catalog/foreman.localdomain \
+-s '"name":"foreman.localdomain"'
+</code></pre>
+
+<p>To verify TFTP working fine try to get a small file like pxelinux.cfg/default (which you need to create).
+There are several plugins available like the one provided at <a href="http://william.leibzon.org/nagios/">http://william.leibzon.org/nagios/</a></p>
+
+<pre><code>check_tftp foreman.localdomain pxelinux.cfg/default
+</code></pre>
+
+<div class="break">continued...</div>
+
+<p>DNS functionality is best checked by a specific combination of name and address and could be simply included
+for every host.</p>
+
+<pre><code>check_dns -s foreman.localdomain -H foreman.localdomain -a 10.0.0.2
+</code></pre>
+
+<p>DHCP providing DHCPOFFERS can only be verifed from systems not being the DHCP server and should ask a specific
+DHCP server to ensure answers are not provided from another system.</p>
+
+<pre><code>check_dhcp -s 10.0.0.2 -r 10.0.0.102 -u
+</code></pre>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
 <div id="katello_01_overview" class="slide subsection" data-transition="none">
 <div class="content subsection" ref="katello/01_overview/1">
 <div id="net-header">
@@ -5512,6 +5670,7 @@ Foreman core developers.</p>
 <li>YUM repositories (RPM + Errata)</li>
 <li>Puppet modules</li>
 <li>Docker container</li>
+<li>OSTree branches</li>
 </ul>
 </li>
 <li>Subscription Management
@@ -5521,7 +5680,7 @@ Foreman core developers.</p>
 <li>Track internal use</li>
 </ul>
 </li>
-<li>Provides its own installer</li>
+<li>Defined scenario for Foreman Installer</li>
 <li>Multitenancy is enabled by default</li>
 <li>Upstream project for Red Hat Network Satellite 6</li>
 </ul>
