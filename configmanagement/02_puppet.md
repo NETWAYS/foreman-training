@@ -85,7 +85,7 @@ Image copyright by Puppetlabs.
 ****
 
 Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled 
-using the Smart proxy from Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
+using the Smart proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
 The Smart Proxy Puppet CA integrates certificate handling into provisioning so auto signing of the agents certificate requests during build
 is allowed and also allows to manage the complete CA in the WebGUI.
 
@@ -123,7 +123,7 @@ for an not already existing system. Also Puppet is integrated as a reporting tar
 
 ****
 
-* Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppet/environments/production" on foreman.localdomain
+* Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppetlabs/code/environments/production" on foreman.localdomain
 * Import the Puppet classes in Foreman using "Configure > Classes"
 
 #### Optional:
@@ -136,18 +136,18 @@ for an not already existing system. Also Puppet is integrated as a reporting tar
 
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Proposed Solution
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Import of Puppet classes
 
 ****
 
-## Import of Puppet classes
+## Make Puppet code available to Puppet and Foreman
 
 ****
 
-### Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppet/environments/production" on foreman.localdomain
+### Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppetlabs/code/environments/production" on foreman.localdomain
 
      # scp -r host.localdomain:/home/training/puppetmodules.tar.gz /tmp
-     # cd /etc/puppet/environments/production
+     # cd /etc/puppetlabs/code/environments/production
      # tar xvzf /tmp/puppetmodules.tar.gz
 
 ### Import the Puppet classes in Foreman using "Configure > Classes"
@@ -246,7 +246,7 @@ from unprivileged users.
 
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Proposed Solution
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Parameterize and assign Puppet classes
 
 ****
 
@@ -297,7 +297,7 @@ to save your changes.
 
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Proposed Solution
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Trigger Puppet agent run and inspect the report
 
 ****
 
@@ -322,6 +322,23 @@ meta data are visualized.
 
 Other entry points to the reports are the dashboard showing the last reports with any events in "Latest Events" and the
 Reports overview which filters by default only on the eventful reports.
+
+
+!SLIDE smbullets small
+# Config Groups
+
+* Allows to group classes
+* Assign like single classes
+
+~~~SECTION:handouts~~~
+
+****
+
+Config Groups allow to group classes and assign them in the same way you would use single classes.
+This follows the same ideas like the very popular Roles-Profiles-Pattern used in Puppet to simplify
+assignment via another layer of abstraction.
+
+~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small
@@ -414,25 +431,5 @@ a result hash including an array of hashes describing the hosts.
 The hash is best used with a defined resource and create_resource function or within a template.
 
 Next release of the function will also allow to provide a filter for reducing the data for easier handling.
-
-~~~ENDSECTION~~~
-
-
-!SLIDE smbullets small
-# Replace Puppet's default lookup
-
-* Puppet uses Hiera as default lookup for parameters
-* Can be replaced with Foreman
-* Requires two plugins
- * Param lookup - Exposes parameters via API
- * Data binding - Replaces Puppet's lookup
-
-~~~SECTION:handouts~~~
-
-****
-
-You can replace Puppet's default lookup with Foreman by installing Param lookup and Data binding plugin. This allows to
-use the Roles-Profiles-Pattern or similar concepts which do not directly assign classes and still use Foreman to configure
-parameters.
 
 ~~~ENDSECTION~~~

@@ -42,11 +42,11 @@
 
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Proposed Solution
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add unprivileged users
 
 ****
 
-## Add unprivileged users
+## Grant access and privileges for some unprivileged users
 
 ****
 
@@ -57,7 +57,7 @@ This will create the account and you can assign the role "Viewer" to it in "Admi
 
 ### Create a role "Selfservice" to allow creation of new hosts and management of own hosts
 
-Navigate to "Administer > Roles" and press "New role", name it "Selfservice" and save it by clicking "Submit".
+Navigate to "Administer > Roles" and press "Create role", name it "Selfservice" and save it by clicking "Submit".
 Afterwards you can add filters to the role.
 
 Resource         | Permissions                                                       | Unlimited | Search
@@ -67,7 +67,7 @@ Host             | edit_hosts, power_hosts, console_hosts, view_hosts, destroy_h
 Compute Resource | view_compute_resources, create_compute_resources_vms              |     X     | none
 Architecture     | view_architectures                                                |     X     | none
 Operatingsystem  | view_operatingsystems                                             |     X     | none
-Partition Table  | view_ptables                                                      |     X     | none
+Ptable           | view_ptables                                                      |     X     | none
 Medium           | view_media                                                        |     X     | none
 Subnet           | view_subnets                                                      |     X     | none
 Domain           | view_domains                                                      |     X     | none

@@ -29,7 +29,8 @@ the "National Institute of Standards and Technology" (NIST).
 Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
 as part of the installation process.
 
-With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"!
+With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"! With Foreman 1.15 the Plugin was
+enhanced to support tailoring files.
 
 More details on: https://github.com/theforeman/foreman_openscap
 
@@ -47,6 +48,14 @@ More details on: https://github.com/theforeman/foreman_openscap
  * Initiate a Puppet agent run on the host
  * Create a report on the host and upload it to the Smart proxy
  * Upload the report from the Smart proxy to the Foreman
+* Optional:
+ * Customize the Policy with a tailor file
+
+~~~SECTION:notes~~~
+
+Guide generation is broken: http://projects.theforeman.org/issues/20222
+
+~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: OpenSCAP
@@ -67,6 +76,12 @@ More details on: https://github.com/theforeman/foreman_openscap
 * Initiate a Puppet agent run on the host
 * Create a report on the host and upload it to the Smart proxy
 * Upload the report from the Smart proxy to the Foreman
+
+## Optional:
+
+****
+
+* Customize the Policy with a tailor file created with SCAP workbench
 
 #### Expected result:
 
@@ -102,7 +117,7 @@ Content files are provided by the package "scap-security-guide" and located in "
 The Foreman plugin requires the datastream files which have "ds" in their name. You can upload them via
 "Hosts > SCAP content" and name it "Centos-7".
 
-Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Compliance Policy".
+Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Policy".
 Name it "Centos-7-Common", choose SCAP Content "Centos-7" and XCCDF Profile "Common Profile for General-Purpose System",
 schedule it "Weekly" on "Sunday" and assign it to Hostgroup "SCAP".
 
@@ -134,3 +149,11 @@ immediately.
 
 Now you should find a status in the WebGUI in the Host details and the report at "Hosts > Reports".
 Navigate to that report and then press the "Report at" column to inspect it.
+
+### Customize the Policy with a tailor file created with SCAP workbench
+
+Open SCAP workbench on your laptop, choose the CentOS7 content and select the Common Profile. Press Customize and name
+the Profile. In the new dialog select or unselect checks and click OK. Afterwards save the tailor file via "File > Save Customization Only".
+Upload this file to Foreman in the "Hosts > Tailoring Files" dialog and then edit the policy and rerun the Puppet agent and
+Upload of the report.
+

@@ -9,7 +9,7 @@
  * DHCP - ISC DHCP, MS DHCP Servers, Libvirt
  * DNS - Bind, PowerDNS, Route53, MS DNS Server, Libvirt
  * BMC - IPMI
- * Puppet & Puppet CA / Salt / Chef
+ * Puppet & Puppet CA / Salt / Chef / Ansible
  * Realm - FreeIPA
  * TFTP 
 
@@ -57,7 +57,7 @@ Directory focused on Linux) is supported.
 
 * Libvirt:
  * not for productive use
- * uses virsh to manage dnsmasq for libvirt
+ * uses libvirt API to manage dnsmasq for libvirt
 
 ~~~SECTION:notes~~~
 
@@ -78,7 +78,7 @@ On Linux typically a ISC compatible implementation is used to manage DHCP which 
 via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server system is required which
 needs netsh command installed and the user running the service needs administrative privileges, but the
 server does not need to be the DHCP server. For testing enviroments also an implementation for Libvirt
-using virsh to manage the dnsmasq underneath is available, a productive use is not recommended.
+using libvirt API to manage the dnsmasq underneath is available, a productive use is not recommended.
 
 ~~~ENDSECTION~~~
 
@@ -105,12 +105,12 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 
 * Libvirt:
  * not for productive use
- * uses virsh to manage dnsmasq for libvirt
+ * uses libvirt API to manage dnsmasq for libvirt
 
 ~~~SECTION:notes~~~
 
 * Foreman does support IPv6 from 1.12 onwards
-* No support for additional records like CNAME
+* No support for additional records like CNAME (Support in Smart Proxy exists, GUI WIP)
 
 ~~~ENDSECTION~~~
 

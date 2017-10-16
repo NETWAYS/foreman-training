@@ -46,6 +46,7 @@ a setup using installation media instead of PXE.
 Some basic explainations will give you enough knowledge to understand how Puppet works and to use it to configure newly provisioned
 systems to your needs. Some existing Puppet modules will be imported, parameterized and assigned to the systems directly or
 via a host group. Configuration runs will be reported back to Foreman so the administrator can see success and failure.
+Furthermore similar exercises are provided for Ansible.
 
 ~~~PAGEBREAK~~~
 

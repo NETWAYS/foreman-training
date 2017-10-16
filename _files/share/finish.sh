@@ -1,6 +1,7 @@
 echo "foreman.localdomain" > /etc/hostname
 echo "10.0.0.1 host.localdomain host" >> /etc/hosts
 echo "10.0.0.2 foreman.localdomain foreman" >> /etc/hosts
+echo "10.0.0.3 monitoring.localdomain monitoring" >> /etc/hosts
 
 yum install -y openldap-servers openldap-clients
 
@@ -77,3 +78,5 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
 ldapadd -x -D "cn=admin,dc=localdomain" -w netways -f domain.ldif
 ldapadd -x -D "cn=admin,dc=localdomain" -w netways -f users.ldif
 
+systemctl disable firewalld
+systemctl stop firewalld

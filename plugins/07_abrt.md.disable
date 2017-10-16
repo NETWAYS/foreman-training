@@ -123,7 +123,7 @@ Edit the Configuration file "/etc/libreport/plugins/ureport.conf" to include the
 
 Add the Puppet CA as trusted CA.
 
-    # cp /var/lib/puppet/ssl/certs/ca.pem /etc/pki/ca-trust/source/anchors/
+    # cp /etc/puppetlabs/puppet/ssl/certs/ca.pem /etc/pki/ca-trust/source/anchors/
     # update-ca-trust
 
 Restart the ABRT services

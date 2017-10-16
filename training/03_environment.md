@@ -35,6 +35,9 @@ The virtual machine is named "foreman.localdomain" and allows login via SSH with
 and password "netways". Foreman will be installed on it including DNS and DHCP service. 
 This system also runs a LDAP service which will be required for some exercises.
 
+A second virtual machine is named "monitoring.localdomain" and allows login via SSH with user "root"
+and password "netways". Icinga 2, Icinga Web 2 and the Director are already prepared on it for the exercises.
+
 Additional VMs will be deployed in the address range of "10.0.0.100" to "10.0.0.200" using
 the repositories hosted by the trainer. He will give you information about the address to connect.
 Please do _not_ use the upstream repositories, it will slow down the performance!

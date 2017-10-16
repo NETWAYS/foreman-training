@@ -77,35 +77,39 @@ Details on the LDAP server:
 
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Proposed Solution
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: LDAP Authentication
 
 ****
 
-## LDAP Authentication
+## Allow the administrative accounts from the LDAP to work as Foreman admins
 
 ****
 
 ### Configure the LDAP authentication including group synchronisation
 
-Navigate to "Administer > LDAP Authentication" and press the "New authentication source" button. In the dialog add the following values:
+Navigate to "Administer > LDAP Authentication" and press the "Create Authentication Source" button. In the dialog add the following values:
 
-* Name: Foreman
-* Server: foreman.localdomain
-* LDAPS: *unchecked*
-* Port: 389
-* Server Type: POSIX
-* Account username: *keep empty*
-* Account password: *keep empty*
-* Base DN: dc=localdomain
-* Groups base DN: ou=groups,dc=localdomain
-* LDAP filter: *keep empty*
-* Automatically create account in Foreman: *checked*
-* Usergroup sync: *checked*
-* Login name attribute: uid
-* Firt name attribute: givenName
-* Surname attribute: sn
-* Email address attribute: mail
-* Photo attribute: jpegPhoto
+* LDAP Server
+ * Name: Foreman
+ * Server: foreman.localdomain
+ * LDAPS: *unchecked*
+ * Port: 389
+ * Server Type: POSIX
+* Account
+ * Account username: *keep empty*
+ * Account password: *keep empty*
+ * Base DN: dc=localdomain
+ * Groups base DN: ou=groups,dc=localdomain
+ * Use netgroups: *unchecked*
+ * LDAP filter: *keep empty*
+ * Onthefly register: *checked*
+ * Usergroup sync: *checked*
+* Attribute mappings
+ * Login name attribute: uid
+ * Firt name attribute: givenName
+ * Surname attribute: sn
+ * Email address attribute: mail
+ * Photo attribute: jpegPhoto
 
 Press "Submit" to store the configuration.
 
@@ -113,11 +117,15 @@ Press "Submit" to store the configuration.
 
 ### Add a administrative group to grant the administrative accounts from the LDAP privileges
 
-Navigate to "Administer > User groups" and open the group dialog by pressing "New User group" and insert the values.
+Navigate to "Administer > User groups" and open the group dialog by pressing "Create User group" and insert the values.
 
-* Name: admins
-* Admin: *checked*
-* Roles: *non selected*
+* User Group
+ * Name: admins
+ * User Groups: *empty*
+ * Users: *empty*
+* Roles:
+ * Admin: *checked*
+ * Roles: *non selected*
 * External groups:
  * Name: admins
  * Auth source: LDAP-Foreman

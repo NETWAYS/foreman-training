@@ -90,11 +90,16 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
  * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
+ * Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your virtual machine "discovery" and select the network "foreman"
  * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
+~~~SECTION:notes~~~
+
+Bug http://projects.theforeman.org/issues/21239 breaks this exercise, use of a Hostgroup to provide defaults can workaround this.
+
+~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Create a virtual machine "discovery"
@@ -112,7 +117,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
 * Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
+* Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your virtual machine "discovery" and select the network "foreman"
 * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
@@ -141,10 +146,10 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 In the first step of the wizard select the network boot
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
+### Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.2"
-for CentOS or "Debian jessie" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
+In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.4"
+for CentOS or "Debian stretch" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
 
 ### Keep the minimum requirements for RAM, CPU and Disk
 
@@ -168,18 +173,13 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 * Objective:
  * Configure the system "discovery" in Foreman and start installation
 * Steps:
- * Select the newly discoverd host from the widget
+ * Select the newly discovered host from the widget
  * On the Discovered host view select the action "Provision" and then "Create Host"
  * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
  * On the Interface tab click edit to configure the interface add the Domain "localdomain"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
  * Submit to start the installation
 
-~~~SECTION:notes~~~
-
-Bug http://projects.theforeman.org/issues/17651 breaks this exercise, use of a Hostgroup to provide defaults can workaround this.
-
-~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure the system "discovery" in Foreman
@@ -194,7 +194,7 @@ Bug http://projects.theforeman.org/issues/17651 breaks this exercise, use of a H
 
 ****
 
-* Select the newly discoverd host form the widget
+* Select the newly discovered host form the widget
 * On the Discovered host view select the action "Provision" and then "Create Host"
 * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
 * On the Interface tab click edit to configure the interface add the Domain "localdomain"
@@ -211,7 +211,7 @@ Bug http://projects.theforeman.org/issues/17651 breaks this exercise, use of a H
 
 ****
 
-### Select the newly discoverd host from the widget
+### Select the newly discovered host from the widget
 
 ### On the Discovered host view select the action "Provision" and then "Create Host"
 

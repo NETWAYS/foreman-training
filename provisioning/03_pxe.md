@@ -56,7 +56,7 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
  * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
+ * Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your VM "pxe" and select the network "foreman"
  * Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created
@@ -65,6 +65,7 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
 
 * If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later
+* CentOS will require 1.5 GB at least
 
 ~~~ENDSECTION~~~
 
@@ -84,7 +85,7 @@ and start it up again later
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
 * Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
+* Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your VM "pxe" and select the network "foreman"
 * Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created
@@ -109,14 +110,15 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 In the first step of the wizard select the network boot
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences
+### Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.2"
-for CentOS or "Debian jessie" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
+In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.4"
+for CentOS or "Debian stretch" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
 
 ### Keep the minimum requirements for RAM, CPU and Disk
 
 In the third step stick with the minimum requirements for RAM and CPU because several system will be deployed.
+CentOS installer will require at least 1.5 GB instead of the default.
 In the forth step keep the disk as small as possible but it will not matter as long as it is thin provisioned.
 
 ### Name your virtual machine "pxe" and select the network "foreman"
@@ -140,8 +142,8 @@ Verbesserung: (This Change needs a shutdown of the VM, it applys only to the VM 
 * Steps:
  * Open Foreman's host dialog using "Host > New Host"
  * On the Host tab name it "pxe" and select the Environment, Puppet CA and Master
- * On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
+ * On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.
  * Unpause the VM
 
 ~~~SECTION:handouts~~~
@@ -176,9 +178,9 @@ in the Provisioning tab as Root password. This is an MD5 hash for being supporte
 
 * Open Foreman's host dialog using "Host > New Host"
 * On the Host tab name it "pxe" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
-* On the Interface tab click edit to configure the interface with the MAC address of the system created before, identifier "eth0", select Domain
 "localdomain" and Subnet "foreman" and keep the suggested IP address
 * On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier
+* On the Interface tab click edit to configure the interface with the MAC address of the system created before, identifier "eth0", select Domain
 and set a Root password of your choice
 * Unpause the virtual machine
 
@@ -196,15 +198,15 @@ and set a Root password of your choice
 
 ### On the Host tab name it "pxe" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
 
+### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
+
+Use "foreman1" if you have no preference for the root password.
+
 ### On the Interface tab click edit to configure the interface with the MAC address of the system created before, identifier "eth0", select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
 
 On the Interface tab click edit to configure the interface with the MAC address of the system created before (which could be found on the Details
 view on the NIC or if paused in the console), identifier "eth0", select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
 which will be the first one free in the range of the subnet.
-
-### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
-
-Use "foreman1" if you have no preference for the root password.
 
 ### Unpause the virtual machine
 

@@ -4,7 +4,7 @@
 * Objective:
  * Prepare the installation of Foreman
 * Steps:
- * Make Puppetlabs repository available
+ * Make Puppet vendor repository for Puppet 5 available
  * Make EPEL repository available
  * Make Foreman repository available
  * Install foreman-installer
@@ -23,12 +23,12 @@
 
 ****
 
-* Make Puppetlabs repository available
+* Make Puppet vendor repository available
 
-Install the release package provided by the Puppetlabs repository to make it available for package
-installation of open source version of Puppet.
+Install the release package provided by the Puppet vendor repository to make it available for package
+installation of open source version of Puppet. We will use Puppet 5.
 
-URL: http://yum.puppetlabs.com
+URL: http://yum.puppet.com/puppet5
 
 * Make EPEL repository available
 
@@ -69,19 +69,12 @@ The Foreman installer is installed and "foreman-installer --help" could be run f
 
 ****
 
-### Make Puppetlabs repository available
+### Make Puppet vendor repository available
 
-Install the release package provided by the Puppetlabs repository to make it available for package
+Install the release package provided by the Puppet vendor repository to make it available for package
 installation of open source version of Puppet.
 
-    # yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm -y
-
-In the training we will stick with Puppet 3 and the Puppet Master because it does require much less
-initial resources allowing us to run more virtual machines in parallel. If you really want to run
-Puppet 4, increase the memory of the virtual machine at least to 3 GB and install the Puppet Collection
-repository.
-
-    # yum install http://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm -y
+    # yum install https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm -y
 
 ### Make EPEL repository available
 
@@ -279,6 +272,7 @@ Press 'Submit' to store the configuration.
  * Login to Foreman
  * Navigate to 'Infrastructure > Smart proxies'
  * Add the subnet 'foreman' by importing from the Smart Proxy 
+ * Adjust additional settings via 'Infrastructure > Subnets'
 
 ~~~SECTION:notes~~~
 
@@ -303,6 +297,7 @@ Press 'Submit' to store the configuration.
 * Login to Foreman
 * Navigate to 'Infrastructure > Smart proxies'
 * Add the subnet 'foreman' by importing from the Smart Proxy
+* Adjust additional settings via 'Infrastructure > Subnets'
 
 #### Notes:
 
@@ -328,18 +323,27 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 
 Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'foreman.localdomain' and in the dialog insert:
 
+* Name: 'foreman'
+* Protocol: IPv4
+* Network address: '10.0.0.0' 
+* Network mask: '255.255.0.0' 
+* Network prefix: '16' 
+* Gateway address: '10.0.0.1' 
+* Primary DNS server: '10.0.0.2' 
+* Secondary DNS server: keep empty
+* IPAM: 'DHCP'
+* VLAN ID: keep empty
+* Boot mode: 'DHCP'
+
+Press 'Submit' to store the configuration.
+
+### Adjust additional settings via 'Infrastructure > Subnets'
+
+Afterwards we have to return to the configuration via 'Infrastructure > Subnets' to add the IP range:
+
 * Subnet tab:
- * Name: 'foreman'
- * Protocol: IPv4
- * Network address: '10.0.0.0' 
- * Network mask: '255.255.0.0' 
- * Network prefix: '16' 
- * Gateway address: '10.0.0.1' 
- * Primary DNS server: '10.0.0.2' 
- * Secondary DNS server: keep empty
- * IPAM: 'DHCP'
- * VLAN ID: keep empty
- * Boot mode: 'DHCP'
+ * Start of IP range: '10.0.0.100'
+ * End of IP range: '10.0.0.200'
 
 * Domain tab:
  * Select 'localdomain'
@@ -348,13 +352,5 @@ Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'fo
  * DHCP Proxy: 'foreman.localdomain'
  * TFTP Proxy: 'foreman.localdomain'
  * DNS Proxy: 'foreman.localdomain'
-
-Press 'Submit' to store the configuration.
-
-Afterwards we have to return to the configuration to add the IP range:
-
-* Subnet tab:
- * Start of IP range: '10.0.0.100'
- * End of IP range: '10.0.0.200'
 
 Press 'Submit' to store the configuration with this change.

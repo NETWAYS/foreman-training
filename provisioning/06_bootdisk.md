@@ -7,6 +7,7 @@
  * Generic image
  * Subnet image
 * Based on iPXE for environments without control over network
+* Adds disk based provisioning to Compute resources
 
 ~~~SECTION:handouts~~~
 
@@ -28,6 +29,8 @@ The generic image boots from a dynamic IP address of the DHCP pool and is identi
 providing the correct installer via TFTP and Provisioning configuration to load.
 
 The subnet image is basicly the same as the generic image but uses another TFTP server specified for the subnet.
+
+Depending on the Compute resource used the plugin adds disk based provisioning.
 
 ~~~ENDSECTION~~~
 

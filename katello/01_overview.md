@@ -16,6 +16,12 @@
 * Multitenancy is enabled by default
 * Upstream project for Red Hat Network Satellite 6
 
+~~~SECTION:notes~~~
+
+Debian Support is WIP: https://github.com/Katello/katello/pull/6877
+
+~~~ENDSECTION~~~
+
 <div style="text-align:right">
 <img src="./_images/katello-logo.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo"/>
 </div>

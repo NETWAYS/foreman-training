@@ -1,4 +1,23 @@
 !SLIDE smbullets small
+# Internal Notifications
+
+* Notification for own actions
+* New feature since 1.15
+* Used by Foreman and many plugins
+
+<div style="text-align:right">
+<img src="./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Notification"/>
+</div>
+
+~~~SECTION:handouts~~~
+
+****
+
+Foreman provides a new notification feature to notify about your own actions since 1.15 which is already used by Foreman and
+many plugins. This allows to keep track of actions run independently.
+
+~~~ENDSECTION~~~
+!SLIDE smbullets small
 # Email Notifications
 
 * General configuration via Foreman Installer or configuration file 

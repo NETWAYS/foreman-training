@@ -14,6 +14,7 @@
  * Authenticate a Smart proxy
  * Add to the database
  * Create their own logging
+ * Create their own notification
 
 * Extend Smart Proxy
  * Additional providers for existing services

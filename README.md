@@ -18,9 +18,9 @@ In addition to the sources you can find the rendered material on
 [netways.github.io](https://netways.github.io/foreman-training)
 
 * [Presentation](https://netways.github.io/foreman-training)
-* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.2/foreman-training-handouts.pdf)
-* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.2/foreman-training-exercises.pdf)
-* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.2/foreman-training-solutions.pdf)
+* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.3/foreman-training-handouts.pdf)
+* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.3/foreman-training-exercises.pdf)
+* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.3/foreman-training-solutions.pdf)
 
 ## Provide your own training
 

@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "https://download.gluster.org/pub/gluster/purpleidea/vagrant/centos-7.1/centos-7.1.box"
+  config.vm.box = "centos/7"
   config.vm.hostname = "mirror"
   config.vm.synced_folder ".", "/vagrant", type: "rsync"
 
@@ -68,19 +68,17 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sleep 10
-    sudo yum -y install rsync httpd
+    sudo yum -y install rsync httpd wget
     sudo systemctl enable httpd.service
     sudo systemctl start httpd.service
     # CentOS 7
-    sudo mkdir -p /var/www/html/centos/7.2.1511/os/
-    sudo ln -s /var/www/html/centos/7.2.1511 /var/www/html/centos/7
-    sudo rsync  -avSHP --delete --exclude "local*" --exclude "isos" mirror.eu.oneandone.net::centos/7.2.1511/os/ /var/www/html/centos/7.2.1511/os/
+    sudo mkdir -p /var/www/html/centos/7.4.1708/os/
+    sudo ln -s /var/www/html/centos/7.4.1708 /var/www/html/centos/7
+    sudo rsync  -avSHP --delete --exclude "local*" --exclude "isos" mirror.eu.oneandone.net::centos/7.4.1708/os/ /var/www/html/centos/7.4.1708/os/
     sudo mkdir -p /var/www/html/epel/7/x86_64/
     sudo rsync -vaH --exclude="debug*" --numeric-ids --delete --delete-after --delay-updates rsync://rsync.hrz.tu-chemnitz.de/fedora-epel/7/x86_64/ /var/www/html/epel/7/x86_64/
-    sudo mkdir -p /var/www/html/puppetlabs/el/7/dependencies/x86_64/
-    sudo rsync -av --copy-links --del rsync://yum.puppetlabs.com/packages/yum/el/7/dependencies/x86_64/ /var/www/html/puppetlabs/el/7/dependencies/x86_64/
-    sudo mkdir -p /var/www/html/puppetlabs/el/7/products/x86_64/
-    sudo rsync -av --copy-links --del rsync://yum.puppetlabs.com/packages/yum/el/7/products/x86_64/ /var/www/html/puppetlabs/el/7/products/x86_64/
+    sudo mkdir -p /var/www/html/puppet5/el/7/x86_64/
+    sudo rsync -av --copy-links --del rsync://yum.puppet.com/packages/yum/puppet5/el/7/x86_64/ /var/www/html/puppet5/el/7/x86_64/
     sudo mkdir -p /var/www/html/foreman/releases/latest/el7/x86_64/
     sudo rsync -av --copy-links --del rsync://yum.theforeman.org/yum/releases/latest/el7/x86_64/ /var/www/html/foreman/releases/latest/el7/x86_64/
     sudo mkdir -p /var/www/html/foreman/plugins/latest/el7/x86_64/

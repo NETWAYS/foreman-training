@@ -128,13 +128,13 @@
 
 <p>Provided by: </p>
 
-<p><img src="./file/global/Pre/Training/../../_images/netways-logo-1366.png" width="3045" height="589" style="max-width:400px; max-height: 200px; width: auto; height: auto; margin-left: 50px" alt="NETWAYS Logo"></p>
+<p><img src="./file/global/Pre/Training/../../_images/netways-logo-1366.png" style="max-width:400px; max-height: 200px; width: auto; height: auto; margin-left: 50px" alt="NETWAYS Logo"></p>
 
 <p><a href="https://www.netways.de">www.netways.de</a> - <a href="https://github.com/NETWAYS">github.com/NETWAYS</a> - <a href="https://twitter.com/netways">@netways</a></p>
 
 <p>To Support:</p>
 
-<p><img src="./file/global/Pre/Training/../../_images/foreman/foremanhelmet.png" width="213" height="182" style="max-width:400px; max-height: 150px; width: auto; height: auto; margin-left: 50px" alt="Foreman Logo"></p>
+<p><img src="./file/global/Pre/Training/../../_images/foreman/foremanhelmet.png" style="max-width:400px; max-height: 150px; width: auto; height: auto; margin-left: 50px" alt="Foreman Logo"></p>
 
 <p><a href="https://www.theforeman.org">www.theforeman.org</a> - <a href="https://github.com/theforeman">github.com/theforeman</a> - <a href="https://twitter.com/ForemanProject">@ForemanProject</a></p>
 
@@ -153,8 +153,9 @@
 <h1>Forthcoming Hands-on Training</h1>
 
 <ul>
-<li>27.06.2017 - 28.06.2017 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
-<li>26.09.2017 - 27.09.2017 <a href="https://www.netways.de/events_schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>06.03.2018 - 07.03.2018 <a href="https://www.netways.de/schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>03.07.2018 - 04.07.2018 <a href="https://www.netways.de/schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>20.11.2018 - 21.11.2018 <a href="https://www.netways.de/schulungen/foreman/">NETWAYS</a> (German)</li>
 </ul>
 
 <div id="net-footer">
@@ -244,7 +245,8 @@ a setup using installation media instead of PXE.</p>
 
 <p>Some basic explainations will give you enough knowledge to understand how Puppet works and to use it to configure newly provisioned
 systems to your needs. Some existing Puppet modules will be imported, parameterized and assigned to the systems directly or
-via a host group. Configuration runs will be reported back to Foreman so the administrator can see success and failure.</p>
+via a host group. Configuration runs will be reported back to Foreman so the administrator can see success and failure.
+Furthermore similar exercises are provided for Ansible.</p>
 
 <div class="break">continued...</div>
 
@@ -290,15 +292,15 @@ for Red Hat Satellite 6.</p>
 </div>
 </div>
 </div>
-<div id="training_03_enviroment" class="slide smbullets small noprint" data-transition="none">
-<div class="content smbullets small noprint" ref="training/03_enviroment/1">
+<div id="training_03_environment" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="training/03_environment/1">
 <div id="net-header">
     <div class="logo"></div>
 </div>
 
 <h1>Training Environment</h1>
 
-<div style="text-align: center"><img src="./file/training/./_images/environment.png" width="892" height="481" style="float: center; margin-left: 50px; width: 794px; height: 428px;" alt="Training Environment"></div>
+<div style="text-align: center"><img src="./file/training/./_images/environment.png" style="float: center; margin-left: 50px; width: 794px; height: 428px;" alt="Training Environment"></div>
 
 <div class="notes">
 
@@ -402,7 +404,7 @@ help the community and consists of more than 200 contributors.</p>
 
 <h1>Architecture</h1>
 
-<p><img src="./file/architecture/./_images/foreman_architecture.png" width="1188" height="717" style="float: center; margin-left: 50px; width: 772px; height: 466px;" alt="Foreman - Architecture"></p>
+<p><img src="./file/architecture/./_images/foreman_architecture.png" style="float: center; margin-left: 50px; width: 772px; height: 466px;" alt="Foreman - Architecture"></p>
 
 <div class="notes">
 
@@ -448,7 +450,7 @@ help the community and consists of more than 200 contributors.</p>
 </ul>
 
 <div style="text-align:right">
-<img src="./file/architecture/./_images/foreman_loginscreen.png" width="1795" height="785" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Foreman Loginscreen">
+<img src="./file/architecture/./_images/foreman_loginscreen.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Foreman Loginscreen">
 </div>
 
 <div class="notes">
@@ -517,7 +519,7 @@ SQLite is not recommended for productive usage.</p>
 <li>DHCP - ISC DHCP, MS DHCP Servers, Libvirt</li>
 <li>DNS - Bind, PowerDNS, Route53, MS DNS Server, Libvirt</li>
 <li>BMC - IPMI</li>
-<li>Puppet &amp; Puppet CA / Salt / Chef</li>
+<li>Puppet &amp; Puppet CA / Salt / Chef / Ansible</li>
 <li>Realm - FreeIPA</li>
 <li>TFTP </li>
 </ul>
@@ -592,7 +594,7 @@ Directory focused on Linux) is supported.</p>
 
 <ul>
 <li>not for productive use</li>
-<li>uses virsh to manage dnsmasq for libvirt</li>
+<li>uses libvirt API to manage dnsmasq for libvirt</li>
 </ul>
 </li>
 </ul>
@@ -618,7 +620,7 @@ import them to foreman.</p>
 via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server system is required which
 needs netsh command installed and the user running the service needs administrative privileges, but the
 server does not need to be the DHCP server. For testing enviroments also an implementation for Libvirt
-using virsh to manage the dnsmasq underneath is available, a productive use is not recommended.</p>
+using libvirt API to manage the dnsmasq underneath is available, a productive use is not recommended.</p>
 
 </div>
 
@@ -675,7 +677,7 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 
 <ul>
 <li>not for productive use</li>
-<li>uses virsh to manage dnsmasq for libvirt</li>
+<li>uses libvirt API to manage dnsmasq for libvirt</li>
 </ul>
 </li>
 </ul>
@@ -684,7 +686,7 @@ using virsh to manage the dnsmasq underneath is available, a productive use is n
 
 <ul>
 <li>Foreman does support IPv6 from 1.12 onwards</li>
-<li>No support for additional records like CNAME</li>
+<li>No support for additional records like CNAME (Support in Smart Proxy exists, GUI WIP)</li>
 </ul>
 
 </div>
@@ -945,7 +947,7 @@ additional providers like OpenNebula are community contributed.</p>
 <h1>Requirements - Operating System</h1>
 
 <ul>
-<li>Red Hat Enterprise Linux 6 &amp; 7
+<li>Red Hat Enterprise Linux 7
 
 <ul>
 <li>EPEL repository</li>
@@ -953,7 +955,7 @@ additional providers like OpenNebula are community contributed.</p>
 <li>optionally: Puppetlabs Repository</li>
 </ul>
 </li>
-<li>CentOS, Scientific Linux, Oracle Linux 6 &amp; 7
+<li>CentOS, Scientific Linux, Oracle Linux 7
 
 <ul>
 <li>EPEL repository</li>
@@ -985,9 +987,6 @@ additional providers like OpenNebula are community contributed.</p>
 <p>On the mentioned operating systems packages are provided by the project, a installation from source
 is not recommended. On all platforms all updates should be applied before installation. Using the
 Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p>
-
-<p>Please note that support for Foreman on Red Hat Enterprise Linux 6 and all its derivates is deprecated
-and upgrading to 7 is recommended.</p>
 
 </div>
 
@@ -1076,12 +1075,19 @@ and upgrading to 7 is recommended.</p>
 <td>Supported</td>
 <td>Supported</td>
 </tr>
+<tr>
+<td>5.x</td>
+<td>1.16 or higher</td>
+<td>1.16 or higher</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
 </tbody>
 </table>
 
 <ul>
 <li>Puppet Enterprise is not supported</li>
-<li>All-in-one and FHS packaging model are both supported for Puppet 4</li>
+<li>All-in-one and FHS packaging model are both supported for Puppet 4 and 5</li>
 <li>Puppet Master and Puppet Server are both supported</li>
 <li>Facter 1.x is supported, 2.x requires Foreman &gt;= 1.4.2</li>
 <li>Structured Facts are supported with Foreman &gt;= 1.12</li>
@@ -1297,7 +1303,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Default setup on unparameterized run</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/installation/./_images/installation_all-in-one.png" width="680" height="377" style="float: center; margin-left: 50px; width: 680px; height: 377px;" alt="Installation All-in-one"></div>
+<div style="text-align:center"><img src="./file/installation/./_images/installation_all-in-one.png" style="float: center; margin-left: 50px; width: 680px; height: 377px;" alt="Installation All-in-one"></div>
 
 <ul>
 <li>Expandable with additional plugins and Smart proxies</li>
@@ -1332,7 +1338,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Run installer with parameters to disable Foreman on additional Puppet Masters</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/installation/./_images/installation_additional-masters.png" width="684" height="480" style="float: center; margin-left: 50px; width: 616px; height: 432px;" alt="Installation Additional Puppet Masters"></div>
+<div style="text-align:center"><img src="./file/installation/./_images/installation_additional-masters.png" style="float: center; margin-left: 50px; width: 616px; height: 432px;" alt="Installation Additional Puppet Masters"></div>
 
 <div class="notes">
 
@@ -1362,7 +1368,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Run installer with parameters to disable Foreman on separate Puppet Masters</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/installation/./_images/installation_separate-masters.png" width="684" height="510" style="float: center; margin-left: 50px; width: 616px; height: 459px;" alt="Installation Separate Puppet Masters"></div>
+<div style="text-align:center"><img src="./file/installation/./_images/installation_separate-masters.png" style="float: center; margin-left: 50px; width: 616px; height: 459px;" alt="Installation Separate Puppet Masters"></div>
 
 <div class="notes">
 
@@ -1390,7 +1396,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Foreman installer helps to setup Smart Proxies</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/installation/./_images/installation_smart-proxies.png" width="964" height="377" style="float: center; margin-left: 50px; width: 771px; height: 301px;" alt="Installation Smart proxies"></div>
+<div style="text-align:center"><img src="./file/installation/./_images/installation_smart-proxies.png" style="float: center; margin-left: 50px; width: 771px; height: 301px;" alt="Installation Smart proxies"></div>
 
 <div class="notes">
 
@@ -1419,7 +1425,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Foreman installer helps to integrate PuppetDB</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/installation/./_images/installation_puppetdb.png" width="966" height="377" style="float: center; margin-left: 50px; width: 773px; height: 302px;" alt="Installation PuppetDB"></div>
+<div style="text-align:center"><img src="./file/installation/./_images/installation_puppetdb.png" style="float: center; margin-left: 50px; width: 773px; height: 302px;" alt="Installation PuppetDB"></div>
 
 <div class="notes">
 
@@ -1453,7 +1459,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Steps:
 
 <ul>
-<li>Make Puppetlabs repository available</li>
+<li>Make Puppet vendor repository for Puppet 5 available</li>
 <li>Make EPEL repository available</li>
 <li>Make Foreman repository available</li>
 <li>Install foreman-installer</li>
@@ -1573,6 +1579,7 @@ but not associated.</li>
 <li>Login to Foreman</li>
 <li>Navigate to 'Infrastructure &gt; Smart proxies'</li>
 <li>Add the subnet 'foreman' by importing from the Smart Proxy </li>
+<li>Adjust additional settings via 'Infrastructure &gt; Subnets'</li>
 </ul>
 </li>
 </ul>
@@ -1927,12 +1934,11 @@ to find the boot media and software packages, partition tables and provisioning 
 <li>Types:
 
 <ul>
-<li>PXELinux</li>
+<li>PXELinux / PXEGrub / PXEGrub2 / iPXE</li>
 <li>Provision</li>
 <li>Finish</li>
 <li>user_data</li>
 <li>Script</li>
-<li>iPXE</li>
 </ul>
 </li>
 <li>Selected on best match:
@@ -1960,12 +1966,13 @@ files or it will bloat up one file to render it unmaintainable.</p>
 <p>Depending on different provisioning mechanisms and methods other kinds of templates are required.</p>
 
 <ul>
-<li>PXELinux - Deployed to the TFTP server to ensure the Host boots the correct installer with the correct kernel options</li>
+<li>PXELinux - Deployed to the TFTP server to ensure the Host boots the correct installer with the correct kernel options for BIOS boot</li>
+<li>PXEGrub / PXEGrub2 - Used in PXE environments in place of PXELinux for EFI boot</li>
+<li>iPXE - Used in {g,i}PXE environments in place of PXELinux</li>
 <li>Provision - The main unattended installation file, e.g. Kickstart or Preseed</li>
 <li>Finish - A post-install script used to make custom actions after the main provisioning is complete</li>
 <li>user_data - Similar to a Finish script, this can be assigned to hosts built on user_data-capable images (e.g. Openstack, EC2, etc)</li>
 <li>Script - An arbitrary script, not used by default, useful for certain custom tasks</li>
-<li>iPXE - Used in {g,i}PXE environments in place of PXELinux</li>
 </ul>
 
 <p>Templates can be associated to operating systems, host groups, environments or combinations of host group and environment.
@@ -2003,7 +2010,7 @@ It will then select the templates to use on best match.</p>
 <li>Associate the PXELinux template "Kickstart default PXELinux" with CentOS</li>
 <li>Associate the Provision template "Kickstart RHEL default" with CentOS</li>
 <li>Associate the operating system with the Partition table "Kickstart default", Installation media "CentOS mirror",
-select the Templates, set Parameter "enable-puppetlabs-repo" to "true" and change Minor version to "2.1511"</li>
+select the Templates and set Parameter "enable-puppetlabs-puppet5-repo" to "true"</li>
 </ul>
 </li>
 </ul>
@@ -2033,11 +2040,11 @@ select the Templates, set Parameter "enable-puppetlabs-repo" to "true" and chang
 
 <ul>
 <li>Change the Installation media "Debian mirror" to the local repo</li>
-<li>Create the Operating system "Debian" with Major version "8", Description "Debian jessie", Family "Debian", Release name "jessie"</li>
+<li>Create the Operating system "Debian" with Major version "9", Description "Debian stretch", Family "Debian", Release name "stretch"</li>
 <li>Associate the PXELinux template "Preseed default PXELinux" with Debian</li>
 <li>Associate the Provision template "Preseed default" with Debian</li>
 <li>Associate the finish template "Preseed default finish" with Debian</li>
-<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM" and "Preseed default", Installation media "Debian mirror"</li>
+<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM" and "Preseed default", Installation media "Debian mirror" and set parameter "enable-puppetlabs-puppet5-repo" to "true"</li>
 </ul>
 </li>
 </ul>
@@ -2107,7 +2114,7 @@ of installation media.</p>
 <li>Identifier is the mac address</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/provisioning/./_images/pxe.png" width="760" height="340" style="float: center; margin-left: 50px; width: 760px; height: 340px;" alt="Provisioning PXE"></div>
+<div style="text-align:center"><img src="./file/provisioning/./_images/pxe.png" style="float: center; margin-left: 50px; width: 760px; height: 340px;" alt="Provisioning PXE"></div>
 
 <div class="notes">
 
@@ -2144,7 +2151,7 @@ of installation media.</p>
 <li>Open "Virtual Machine Manager" application</li>
 <li>Select "New virtual machine" from the menu or by pressing the button</li>
 <li>Select PXE boot</li>
-<li>Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences</li>
+<li>Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences</li>
 <li>Keep the minimum requirements for RAM, CPU and Disk</li>
 <li>Name your VM "pxe" and select the network "foreman"</li>
 <li>Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created</li>
@@ -2157,6 +2164,7 @@ of installation media.</p>
 <ul>
 <li>If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later</li>
+<li>CentOS will require 1.5 GB at least</li>
 </ul>
 
 </div>
@@ -2187,8 +2195,8 @@ and start it up again later</li>
 <ul>
 <li>Open Foreman's host dialog using "Host &gt; New Host"</li>
 <li>On the Host tab name it "pxe" and select the Environment, Puppet CA and Master</li>
-<li>On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.</li>
 <li>On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.</li>
+<li>On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.</li>
 <li>Unpause the VM</li>
 </ul>
 </li>
@@ -2275,7 +2283,7 @@ system default.</p>
 <li>Identifier is the name of the system</li>
 </ul>
 
-<div style="text-align: center"><img src="./file/provisioning/./_images/compute_resource.png" width="795" height="445" style="float: center; margin-left: 50px; width: 795px; height: 445px;" alt="Provisioning Compute resource libvirt"></div>
+<div style="text-align: center"><img src="./file/provisioning/./_images/compute_resource.png" style="float: center; margin-left: 50px; width: 795px; height: 445px;" alt="Provisioning Compute resource libvirt"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -2314,7 +2322,7 @@ system default.</p>
 <hr>
 
 <p>The Compute resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
-unmanaged systems and to deleted them from the virtualization platform. Also assiocating an unmanaged system to an already existing one
+unmanaged systems and to deleted them from the virtualization platform. Also associating an unmanaged system to an already existing one
 is possible.</p>
 
 </div>
@@ -2520,7 +2528,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Identifies itself as discovered host with its mac address</li>
 </ul>
 
-<div style="text-align: center"><img src="./file/provisioning/./_images/discovery.png" width="590" height="336" style="float: center; margin-left: 50px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
+<div style="text-align: center"><img src="./file/provisioning/./_images/discovery.png" style="float: center; margin-left: 50px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -2580,13 +2588,19 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Open "Virtual Machine Manager" application</li>
 <li>Select "New virtual machine" from the menu or by pressing the button</li>
 <li>Select PXE boot</li>
-<li>Select "Linux" and "Red Hat Enterprise Linux 7.2" for CentOS or "Debian jessie" for Debian according to your preferences</li>
+<li>Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences</li>
 <li>Keep the minimum requirements for RAM, CPU and Disk</li>
 <li>Name your virtual machine "discovery" and select the network "foreman"</li>
 <li>Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"</li>
 </ul>
 </li>
 </ul>
+
+<div class="notes">
+
+<p>Bug <a href="http://projects.theforeman.org/issues/21239">http://projects.theforeman.org/issues/21239</a> breaks this exercise, use of a Hostgroup to provide defaults can workaround this.</p>
+
+</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -2612,7 +2626,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Steps:
 
 <ul>
-<li>Select the newly discoverd host from the widget</li>
+<li>Select the newly discovered host from the widget</li>
 <li>On the Discovered host view select the action "Provision" and then "Create Host"</li>
 <li>On the Host tab name it "discovery" and select the Environment, Puppet CA and Master</li>
 <li>On the Interface tab click edit to configure the interface add the Domain "localdomain"</li>
@@ -2621,12 +2635,6 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 </ul>
 </li>
 </ul>
-
-<div class="notes">
-
-<p>Bug <a href="http://projects.theforeman.org/issues/17651">http://projects.theforeman.org/issues/17651</a> breaks this exercise, use of a Hostgroup to provide defaults can workaround this.</p>
-
-</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -2739,6 +2747,7 @@ into a new kernel with kexec. This is only available for Red Hat derivates at th
 </ul>
 </li>
 <li>Based on iPXE for environments without control over network</li>
+<li>Adds disk based provisioning to Compute resources</li>
 </ul>
 
 <div class="handouts">
@@ -2761,6 +2770,8 @@ from Foreman it identifies itself with a token only valid for one deployment.</p
 providing the correct installer via TFTP and Provisioning configuration to load.</p>
 
 <p>The subnet image is basicly the same as the generic image but uses another TFTP server specified for the subnet.</p>
+
+<p>Depending on the Compute resource used the plugin adds disk based provisioning.</p>
 
 </div>
 
@@ -2985,7 +2996,7 @@ abstraction layer and also sends a report to the master. The master uses differe
 
 <h1>Puppet Workflow</h1>
 
-<div style="text-align: center"><img src="./file/configmanagement/./_images/puppet_workflow.png" width="720" height="354" style="float: center; margin-left: 50px; width: 720px; height: 354px;" alt="Puppet Workflow"></div>
+<div style="text-align: center"><img src="./file/configmanagement/./_images/puppet_workflow.png" style="float: center; margin-left: 50px; width: 720px; height: 354px;" alt="Puppet Workflow"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -3027,7 +3038,7 @@ abstraction layer and also sends a report to the master. The master uses differe
 <hr>
 
 <p>Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled 
-using the Smart proxy from Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
+using the Smart proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
 The Smart Proxy Puppet CA integrates certificate handling into provisioning so auto signing of the agents certificate requests during build
 is allowed and also allows to manage the complete CA in the WebGUI.</p>
 
@@ -3223,6 +3234,35 @@ from unprivileged users.</p>
     <div class="logo"></div>
 </div>
 
+<h1>Config Groups</h1>
+
+<ul>
+<li>Allows to group classes</li>
+<li>Assign like single classes</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Config Groups allow to group classes and assign them in the same way you would use single classes.
+This follows the same ideas like the very popular Roles-Profiles-Pattern used in Puppet to simplify
+assignment via another layer of abstraction.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_puppet/9">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
 <h1>Triggering an Puppet agent run</h1>
 
 <ul>
@@ -3261,7 +3301,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 </div>
 </div>
 <div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="configmanagement/02_puppet/9">
+<div class="content smbullets small" ref="configmanagement/02_puppet/10">
 <div id="net-header">
     <div class="logo"></div>
 </div>
@@ -3317,7 +3357,7 @@ required to run Foreman or managed by the Smart Proxy.</p>
 </div>
 </div>
 <div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="configmanagement/02_puppet/10">
+<div class="content smbullets small" ref="configmanagement/02_puppet/11">
 <div id="net-header">
     <div class="logo"></div>
 </div>
@@ -3364,22 +3404,38 @@ a result hash including an array of hashes describing the hosts. </p>
 </div>
 </div>
 </div>
-<div id="configmanagement_02_puppet" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="configmanagement/02_puppet/11">
+<div id="configmanagement_03_ansible" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/03_ansible/1">
 <div id="net-header">
     <div class="logo"></div>
 </div>
 
-<h1>Replace Puppet's default lookup</h1>
+<h1>Ansible</h1>
 
 <ul>
-<li>Puppet uses Hiera as default lookup for parameters</li>
-<li>Can be replaced with Foreman</li>
-<li>Requires two plugins
+<li>Written in python</li>
+<li>Runs on Linux, Unix, Windows</li>
+<li>Describes desired state in yaml files</li>
+</ul>
+
+<pre>
+    ---
+    - name: Install package vim
+      become: true
+      yum: name={{ item }} state=installed
+      with_items:
+      - vim-enhanced
+</pre>
 
 <ul>
-<li>Param lookup - Exposes parameters via API</li>
-<li>Data binding - Replaces Puppet's lookup</li>
+<li>Workflow
+
+<ul>
+<li>Roles or Playbook stored on a system with Ansible installed</li>
+<li>Inventory is managed for Ansible</li>
+<li>Ansible connects to a system and collects system information</li>
+<li>Ansible runs tasks on the system</li>
+<li>Ansible can report back to other tools via callback plugin</li>
 </ul>
 </li>
 </ul>
@@ -3388,9 +3444,70 @@ a result hash including an array of hashes describing the hosts. </p>
 
 <hr>
 
-<p>You can replace Puppet's default lookup with Foreman by installing Param lookup and Data binding plugin. This allows to
-use the Roles-Profiles-Pattern or similar concepts which do not directly assign classes and still use Foreman to configure
-parameters.</p>
+<p>Ansible is written in python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.</p>
+
+<div class="break">continued...</div>
+
+<p>For configuration it uses yaml format for simple playbooks and some additional structure for roles. An example for one
+task is shown above. Those files are stored on one or more control machines which also need an inventory as a static
+file or script for dynamic inventory. There is no agent required as it utilizes SSH (or winrm for Windows), so the control machine
+connects to one or more systems to collect system information and run tasks on them. Afterwards callback plugins are used to report
+back to other tools.</p>
+
+</div>
+
+
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_03_ansible" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/03_ansible/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman Ansible Integration</h1>
+
+<ul>
+<li>
+<p>Foreman -&gt; Ansible</p>
+
+<ul>
+<li>Smart proxy Ansible allows to import Ansible roles</li>
+<li>Smart proxy Ansible allows to play Ansible roles</li>
+</ul>
+</li>
+<li>
+<p>Ansible -&gt; Foreman</p>
+
+<ul>
+<li>Ansible uploads facts to Foreman via callback</li>
+<li>Ansible transfers reports to Foreman via callback</li>
+<li>Ansible uses Foreman as dynamic inventory</li>
+</ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<p>Role import is broken in the Smart proxy but works still in the Foreman integration
+Playing roles is broken in Foreman integration but works using Smart proxy</p>
+
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman can integrate Ansible in several ways and can also integrate itself into Ansible. Communication from the WebGUI to Ansible is handled
+using the Smart proxy for Ansible. It allows to import Ansible roles known to Ansible and to play Ansible roles.</p>
+
+<p>On the Ansible control machine a callback plugin can be activated to upload facts and reports to Foreman. Forthermore a script could be deployed
+to use Foreman as dynamic inventory.</p>
 
 </div>
 
@@ -3400,26 +3517,110 @@ parameters.</p>
 </div>
 </div>
 </div>
-<div id="configmanagement_03_configgroups" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="configmanagement/03_configgroups">
+<div id="configmanagement_03_ansible" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/03_ansible/3">
 <div id="net-header">
     <div class="logo"></div>
 </div>
 
-<h1>Config Groups</h1>
+<h1>Lab 5.4: Configure Ansible Callback</h1>
 
 <ul>
-<li>Allows to group classes</li>
-<li>Assign like single classes</li>
+<li>Objective:
+
+<ul>
+<li>Install Ansible and configure the callback plugin for Foreman</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install Ansible</li>
+<li>Configure callback plugin</li>
+<li>Add your host to the inventory</li>
+<li>Create and distribute a SSH key</li>
+<li>Download the role "reallyenglish.ntpd"</li>
+<li>Create a playbook and run it</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_03_ansible" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/03_ansible/4">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 5.5: Configure Ansible Dynamic Inventory</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Configure Ansible Dynamic Inventory</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Download Dynamic Inventory and sample configuration</li>
+<li>Adjust configuration</li>
+<li>Test Dynamic Inventory</li>
+</ul>
+</li>
+<li>Optional:
+
+<ul>
+<li>Distribute the SSH key and change the playbook to all hosts</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="configmanagement_03_ansible" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/03_ansible/5">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 5.6: Configure Graphical Integration</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Configure Foreman Plugin and Smart Proxy Plugin</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install Foreman Plugin and Smart Proxy Plugin</li>
+<li>Import roles and assign them</li>
+<li>Configure settings in Foreman</li>
+<li>Prepare Smart proxy to play roles</li>
+<li>Play roles using the webinterface </li>
+</ul>
+</li>
 </ul>
 
 <div class="handouts">
 
 <hr>
 
-<p>Config Groups allow to group classes and assign them in the same way you would use single classes.
-This follows the same ideas like the very popular Roles-Profiles-Pattern used in Puppet to simplify
-assignment via another layer of abstraction.</p>
+<p>Graphical integration has some bugs and requires improvements which are worked on.
+Also integration with the callback plugin is not easy as it utilizes environment variables for configuration.</p>
 
 </div>
 
@@ -3649,7 +3850,7 @@ so it is possible to allow external users to only connect to one or both.</p>
 </ul>
 
 <div style="text-align:right">
-<img src="./file/usermanagement/./_images/foreman_auditing.png" width="1726" height="592" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Auditing">
+<img src="./file/usermanagement/./_images/foreman_auditing.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Auditing">
 </div>
 
 <div class="handouts">
@@ -3674,7 +3875,40 @@ auditing data or specific change history simply select an entry.</p>
 </div>
 </div>
 <div id="usermanagement_05_email" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="usermanagement/05_email">
+<div class="content smbullets small" ref="usermanagement/05_email/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Internal Notifications</h1>
+
+<ul>
+<li>Notification for own actions</li>
+<li>New feature since 1.15</li>
+<li>Used by Foreman and many plugins</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/usermanagement/./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Notification">
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman provides a new notification feature to notify about your own actions since 1.15 which is already used by Foreman and
+many plugins. This allows to keep track of actions run independently.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_05_email" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/05_email/2">
 <div id="net-header">
     <div class="logo"></div>
 </div>
@@ -3690,7 +3924,7 @@ auditing data or specific change history simply select an entry.</p>
 </ul>
 
 <div style="text-align:right">
-<img src="./file/usermanagement/./_images/foreman_email.png" width="1754" height="879" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Email">
+<img src="./file/usermanagement/./_images/foreman_email.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Email">
 </div>
 
 <div class="handouts">
@@ -3702,6 +3936,40 @@ or manual editing of the configuration file "/etc/foreman/email.yaml". With this
 opt-in for several kinds of notification. It can send a daily, weekly or monthly summary of audit events which allows to add a
 search to specify a subset of events. It also can notify on every successful host build and for Puppet runs on every failed run
 or as a frequent summary.</p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="usermanagement_06_sshkeys" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="usermanagement/06_sshkeys">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>SSH Key Management</h1>
+
+<ul>
+<li>SSH Keys provided by Users</li>
+<li>New feature since 1.15</li>
+<li>Available as parameter on hosts owned</li>
+<li>Used in snippet "create_users" during provisioning</li>
+</ul>
+
+<div style="text-align:right">
+<img src="./file/usermanagement/./_images/foreman_usersshkey.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman User SSH Keys">
+</div>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman provides a new notification feature allowing users to manage their own SSH keys since 1.15 which is made available as parameter on
+hosts owned by the user or its groups. An example for usage during provisioning is provided in the snippet "create_users".</p>
 
 </div>
 
@@ -3747,6 +4015,7 @@ or as a frequent summary.</p>
 <li>Authenticate a Smart proxy</li>
 <li>Add to the database</li>
 <li>Create their own logging</li>
+<li>Create their own notification</li>
 </ul>
 </li>
 <li>
@@ -4127,105 +4396,6 @@ other webinterfaces providing additional information.</p>
 </div>
 </div>
 </div>
-<div id="plugins_07_abrt" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="plugins/07_abrt/1">
-<div id="net-header">
-    <div class="logo"></div>
-</div>
-
-<h1>ABRT</h1>
-
-<ul>
-<li>Automatic Bug Reporting Tool</li>
-<li>Available on RHEL, CentOS, Fedora, OpenSuSE, Mandriva</li>
-<li>Collects crash dumps</li>
-<li><p>Forwards them to a retracing server</p></li>
-<li>
-<p><u>Use case:</u> </p>
-
-<ul>
-<li>Get detailed crash reports from your systems</li>
-<li>Forward crash reports for easier bug analyses</li>
-</ul>
-</li>
-</ul>
-
-<div class="handouts">
-
-<hr>
-
-<p>The Automatic Bug Reporting Tool is per default installed on Fedora and RHEL derivates and also available
-for OpenSuSE and Mandriva to automatically open bug reports on their bug trackers to provide a crash dump
-for easier bug analyses. The retracing server allows for grouping and prioritizing.</p>
-
-<p>With the Foreman Plugin ABRT you can collect those crash dumps on the Foreman host instead of directly 
-forwarding them to the internet. It also allows to forward them automatically to the upstream retracing
-server, your own or manual selection which crash report is forwarded.</p>
-
-<p>More details on: <a href="https://github.com/theforeman/foreman_abrt">https://github.com/theforeman/foreman_abrt</a></p>
-
-</div>
-
-<div id="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-</div>
-<div id="plugins_07_abrt" class="slide smbullets small noprint" data-transition="none">
-<div class="content smbullets small noprint" ref="plugins/07_abrt/2">
-<div id="net-header">
-    <div class="logo"></div>
-</div>
-
-<h1>ABRT - Workflow</h1>
-
-<div style="text-align: center"><img src="./file/plugins/./_images/foreman_abrt_workflow.png" width="950" height="293" style="float: center; margin-left: 50px; width: 760px; height: 235px;" alt="Foreman Plugin ABRT workflow"></div>
-
-<div id="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-</div>
-<div id="plugins_07_abrt" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="plugins/07_abrt/3">
-<div id="net-header">
-    <div class="logo"></div>
-</div>
-
-<h1>Lab 7.4: ABRT</h1>
-
-<ul>
-<li>Objective:
-
-<ul>
-<li>Collect crash dumps on your Foreman server</li>
-</ul>
-</li>
-<li>Steps:
-
-<ul>
-<li>Install the Foreman Plugin ABRT</li>
-<li>Set up the Smart proxy</li>
-<li>Configure the host</li>
-<li>Create a crash dump to test the setup</li>
-</ul>
-</li>
-</ul>
-
-<div class="notes">
-
-<p>Bug <a href="http://projects.theforeman.org/issues/15714">http://projects.theforeman.org/issues/15714</a> / <a href="https://github.com/theforeman/smart_proxy_abrt/issues/8">https://github.com/theforeman/smart_proxy_abrt/issues/8</a> breaks this exercise</p>
-
-</div>
-
-<div id="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-</div>
 <div id="plugins_08_openscap" class="slide smbullets small" data-transition="none">
 <div class="content smbullets small" ref="plugins/08_openscap/1">
 <div id="net-header">
@@ -4272,7 +4442,8 @@ the "National Institute of Standards and Technology" (NIST).</p>
 <p>Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
 as part of the installation process.</p>
 
-<p>With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"!</p>
+<p>With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"! With Foreman 1.15 the Plugin was
+enhanced to support tailoring files.</p>
 
 <p>More details on: <a href="https://github.com/theforeman/foreman_openscap">https://github.com/theforeman/foreman_openscap</a></p>
 
@@ -4290,7 +4461,7 @@ as part of the installation process.</p>
     <div class="logo"></div>
 </div>
 
-<h1>Lab 7.5: OpenSCAP</h1>
+<h1>Lab 7.4: OpenSCAP</h1>
 
 <ul>
 <li>Objective:
@@ -4310,7 +4481,19 @@ as part of the installation process.</p>
 <li>Upload the report from the Smart proxy to the Foreman</li>
 </ul>
 </li>
+<li>Optional:
+
+<ul>
+<li>Customize the Policy with a tailor file</li>
 </ul>
+</li>
+</ul>
+
+<div class="notes">
+
+<p>Guide generation is broken: <a href="http://projects.theforeman.org/issues/20222">http://projects.theforeman.org/issues/20222</a></p>
+
+</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -4373,7 +4556,7 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
     <div class="logo"></div>
 </div>
 
-<h1>Lab 7.6: Cockpit</h1>
+<h1>Lab 7.5: Cockpit</h1>
 
 <ul>
 <li>Objective:
@@ -4424,6 +4607,7 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 <li>Trigger configuration management runs immediately</li>
 <li>Execute one-time or irregular commands</li>
 <li>Orchestrate operations on servers</li>
+<li>OpenSCAP scans on demand</li>
 </ul>
 </li>
 </ul>
@@ -4454,6 +4638,8 @@ user and run sudo to accquire elevated privileges.</p>
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.</p>
 
+<p>With the OpenSCAP plugin installed in addition a option to run scans on demand is added.</p>
+
 <p>More details on: <a href="http://theforeman.org/plugins/foreman_remote_execution/">http://theforeman.org/plugins/foreman_remote_execution/</a></p>
 
 </div>
@@ -4470,7 +4656,7 @@ It also allows to schedule jobs or reoccurring execution.</p>
     <div class="logo"></div>
 </div>
 
-<h1>Lab 7.7: Remote Execution</h1>
+<h1>Lab 7.6: Remote Execution</h1>
 
 <ul>
 <li>Objective:
@@ -4485,6 +4671,12 @@ It also allows to schedule jobs or reoccurring execution.</p>
 <li>Install the Foreman Plugin Remote Execution</li>
 <li>Bring out the SSH key</li>
 <li>Initiate the Puppet run</li>
+</ul>
+</li>
+<li>Optional:
+
+<ul>
+<li>Run OpenSCAP scan</li>
 </ul>
 </li>
 </ul>
@@ -4558,7 +4750,7 @@ handling and "Run Command" to run a simple commandline.</p>
     <div class="logo"></div>
 </div>
 
-<h1>Lab 7.8: Remote Execution - Job Template</h1>
+<h1>Lab 7.7: Remote Execution - Job Template</h1>
 
 <ul>
 <li>Objective:
@@ -4637,7 +4829,7 @@ shutdown and deletion can not be automated but it will at least notify.</p>
     <div class="logo"></div>
 </div>
 
-<h1>Lab 7.9: Expire Hosts</h1>
+<h1>Lab 7.8: Expire Hosts</h1>
 
 <ul>
 <li>Objective:
@@ -4652,6 +4844,98 @@ shutdown and deletion can not be automated but it will at least notify.</p>
 <li>Install the Foreman Plugin Expire Hosts</li>
 <li>Configure notifications</li>
 <li>Set a host to expire</li>
+</ul>
+</li>
+</ul>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_12_monitoring" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/12_monitoring/1">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Monitoring</h1>
+
+<ul>
+<li>
+<p>Integrates a monitoring solution</p>
+
+<ul>
+<li>Shows monitoring status in Foreman</li>
+<li>Manages monitoring objects during provisioning</li>
+</ul>
+</li>
+<li>
+<p>Supported monitoring solutions</p>
+
+<ul>
+<li>Icinga 2</li>
+<li>Icinga 2 and Icinga Web 2 Director</li>
+</ul>
+</li>
+<li>
+<p><u>Use case:</u></p>
+
+<ul>
+<li>Integrate monitoring into provisioning</li>
+<li>Get state for running systems from Foreman</li>
+</ul>
+</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>The Monitoring integration is done via a Foreman plugin for the graphical part and a
+Smart proxy plugin for the communication. So it shows a global and detailed monitoring
+status for hosts, manages monitoring objects during provisioning and deprovisioning and
+allows to set downtimes.</p>
+
+<p>For now it only supports Icinga 2 as monitoring solution and if requiring a more comfortable
+administration Icinga 2 and in addition its graphical frontend Icinga Web 2 Director.</p>
+
+<p>More details on: <br>
+* <a href="https://github.com/theforeman/foreman_monitoring">https://github.com/theforeman/foreman_monitoring</a> <br>
+* <a href="https://github.com/theforeman/smart_proxy_monitoring">https://github.com/theforeman/smart_proxy_monitoring</a> <br></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
+<div id="plugins_12_monitoring" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/12_monitoring/2">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Lab 7.9: Monitoring Integration</h1>
+
+<ul>
+<li>Objective:
+
+<ul>
+<li>Integrate Monitoring into Foreman</li>
+</ul>
+</li>
+<li>Steps:
+
+<ul>
+<li>Install Foreman plugin and Smart proxy plugin</li>
+<li>Configure Smart proxy to communicate with Icinga 2 and Icinga Web 2 Director</li>
+<li>Configure Foreman default actions for monitoring</li>
+<li>Active integration for one host</li>
+<li>Verify monitoring integration</li>
 </ul>
 </li>
 </ul>
@@ -4706,7 +4990,7 @@ shutdown and deletion can not be automated but it will at least notify.</p>
 </ul>
 
 <div style="text-align:right">
-<img src="./file/advanced/./_images/foreman-searches.png" width="1233" height="659" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Searches">
+<img src="./file/advanced/./_images/foreman-searches.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Searches">
 </div>
 
 <div class="handouts">
@@ -4748,7 +5032,7 @@ different comparison operators depending on the type of the field compared inclu
 </ul>
 
 <div style="text-align:right">
-<img src="./file/advanced/./_images/foreman-trend-puppetversion.png" width="1220" height="719" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Trends">
+<img src="./file/advanced/./_images/foreman-trend-puppetversion.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Trends">
 </div>
 
 <div class="handouts">
@@ -5060,7 +5344,7 @@ in the WebGUI but they have to be URL encoded.</p>
 
 <p>Usage explainations can be found at <a href="http://theforeman.org/manuals/latest/index.html#5.1API">http://theforeman.org/manuals/latest/index.html#5.1API</a></p>
 
-<p>API documentation is located at <a href="http://theforeman.org/api/1.10/index.html">http://theforeman.org/api/1.10/index.html</a></p>
+<p>API documentation is located at <a href="http://theforeman.org/api/1.16/index.html">http://theforeman.org/api/1.16/index.html</a></p>
 
 </div>
 
@@ -5685,8 +5969,14 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Upstream project for Red Hat Network Satellite 6</li>
 </ul>
 
+<div class="notes">
+
+<p>Debian Support is WIP: <a href="https://github.com/Katello/katello/pull/6877">https://github.com/Katello/katello/pull/6877</a></p>
+
+</div>
+
 <div style="text-align:right">
-<img src="./file/katello/./_images/katello-logo.png" width="256" height="256" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo">
+<img src="./file/katello/./_images/katello-logo.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo">
 </div>
 
 <div id="net-footer">
@@ -5708,7 +5998,7 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Products consists of one or more repositories of any content type</li>
 </ul>
 
-<div style="text-align: center"><img src="./file/katello/./_images/products.png" width="3190" height="845" style="float: center; margin-left: 50px; width: 798px; height: 211px;" alt="Katello - Products"></div>
+<div style="text-align: center"><img src="./file/katello/./_images/products.png" style="float: center; margin-left: 50px; width: 798px; height: 211px;" alt="Katello - Products"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -5730,7 +6020,7 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Composite Content Views are possible</li>
 </ul>
 
-<div style="text-align:center"><img src="./file/katello/./_images/contentviews.png" width="3182" height="743" style="float: center; margin-left: 50px; width: 796px; height: 186px;" alt="Katello - Content Views"></div>
+<div style="text-align:center"><img src="./file/katello/./_images/contentviews.png" style="float: center; margin-left: 50px; width: 796px; height: 186px;" alt="Katello - Content Views"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -5751,7 +6041,7 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Multiple Lifecycle Environments Paths allow different staging models</li>
 </ul>
 
-<div style="text-align: center"><img src="./file/katello/./_images/lifecycle.png" width="3190" height="640" style="float: center; margin-left: 50px; width: 798px; height: 160px;" alt="Katello - Lifecycle Environments"></div>
+<div style="text-align: center"><img src="./file/katello/./_images/lifecycle.png" style="float: center; margin-left: 50px; width: 798px; height: 160px;" alt="Katello - Lifecycle Environments"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -5772,7 +6062,7 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Optional Agent allows to execute commands</li>
 </ul>
 
-<div styele="text-align: center"><img src="./file/katello/./_images/contenthost.png" width="3174" height="1389" style="float: center; margin-left: 50px; width: 794px; height: 347px;" alt="Katello - Content Host"></div>
+<div styele="text-align: center"><img src="./file/katello/./_images/contenthost.png" style="float: center; margin-left: 50px; width: 794px; height: 347px;" alt="Katello - Content Host"></div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>

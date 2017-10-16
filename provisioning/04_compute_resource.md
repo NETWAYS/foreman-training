@@ -47,7 +47,7 @@ Then the virtual machine is powered on and it works the same way like simple PXE
 ****
 
 The Compute resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
-unmanaged systems and to deleted them from the virtualization platform. Also assiocating an unmanaged system to an already existing one
+unmanaged systems and to deleted them from the virtualization platform. Also associating an unmanaged system to an already existing one
 is possible.
 
 ~~~ENDSECTION~~~
@@ -106,7 +106,7 @@ If you know the password of the account in the remote system ssh-copy-id simplif
 
 ### Configure the Compute resource in Foreman Web GUI
 
-Navigate to "Infrastructure > Compute resources" and click on "New Compute Resource".
+Navigate to "Infrastructure > Compute resources" and click on "Create Compute Resource".
 
 In the following dialog insert:
 

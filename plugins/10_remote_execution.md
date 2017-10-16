@@ -12,6 +12,7 @@
  * Trigger configuration management runs immediately
  * Execute one-time or irregular commands
  * Orchestrate operations on servers
+ * OpenSCAP scans on demand
 
 ~~~SECTION:notes~~~
 
@@ -36,6 +37,8 @@ It is usefully to trigger configuration management runs immediately to get an ad
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.
 
+With the OpenSCAP plugin installed in addition a option to run scans on demand is added.
+
 More details on: http://theforeman.org/plugins/foreman_remote_execution/
 
 ~~~ENDSECTION~~~
@@ -49,6 +52,8 @@ More details on: http://theforeman.org/plugins/foreman_remote_execution/
  * Install the Foreman Plugin Remote Execution
  * Bring out the SSH key
  * Initiate the Puppet run
+* Optional:
+ * Run OpenSCAP scan
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Remote Execution
@@ -66,6 +71,12 @@ More details on: http://theforeman.org/plugins/foreman_remote_execution/
 * Install the Foreman Plugin Remote Execution using the Foreman Installer
 * Bring out the SSH key
 * Initiate the Puppet run
+
+## Optional:
+
+****
+
+* Run OpenSCAP scan
 
 #### Expected result:
 
@@ -104,9 +115,13 @@ Or get it via the Smart proxy:
 Before running any job make sure Foreman knows about the Smart proxy providing the features "Dynflow" and 
 "SSH" by refreshing it. 
 
-Navigate to the host and press "Run Job". For multiple hosts the action is also available in the action menu
+Navigate to the host and press "Schedule Remote Job". For multiple hosts the action is also available in the action menu
 of the "All Hosts" view. To Trigger the Puppet agent run, select the Job Category "Puppet" which has the
 "Puppet Run Once" as default Job. Press "Submit" to execute it and watch for the execution.
+
+### Optional: Run OpenSCAP scan
+
+Navigate to the host and press "Run OpenSCAP scan". It will automatically choose the Policy in this way.
 
 
 !SLIDE smbullets small
