@@ -29,6 +29,6 @@ it can be very simple or highly complex.
 
 Some of the options will be shown in the next slides where some of the plugins are introduced.
 
-For all options have a look at the "how to create a plugin" at http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin
+For all options have a look at the "how to create a plugin" at http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin or "how to create a Smart Proxy plugin" at https://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Smart-Proxy_Plugin.
 
 ~~~ENDSECTION~~~

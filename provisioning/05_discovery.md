@@ -33,7 +33,7 @@ For this communication the discovery image uses the Smart proxy included in it.
 * Objective:
  * Install and configure the Discovery plugin
 * Steps:
- * Run the Foreman installer to install the Discovery plugin and download the image
+ * Run the Foreman installer to install the Discovery plugin for Foreman and the Smart Proxy and download the image
  * Adjust and deploy the PXE default configuration
  * Enable the discovery widget in the dashboard
 
@@ -50,7 +50,7 @@ For this communication the discovery image uses the Smart proxy included in it.
 
 ****
 
-* Run the Foreman installer to install the Discovery plugin and download the image
+* Run the Foreman installer to install the Discovery plugin for Foreman and the Smart Proxy and download the image
 * Adjust and deploy the PXE default configuration
 * Enable the discovery widget in the dashboard
 
@@ -63,13 +63,13 @@ For this communication the discovery image uses the Smart proxy included in it.
 
 ****
 
-### Run the Foreman installer to install the Discovery plugin and download the image
+### Run the Foreman installer to install the Discovery plugin for Foreman and the Smart Proxy and download the image
 
 Add the parameters to enable the Discovery plugin and download the image to the Foreman installer
 
-    # foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true
+    # foreman-installer --enable-foreman-plugin-discovery --enable-foreman-proxy-plugin-discovery --foreman-proxy-plugin-discovery-install-images=true
 
-If the trainer provides a local copy of the image add the parameter --foreman-plugin-discovery-source-url and
+If the trainer provides a local copy of the image add the parameter --foreman-proxy-plugin-discovery-source-url and
 the provided URL.
 
 ### Adjust and deploy the PXE default configuration
@@ -79,7 +79,7 @@ on the TFTP server which includes a snippet "pxelinux_discovery".
 
 ### Enable the discovery widget on the dashboard
 
-Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Discovery widget".
+Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Discovered Hosts".
 
 !SLIDE smbullets small
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Create a virtual machine "discovery"
@@ -90,14 +90,13 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
  * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
+ * Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your virtual machine "discovery" and select the network "foreman"
  * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
 ~~~SECTION:notes~~~
 
-Bug http://projects.theforeman.org/issues/21239 breaks this exercise, use of a Hostgroup to provide defaults can workaround this.
 
 ~~~ENDSECTION~~~
 
@@ -117,7 +116,7 @@ Bug http://projects.theforeman.org/issues/21239 breaks this exercise, use of a H
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
 * Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
+* Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your virtual machine "discovery" and select the network "foreman"
 * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
@@ -146,10 +145,10 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 In the first step of the wizard select the network boot
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences
+### Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.4"
-for CentOS or "Debian stretch" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
+In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.5"
+for CentOS or "Debian Stretch" for Debian. 
 
 ### Keep the minimum requirements for RAM, CPU and Disk
 
@@ -163,7 +162,7 @@ Name the virtual machine "discovery" so you know which system was deployed in wh
 ### Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
 Finish the wizard and let it boot from the default PXE configuration when the PXE menu appears select "Foreman Discovery Image" instead of
-"Chainload into bootloader on first disk".  The discovery image should boot now and report status "SUCCESS" on the console, then a system
+"Default local boot".  The discovery image should boot now and report status "SUCCESS" on the console, then a system
 appears in the Foreman Web GUI in the "Discovery widget" named after the mac address with prefix "mac".
 
 
@@ -174,10 +173,10 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
  * Configure the system "discovery" in Foreman and start installation
 * Steps:
  * Select the newly discovered host from the widget
- * On the Discovered host view select the action "Provision" and then "Create Host"
+ * On the Discovered host view select the action "Provision" and then "Customize Host"
  * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
- * On the Interface tab click edit to configure the interface add the Domain "localdomain"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
+ * On the Interface tab click edit to configure the interface add the Domain "localdomain"
  * Submit to start the installation
 
 
@@ -195,10 +194,10 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 ****
 
 * Select the newly discovered host form the widget
-* On the Discovered host view select the action "Provision" and then "Create Host"
+* On the Discovered host view select the action "Provision" and then "Customize Host"
 * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
-* On the Interface tab click edit to configure the interface add the Domain "localdomain"
 * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
+* On the Interface tab click edit to configure the interface add the Domain "localdomain"
 * Submit to start the installation
 
 
@@ -213,15 +212,15 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 
 ### Select the newly discovered host from the widget
 
-### On the Discovered host view select the action "Provision" and then "Create Host"
+### On the Discovered host view select the action "Provision" and then "Customize Host"
 
 ### On the Host tab name it "discovery" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
+
+### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
 
 ### On the Interface tab click edit to configure the interface add the Domain "localdomain"
 
 All other fields are already set to the facts provided by the Discovery image.
-
-### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
 
 ### Submit to start the installation
 

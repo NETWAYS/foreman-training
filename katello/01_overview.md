@@ -9,18 +9,13 @@
  * Puppet modules
  * Docker container
  * OSTree branches
+ * Debian repositories
 * Subscription Management
  * Red Hat Subscriptions
  * Track internal use
 * Defined scenario for Foreman Installer
 * Multitenancy is enabled by default
 * Upstream project for Red Hat Network Satellite 6
-
-~~~SECTION:notes~~~
-
-Debian Support is WIP: https://github.com/Katello/katello/pull/6877
-
-~~~ENDSECTION~~~
 
 <div style="text-align:right">
 <img src="./_images/katello-logo.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo"/>
@@ -34,6 +29,7 @@ Debian Support is WIP: https://github.com/Katello/katello/pull/6877
  * Puppet modules
  * Docker container
  * OSTree branches
+ * Debian repositories
 * Subscription Management
  * Red Hat Subscriptions
  * Track internal use
@@ -50,9 +46,7 @@ Katello is a defined set of Foreman plugins which add Content management and Sub
 The Content management feature can manage YUM repositories to provide software in RPM package format and
 errata explaining the importance of the package updates, puppet modules for configuration management,
 docker container for deploying application container and OSTree branches to support this type of update
-format.
-
-~~~PAGEBREAK~~~
+format. With Katello 3.6 support for Debian Repositories was added.
 
 The Subscription management feature allows to subscribe to a software distributor which will be in most
 cases Red Hat. It also provides the possiblity to track the internal use of some software which can be very useful for support contracts or with multitenancy to handle customer environments.

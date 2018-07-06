@@ -24,7 +24,7 @@ in the WebGUI but they have to be URL encoded.
 
 Usage explainations can be found at http://theforeman.org/manuals/latest/index.html#5.1API
 
-API documentation is located at http://theforeman.org/api/1.16/index.html
+API documentation is located at http://theforeman.org/api/1.18/index.html
 
 ~~~ENDSECTION~~~
 
@@ -90,7 +90,7 @@ In the following command the ids depend on your environment and may differ:
 
     # curl -k -u admin:PASSWORD -H "Accept: version=2,application/json" -H "Content-Type: application/json" \ 
     -X POST -d '{ "name":"training", "environment_id":"1", "puppet_ca_proxy_id":"1", "puppet_proxy_id":"1", 
-    "subnet_id":"1", "domain_id":"1", "architecture_id":"1", "operatingsystem_id":"1", medium_id":"1", "ptable_id":"80", 
+    "subnet_id":"1", "domain_id":"1", "architecture_id":"1", "operatingsystem_id":"1", medium_id":"1", "ptable_id":"94", 
     "root_pass":"start123" }' \
     https://foreman.localdomain/api/hostgroups | python -m json.tool
 

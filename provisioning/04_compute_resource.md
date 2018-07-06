@@ -39,7 +39,7 @@ Then the virtual machine is powered on and it works the same way like simple PXE
 * Steps:
  * Install the Compute resource using the Foreman installer
  * Create a passphraseless ssh-key for user foreman
- * Copy the public key to the root account of the host
+ * Copy the public key to the root account of the host "host.localdomain"
  * Configure the Compute resource in Foreman Web GUI
 
 ~~~SECTION:handouts~~~
@@ -68,7 +68,7 @@ is possible.
 
 * Install the Compute resource using the Foreman installer
 * Create a passphraseless ssh-key for user foreman using ssh-keygen
-* Copy the public key to the root account of the host using ssh-copy-id
+* Copy the public key to the root account of the host "host.localdomain" using ssh-copy-id
 * Configure the Compute resource in Foreman Web GUI
 
 !SLIDE supplemental solutions
@@ -98,7 +98,7 @@ Switch to the user foreman and create an passphraseless ssh-key using ssh-keygen
     [ENTER]
     [ENTER]
 
-### Copy the public key to the root account of the host using ssh-copy-id
+### Copy the public key to the root account of the host "host.localdomain" using ssh-copy-id
 
 If you know the password of the account in the remote system ssh-copy-id simplifies key management.
 
@@ -125,12 +125,12 @@ Validate your settings with "Test Connection" before clicking on "Submit".
 * Objective:
  * Create the virtual machine "compute" from Foreman Web GUI and start an unattended installation
 * Steps:
- * Open Foreman's host dialog using "Host > New Host"
+ * Open Foreman's host dialog using "Host > Create Host"
+ * In the Virtual Machine tab change the Storage type to "QCOW2"
  * In the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
+ * In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
  * In the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
 the suggested IP address, for the Libvirt options choose the virtual network "foreman"
- * In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
- * In the Virtual Machine tab change the Storage type to "QCOW2"
 
 ~~~SECTION:handouts~~~
 
@@ -159,12 +159,11 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 
 ****
 
-* Open Foreman's host dialog using "Host > New Host"
+* Open Foreman's host dialog using "Host > Create Host"
 * On the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
-* On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
-the suggested IP address, for the Libvirt options choose the virtual network "foreman"
-* On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
 * On the Virtual Machine tab change the Storage type to "QCOW2"
+* On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
+* On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Create the virtual machine "compute" from Foreman
@@ -175,21 +174,21 @@ the suggested IP address, for the Libvirt options choose the virtual network "fo
 
 ****
 
-### Open Foreman's host dialog using "Host > New Host"
+### Open Foreman's host dialog using "Host > Create Host"
 
 ### On the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
 
 For "Deploy on" use "host.localdomain (Libvirt)" instead of "Bare Metal" which will enable all the options of Compute resource
 libvirt like the virtual network configuration or virtual hardware.
 
+### On the Virtual Machine tab change the Storage type to "QCOW2"
+
+### On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
+
 ### On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
 
 No Mac address is required this time, but do not forget to change the Libvirt options "Network type" to "Virtual (NAT)" and "Network"
 to "foreman". 
-
-### On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
-
-### On the Virtual Machine tab change the Storage type to "QCOW2"
 
 Afterwards press "Submit" and Foreman will show the progress of virtual machine creation. Looking into "Virtual Machine Manager"
 will show you the virtual machine created with fqdn.
@@ -227,7 +226,7 @@ the Compute resource to deploy on.
  * On Compute resource using "New image"
  * Has to provide access via ssh to run finish scripts
  * API can allow to run user_data scripts for additional changes
-* Available in "New host" dialog
+* Available in "Create host" dialog
  * Speeds up installation
  * Should be very basic image, but of course can be very featureful if required
 
@@ -242,7 +241,7 @@ during virtual machine creation to change settings.
 
 ~~~PAGEBREAK~~~
 
-If a image is configured it is possible to choose it from the "New host" dialog on the "Operating system" tab. In some cases
+If a image is configured it is possible to choose it from the "Create host" dialog on the "Operating system" tab. In some cases
 it can speed up the installation process, but of course an unattended installation will give you a cleaner and more up to date
 system. If using a configuration management a very basic image should be prefered, but if required a image can be very featureful
 like having some proprietary software installed which is quite complicated to install with configuration management.

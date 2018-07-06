@@ -153,9 +153,7 @@
 <h1>Forthcoming Hands-on Training</h1>
 
 <ul>
-<li>06.03.2018 - 07.03.2018 <a href="https://www.netways.de/schulungen/foreman/">NETWAYS</a> (German)</li>
-<li>03.07.2018 - 04.07.2018 <a href="https://www.netways.de/schulungen/foreman/">NETWAYS</a> (German)</li>
-<li>20.11.2018 - 21.11.2018 <a href="https://www.netways.de/schulungen/foreman/">NETWAYS</a> (German)</li>
+<li>20.11.2018 - 21.11.2018 <a href="https://www.netways.de/en/trainings/foreman/">NETWAYS</a> (German)</li>
 </ul>
 
 <div id="net-footer">
@@ -174,7 +172,7 @@
 
 <p>For other events and trainings hosted by NETWAYS see our</p>
 
-<p><a href="https://www.netways.de/en/about_netways/events/">event calendar</a></p>
+<p><a href="https://www.netways.de/en/about_us/events/">event calendar</a></p>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -434,7 +432,7 @@ help the community and consists of more than 200 contributors.</p>
 <li>Supported platforms:
 
 <ul>
-<li>Server: RHEL/Fedora, Debian/Ubuntu, (Linux)</li>
+<li>Server: RHEL/CentOS, Debian/Ubuntu, (Linux)</li>
 <li>DB: PostgreSQL, MySQL, SQLite</li>
 <li>Provisioning: RHEL/Fedora, Debian/Ubuntu, Solaris, SuSE, CoreOS, FreeBSD, Juniper Junos, Cisco NX-OS, (Windows, MacOS)</li>
 </ul>
@@ -468,7 +466,7 @@ help the community and consists of more than 200 contributors.</p>
 
 <p>Foreman provides in addition to the Web Interface an API and CLI.</p>
 
-<p>It supports as platform RHEL/Fedora and Debian/Ubuntu via packages and via installation from source
+<p>It supports as platform RHEL/CentOS and Debian/Ubuntu via packages and via installation from source
 also other Linux distribution. </p>
 
 <p>As database backend PostgreSQL, MySQL and SQLite are supported, while the default is PostgreSQL, 
@@ -512,7 +510,7 @@ SQLite is not recommended for productive usage.</p>
 <li>Decentralisation of some Foreman features (templates) for isolated networks</li>
 </ul>
 </li>
-<li>Supported Platforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)</li>
+<li>Supported Platforms: RHEL/CentOS, Debian/Ubuntu, (Linux, Windows)</li>
 <li>Supported Subsystems:
 
 <ul>
@@ -542,7 +540,7 @@ SQLite is not recommended for productive usage.</p>
 <p>The smart proxy is an autonomous web-based component providing a restful API to connect to varios
 systems from higher ochestration tools such as Foreman. </p>
 
-<p>The Project provides packages for installation on RHEL/Fedora and Debian/Ubuntu. Installing from
+<p>The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
 source allows to support other Linux distributions and also Windows which is required for some 
 implementations of subsystems.</p>
 
@@ -621,6 +619,8 @@ via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server 
 needs netsh command installed and the user running the service needs administrative privileges, but the
 server does not need to be the DHCP server. For testing enviroments also an implementation for Libvirt
 using libvirt API to manage the dnsmasq underneath is available, a productive use is not recommended.</p>
+
+<p>Additional providers like infoblox or remote connection to ISC DHCP are available as plugins.</p>
 
 </div>
 
@@ -705,6 +705,8 @@ possibilty is to install the Smart Proxy on a Windows server and give it the pri
 Other implementations like PowerDNS and Route53 are also supported. Libvirt is again only supported as a
 testing environment.</p>
 
+<p>Additional providers like infoblox or powerdns are available as plugins.</p>
+
 </div>
 
 <div id="net-footer">
@@ -774,6 +776,12 @@ in the most cases no manual configuration is required because it is completly in
 </ul>
 </li>
 </ul>
+
+<div class="notes">
+
+<p>WIP: Tokenbased autosigning - <a href="https://github.com/theforeman/smart-proxy/pull/592">https://github.com/theforeman/smart-proxy/pull/592</a></p>
+
+</div>
 
 <div class="handouts">
 
@@ -963,14 +971,13 @@ additional providers like OpenNebula are community contributed.</p>
 <li>optionally: Puppetlabs Repository</li>
 </ul>
 </li>
-<li>Fedora (not recommended) </li>
-<li>Debian 8
+<li>Debian 8 &amp; 9
 
 <ul>
 <li>optionally: Puppetlabs Repository</li>
 </ul>
 </li>
-<li>Ubuntu 14.04 &amp; 16.04
+<li>Ubuntu 16.04
 
 <ul>
 <li>optionally: Puppetlabs Repository</li>
@@ -986,7 +993,8 @@ additional providers like OpenNebula are community contributed.</p>
 
 <p>On the mentioned operating systems packages are provided by the project, a installation from source
 is not recommended. On all platforms all updates should be applied before installation. Using the
-Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p>
+Puppetlabs Repository providing an up-to-date version of Puppet is preferred which of the supported
+versions touse is based on user requirements.</p>
 
 </div>
 
@@ -996,8 +1004,8 @@ Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p
 </div>
 </div>
 </div>
-<div id="installation_01_requirements" class="slide smbullets small noprint" data-transition="none">
-<div class="content smbullets small noprint" ref="installation/01_requirements/2">
+<div id="installation_01_requirements" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="installation/01_requirements/2">
 <div id="net-header">
     <div class="logo"></div>
 </div>
@@ -1005,93 +1013,31 @@ Puppetlabs Repository providing an up-to-date version of Puppet is preferred.</p
 <h1>Requirements - Puppet &amp; Facter</h1>
 
 <ul>
-<li>Support matrix</li>
-</ul>
-
-<table>
-<thead>
-<tr>
-<th>Puppet version</th>
-<th>Foreman installer</th>
-<th>Smart proxy</th>
-<th>Report/fact processors</th>
-<th>ENC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.25.x, 2.6.0 - 2.6.5</td>
-<td>Not supported</td>
-<td>Untested</td>
-<td>Untested</td>
-<td>No Parametrized Classes</td>
-</tr>
-<tr>
-<td>2.6.5+</td>
-<td>Not supported</td>
-<td>Supported</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>2.7.x</td>
-<td>Supported</td>
-<td>Supported</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>3.0.x</td>
-<td>Limited support</td>
-<td>1.1 or higher</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>3.1.x - 3.4.x</td>
-<td>1.1 or higher</td>
-<td>1.1 or higher</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>3.5.x</td>
-<td>1.4.3 or higher</td>
-<td>1.4.2 or higher</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>3.6.0+</td>
-<td>1.4.3 or higher</td>
-<td>1.5.1 or higher</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>4.x</td>
-<td>1.12 or higher</td>
-<td>1.12 or higher</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-<tr>
-<td>5.x</td>
-<td>1.16 or higher</td>
-<td>1.16 or higher</td>
-<td>Supported</td>
-<td>Supported</td>
-</tr>
-</tbody>
-</table>
+<li>All-in-one and FHS packaging model are both supported for Puppet 4 and 5
 
 <ul>
+<li>Puppet 3 is no longer supported with Foreman 1.17 and higher</li>
 <li>Puppet Enterprise is not supported</li>
-<li>All-in-one and FHS packaging model are both supported for Puppet 4 and 5</li>
+</ul>
+</li>
 <li>Puppet Master and Puppet Server are both supported</li>
-<li>Facter 1.x is supported, 2.x requires Foreman &gt;= 1.4.2</li>
 <li>Structured Facts are supported with Foreman &gt;= 1.12</li>
 </ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Puppet 4.x and 5.x is supported with current versions for All-in-one and Filesystem-Hierarchy-Standard packaging standard.
+Puppet 3.x support was dropped with Foreman 1.17.
+Puppet Enterprise is not supported, but can work with manual tweaking of the setup.</p>
+
+<p>Both versions of the central server in a Puppet environment are supported. If the All-in-on package of Puppet 4 or 5
+is found it will use the Puppet Server, in all other cases it will setup Puppet Master using Apache and Passenger.</p>
+
+<p>Support for structured facts provided by Facter 2.x was added with Foreman 1.12.</p>
+
+</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -1459,6 +1405,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Steps:
 
 <ul>
+<li>Start the virtual machine "foreman.localdomain" and connect via SSH</li>
 <li>Make Puppet vendor repository for Puppet 5 available</li>
 <li>Make EPEL repository available</li>
 <li>Make Foreman repository available</li>
@@ -1497,7 +1444,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <li>Notes:
 
 <ul>
-<li>DNS (interface=eth0, zone=localdomain, reverse=0.0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)</li>
+<li>DNS (interface=eth0, zone=localdomain, reverse=0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)</li>
 <li>DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)</li>
 </ul>
 </li>
@@ -1576,7 +1523,6 @@ but not associated.</li>
 <li>Steps:
 
 <ul>
-<li>Login to Foreman</li>
 <li>Navigate to 'Infrastructure &gt; Smart proxies'</li>
 <li>Add the subnet 'foreman' by importing from the Smart Proxy </li>
 <li>Adjust additional settings via 'Infrastructure &gt; Subnets'</li>
@@ -2072,7 +2018,6 @@ select the Templates and set Parameter "enable-puppetlabs-puppet5-repo" to "true
 <h1>Foreman Setup</h1>
 
 <ul>
-<li>A plugin installed by default</li>
 <li>Designed to help with the initial setup
 
 <ul>
@@ -2089,7 +2034,7 @@ select the Templates and set Parameter "enable-puppetlabs-puppet5-repo" to "true
 
 <hr>
 
-<p>The Foreman Plugin Setup is installed by default to help with the initial setup (the steps we did manually).
+<p>The Foreman Plugin Setup is created to help with the initial setup (the steps we did manually).
 It asks for domain and subnet information as input and will output Foreman-Installer commands. In addition
 it will ensure configuration of the Foreman host, association of templates and operating systems and existence
 of installation media.</p>
@@ -2151,7 +2096,7 @@ of installation media.</p>
 <li>Open "Virtual Machine Manager" application</li>
 <li>Select "New virtual machine" from the menu or by pressing the button</li>
 <li>Select PXE boot</li>
-<li>Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences</li>
+<li>Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences</li>
 <li>Keep the minimum requirements for RAM, CPU and Disk</li>
 <li>Name your VM "pxe" and select the network "foreman"</li>
 <li>Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created</li>
@@ -2193,7 +2138,7 @@ and start it up again later</li>
 <li>Steps:
 
 <ul>
-<li>Open Foreman's host dialog using "Host &gt; New Host"</li>
+<li>Open Foreman's host dialog using "Host &gt; Create Host"</li>
 <li>On the Host tab name it "pxe" and select the Environment, Puppet CA and Master</li>
 <li>On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.</li>
 <li>On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.</li>
@@ -2311,7 +2256,7 @@ system default.</p>
 <ul>
 <li>Install the Compute resource using the Foreman installer</li>
 <li>Create a passphraseless ssh-key for user foreman</li>
-<li>Copy the public key to the root account of the host</li>
+<li>Copy the public key to the root account of the host "host.localdomain"</li>
 <li>Configure the Compute resource in Foreman Web GUI</li>
 </ul>
 </li>
@@ -2351,12 +2296,12 @@ is possible.</p>
 <li>Steps:
 
 <ul>
-<li>Open Foreman's host dialog using "Host &gt; New Host"</li>
+<li>Open Foreman's host dialog using "Host &gt; Create Host"</li>
+<li>In the Virtual Machine tab change the Storage type to "QCOW2"</li>
 <li>In the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master</li>
+<li>In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.</li>
 <li>In the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
 the suggested IP address, for the Libvirt options choose the virtual network "foreman"</li>
-<li>In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.</li>
-<li>In the Virtual Machine tab change the Storage type to "QCOW2"</li>
 </ul>
 </li>
 </ul>
@@ -2439,7 +2384,7 @@ the Compute resource to deploy on.</p>
 <li>API can allow to run user_data scripts for additional changes</li>
 </ul>
 </li>
-<li>Available in "New host" dialog
+<li>Available in "Create host" dialog
 
 <ul>
 <li>Speeds up installation</li>
@@ -2459,7 +2404,7 @@ during virtual machine creation to change settings.</p>
 
 <div class="break">continued...</div>
 
-<p>If a image is configured it is possible to choose it from the "New host" dialog on the "Operating system" tab. In some cases
+<p>If a image is configured it is possible to choose it from the "Create host" dialog on the "Operating system" tab. In some cases
 it can speed up the installation process, but of course an unattended installation will give you a cleaner and more up to date
 system. If using a configuration management a very basic image should be prefered, but if required a image can be very featureful
 like having some proprietary software installed which is quite complicated to install with configuration management.</p>
@@ -2554,7 +2499,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Steps:
 
 <ul>
-<li>Run the Foreman installer to install the Discovery plugin and download the image</li>
+<li>Run the Foreman installer to install the Discovery plugin for Foreman and the Smart Proxy and download the image</li>
 <li>Adjust and deploy the PXE default configuration</li>
 <li>Enable the discovery widget in the dashboard</li>
 </ul>
@@ -2588,7 +2533,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Open "Virtual Machine Manager" application</li>
 <li>Select "New virtual machine" from the menu or by pressing the button</li>
 <li>Select PXE boot</li>
-<li>Select "Linux" and "Red Hat Enterprise Linux 7.4" for CentOS or "Debian stretch" for Debian according to your preferences</li>
+<li>Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences</li>
 <li>Keep the minimum requirements for RAM, CPU and Disk</li>
 <li>Name your virtual machine "discovery" and select the network "foreman"</li>
 <li>Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"</li>
@@ -2597,8 +2542,6 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 </ul>
 
 <div class="notes">
-
-<p>Bug <a href="http://projects.theforeman.org/issues/21239">http://projects.theforeman.org/issues/21239</a> breaks this exercise, use of a Hostgroup to provide defaults can workaround this.</p>
 
 </div>
 
@@ -2627,10 +2570,10 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 
 <ul>
 <li>Select the newly discovered host from the widget</li>
-<li>On the Discovered host view select the action "Provision" and then "Create Host"</li>
+<li>On the Discovered host view select the action "Provision" and then "Customize Host"</li>
 <li>On the Host tab name it "discovery" and select the Environment, Puppet CA and Master</li>
-<li>On the Interface tab click edit to configure the interface add the Domain "localdomain"</li>
 <li>On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password</li>
+<li>On the Interface tab click edit to configure the interface add the Domain "localdomain"</li>
 <li>Submit to start the installation</li>
 </ul>
 </li>
@@ -3492,13 +3435,6 @@ back to other tools.</p>
 </li>
 </ul>
 
-<div class="notes">
-
-<p>Role import is broken in the Smart proxy but works still in the Foreman integration
-Playing roles is broken in Foreman integration but works using Smart proxy</p>
-
-</div>
-
 <div class="handouts">
 
 <hr>
@@ -3608,7 +3544,6 @@ to use Foreman as dynamic inventory.</p>
 <ul>
 <li>Install Foreman Plugin and Smart Proxy Plugin</li>
 <li>Import roles and assign them</li>
-<li>Configure settings in Foreman</li>
 <li>Prepare Smart proxy to play roles</li>
 <li>Play roles using the webinterface </li>
 </ul>
@@ -3619,8 +3554,7 @@ to use Foreman as dynamic inventory.</p>
 
 <hr>
 
-<p>Graphical integration has some bugs and requires improvements which are worked on.
-Also integration with the callback plugin is not easy as it utilizes environment variables for configuration.</p>
+<p>Graphical integration uses Remote-Execution plugin which will be covered later in more depth.</p>
 
 </div>
 
@@ -3667,12 +3601,6 @@ Also integration with the callback plugin is not easy as it utilizes environment
 <li>Getting stored avatars</li>
 </ul>
 
-<div class="notes">
-
-<p>Avatar feature seems to be broken: <a href="http://projects.theforeman.org/issues/13749">http://projects.theforeman.org/issues/13749</a></p>
-
-</div>
-
 <div class="handouts">
 
 <hr>
@@ -3713,6 +3641,12 @@ avatar can be stored as base64 encoded string in a "Photo" attribute.</p>
 <ul>
 <li>Configure the LDAP authentication including group synchronisation</li>
 <li>Add a administrative group to grant the administrative accounts from the LDAP privileges</li>
+</ul>
+</li>
+<li>Optional:
+
+<ul>
+<li>Add a photo to the administrator account</li>
 </ul>
 </li>
 </ul>
@@ -4037,7 +3971,7 @@ it can be very simple or highly complex.</p>
 
 <p>Some of the options will be shown in the next slides where some of the plugins are introduced.</p>
 
-<p>For all options have a look at the "how to create a plugin" at <a href="http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin">http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin</a></p>
+<p>For all options have a look at the "how to create a plugin" at <a href="http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin">http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin</a> or "how to create a Smart Proxy plugin" at <a href="https://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Smart-Proxy_Plugin">https://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Smart-Proxy_Plugin</a>.</p>
 
 </div>
 
@@ -4134,7 +4068,7 @@ also be used to import your own git repository if you want to manage the templat
 an external version control system. In addition the imported templates will also be associated
 to the existing operating systems.</p>
 
-<p>More details on: <a href="https://github.com/theforeman/foreman_templates">https://github.com/theforeman/foreman_templates</a></p>
+<p>More details on: <a href="https://theforeman.org/plugins/foreman_templates/6.0/index.html">https://theforeman.org/plugins/foreman_templates/6.0/index.html</a></p>
 
 </div>
 
@@ -4164,6 +4098,12 @@ to the existing operating systems.</p>
 <ul>
 <li>Install the Foreman Plugin Templates</li>
 <li>Run the synchronisation job</li>
+</ul>
+</li>
+<li>Optional:
+
+<ul>
+<li>Change settings to add a prefix during import</li>
 </ul>
 </li>
 </ul>
@@ -4445,7 +4385,7 @@ as part of the installation process.</p>
 <p>With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"! With Foreman 1.15 the Plugin was
 enhanced to support tailoring files.</p>
 
-<p>More details on: <a href="https://github.com/theforeman/foreman_openscap">https://github.com/theforeman/foreman_openscap</a></p>
+<p>More details on: <a href="https://theforeman.org/plugins/foreman_openscap/0.8/index.html">https://theforeman.org/plugins/foreman_openscap/0.8/index.html</a></p>
 
 </div>
 
@@ -4488,12 +4428,6 @@ enhanced to support tailoring files.</p>
 </ul>
 </li>
 </ul>
-
-<div class="notes">
-
-<p>Guide generation is broken: <a href="http://projects.theforeman.org/issues/20222">http://projects.theforeman.org/issues/20222</a></p>
-
-</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -4574,6 +4508,12 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 </li>
 </ul>
 
+<div class="notes">
+
+<p>Requires <a href="https://github.com/theforeman/foreman_cockpit/pull/15">https://github.com/theforeman/foreman_cockpit/pull/15</a> to be merged</p>
+
+</div>
+
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
     <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
@@ -4594,10 +4534,8 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 <p>It can handle different protocols</p>
 
 <ul>
-<li>SSH - completed</li>
-<li>Ansible - first release</li>
-<li>Salt - planned</li>
-<li>Mcollective - planned</li>
+<li>SSH</li>
+<li>Ansible</li>
 </ul>
 </li>
 <li>
@@ -4612,22 +4550,12 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 </li>
 </ul>
 
-<div class="notes">
-
-<ul>
-<li>URL for the provider ansible (first release): <a href="https://github.com/theforeman/smart_proxy_ansible">https://github.com/theforeman/smart_proxy_ansible</a>
-</li>
-</ul>
-
-</div>
-
 <div class="handouts">
 
 <hr>
 
 <p>The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
-It utilizes different providers, but for now only SSH is implemented. In the design concept are plans
-for more providers, Ansible which is already work in progress, Salt and Mcollective.</p>
+It utilizes different providers, which are SSH and Ansible for now.</p>
 
 <p>The SSH provider runs per default command as root, but can also be configure to run as unpriviledged
 user and run sudo to accquire elevated privileges.</p>
@@ -4638,9 +4566,9 @@ user and run sudo to accquire elevated privileges.</p>
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.</p>
 
-<p>With the OpenSCAP plugin installed in addition a option to run scans on demand is added.</p>
+<p>With the OpenSCAP plugin installed in addition an option to run scans on demand is added.</p>
 
-<p>More details on: <a href="http://theforeman.org/plugins/foreman_remote_execution/">http://theforeman.org/plugins/foreman_remote_execution/</a></p>
+<p>More details on: <a href="https://theforeman.org/plugins/foreman_remote_execution/1.3/index.html">https://theforeman.org/plugins/foreman_remote_execution/1.3/index.html</a></p>
 
 </div>
 
@@ -4847,6 +4775,12 @@ shutdown and deletion can not be automated but it will at least notify.</p>
 </ul>
 </li>
 </ul>
+
+<div class="notes">
+
+<p>Settings tabs is not shown: <a href="https://github.com/theforeman/foreman_expire_hosts/issues/27">https://github.com/theforeman/foreman_expire_hosts/issues/27</a></p>
+
+</div>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -5296,6 +5230,44 @@ and see pending config changes, if some are shown run the foreman-installer agai
 </div>
 </div>
 </div>
+<div id="advanced_02_cleanup" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="advanced/02_cleanup/6">
+<div id="net-header">
+    <div class="logo"></div>
+</div>
+
+<h1>Foreman Maintain</h1>
+
+<ul>
+<li>A tool developed to automate the previous tasks</li>
+<li>Handles multiple strategies for
+
+<ul>
+<li>Backup</li>
+<li>Restore</li>
+</ul>
+</li>
+<li>Handles Updates including Health checks</li>
+<li>Maintenance mode prevents access to Foreman</li>
+</ul>
+
+<div class="handouts">
+
+<hr>
+
+<p>Foreman Maintain is a newly developed tool which tries to automate the previous tasks. It can handle multiple strategies for backup and restore,
+like offline and online, full and incremental. It ensures system health during Update and its maintenance mode prevents access to Foreman.</p>
+
+<p>For more information: <a href="https://theforeman.org/plugins/foreman_maintain/0.2/index.html">https://theforeman.org/plugins/foreman_maintain/0.2/index.html</a></p>
+
+</div>
+
+<div id="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+</div>
 <div id="advanced_03_api" class="slide subsectionnonum" data-transition="none">
 <div class="content subsectionnonum" ref="advanced/03_api/1">
 <div id="net-header">
@@ -5344,7 +5316,7 @@ in the WebGUI but they have to be URL encoded.</p>
 
 <p>Usage explainations can be found at <a href="http://theforeman.org/manuals/latest/index.html#5.1API">http://theforeman.org/manuals/latest/index.html#5.1API</a></p>
 
-<p>API documentation is located at <a href="http://theforeman.org/api/1.16/index.html">http://theforeman.org/api/1.16/index.html</a></p>
+<p>API documentation is located at <a href="http://theforeman.org/api/1.18/index.html">http://theforeman.org/api/1.18/index.html</a></p>
 
 </div>
 
@@ -5463,7 +5435,7 @@ environment, so feel free to create your own plugins to solve your own administr
 <li>Make sure to provide the correct credentials.</li>
 <li>Create the new Operatingsystem entry for "CentOS 6.8"</li>
 <li>Associate the template "Kickstart default PXELinux" and set it as default template</li>
-<li>Associate the template "Kickstart RHEL default" and set it as default template</li>
+<li>Associate the template "Kickstart default" and set it as default template</li>
 </ul>
 </li>
 </ul>
@@ -5837,6 +5809,8 @@ because of redirect rules directing the request to HTTPs.</p>
 <pre><code>check_http -H foreman.localdomain -e 301
 </code></pre>
 
+<div class="break">continued...</div> 
+
 <p>Log entries containing "500 Internal Server Error" will typically indicate a software failure caused by
 something not running properly or a bug. Check_logfiles provided at <a href="http://labs.consol.de">http://labs.consol.de</a> could be used
 to monitor.</p>
@@ -5844,8 +5818,6 @@ to monitor.</p>
 <pre><code>check_logfiles --logfile /var/log/foreman/production.log --rotation loglogdate8logdate8gz \
 --criticalpattern '500 Internal Server Error' --tag foreman
 </code></pre>
-
-<div class="break">continued...</div> 
 
 <p>To monitor the Smart proxy query the feature list for expected features as a feature will be deactivated if
 an error during startup occures.</p>
@@ -5955,6 +5927,7 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Puppet modules</li>
 <li>Docker container</li>
 <li>OSTree branches</li>
+<li>Debian repositories</li>
 </ul>
 </li>
 <li>Subscription Management
@@ -5968,12 +5941,6 @@ DHCP server to ensure answers are not provided from another system.</p>
 <li>Multitenancy is enabled by default</li>
 <li>Upstream project for Red Hat Network Satellite 6</li>
 </ul>
-
-<div class="notes">
-
-<p>Debian Support is WIP: <a href="https://github.com/Katello/katello/pull/6877">https://github.com/Katello/katello/pull/6877</a></p>
-
-</div>
 
 <div style="text-align:right">
 <img src="./file/katello/./_images/katello-logo.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo">

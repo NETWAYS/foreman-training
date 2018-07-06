@@ -9,10 +9,9 @@
  * EPEL repository
  * SCLorg SIG repository
  * optionally: Puppetlabs Repository
-* Fedora (not recommended) 
-* Debian 8
+* Debian 8 & 9
  * optionally: Puppetlabs Repository
-* Ubuntu 14.04 & 16.04
+* Ubuntu 16.04
  * optionally: Puppetlabs Repository
 
 ~~~SECTION:handouts~~~
@@ -23,70 +22,32 @@
 
 On the mentioned operating systems packages are provided by the project, a installation from source
 is not recommended. On all platforms all updates should be applied before installation. Using the
-Puppetlabs Repository providing an up-to-date version of Puppet is preferred.
+Puppetlabs Repository providing an up-to-date version of Puppet is preferred which of the supported
+versions touse is based on user requirements.
 
 ~~~ENDSECTION~~~
 
-!SLIDE smbullets small noprint
+!SLIDE smbullets small
 # Requirements - Puppet & Facter
 
-* Support matrix
-
-Puppet version         | Foreman installer | Smart proxy     | Report/fact processors | ENC
------------------------|-------------------|-----------------|------------------------|--------------------------------
-0.25.x, 2.6.0 - 2.6.5  | Not supported     | Untested        | Untested               | No Parametrized Classes
-2.6.5+                 | Not supported     | Supported       | Supported              | Supported
-2.7.x                  | Supported         | Supported       | Supported              | Supported
-3.0.x                  | Limited support   | 1.1 or higher   | Supported              | Supported
-3.1.x - 3.4.x          | 1.1 or higher     | 1.1 or higher   | Supported              | Supported
-3.5.x                  | 1.4.3 or higher   | 1.4.2 or higher | Supported              | Supported
-3.6.0+                 | 1.4.3 or higher   | 1.5.1 or higher | Supported              | Supported
-4.x                    | 1.12 or higher    | 1.12 or higher  | Supported              | Supported
-5.x                    | 1.16 or higher    | 1.16 or higher  | Supported              | Supported
-
-* Puppet Enterprise is not supported
 * All-in-one and FHS packaging model are both supported for Puppet 4 and 5
+ * Puppet 3 is no longer supported with Foreman 1.17 and higher
+ * Puppet Enterprise is not supported
 * Puppet Master and Puppet Server are both supported
-* Facter 1.x is supported, 2.x requires Foreman >= 1.4.2
-* Structured Facts are supported with Foreman >= 1.12
-
-!SLIDE smbullets small printonly
-# Requirements - Puppet & Facter
-
-Puppet version | Foreman installer | Smart proxy     | Report/fact processors | ENC
----------------|-------------------|-----------------|------------------------|--------------------------------
-0.25.x         | Not supported     | Untested        | Untested               | No Parametrized Classes
-2.6.0 - 2.6.5  | Not supported     | Untested        | Untested               | No Parametrized Classes
-2.6.5+         | Not supported     | Supported       | Supported              | Supported
-2.7.x          | Supported         | Supported       | Supported              | Supported
-3.0.x          | Limited support   | 1.1 or higher   | Supported              | Supported
-3.1.x - 3.4.x  | 1.1 or higher     | 1.1 or higher   | Supported              | Supported
-3.5.x          | 1.4.3 or higher   | 1.4.2 or higher | Supported              | Supported
-3.6.0+         | 1.4.3 or higher   | 1.5.1 or higher | Supported              | Supported
-4.x            | 1.12 or higher    | 1.12 or higher  | Supported              | Supported
-
-~~~PAGEBREAK~~~
-
-* Puppet Enterprise is not supported
-* All-in-one and FHS packaging model are both supported for Puppet 4
-* Puppet Master and Puppet Server are both supported
-* Facter 1.x is supported, 2.x requires Foreman >= 1.4.2
 * Structured Facts are supported with Foreman >= 1.12
 
 ~~~SECTION:handouts~~~
 
 ****
 
-An up-to-date version of Puppet 3.x is recommended while other versions will work. Puppet 4.x support is
-introduced with Foreman 1.12, supporting All-in-one and Filesystem-Hierarchy-Standard packaging standard.
-Puppet 5.x support was added with Foreman 1.16 in the same way.
+Puppet 4.x and 5.x is supported with current versions for All-in-one and Filesystem-Hierarchy-Standard packaging standard.
+Puppet 3.x support was dropped with Foreman 1.17.
 Puppet Enterprise is not supported, but can work with manual tweaking of the setup.
 
 Both versions of the central server in a Puppet environment are supported. If the All-in-on package of Puppet 4 or 5
 is found it will use the Puppet Server, in all other cases it will setup Puppet Master using Apache and Passenger.
 
-Facter 1.x is supported, Facter 2.x is supported by requires at least Foreman 1.4.2. Support for structured
-facts provided by Facter 2.x is also added with Foreman 1.12.
+Support for structured facts provided by Facter 2.x was added with Foreman 1.12.
 
 ~~~ENDSECTION~~~
 

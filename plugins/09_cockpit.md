@@ -37,6 +37,12 @@ More details on: https://github.com/theforeman/foreman_cockpit
  * Install and enable Cockpit
  * Install the Foreman Plugin Cockpit
 
+~~~SECTION:notes~~~
+
+Requires https://github.com/theforeman/foreman_cockpit/pull/15 to be merged
+
+~~~ENDSECTION~~~
+
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Cockpit
 
@@ -69,7 +75,7 @@ Cockpit action menu shows up in the Host detail view and allows to inspect the s
 
 ### Install Cockpit and enable the Cockpit websocket
 
-    # yum install cockpit
+    # yum install cockpit -y
     # systemctl enable cockpit.socket
     # systemctl start cockpit.socket
 
@@ -80,3 +86,4 @@ Afterwards connect one-time to the systems port 9090 using your browser to trust
     # foreman-installer --enable-foreman-plugin-cockpit
 
 Now you can connect to cockpit on the system from the Host detail view in Foreman and manage it graphically.
+Ensure "foreman.localdomain" is using itself as nameserver when trying to connect to other systems.

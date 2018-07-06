@@ -89,7 +89,7 @@ select the Templates and set Parameter "enable-puppetlabs-puppet5-repo" to "true
 
 * Change the Installation media "CentOS mirror" to the local repo
 * Associate the PXELinux template "Kickstart default PXELinux" with CentOS
-* Associate the Provision template "Kickstart RHEL default" with CentOS
+* Associate the Provision template "Kickstart default" with CentOS
 * Associate the operating system with the Partition table "Kickstart default", Installation media "CentOS mirror",
 select the Templates and set parameter "enable-puppetlabs-puppet5-repo" to "true"
 
@@ -113,12 +113,11 @@ URL the trainer provided.
 Navigate to "Hosts > Provisioning templates" and search "Kickstart default PXELinux".
 Click it and in the dialog on the "Association" tab move the entry for CentOS to the "Selected Items".
 If no "Applicable Operating System" is shown, no puppet run on the Foreman server occurred, run it manually by excuting "puppet agent -t".
-If using a local mirror adjust the URLs in this template.
 Click on "Submit".
 
-### Associate the Provision template "Kickstart RHEL default" with CentOS
+### Associate the Provision template "Kickstart default" with CentOS
 
-Navigate to "Hosts > Provisioning templates" and search "Kickstart RHEL default".
+Navigate to "Hosts > Provisioning templates" and search "Kickstart default".
 Click it and in the dialog on the "Association" tab move the entry for CentOS to the "Selected Items".
 Click on "Submit".
 
@@ -222,7 +221,6 @@ Click on "Submit".
 !SLIDE smbullets small
 # Foreman Setup
 
-* A plugin installed by default
 * Designed to help with the initial setup
  * Subnet and Domain information as input
  * Foreman-Installer commands as output
@@ -234,7 +232,7 @@ Click on "Submit".
 
 ****
 
-The Foreman Plugin Setup is installed by default to help with the initial setup (the steps we did manually).
+The Foreman Plugin Setup is created to help with the initial setup (the steps we did manually).
 It asks for domain and subnet information as input and will output Foreman-Installer commands. In addition
 it will ensure configuration of the Foreman host, association of templates and operating systems and existence
 of installation media.

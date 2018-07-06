@@ -58,6 +58,8 @@ Image copyright by the Foreman Project.
 ~~~SECTION:notes~~~
 
 Bug http://projects.theforeman.org/issues/15714 / https://github.com/theforeman/smart_proxy_abrt/issues/8 breaks this exercise
+Fixed by https://github.com/theforeman/smart_proxy_abrt/pull/9
+Additional bugs break the UI and plugin is currently unmaintained
 
 ~~~ENDSECTION~~~
 

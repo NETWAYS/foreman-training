@@ -29,7 +29,7 @@ To setup the Katello demo follow this guide (it requires vagrant and ansible to 
 
     # git clone https://github.com/Katello/forklift.git
     # cd forklift
-    # vagrant up centos7-katello-3.4
+    # vagrant up centos7-katello-3.7
 
 This will setup your Katello server, login with the provided credentials and add the following content:
 
@@ -48,7 +48,7 @@ This will setup your Katello server, login with the provided credentials and add
 
 Register the system to itself:
 
-    # vagrant ssh centos7-katello-3.4
+    # vagrant ssh centos7-katello-3.7
     # yum -y install katello-agent http://$(hostname -f)/pub/katello-ca-consumer-latest.noarch.rpm
     # subscription-manager register --org Default_Organization --activationkey="CentOS7-Test"
 

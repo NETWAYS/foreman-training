@@ -3,10 +3,8 @@
 
 * Execute jobs on remote systems from the Foreman WebGUI
 * It can handle different protocols
- * SSH - completed
- * Ansible - first release
- * Salt - planned
- * Mcollective - planned
+ * SSH
+ * Ansible
 
 * _Use case:_ 
  * Trigger configuration management runs immediately
@@ -14,19 +12,12 @@
  * Orchestrate operations on servers
  * OpenSCAP scans on demand
 
-~~~SECTION:notes~~~
-
-* URL for the provider ansible (first release): https://github.com/theforeman/smart_proxy_ansible
-
-~~~ENDSECTION~~~
-
 ~~~SECTION:handouts~~~
 
 ****
 
 The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
-It utilizes different providers, but for now only SSH is implemented. In the design concept are plans
-for more providers, Ansible which is already work in progress, Salt and Mcollective.
+It utilizes different providers, which are SSH and Ansible for now.
 
 The SSH provider runs per default command as root, but can also be configure to run as unpriviledged
 user and run sudo to accquire elevated privileges.
@@ -37,9 +28,9 @@ It is usefully to trigger configuration management runs immediately to get an ad
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.
 
-With the OpenSCAP plugin installed in addition a option to run scans on demand is added.
+With the OpenSCAP plugin installed in addition an option to run scans on demand is added.
 
-More details on: http://theforeman.org/plugins/foreman_remote_execution/
+More details on: https://theforeman.org/plugins/foreman_remote_execution/1.3/index.html
 
 ~~~ENDSECTION~~~
 
@@ -97,7 +88,6 @@ Puppet run is executed on the remote system and report is uploaded
 This will install both the Foreman and Smart proxy Plugin, create a SSH key and restart the services.
 
     # foreman-installer --enable-foreman-plugin-remote-execution\
-                        --enable-foreman-plugin-tasks\
                         --enable-foreman-proxy-plugin-remote-execution-ssh
 
 ### Bring out the SSH key
@@ -112,12 +102,10 @@ Or get it via the Smart proxy:
 
 ### Trigger the Puppet run
 
-Before running any job make sure Foreman knows about the Smart proxy providing the features "Dynflow" and 
-"SSH" by refreshing it. 
-
 Navigate to the host and press "Schedule Remote Job". For multiple hosts the action is also available in the action menu
 of the "All Hosts" view. To Trigger the Puppet agent run, select the Job Category "Puppet" which has the
-"Puppet Run Once" as default Job. Press "Submit" to execute it and watch for the execution.
+"Puppet Run Once" as default Job. For more output add "puppet_options" "--verbose". Press "Submit" to execute it and watch
+for the execution.
 
 ### Optional: Run OpenSCAP scan
 

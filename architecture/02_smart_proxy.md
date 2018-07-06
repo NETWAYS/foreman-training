@@ -4,7 +4,7 @@
 * Autonomous web-based component
  * Restful API to connect to various systems from Foreman
  * Decentralisation of some Foreman features (templates) for isolated networks
-* Supported Platforms: RHEL/Fedora, Debian/Ubuntu, (Linux, Windows)
+* Supported Platforms: RHEL/CentOS, Debian/Ubuntu, (Linux, Windows)
 * Supported Subsystems:
  * DHCP - ISC DHCP, MS DHCP Servers, Libvirt
  * DNS - Bind, PowerDNS, Route53, MS DNS Server, Libvirt
@@ -27,7 +27,7 @@
 The smart proxy is an autonomous web-based component providing a restful API to connect to varios
 systems from higher ochestration tools such as Foreman. 
 
-The Project provides packages for installation on RHEL/Fedora and Debian/Ubuntu. Installing from
+The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
 source allows to support other Linux distributions and also Windows which is required for some 
 implementations of subsystems.
 
@@ -80,6 +80,8 @@ needs netsh command installed and the user running the service needs administrat
 server does not need to be the DHCP server. For testing enviroments also an implementation for Libvirt
 using libvirt API to manage the dnsmasq underneath is available, a productive use is not recommended.
 
+Additional providers like infoblox or remote connection to ISC DHCP are available as plugins.
+
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small
@@ -128,6 +130,8 @@ possibilty is to install the Smart Proxy on a Windows server and give it the pri
 Other implementations like PowerDNS and Route53 are also supported. Libvirt is again only supported as a
 testing environment.
 
+Additional providers like infoblox or powerdns are available as plugins.
+
 ~~~ENDSECTION~~~
 
 
@@ -164,6 +168,12 @@ in the most cases no manual configuration is required because it is completly in
  * requires access to ssl directory, autosign configuration and puppet cert command
  * allows certificate management using the Web GUI
  * creates autosign entry for hosts during provisioning
+
+~~~SECTION:notes~~~
+
+WIP: Tokenbased autosigning - https://github.com/theforeman/smart-proxy/pull/592
+
+~~~ENDSECTION~~~
 
 ~~~SECTION:handouts~~~
 

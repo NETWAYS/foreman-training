@@ -20,7 +20,7 @@ also be used to import your own git repository if you want to manage the templat
 an external version control system. In addition the imported templates will also be associated
 to the existing operating systems.
 
-More details on: https://github.com/theforeman/foreman_templates
+More details on: https://theforeman.org/plugins/foreman_templates/6.0/index.html
 
 ~~~ENDSECTION~~~
 
@@ -32,6 +32,8 @@ More details on: https://github.com/theforeman/foreman_templates
 * Steps:
  * Install the Foreman Plugin Templates
  * Run the synchronisation job
+* Optional:
+ * Change settings to add a prefix during import
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Templates
@@ -47,11 +49,17 @@ More details on: https://github.com/theforeman/foreman_templates
 ****
 
 * Install the Foreman Plugin Templates using the foreman-installer
-* Run the synchronisation job with "foreman-rake templates:sync"
+* Run the synchronisation job with an API call
+
+## Optional:
+
+****
+
+* Change settings to add a prefix during import
 
 #### Expected result:
 
-Additional templates with the prefix "Community" are available in the WebGUI.
+Additional templates are available in the WebGUI.
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Templates
@@ -66,6 +74,11 @@ Additional templates with the prefix "Community" are available in the WebGUI.
 
     # foreman-installer --enable-foreman-plugin-templates
 
-### Run the synchronisation job with "foreman-rake templates:sync"
+### Run the synchronisation job with an API call
 
-    # foreman-rake templates:sync
+    # curl -H "Accept:application/json,version=2" -H "Content-Type:application/json" \
+    -u admin:PASSWORD -k https://foreman.example.com/api/v2/templates/import -X POST
+
+### Optional: Change settings to add a prefix during import
+
+Optionally change the settings on the "TemplateSync" tab of "Administer > Settings" to add a Prefix

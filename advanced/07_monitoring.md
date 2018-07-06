@@ -28,14 +28,14 @@ because of redirect rules directing the request to HTTPs.
 
     check_http -H foreman.localdomain -e 301
 
+~~~PAGEBREAK~~~ 
+
 Log entries containing "500 Internal Server Error" will typically indicate a software failure caused by
 something not running properly or a bug. Check_logfiles provided at http://labs.consol.de could be used
 to monitor.
 
     check_logfiles --logfile /var/log/foreman/production.log --rotation loglogdate8logdate8gz \
     --criticalpattern '500 Internal Server Error' --tag foreman
-
-~~~PAGEBREAK~~~ 
 
 To monitor the Smart proxy query the feature list for expected features as a feature will be deactivated if
 an error during startup occures.

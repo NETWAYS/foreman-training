@@ -51,13 +51,6 @@ back to other tools.
  * Ansible transfers reports to Foreman via callback
  * Ansible uses Foreman as dynamic inventory
 
-~~~SECTION:notes~~~
-
-Role import is broken in the Smart proxy but works still in the Foreman integration
-Playing roles is broken in Foreman integration but works using Smart proxy
-
-~~~ENDSECTION~~~
-
 ~~~SECTION:handouts~~~
 
 ****
@@ -143,14 +136,14 @@ The playbook only requires an array of hosts and roles.
 ### Configure callback plugin 
 
     # vi /etc/ansible/ansible.cfg
+    [defaults]
     callback_whitelist = foreman
-    bin_ansible_callbacks = True
-    # vi .bash_profile
-    export FOREMAN_URL="https://foreman.localdomain"
-    export FOREMAN_SSL_CERT="/etc/puppetlabs/puppet/certs/foreman.localdomain.pem"
-    export FOREMAN_SSL_KEY="/etc/puppetlabs/puppet/private_keys/foreman.localdomain.pem"
-    export FOREMAN_SSL_VERIFY="false"
-    # . .bash_profile
+    ...
+    [callback_foreman]
+    url = 'https://foreman.example.com'
+    ssl_cert = /etc/puppetlabs/puppet/ssl/certs/foreman.localdomain.pem
+    ssl_key = /etc/puppetlabs/puppet/ssl/private_keys/foreman.localdomain.pem
+    verify_certs = /etc/puppetlabs/puppet/ssl/certs/ca.pem
 
 ### Add your host to the inventory
 
@@ -166,7 +159,7 @@ The playbook only requires an array of hosts and roles.
 
 ### Download the role "reallyenglish.ntpd"
 
-    # ansible-galaxy install reallyenglish.ntpd
+    # ansible-galaxy install reallyenglish.ntpd -p /etc/ansible/roles
 
 ### Create a playbook and run it
 
@@ -228,8 +221,8 @@ You can run the script directly to the output and use it with the parameter `-i`
 
 ### Download Dynamic Inventory and sample configuration
 
-    # wget -p /etc/ansible/ http://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/foreman.ini
-    # wget -p /etc/ansible/ http://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/foreman.py
+    # wget -P /etc/ansible/ http://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/foreman.ini
+    # wget -P /etc/ansible/ http://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/foreman.py
     # chmod +x /etc/ansible/foreman.py
 
 ### Adjust configuration
@@ -255,7 +248,6 @@ You can run the script directly to the output and use it with the parameter `-i`
 * Steps:
  * Install Foreman Plugin and Smart Proxy Plugin
  * Import roles and assign them
- * Configure settings in Foreman
  * Prepare Smart proxy to play roles
  * Play roles using the webinterface 
 
@@ -263,8 +255,7 @@ You can run the script directly to the output and use it with the parameter `-i`
 
 ****
 
-Graphical integration has some bugs and requires improvements which are worked on.
-Also integration with the callback plugin is not easy as it utilizes environment variables for configuration.
+Graphical integration uses Remote-Execution plugin which will be covered later in more depth.
 
 ~~~ENDSECTION~~~
 
@@ -283,19 +274,9 @@ Also integration with the callback plugin is not easy as it utilizes environment
 
 * Install Foreman Plugin and Smart Proxy Plugin using foreman-installer
 * Import roles and assign them
-
-This requires to adjust the Ansible configuration to include only a single roles_path.
-
-* Configure settings in Foreman
-
-You can configure the account used, the password and how to get superuser privileges.
-You can override configuration with host parameters.
-In production do not use root, but keep it now.
-
 * Prepare Smart proxy to play roles
 
-Smart Proxy needs a SSH configuration to disable host key checking and an Ansible directory
-to play roles.
+Smart Proxy needs a SSH key to play roles.
 
 * Play roles using the webinterface 
 
@@ -315,25 +296,17 @@ to play roles.
 
 * Import roles and assign them
 
-Adjust the Ansible configuration to include only a single roles_path.
-
-    # vi /etc/ansible/ansible.cfg
-    roles_path = /etc/ansible/roles
-
-Navigate to "Configure > Roles" and import using "Import from Foreman host".
+Navigate to "Configure > Roles" and import using "Import from foreman.localdomaon".
 Afterwards navigate to the host and edit them to assign the roles in the new "Ansible Roles" tab.
-
-* Configure settings in Foreman
-
-Navigate to "Administer > Settings", on the "Ansible" tab set the password.
 
 * Prepare Smart proxy to play roles
 
-    # install -o foreman-proxy -g foreman-proxy -m 0755 -d ~foreman-proxy/.ansible
-    # install -o foreman-proxy -g foreman-proxy -m 0755 -d ~foreman-proxy/.ssh
-    # sudo -u foreman-proxy vi ~foreman-proxy/.ssh/config
-    Host *
-       StrictHostKeyChecking on
+    # install -o foreman-proxy -g foreman-proxy -m 0700 -d ~foreman-proxy/.ssh
+    # su - foreman-proxy -s /bin/bash
+    # ssh-keygen -f .ssh/id_rsa_foreman_proxy
+    [ENTER]
+    [ENTER]
+    # ssh-copy-id -i .ssh/id_rsa_foreman_proxy root@foreman.localdomain
 
 * Play roles using the webinterface 
 

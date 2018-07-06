@@ -35,6 +35,12 @@ More details on: https://github.com/theforeman/foreman_expire_hosts
  * Configure notifications
  * Set a host to expire
 
+~~~SECTION:notes~~~
+
+Settings tabs is not shown: https://github.com/theforeman/foreman_expire_hosts/issues/27
+
+~~~ENDSECTION~~~
+
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Expire Hosts

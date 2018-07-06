@@ -68,11 +68,11 @@ Active Icinga 2 and Icinga Web 2 Director provider.
 Credentials are icinga:icinga.
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Expire Hosts
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Monitoring Integration
 
 ****
 
-## Set a host to expire
+## Integrate Monitoring into Foreman
 
 ****
 
@@ -100,8 +100,7 @@ Credentials are icinga:icinga.
     :director_user: foreman
     :director_password: foreman
     :verify_ssl: false
-    # sed -i -e "s/RestClient::NotFound/RestClient::ResourceNotFound/g" \ 
-    /usr/share/gems/gems/smart_proxy_monitoring-0.1.0/lib/smart_proxy_monitoring/director/director_client.rb
+    # systemctl restart foreman-proxy.service
 
 ### Configure Foreman default actions for monitoring
 

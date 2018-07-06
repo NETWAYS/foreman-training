@@ -133,3 +133,25 @@ before restarting the service you can optionally run the foreman-installer in si
 and see pending config changes, if some are shown run the foreman-installer again to apply them finally.
 
 ~~~ENDSECTION~~~~
+
+
+!SLIDE smbullets small
+# Foreman Maintain
+
+* A tool developed to automate the previous tasks
+* Handles multiple strategies for
+ * Backup
+ * Restore
+* Handles Updates including Health checks
+* Maintenance mode prevents access to Foreman
+
+~~~SECTION:handouts~~~
+
+****
+
+Foreman Maintain is a newly developed tool which tries to automate the previous tasks. It can handle multiple strategies for backup and restore,
+like offline and online, full and incremental. It ensures system health during Update and its maintenance mode prevents access to Foreman.
+
+For more information: https://theforeman.org/plugins/foreman_maintain/0.2/index.html
+
+~~~ENDSECTION~~~

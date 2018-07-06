@@ -258,7 +258,7 @@ from unprivileged users.
 
 Navigate to "Configure > Classes" and select the class "training::user". In the "Smart Class Parameter" tab
 insert your name as Default Value for the id of the user, add a ssh public key as Default Value for ssh_pub_key,
-for the parameter sudo select override and set the default to true.
+for the parameter sudo select override, set the key type to boolean and the default to true.
 
 Hint: To create a ssh key pair run "ssh-keygen". The key string required for the puppet module is the second part
 of the pub file.

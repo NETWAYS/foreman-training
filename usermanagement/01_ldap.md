@@ -10,12 +10,6 @@
 * Optional synchronisation of group membership
 * Getting stored avatars
 
-~~~SECTION:notes~~~
-
-Avatar feature seems to be broken: http://projects.theforeman.org/issues/13749
-
-~~~ENDSECTION~~~
-
 ~~~SECTION:handouts~~~
 
 ****
@@ -38,6 +32,8 @@ avatar can be stored as base64 encoded string in a "Photo" attribute.
 * Steps:
  * Configure the LDAP authentication including group synchronisation
  * Add a administrative group to grant the administrative accounts from the LDAP privileges
+* Optional:
+ * Add a photo to the administrator account
 
 
 !SLIDE supplemental exercises
@@ -55,6 +51,7 @@ avatar can be stored as base64 encoded string in a "Photo" attribute.
 
 * Configure the LDAP authentication including group synchronisation
 * Add a administrative group to grant the administrative accounts from the LDAP privileges
+* Optional: Add a photo to the administrator account via ldapmodify
 
 #### Expected result:
 
@@ -133,3 +130,14 @@ Navigate to "Administer > User groups" and open the group dialog by pressing "Cr
 Create the group by clicking "Submit" and afterwards try to login with the credentials "administrator / netways".
 Login should work, grant permissions and you should find the user in "Administer > Users". If login fails check the
 "LDAP Authentication", if no permissions are granted check the "User group".
+
+* Optional: Add a photo to the administrator account
+
+If you want to test the avatar feature, download a photo and modify ldap to include it.
+
+    # vi jpegPhoto.ldif
+    dn: cn=administrator,ou=users,dc=localdomain
+    changetype: modify
+    add: jpegPhoto
+    jpegPhoto:< file:///tmp/tux.png
+    # ldapmodify -x -D "cn=admin,dc=localdomain" -w netways -f jpegPhoto.ldif

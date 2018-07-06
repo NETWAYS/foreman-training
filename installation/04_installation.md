@@ -4,6 +4,7 @@
 * Objective:
  * Prepare the installation of Foreman
 * Steps:
+ * Start the virtual machine "foreman.localdomain" and connect via SSH
  * Make Puppet vendor repository for Puppet 5 available
  * Make EPEL repository available
  * Make Foreman repository available
@@ -22,6 +23,11 @@
 ## Steps:
 
 ****
+
+* Start the virtual machine "foreman.localdomain" and connect via SSH
+
+You can start the virtual machine "foreman.localdomain" with Virt-Manager from the Systemtools and connect
+via SSH as 'root' so you can copy and paste to the console.
 
 * Make Puppet vendor repository available
 
@@ -69,6 +75,14 @@ The Foreman installer is installed and "foreman-installer --help" could be run f
 
 ****
 
+### Start the virtual machine "foreman.localdomain" and connect via SSH
+
+You can start the virtual machine "foreman.localdomain" with "Virtual Machine Manager" application
+from the Gnome Application menu and connect via SSH as 'root' with password 'netways' so you can copy
+and paste to the console.
+
+    # ssh root@foreman.localdomain
+
 ### Make Puppet vendor repository available
 
 Install the release package provided by the Puppet vendor repository to make it available for package
@@ -105,7 +119,7 @@ Install the package "foreman-installer" from the now available repositories.
 * Steps:
  * Run foreman-installer with additional parameters
 * Notes:
- * DNS (interface=eth0, zone=localdomain, reverse=0.0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
+ * DNS (interface=eth0, zone=localdomain, reverse=0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
  * DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)
 
 ~~~SECTION:notes~~~
@@ -137,7 +151,7 @@ DNS should be enabled and configured with the following parameters:
 
  * interface=eth0
  * zone=localdomain
- * reverse=0.0.10.in-addr.arpa
+ * reverse=0.10.in-addr.arpa
  * forwarders=8.8.8.8,8.8.4.4
 
 DHCP should be enabled and configured with the following parameters:
@@ -171,7 +185,7 @@ To install run the following command:
     --foreman-proxy-dns=true \
     --foreman-proxy-dns-interface=eth0 \
     --foreman-proxy-dns-zone=localdomain \
-    --foreman-proxy-dns-reverse=0.0.10.in-addr.arpa \
+    --foreman-proxy-dns-reverse=0.10.in-addr.arpa \
     --foreman-proxy-dns-forwarders=8.8.8.8 \
     --foreman-proxy-dns-forwarders=8.8.4.4 \
     --foreman-proxy-dhcp=true \
@@ -269,7 +283,6 @@ Press 'Submit' to store the configuration.
 * Objective:
  * Create the subnet 'foreman' and associate Smart proxies
 * Steps:
- * Login to Foreman
  * Navigate to 'Infrastructure > Smart proxies'
  * Add the subnet 'foreman' by importing from the Smart Proxy 
  * Adjust additional settings via 'Infrastructure > Subnets'
@@ -294,7 +307,6 @@ Press 'Submit' to store the configuration.
 
 ****
 
-* Login to Foreman
 * Navigate to 'Infrastructure > Smart proxies'
 * Add the subnet 'foreman' by importing from the Smart Proxy
 * Adjust additional settings via 'Infrastructure > Subnets'
@@ -312,10 +324,6 @@ We will use the complete DHCP range the DHCP server provides.
 ## Create the subnet 'foreman' and associate Smart proxies
 
 ****
-
-### Login to Foreman
-
-With the provided credentials login to 'https://foreman.localdomain' using your browser.
 
 ### Navigate to 'Infrastructure > Smart Proxies'
 
@@ -351,6 +359,6 @@ Afterwards we have to return to the configuration via 'Infrastructure > Subnets'
 * Proxies tab:
  * DHCP Proxy: 'foreman.localdomain'
  * TFTP Proxy: 'foreman.localdomain'
- * DNS Proxy: 'foreman.localdomain'
+ * Reverse DNS Proxy: 'foreman.localdomain'
 
 Press 'Submit' to store the configuration with this change.

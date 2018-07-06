@@ -35,7 +35,7 @@ A list of plugins is provided by the Github page of the framework: https://githu
  * Make sure to provide the correct credentials.
  * Create the new Operatingsystem entry for "CentOS 6.8"
  * Associate the template "Kickstart default PXELinux" and set it as default template
- * Associate the template "Kickstart RHEL default" and set it as default template
+ * Associate the template "Kickstart default" and set it as default template
 
 
 !SLIDE supplemental exercises
@@ -54,7 +54,7 @@ A list of plugins is provided by the Github page of the framework: https://githu
 * Make sure to provide the correct credentials.
 * Create the new Operatingsystem entry for "CentOS 6.8"
 * Associate the template "Kickstart default PXELinux" and set it as default template
-* Associate the template "Kickstart RHEL default" and set it as default template
+* Associate the template "Kickstart default" and set it as default template
 
 
 !SLIDE supplemental solutions
@@ -86,10 +86,10 @@ The ids may vary depending on our environment but you can get them with the list
 
     # hammer template add-operatingsystem --name "Kickstart default PXELinux" \
     --operatingsystem "CentOS 6.8"
-    # hammer os set-default-template --config-template-id 24 --id 4
+    # hammer os set-default-template --config-template-id 35 --id 6
 
-### Associate the template "Kickstart RHEL default" and set as default template
+### Associate the template "Kickstart default" and set as default template
 
-    # hammer template add-operatingsystem --name "Kickstart RHEL default" \
+    # hammer template add-operatingsystem --name "Kickstart default" \
     --operatingsystem "CentOS 6.8"
-    # hammer os set-default-template --config-template-id 22 --id 4
+    # hammer os set-default-template --config-template-id 31 --id 6

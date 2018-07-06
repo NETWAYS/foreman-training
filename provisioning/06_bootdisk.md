@@ -129,9 +129,9 @@ the host accordingly.
 
 ### Configure virtual machine to boot from image by adding a "CDROM" device and selecting it as boot media
 
-Open the Details view of the virtual machine "pxe" in the Virtual Machine Manager. Add a new "CDROM" device,
-go to the newly added device and connect the downloaded host image. Go to the boot option, select the "CDROM"
-device and move it onto the first place of the boot order.
+The system has to be powered off for this. Open the Details view of the virtual machine "pxe" in the Virtual
+Machine Manager. Add a new "CDROM" storage device, go to the newly added device and connect the downloaded
+host image. Go to the boot option, select the "CDROM" device and move it onto the first place of the boot order.
 
 ### Boot and reinstall the virtual machine
 

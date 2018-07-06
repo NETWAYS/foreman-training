@@ -32,7 +32,7 @@ as part of the installation process.
 With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"! With Foreman 1.15 the Plugin was
 enhanced to support tailoring files.
 
-More details on: https://github.com/theforeman/foreman_openscap
+More details on: https://theforeman.org/plugins/foreman_openscap/0.8/index.html
 
 ~~~ENDSECTION~~~
 
@@ -50,12 +50,6 @@ More details on: https://github.com/theforeman/foreman_openscap
  * Upload the report from the Smart proxy to the Foreman
 * Optional:
  * Customize the Policy with a tailor file
-
-~~~SECTION:notes~~~
-
-Guide generation is broken: http://projects.theforeman.org/issues/20222
-
-~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: OpenSCAP
