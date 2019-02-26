@@ -16,6 +16,8 @@ in Foreman, the plugin "Default Hostgroup" simply adds the possibility to set a 
 hostgroup to assign to these newly created hosts. This allows to add a classification
 via the hostgroup already on the first run and without manual intervention.
 
+~~~PAGEBREAK~~~
+
 To use it simply install the package and create a file "/etc/foreman/plugins/default_hostgroup.yaml"
 containing a hash which maps facts to hostgroups to assign.
 
@@ -25,7 +27,7 @@ containing a hash which maps facts to hostgroups to assign.
         "Default":
           "hostname": ".*"
 
-~~~PAGEBREAK~~~
+<p><br></p>
 
 The plugin is very useful if you plan to embed Foreman in an already puppetized
 environment as Puppet ENC.

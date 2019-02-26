@@ -24,14 +24,14 @@
 
 ****
 
+~~~PAGEBREAK~~~
+
 The smart proxy is an autonomous web-based component providing a restful API to connect to varios
 systems from higher ochestration tools such as Foreman. 
 
 The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
 source allows to support other Linux distributions and also Windows which is required for some 
 implementations of subsystems.
-
-~~~PAGEBREAK~~~
 
 There are different implementations of various subsystems included in the smart proxy by default
 and it easily allows to add additional subsystems and implementations as plugins. For configuration
@@ -47,14 +47,11 @@ Directory focused on Linux) is supported.
 * Adds and removes host reservations
 * Requires subnets to be configured
 * Supports: ISC DHCP, MS DHCP, Libvirt
-
 * ISC DHCP:
  * uses OMAPI 
-
 * MS DHCP:
  * uses netsh on a windows server
  * needs administrative privileges
-
 * Libvirt:
  * not for productive use
  * uses libvirt API to manage dnsmasq for libvirt
@@ -84,26 +81,24 @@ Additional providers like infoblox or remote connection to ISC DHCP are availabl
 
 ~~~ENDSECTION~~~
 
-!SLIDE smbullets small
+!SLIDE small smbullets
 # Smart Proxy - DNS
 
 * Adds and removes dns records of type A, AAAA and PTR
 * Requires zone to be configured as dynamic zones
 * Supports: Bind, PowerDNS, Route53, MS DNS, Libvirt
-
 * Bind:
  * uses nsupdate with preshared key or Kerberos principal
-
 * MS DNS:
  * uses nsupdate with Kerberos principal
  * alternativly: uses dnscmd on a windows server
-
 * PowerDNS:
  * directly connects to the database backend
-
 * Route53 (DNS in AWS cloud):
  * requires Amazon Web Service account
  * access and secret key of IAM account with access to Route53
+
+~~~PAGEBREAK~~~
 
 * Libvirt:
  * not for productive use

@@ -11,7 +11,6 @@
 
 ~~~SECTION:handouts~~~
 
-****
 
 By installing the plugin you get a synchronisation job for templates which per default
 import the community templates from https://github.com/theforeman/community-templates

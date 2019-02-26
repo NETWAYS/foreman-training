@@ -10,7 +10,7 @@
 * Bookmark and share your own search
 
 <div style="text-align:right">
-<img src="./_images/foreman-searches.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Searches"/>
+<img src="./_images/foreman-searches.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 290px" alt="Foreman Searches"/>
 </div>
 
 ~~~SECTION:handouts~~~
@@ -39,15 +39,14 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 * Internal Host parameters or Facts provided by Configuration Management
 
 <div style="text-align:right">
-<img src="./_images/foreman-trend-puppetversion.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Trends"/>
+<img src="./_images/foreman-trend-puppetversion.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 260px" alt="Foreman Trends"/>
 </div>
 
 ~~~SECTION:handouts~~~
 
 ****
 
-~~~PAGEBREAK~~~
-
+<br>
 Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
 "Monitor > Trends" and a cronjob is performs the data collection. By default this cronjob runs every 30 minutes matching 
 Puppet's default run interval because most trends will be based on the facts collected by the configuration management

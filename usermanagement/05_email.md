@@ -6,12 +6,14 @@
 * Used by Foreman and many plugins
 
 <div style="text-align:right">
-<img src="./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Notification"/>
+<img src="./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 95px; margin-right: 95px" alt="Foreman Notification"/>
 </div>
 
 ~~~SECTION:handouts~~~
 
 ****
+
+~~~PAGEBREAK~~~
 
 Foreman provides a new notification feature to notify about your own actions since 1.15 which is already used by Foreman and
 many plugins. This allows to keep track of actions run independently.
@@ -27,7 +29,7 @@ many plugins. This allows to keep track of actions run independently.
 * Puppet run with error on every run or as frequent summary
 
 <div style="text-align:right">
-<img src="./_images/foreman_email.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Email"/>
+<img src="./_images/foreman_email.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 265px" alt="Foreman Email"/>
 </div>
 
 ~~~SECTION:handouts~~~

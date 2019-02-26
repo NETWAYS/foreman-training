@@ -3,7 +3,7 @@
 
 * Identifies itself as discovered host with its mac address
 
-<div style="text-align: center"><img src="./_images/discovery.png" style="float: center; margin-left: 50px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
+<div style="text-align: center"><img src="./_images/discovery.png" style="float: center; margin-left: 125px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
 
 
 !SLIDE smbullets small printonly
@@ -15,14 +15,9 @@
 
 ~~~SECTION:handouts~~~
 
-****
-
 For the installation the system boots a discovery image and identifies itself as "Discovered Host" in the Foreman Web GUI.
 As an identifier the host uses its mac address. Then configuration is done in Foreman and after submitting it the image 
 is told to reboot and starts an installation via PXE afterwards.
-
-~~~PAGEBREAK~~~
-
 For this communication the discovery image uses the Smart proxy included in it.
 
 ~~~ENDSECTION~~~
@@ -246,6 +241,8 @@ Having "IPv4 subnet" set to "foreman" is also required.
 ~~~SECTION:handouts~~~
 
 ****
+
+~~~PAGEBREAK~~~
 
 Discovery rules allow an automatic rule based installation. Depending on facts provided by the discovery image a rule is selected
 and the system is installed based on the configuration of the selected hostgroup. Naming is done based on a template using ERB which

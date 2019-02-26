@@ -3,7 +3,7 @@
 
 * Identifier is the mac address
 
-<div style="text-align:center"><img src="./_images/pxe.png" style="float: center; margin-left: 50px; width: 760px; height: 340px;" alt="Provisioning PXE"></div>
+<div style="text-align:center"><img src="./_images/pxe.png" style="float: center; margin-left: 125px; width: 760px; height: 340px;" alt="Provisioning PXE"></div>
 
 ~~~SECTION:notes~~~
 
@@ -26,11 +26,11 @@
 For the installation using PXE the identfier used is the mac address so it is required during configuration of
 the host in Foreman. For communication with Foreman a token is created as identifier. 
 
+~~~PAGEBREAK~~~
+
 After the host is created in Foreman, it reserves an IP address in DHCP, creates DNS records and places a PXE 
 configuration on the TFTP server. If not already existing the Smart Proxy TFTP downloads the boot image to its
 directory.
-
-~~~PAGEBREAK~~~
 
 When the host is started it gets its IP address using DHCP which also tells him to boot via PXE from the TFTP server.
 The PXE configuration points also to the answer file provided by Foreman which will point to the configured
@@ -224,8 +224,6 @@ When you unpause the virtual machine it will get the suggested IP address and th
 * Allows to associate templates
 
 ~~~SECTION:handouts~~~
-
-****
 
 Hostgroups are used to group hosts, the groups can be organized in a hierarchical way by nesting them.
 

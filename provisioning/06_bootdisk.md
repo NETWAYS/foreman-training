@@ -11,8 +11,6 @@
 
 ~~~SECTION:handouts~~~
 
-****
-
 For the installation in an environment you do not have total control over the network infrastructure the
 Foreman Plugin Bootdisk provides 4 kinds of boot images based on iPXE.
 

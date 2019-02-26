@@ -28,7 +28,6 @@ in the "/etc/foreman/settings.yaml".
     :logging:
       :level: debug
 
-~~~PAGEBREAK~~~
 
 Furthermore it is possible to enable additional specific loggers.
 
@@ -84,8 +83,6 @@ You can get the provisioning configuration files by spoofing the URL:
 
      https://foreman.localdomain/unattended/provision?spoof=10.0.0.100
 
-~~~PAGEBREAK~~~
-
 In this URL you can change the template type provision to every other type to get those files.
 
 If everything here seems to be correct, check the communication in the Foreman log. Getting the exact URLs from the log
@@ -98,6 +95,8 @@ On the TFTP server have a look at the boot image, it is downloaded only once dur
 If somehow the image was already downloaded you will not find any new log entry about the failed download. Also in some rare
 cases distribution releases a newer version of the boot image to fix some installation issues. So check the size and checksum
 of the image if the boot fails. 
+
+~~~PAGEBREAK~~~
 
 In the case there is no PXE configuration you can cancel and restart the build process or execute a rebuild from the "All Hosts" menu.
 
@@ -125,17 +124,19 @@ the agent has to run more than once to complete the full configuration.
 
 ****
 
+~~~PAGEBREAK~~~
+
 The Foreman team tries to help with issues as good as they can. To achieve this there are several ways to get support available.
 
 First have a look into the Wiki page collecting common issues: http://projects.theforeman.org/projects/1/wiki/Troubleshooting
-
-~~~PAGEBREAK~~~
 
 If your problem is not covered there the fastest way to get in touch with the team is the IRC Channel. The channel #theforeman is
 hosted on irc.freenode.net, the developer channel #theforeman-dev is only for support on development of Foreman and plugins.
 
 The mailing lists have been replaced with Discourse to provide a Community Platform which is basicly a forum with mailing list support.
 You can get help here, discuss development and follow release workflow including test weeks.
+
+~~~PAGEBREAK~~~
 
 On 'Server Fault' you can ask questions and find answers tagged with foreman: http://serverfault.com/questions/tagged/foreman
 

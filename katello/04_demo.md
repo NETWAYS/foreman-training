@@ -3,7 +3,6 @@
 
 Katello Demo
 
-
 !SLIDE printonly
 # Demo
 

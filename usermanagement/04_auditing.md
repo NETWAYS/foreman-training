@@ -7,7 +7,7 @@
 * Browse and searchable in the WebGUI
 
 <div style="text-align:right">
-<img src="./_images/foreman_auditing.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman Auditing"/>
+<img src="./_images/foreman_auditing.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 151px" alt="Foreman Auditing"/>
 </div>
 
 ~~~SECTION:handouts~~~

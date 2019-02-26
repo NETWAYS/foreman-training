@@ -26,7 +26,7 @@ In addition to the sources you can find the rendered material on
 
 Feel free to use this material as it is to provide your own training.
 
-To run the presentation you will need [showoff 0.9.11.1](https://rubygems.org/gems/showoff/versions/0.9.11.1).
+To run the presentation you will need [showoff 0.20.0](https://rubygems.org/gems/showoff/versions/0.20.0).
 After installing it simply run `showoff serve` to get presenter mode with additional notes
 and display window to present to your students.
 

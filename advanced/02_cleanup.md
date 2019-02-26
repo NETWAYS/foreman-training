@@ -25,8 +25,6 @@ Depending on the solution, configuration and interval the required storage space
 Foreman provides a cleanup job for this. Best Practice would be an execution as a cronjob. The command takes parameters
 for the maximum age to keep the status of the reports.
 
-~~~PAGEBREAK~~~
-
 Depending on your needs configure a daily cronjob like this to delete all reports 'without event', 'after one day' or
 those with events 'after 7 days'.
 
@@ -34,7 +32,7 @@ those with events 'after 7 days'.
     foreman-rake reports:expire days=1 status=0
     foreman-rake reports:expire days=7
 
-~~~ENDSECTION~~~~
+~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small
@@ -70,7 +68,7 @@ way.
 To backup the Smart proxy, archive the folder "/etc/foreman-proxy" and do not forget about the managed service. 
 For this follow the instructions for the service. With the "Orchestration rebuilder" feature, the Foreman can also rebuild all configuration issued via the Smart proxy from the "All Hosts" menu as an action.
 
-~~~ENDSECTION~~~~
+~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small
@@ -103,7 +101,7 @@ an existing database in advance to have a clean restore.
 For Puppet restore simply copy back the files, the same goes for the Smart proxy. The managed services should be restored according to
 their instructions.
 
-~~~ENDSECTION~~~~
+~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small
@@ -132,7 +130,7 @@ In general you should start by creating an up to date backup of the old configur
 before restarting the service you can optionally run the foreman-installer in simulation mode to verify the installation
 and see pending config changes, if some are shown run the foreman-installer again to apply them finally.
 
-~~~ENDSECTION~~~~
+~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small

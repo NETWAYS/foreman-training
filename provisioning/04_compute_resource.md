@@ -3,7 +3,7 @@
 
 * Identifier is the name of the system
 
-<div style="text-align: center"><img src="./_images/compute_resource.png" style="float: center; margin-left: 50px; width: 795px; height: 445px;" alt="Provisioning Compute resource libvirt"></div>
+<div style="text-align: center"><img src="./_images/compute_resource.png" style="float: center; margin-left: 110px; width: 795px; height: 445px;" alt="Provisioning Compute resource libvirt"></div>
 
 
 !SLIDE smbullets small printonly
@@ -239,8 +239,6 @@ it has also to be configured using the "New image" dialog after selecting a Comp
 with an user which has shell access to run finish scripts and depending on the Compute resource also user_data scripts can run
 during virtual machine creation to change settings.
 
-~~~PAGEBREAK~~~
-
 If a image is configured it is possible to choose it from the "Create host" dialog on the "Operating system" tab. In some cases
 it can speed up the installation process, but of course an unattended installation will give you a cleaner and more up to date
 system. If using a configuration management a very basic image should be prefered, but if required a image can be very featureful
@@ -274,6 +272,8 @@ If you want to try it in the training environment you have to enable the connect
 executing the following command on the laptop.
 
     # iptables -I INPUT -p tcp -m multiport --dports 5901:6000 -i virbr1 -j ACCEPT
+
+<p><br></p>
 
 Furthermore Firefox will block the websocket connection unless you change setting 
 network.websocket.allowInsecureFromHTTPS to true in about:config.

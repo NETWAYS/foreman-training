@@ -37,12 +37,12 @@ to find the boot media and software packages, partition tables and provisioning 
 
 ****
 
+~~~PAGEBREAK~~~
+
 The templates are using ERB (embedded ruby) which allows to use parameters in the files, basic scripting
 like conditionals and inclusion of snippets. Snippets can be everything from scripts to configuration files
 you want to maintain independently because it is the same configuration for inclusion in different other
 files or it will bloat up one file to render it unmaintainable.
-
-~~~PAGEBREAK~~~
 
 Depending on different provisioning mechanisms and methods other kinds of templates are required.
 
@@ -56,7 +56,6 @@ Depending on different provisioning mechanisms and methods other kinds of templa
 
 Templates can be associated to operating systems, host groups, environments or combinations of host group and environment.
 It will then select the templates to use on best match.
-
 Partition tables are handled separately to allow the usage of the same host template with different disk layouts.
 
 ~~~ENDSECTION~~~

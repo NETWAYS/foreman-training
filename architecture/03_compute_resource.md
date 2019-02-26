@@ -12,8 +12,6 @@
 
 ~~~SECTION:handouts~~~
 
-****
-
 Compute Resource refers to a virtualization or cloud service which is integrate into Foreman
 as a plugin. Those plugins are based on the ruby cloud service library named fog and allows
 to create and manage virtual hosts. Depending on the provider machines are installed from an

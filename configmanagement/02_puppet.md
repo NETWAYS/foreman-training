@@ -13,6 +13,9 @@
     }
 </pre>
 
+!SLIDE smbullets small
+#Puppet
+
 * Workflow
  * Manifests stored on a central server "Puppet Master"
  * Agent collects system information using facter
@@ -52,7 +55,7 @@ A diagram showing this workflow is provided on the next page.
 !SLIDE smbullets small noprint
 # Puppet Workflow
 
-<div style="text-align: center"><img src="./_images/puppet_workflow.png" style="float: center; margin-left: 50px; width: 720px; height: 354px;" alt="Puppet Workflow"></div>
+<center><img src="./_images/puppet_workflow.png" style="width: 720px; height: 354px; margin-top: 100px;" alt="Puppet Workflow"></center>
 
 !SLIDE smbullets small printonly
 # Puppet Workflow
@@ -88,8 +91,6 @@ Foreman integrates Puppet in several ways and also integrates itself into Puppet
 using the Smart proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
 The Smart Proxy Puppet CA integrates certificate handling into provisioning so auto signing of the agents certificate requests during build
 is allowed and also allows to manage the complete CA in the WebGUI.
-
-~~~PAGEBREAK~~~
 
 On the Puppet master a script is deployed which integrates Foreman as an ENC so classes selected in the WebGUI are deployed on the system.
 This mechanism is also used to upload the facts provided by the agent during Puppet agent run and creating a host entry if facts are provided
@@ -178,24 +179,24 @@ If you follow the Puppet Role Profile Pattern something like this could be helpf
  * Usable in Foreman's Provisioning Templates
  * Usable in Puppet as global parameters
  * Override by creating one of the same name in a more specific scope
-
 * Smart class parameters
  * Available from Puppet classes
  * Different types
  * Validators
  * Override options to handle override order and behaviour
 
+!SLIDE smbullets small
+# Parameters vs. Smart class parameters vs. Smart Variables
+
 * Smart variables
  * Global parameters assigned to a Puppet class
  * Same options like Smart class parameters
-
 * All are hideable from unprivileged users
+
 
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 Foreman does differentiate between three kinds of parameters.
 
@@ -359,6 +360,8 @@ assignment via another layer of abstraction.
 
 ****
 
+~~~PAGEBREAK~~~
+
 The Smart proxy Puppet allows to trigger the Puppet run we manually triggered in the last exercise from the WebGUI.
 For this we enable it by setting the option "Puppetrun" to true and configure the Smart Proxy to use one of the mentioned
 providers, but all of them will also require some configuration on the agent side.
@@ -392,6 +395,8 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 
 ****
 
+~~~PAGEBREAK~~~
+
 It is also possible to manage Foreman and/or its Smart Proxies using Puppet. The modules to do so are provided by the
 Foreman Project itself and are already used in the Foreman Installer. The modules are written to be compatible with
 all supported platforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
@@ -421,15 +426,11 @@ $foreman = foreman({ item => 'hosts',
 </pre>
 
 ~~~SECTION:handouts~~~
-
 ****
-
 The Puppet module "foreman" provided by the Foreman project includes a function to query the Foreman API in a puppet class.
 This is an alternative for exported resources or a PuppetDB query. It takes a hash with the login data and the query and returns
 a result hash including an array of hashes describing the hosts. 
-
 The hash is best used with a defined resource and create_resource function or within a template.
-
 Next release of the function will also allow to provide a filter for reducing the data for easier handling.
 
 ~~~ENDSECTION~~~

@@ -23,8 +23,6 @@
 
 ~~~SECTION:handouts~~~
 
-****
-
 Ansible is written in python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.
 
 ~~~PAGEBREAK~~~

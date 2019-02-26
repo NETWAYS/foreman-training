@@ -22,6 +22,8 @@ by username and password. Perhaps unusal is the handling of collections which ar
 same way like in the webinterface. The same way it handles search strings like they are provided
 in the WebGUI but they have to be URL encoded.
 
+~~~PAGEBREAK~~~~~PAGEBREAK~~~~
+
 Usage explainations can be found at http://theforeman.org/manuals/latest/index.html#5.1API
 
 API documentation is located at http://theforeman.org/api/1.18/index.html

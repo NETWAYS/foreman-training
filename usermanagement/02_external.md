@@ -20,8 +20,6 @@ In most cases this will be Kerberos to achieve a true Single Sign-On. If you use
 authentication provider the Foreman Installer can create the required configuration by passing the
 corresponding parameters to it.
 
-~~~PAGEBREAK~~~
-
 If you use another provider like Active Directory or a manually managed Kerberos it is possible to
 create the required Kerberos and PAM authentication on your own and tell Foreman to accept external
 users.

@@ -11,7 +11,7 @@
   "password": "awesome",
 
   "templates" : {
-       "default"   : "global/templates/default.tpl"
+    "default": "global/layouts/foreman.tpl"
   },
 
   "sections": [
@@ -32,4 +32,3 @@
    {"section":"global/Post"}
   ]
 }
-

@@ -23,12 +23,12 @@ goes wrong. If using monitoring plugins with Icinga or something similar you cou
 
     check_http -H foreman.localdomain -p 443 -S -f follow -s 'Welcome to Foreman'
 
+~~~PAGEBREAK~~~
+
 During provisioning also plain HTTP requests will be required, but you can not simulate exactly this request
 because of redirect rules directing the request to HTTPs.
 
     check_http -H foreman.localdomain -e 301
-
-~~~PAGEBREAK~~~ 
 
 Log entries containing "500 Internal Server Error" will typically indicate a software failure caused by
 something not running properly or a bug. Check_logfiles provided at http://labs.consol.de could be used
@@ -71,12 +71,12 @@ For Puppet 3 this could look like this.
     -u /production/catalog/foreman.localdomain \
     -s '"name":"foreman.localdomain"'
 
+~~~PAGEBREAK~~~
+
 To verify TFTP working fine try to get a small file like pxelinux.cfg/default (which you need to create).
 There are several plugins available like the one provided at http://william.leibzon.org/nagios/
 
     check_tftp foreman.localdomain pxelinux.cfg/default
-
-~~~PAGEBREAK~~~
 
 DNS functionality is best checked by a specific combination of name and address and could be simply included
 for every host.

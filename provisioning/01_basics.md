@@ -6,13 +6,11 @@
 # Provisioning
 
 * Definition:
-
-*Server provisioning is a set of actions to prepare a server with appropriate systems, data and software,
+ * Server provisioning is a set of actions to prepare a server with appropriate systems, data and software,
 and make it ready for network operation.* 
 
 * Task:
-
-Automate it!
+ * Automate it!
 
 ~~~SECTION:handouts~~~
 
@@ -49,12 +47,12 @@ and make it ready for network operation* and your task will be to automated it.
 For an automated installation it is required that the installer of the operating system allows to answer the questions
 normally asked to the users by providing an answer file. 
 
+~~~PAGEBREAK~~~
+
 The different Linux installers can handle answer files provided via network protocols like http and ftp, network file
 systems or placed on the installation media. In this way basic configuration like timezone, language or network settings 
 can be handled, furthermore partition layout can be created, software is installed and depending on the solution also 
 registration to management tools is directly integrated. 
-
-~~~PAGEBREAK~~~
 
 If the installer could not solve requirements directly, scripts could be provided to be executed during and after installation.
 
@@ -65,6 +63,8 @@ Operating system family | Installer        | Answer files
 Red Hat                 | Anaconda         | Kickstart
 Debian                  | Debian-Installer | Preseed
 SuSE                    | YaST2            | AutoYaST2
+
+~~~PAGEBREAK~~~
 
 Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires
 answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or usb.
@@ -103,11 +103,11 @@ and a list of packages and package groups to install in addition to the core sys
 can be added in separate sections to run as pre-installation task or post-installation on the installer or using
 chroot on the installed system.
 
+~~~PAGEBREAK~~~
+
 Lastest versions allow to extend the installer with addons which can also provide its own kickstart section for
 automation. One example is the OSCAP Anaconda Addon which allows to validate against a security profile already
 during installation.
-
-~~~PAGEBREAK~~~
 
 The URL to the kickstart file can be provided during installation or for automation added as a kernel parameter
 to the boot media. Necessary answers missing will be queried.

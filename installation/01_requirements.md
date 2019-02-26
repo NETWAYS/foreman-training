@@ -44,6 +44,8 @@ Puppet 4.x and 5.x is supported with current versions for All-in-one and Filesys
 Puppet 3.x support was dropped with Foreman 1.17.
 Puppet Enterprise is not supported, but can work with manual tweaking of the setup.
 
+~~~PAGEBREAK~~~
+
 Both versions of the central server in a Puppet environment are supported. If the All-in-on package of Puppet 4 or 5
 is found it will use the Puppet Server, in all other cases it will setup Puppet Master using Apache and Passenger.
 
@@ -51,10 +53,9 @@ Support for structured facts provided by Facter 2.x was added with Foreman 1.12.
 
 ~~~ENDSECTION~~~
 
-!SLIDE smbullets small
+!SLIDE small
 # Requirements - Communication
-
-* Port matrix (depending on installation)
+Port matrix (depending on installation)
 
 Port        | Protocol  | Required For
 ------------|-----------|------------------------------------------------------------------

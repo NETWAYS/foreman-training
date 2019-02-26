@@ -133,11 +133,11 @@ Navigate to the host and press "Run OpenSCAP scan". It will automatically choose
 
 ****
 
+~~~PAGEBREAK~~~
+
 It is also possible to write templates for jobs in a similar manner like Provisioning Templates. In this
 templates you can use a special function "input" to get the value of input fields associated to it. These
 fields can be a free-form or list of values for a user to add, facts, variables or Puppet parameters. 
-
-~~~PAGEBREAK~~~
 
 Furthermore you can reference another template, which you can also render in your newly created one with the
 "render_template" function.
