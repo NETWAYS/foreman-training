@@ -222,6 +222,7 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 
 * If the Puppet agent on the Foreman server has already run the domain will already be created
 but not associated.
+* With Foreman 1.21 multi-tenancy is active by default, but not all objects get it assigned by default.
 
 ~~~ENDSECTION~~~
 
@@ -248,6 +249,10 @@ but not associated.
 If the Puppet agent on the Foreman server has already run the domain will already be created
 but not associated.
 
+With Foreman 1.21 multi-tenancy is active by default, but not all objects get it assigned by default.
+So you have to switch to "Any Organization" and "Any Location" to find those objects and ensure
+organization and location are set when adjusting objects.
+
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add DNS configuration to Foreman
@@ -272,7 +277,8 @@ Click on 'New Domain' and in the dialog insert:
 * DNS Proxy: 'foreman.localdomain' 
 
 If the domain 'localdomain' was already created click on the domain name and change the
-DNS Proxy to 'foreman.localdomain'.
+DNS Proxy to 'foreman.localdomain'. Ensure organization and location are set to "Default
+Organization" and "Default Location".
 
 Press 'Submit' to store the configuration.
 
@@ -290,6 +296,7 @@ Press 'Submit' to store the configuration.
 ~~~SECTION:notes~~~
 
 * Subnets are not automatically created like domains.
+* The Smart Proxy should be moved into organization and location before creating the subnet.
 
 ~~~ENDSECTION~~~
 
@@ -315,6 +322,9 @@ Press 'Submit' to store the configuration.
 
 We will use the complete DHCP range the DHCP server provides.
 
+Ensure the Smart Proxy is in the correct organization and location and that you are in the right
+context when creating the subnet.
+
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add DHCP configuration to Foreman
@@ -332,15 +342,17 @@ We will use the complete DHCP range the DHCP server provides.
 Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'foreman.localdomain' and in the dialog insert:
 
 * Name: 'foreman'
+* Description: keep empty
 * Protocol: IPv4
 * Network address: '10.0.0.0' 
-* Network mask: '255.255.0.0' 
 * Network prefix: '16' 
+* Network mask: '255.255.0.0' 
 * Gateway address: '10.0.0.1' 
 * Primary DNS server: '10.0.0.2' 
 * Secondary DNS server: keep empty
 * IPAM: 'DHCP'
 * VLAN ID: keep empty
+* MTU: keep default
 * Boot mode: 'DHCP'
 
 Press 'Submit' to store the configuration.
@@ -360,5 +372,7 @@ Afterwards we have to return to the configuration via 'Infrastructure > Subnets'
  * DHCP Proxy: 'foreman.localdomain'
  * TFTP Proxy: 'foreman.localdomain'
  * Reverse DNS Proxy: 'foreman.localdomain'
+
+No parameters, "Default Organization" and "Default location" should be the default.
 
 Press 'Submit' to store the configuration with this change.

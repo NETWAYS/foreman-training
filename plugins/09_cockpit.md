@@ -39,7 +39,7 @@ More details on: https://github.com/theforeman/foreman_cockpit
 
 ~~~SECTION:notes~~~
 
-Requires https://github.com/theforeman/foreman_cockpit/pull/15 to be merged
+Requires https://github.com/theforeman/foreman_cockpit/pull/15 to be applied via patch as it is not a part of release
 
 ~~~ENDSECTION~~~
 

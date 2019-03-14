@@ -70,7 +70,7 @@ Partition tables are handled separately to allow the usage of the same host temp
 * Steps:
  * Change the Installation media "CentOS mirror" to the local repo
  * Associate the PXELinux template "Kickstart default PXELinux" with CentOS
- * Associate the Provision template "Kickstart RHEL default" with CentOS
+ * Associate the Provision template "Kickstart default" with CentOS
  * Associate the operating system with the Partition table "Kickstart default", Installation media "CentOS mirror",
 select the Templates and set Parameter "enable-puppetlabs-puppet5-repo" to "true"
 

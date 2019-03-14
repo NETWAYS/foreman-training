@@ -77,7 +77,7 @@ Additional templates are available in the WebGUI.
 ### Run the synchronisation job with an API call
 
     # curl -H "Accept:application/json,version=2" -H "Content-Type:application/json" \
-    -u admin:PASSWORD -k https://foreman.example.com/api/v2/templates/import -X POST
+    -u admin:PASSWORD -k https://foreman.localdomain/api/v2/templates/import -X POST
 
 ### Optional: Change settings to add a prefix during import
 

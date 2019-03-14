@@ -7,6 +7,9 @@
  * Products and Repositories on click
  * Content Hosts consume subscriptions
 
+* SUSE
+ * Similar workflow to Red Hat via Plugin
+
 * Other software
  * Tracks subscribed Content Hosts for products
 
@@ -23,6 +26,9 @@ covered by the subscription data and allows to select them which will automatica
 synchronize them to your system.
 
 ~~~PAGEBREAK~~~
+
+For SUSE a similar workflow can be enabled when using the Foreman SCC Manager plugin which is
+available as package and you can find upstream at https://github.com/ATIX-AG/foreman_scc_manager.
 
 The Content Hosts cosume these subscriptions in the same way like they were directly connected to
 the Red Hat Network. If you purchased Virtual Subscriptions it requires you to run virt-what and

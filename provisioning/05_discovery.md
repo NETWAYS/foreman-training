@@ -93,6 +93,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
  * Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your virtual machine "discovery" and select the network "foreman"
+ * Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
  * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
 ~~~SECTION:notes~~~
@@ -119,6 +120,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 * Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your virtual machine "discovery" and select the network "foreman"
+* Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
 * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
 #### Expected result:
@@ -158,6 +160,10 @@ In the forth step keep the disk as small as possible but it will not matter as l
 ### Name your virtual machine "discovery" and select the network "foreman"
 
 Name the virtual machine "discovery" so you know which system was deployed in which lab. Select the network "foreman" instead of "default".
+
+### Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
+
+If you do not add the nic as boot option, it will not boot via PXE after initial discovery.
 
 ### Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
@@ -220,7 +226,8 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 
 ### On the Interface tab click edit to configure the interface add the Domain "localdomain"
 
-All other fields are already set to the facts provided by the Discovery image.
+All other fields are already set to the facts provided by the Discovery image, but changing the Domain also resets the "IPv4 subnet" and "IPv6 subnet".
+Having "IPv4 subnet" set to "foreman" is also required.
 
 ### Submit to start the installation
 
@@ -234,7 +241,7 @@ All other fields are already set to the facts provided by the Discovery image.
  * Installation and configuration based on hostgroup
  * Provides a limit and a priority for ordering 
 * Not enabled by default
- * Requires setting "discovery_auto" changed to "true"
+ * Requires "Discovered" setting "Auto provisioning" changed to "true"
 
 ~~~SECTION:handouts~~~
 
@@ -245,7 +252,7 @@ and the system is installed based on the configuration of the selected hostgroup
 allows to use facts or random numbers, by default the macaddress is used. Setting a limit and a priority allows some ordering like
 deploy first two backend systems of this size and then two frontend systems.
 
-Usage of the rule based installation is not enabled by default but simple switched on by changing the setting "discovery_auto" to "true".
+Usage of the rule based installation is not enabled by default but simple switched on by changing the "Discovered" setting "Auto provisioning" to "true".
 
 ~~~ENDSECTION~~~
 

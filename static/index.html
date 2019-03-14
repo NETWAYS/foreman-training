@@ -153,7 +153,9 @@
 <h1>Forthcoming Hands-on Training</h1>
 
 <ul>
-<li>20.11.2018 - 21.11.2018 <a href="https://www.netways.de/en/trainings/foreman/">NETWAYS</a> (German)</li>
+<li>09.04.2019 - 10.04.2019 <a href="https://www.netways.de/trainings/foreman/">NETWAYS</a> (German)</li>
+<li>16.07.2019 - 17.07.2019 <a href="https://www.netways.de/trainings/foreman/">NETWAYS</a> (German)</li>
+<li>12.11.2019 - 13.11.2019 <a href="https://www.netways.de/trainings/foreman/">NETWAYS</a> (German)</li>
 </ul>
 
 <div id="net-footer">
@@ -172,7 +174,7 @@
 
 <p>For other events and trainings hosted by NETWAYS see our</p>
 
-<p><a href="https://www.netways.de/en/about_us/events/">event calendar</a></p>
+<p><a href="https://www.netways.de/en/events/">event calendar</a></p>
 
 <div id="net-footer">
     <p id="footer-left">Official Foreman Training</p>
@@ -1495,6 +1497,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 <ul>
 <li>If the Puppet agent on the Foreman server has already run the domain will already be created
 but not associated.</li>
+<li>With Foreman 1.21 multi-tenancy is active by default, but not all objects get it assigned by default.</li>
 </ul>
 
 </div>
@@ -1534,6 +1537,7 @@ but not associated.</li>
 
 <ul>
 <li>Subnets are not automatically created like domains.</li>
+<li>The Smart Proxy should be moved into organization and location before creating the subnet.</li>
 </ul>
 
 </div>
@@ -1954,7 +1958,7 @@ It will then select the templates to use on best match.</p>
 <ul>
 <li>Change the Installation media "CentOS mirror" to the local repo</li>
 <li>Associate the PXELinux template "Kickstart default PXELinux" with CentOS</li>
-<li>Associate the Provision template "Kickstart RHEL default" with CentOS</li>
+<li>Associate the Provision template "Kickstart default" with CentOS</li>
 <li>Associate the operating system with the Partition table "Kickstart default", Installation media "CentOS mirror",
 select the Templates and set Parameter "enable-puppetlabs-puppet5-repo" to "true"</li>
 </ul>
@@ -2110,6 +2114,7 @@ of installation media.</p>
 <li>If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later</li>
 <li>CentOS will require 1.5 GB at least</li>
+<li>If the environment is not avialable, assign it to "Default Organization" and "Default Location".</li>
 </ul>
 
 </div>
@@ -2536,6 +2541,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences</li>
 <li>Keep the minimum requirements for RAM, CPU and Disk</li>
 <li>Name your virtual machine "discovery" and select the network "foreman"</li>
+<li>Select "Adjust Virtual Machine settings" and add the nic and disk as boot options</li>
 <li>Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"</li>
 </ul>
 </li>
@@ -2607,7 +2613,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.</p>
 <li>Not enabled by default
 
 <ul>
-<li>Requires setting "discovery_auto" changed to "true"</li>
+<li>Requires "Discovered" setting "Auto provisioning" changed to "true"</li>
 </ul>
 </li>
 </ul>
@@ -2621,7 +2627,7 @@ and the system is installed based on the configuration of the selected hostgroup
 allows to use facts or random numbers, by default the macaddress is used. Setting a limit and a priority allows some ordering like
 deploy first two backend systems of this size and then two frontend systems.</p>
 
-<p>Usage of the rule based installation is not enabled by default but simple switched on by changing the setting "discovery_auto" to "true".</p>
+<p>Usage of the rule based installation is not enabled by default but simple switched on by changing the "Discovered" setting "Auto provisioning" to "true".</p>
 
 </div>
 
@@ -3475,7 +3481,7 @@ to use Foreman as dynamic inventory.</p>
 <li>Configure callback plugin</li>
 <li>Add your host to the inventory</li>
 <li>Create and distribute a SSH key</li>
-<li>Download the role "reallyenglish.ntpd"</li>
+<li>Download the role "geerlingguy.ntp"</li>
 <li>Create a playbook and run it</li>
 </ul>
 </li>
@@ -4416,6 +4422,7 @@ enhanced to support tailoring files.</p>
 <li>Install the Foreman and Smart Proxy Plugin OpenSCAP</li>
 <li>Make the Puppet Module "foreman_scap_client" available</li>
 <li>Create a Policy for CentOS 7 and assign it to a host</li>
+<li>Make the Foreman client repository available to one host</li>
 <li>Initiate a Puppet agent run on the host</li>
 <li>Create a report on the host and upload it to the Smart proxy</li>
 <li>Upload the report from the Smart proxy to the Foreman</li>
@@ -4510,7 +4517,7 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 
 <div class="notes">
 
-<p>Requires <a href="https://github.com/theforeman/foreman_cockpit/pull/15">https://github.com/theforeman/foreman_cockpit/pull/15</a> to be merged</p>
+<p>Requires <a href="https://github.com/theforeman/foreman_cockpit/pull/15">https://github.com/theforeman/foreman_cockpit/pull/15</a> to be applied via patch as it is not a part of release</p>
 
 </div>
 
@@ -5490,22 +5497,14 @@ environment, so feel free to create your own plugins to solve your own administr
 
 <hr>
 
-<p>Foreman has build in multitenancy which is not enabled by default. To enable it run the Foreman Installer
-with the corresponding parameters or edit "/etc/foreman/settings.yaml". </p>
+<p>Foreman has build in multitenancy which is starting from version 1.21 enabled by default. </p>
 
-<p>Depending on your needs you can add Organizations and/or Locations. After that every object will require 
+<p>Depending on your needs you can add Organizations and/or Locations. Every object will require 
 exactly one context with the exception of users who can have multiple contexts and one of these assigned
 as their default context. But he has to keep care of in which context he works because objects he creates
 will be in this context.</p>
 
 <p>Organization and Location can both be nested to represent a hierarchy with a top-down approach.</p>
-
-<div class="break">continued...</div>
-
-<p>The best way to think about multitenancy is in advance and if it could be required directly from the start of your enviroment. 
-Later enabling is possible but migration is a quite challenging and time consuming task.  </p>
-
-<p>In Katello it is enabled by default, so we will see it in the last chapter.</p>
 
 </div>
 
@@ -5701,13 +5700,7 @@ the agent has to run more than once to complete the full configuration.</p>
 <li>Developer channel for development support</li>
 </ul>
 </li>
-<li>Mailing lists
-
-<ul>
-<li>Users list for support, questions, etc</li>
-<li>Developer list for development support</li>
-</ul>
-</li>
+<li>Community Platform based on Discourse</li>
 <li>Server fault</li>
 <li>Youtube</li>
 <li>Issue tracker</li>
@@ -5727,7 +5720,8 @@ the agent has to run more than once to complete the full configuration.</p>
 <p>If your problem is not covered there the fastest way to get in touch with the team is the IRC Channel. The channel #theforeman is
 hosted on irc.freenode.net, the developer channel #theforeman-dev is only for support on development of Foreman and plugins.</p>
 
-<p>Same goes for the mailing lists hosted via Google Groups. To subscribe simply send a email to <a href="mailto:foreman-users+subscribe@googlegroups.com">foreman-users+subscribe@googlegroups.com</a> for the user list, to <a href="mailto:foreman-dev+subscribe@googlegroups.com">foreman-dev+subscribe@googlegroups.com</a> for development support and for release and security information to <a href="mailto:foreman-announce+subscribe@googlegroups.com">foreman-announce+subscribe@googlegroups.com</a>.</p>
+<p>The mailing lists have been replaced with Discourse to provide a Community Platform which is basicly a forum with mailing list support.
+You can get help here, discuss development and follow release workflow including test weeks.</p>
 
 <p>On 'Server Fault' you can ask questions and find answers tagged with foreman: <a href="http://serverfault.com/questions/tagged/foreman">http://serverfault.com/questions/tagged/foreman</a></p>
 
@@ -5938,7 +5932,6 @@ DHCP server to ensure answers are not provided from another system.</p>
 </ul>
 </li>
 <li>Defined scenario for Foreman Installer</li>
-<li>Multitenancy is enabled by default</li>
 <li>Upstream project for Red Hat Network Satellite 6</li>
 </ul>
 
@@ -6057,6 +6050,13 @@ DHCP server to ensure answers are not provided from another system.</p>
 </ul>
 </li>
 <li>
+<p>SUSE</p>
+
+<ul>
+<li>Similar workflow to Red Hat via Plugin</li>
+</ul>
+</li>
+<li>
 <p>Other software</p>
 
 <ul>
@@ -6078,6 +6078,9 @@ covered by the subscription data and allows to select them which will automatica
 synchronize them to your system.</p>
 
 <div class="break">continued...</div>
+
+<p>For SUSE a similar workflow can be enabled when using the Foreman SCC Manager plugin which is
+available as package and you can find upstream at <a href="https://github.com/ATIX-AG/foreman_scc_manager">https://github.com/ATIX-AG/foreman_scc_manager</a>.</p>
 
 <p>The Content Hosts cosume these subscriptions in the same way like they were directly connected to
 the Red Hat Network. If you purchased Virtual Subscriptions it requires you to run virt-what and

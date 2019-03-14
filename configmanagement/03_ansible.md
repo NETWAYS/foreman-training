@@ -74,7 +74,7 @@ to use Foreman as dynamic inventory.
  * Configure callback plugin
  * Add your host to the inventory
  * Create and distribute a SSH key
- * Download the role "reallyenglish.ntpd"
+ * Download the role "geerlingguy.ntp"
  * Create a playbook and run it
 
 !SLIDE supplemental exercises
@@ -107,7 +107,7 @@ We will use the static configuration for now, dynamic inventory will be introduc
 
 Use `ssh-keygen` and `ssh-copy-id`.
 
-* Download the role "reallyenglish.ntpd"
+* Download the role "geerlingguy.ntp"
 
 Ansible roles can be downloaded from Ansible Galaxy using the CLI.
 
@@ -140,7 +140,7 @@ The playbook only requires an array of hosts and roles.
     callback_whitelist = foreman
     ...
     [callback_foreman]
-    url = 'https://foreman.example.com'
+    url = 'https://foreman.localdomain'
     ssl_cert = /etc/puppetlabs/puppet/ssl/certs/foreman.localdomain.pem
     ssl_key = /etc/puppetlabs/puppet/ssl/private_keys/foreman.localdomain.pem
     verify_certs = /etc/puppetlabs/puppet/ssl/certs/ca.pem
@@ -157,9 +157,9 @@ The playbook only requires an array of hosts and roles.
     [Enter]
     # ssh-copy-id foreman.localdomain
 
-### Download the role "reallyenglish.ntpd"
+### Download the role "geerlingguy.ntp"
 
-    # ansible-galaxy install reallyenglish.ntpd -p /etc/ansible/roles
+    # ansible-galaxy install geerlingguy.ntp -p /etc/ansible/roles
 
 ### Create a playbook and run it
 
@@ -167,7 +167,7 @@ The playbook only requires an array of hosts and roles.
     ---
     - hosts: foreman.localdomain
       roles:
-        - reallyenglish.ntpd
+        - geerlingguy.ntp
     # ansible-playbook playbook.yml
 
 
@@ -310,4 +310,4 @@ Afterwards navigate to the host and edit them to assign the roles in the new "An
 
 * Play roles using the webinterface 
 
-Navigate to the host and press "Ansible roles". It is also avaiable as action from the Host overview for bulk requests.
+Navigate to the host and press "Run Ansible roles" from the "Schedule Remote Job" selection. It is also available as action from the Host overview for bulk requests.

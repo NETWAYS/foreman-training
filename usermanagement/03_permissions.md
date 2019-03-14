@@ -54,6 +54,7 @@
 
 Login with the account "viewer" and password "netways" and you will have no privileges assigned to you.
 This will create the account and you can assign the role "Viewer" to it in "Administer > Users" view.
+Furthermore you can set which organization and location should be his default on login.
 
 ### Create a role "Selfservice" to allow creation of new hosts and management of own hosts
 

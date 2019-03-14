@@ -45,6 +45,7 @@ More details on: https://theforeman.org/plugins/foreman_openscap/0.8/index.html
  * Install the Foreman and Smart Proxy Plugin OpenSCAP
  * Make the Puppet Module "foreman_scap_client" available
  * Create a Policy for CentOS 7 and assign it to a host
+ * Make the Foreman client repository available to one host
  * Initiate a Puppet agent run on the host
  * Create a report on the host and upload it to the Smart proxy
  * Upload the report from the Smart proxy to the Foreman
@@ -67,6 +68,7 @@ More details on: https://theforeman.org/plugins/foreman_openscap/0.8/index.html
 * Install the Foreman and Smart Proxy Plugin OpenSCAP using the foreman-installer
 * Make the Puppet Module "foreman_scap_client" available
 * Create a Policy for CentOS 7 and assign it to a host
+* Make the Foreman client repository available to one host
 * Initiate a Puppet agent run on the host
 * Create a report on the host and upload it to the Smart proxy
 * Upload the report from the Smart proxy to the Foreman
@@ -112,20 +114,28 @@ The Foreman plugin requires the datastream files which have "ds" in their name. 
 "Hosts > SCAP content" and name it "Centos-7".
 
 Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Policy".
-Name it "Centos-7-Common", choose SCAP Content "Centos-7" and XCCDF Profile "Common Profile for General-Purpose System",
+Name it "Centos-7-Common", choose SCAP Content "Centos-7" and XCCDF Profile "Standard System Security Profile",
 schedule it "Weekly" on "Sunday" and assign it to Hostgroup "SCAP".
 
 To view the guide click on the "Show Guide" button next to the policy.
 
 Assign this Hostgroup to one off your CentOS 7 systems.
 
+###  Make the Foreman client repository available to one host
+
+Login to the host you assigned the Hostgroup with the Policy and execute
+
+   # yum install -y http://yum.theforeman.org/client/1.21/el7/x86_64/foreman-client-release.rpm
+
+Replace the version number with the one of your Foreman installation.
+
+~~~PAGEBREAK~~~
+
 ### Execute a Puppet agent run on the host
 
 Login to the host you assigned the Hostgroup with the Policy and execute
 
     # puppet agent -t
-
-~~~PAGEBREAK~~~
 
 ### Create a report on the host and upload to Smart proxy
 

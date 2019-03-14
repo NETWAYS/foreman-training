@@ -70,10 +70,10 @@ A list of plugins is provided by the Github page of the framework: https://githu
 
 Adjust the configuration if required in `~/.hammer/cli.modules.d/foreman.yml`:
 
-   # vi ~/.hammer/cli.modules.d/foreman.yml
-   :foreman:
-     :username: 'admin'
-     :password: 'PASSWORD'
+    # vi ~/.hammer/cli.modules.d/foreman.yml
+    :foreman:
+      :username: 'admin'
+      :password: 'PASSWORD'
 
 ### Create the new Operatingsystem entry for "CentOS 6.8"
 

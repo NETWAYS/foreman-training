@@ -14,7 +14,6 @@
  * Red Hat Subscriptions
  * Track internal use
 * Defined scenario for Foreman Installer
-* Multitenancy is enabled by default
 * Upstream project for Red Hat Network Satellite 6
 
 <div style="text-align:right">
@@ -34,7 +33,6 @@
  * Red Hat Subscriptions
  * Track internal use
 * Defined scenario for Foreman Installer
-* Multitenancy enabled by default
 * Upstream project for Red Hat Network Satellite 6
 
 ~~~SECTION:handouts~~~
@@ -53,8 +51,6 @@ cases Red Hat. It also provides the possiblity to track the internal use of some
 
 It uses the same technology for installation as the Foreman by providing a scenario to the Foreman installer. The usage of this
 installer is the supported way of installation for Katello, so there is no way of adding the plugin later to an existing Foreman installation for now.
-
-It alters Foreman in several ways including enabling multitenancy by default to enable internal Subscription managment.
 
 Katello is also the upstream project for Red Hat Network Satellite 6 like Spacewalk was for Satellite 5.
 

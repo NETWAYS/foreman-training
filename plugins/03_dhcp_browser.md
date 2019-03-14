@@ -49,7 +49,7 @@ More details on: https://github.com/theforeman/foreman_dhcp_browser
 You will find one reservation for every host created earlier.
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Templates
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: DHCP Browser
 
 ****
 

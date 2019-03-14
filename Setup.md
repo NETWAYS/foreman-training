@@ -29,7 +29,7 @@ To setup the Katello demo follow this guide (it requires vagrant and ansible to 
 
     # git clone https://github.com/Katello/forklift.git
     # cd forklift
-    # vagrant up centos7-katello-3.7
+    # vagrant up centos7-katello-3.10
 
 This will setup your Katello server, login with the provided credentials and add the following content:
 
@@ -48,7 +48,13 @@ This will setup your Katello server, login with the provided credentials and add
 
 Register the system to itself:
 
-    # vagrant ssh centos7-katello-3.7
+    # vagrant ssh centos7-katello-3.10
     # yum -y install katello-agent http://$(hostname -f)/pub/katello-ca-consumer-latest.noarch.rpm
     # subscription-manager register --org Default_Organization --activationkey="CentOS7-Test"
 
+If you own a Red Hat Developer Subscription, it is also possible to create a Manifest and show the Red Hat
+specific parts.
+
+If you own a SUSE Subscription, you can install "tfm-rubygem-foreman_scc_manager" to show the SLES specific
+parts. At the moment it requires you to install the nightly package because 3.10 does not include plugin
+version 1.6.0 or higher.

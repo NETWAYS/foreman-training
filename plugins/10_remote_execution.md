@@ -87,7 +87,7 @@ Puppet run is executed on the remote system and report is uploaded
 
 This will install both the Foreman and Smart proxy Plugin, create a SSH key and restart the services.
 
-    # foreman-installer --enable-foreman-plugin-remote-execution\
+    # foreman-installer --enable-foreman-plugin-remote-execution \
                         --enable-foreman-proxy-plugin-remote-execution-ssh
 
 ### Bring out the SSH key

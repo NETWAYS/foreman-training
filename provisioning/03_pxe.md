@@ -66,6 +66,7 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
 * If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later
 * CentOS will require 1.5 GB at least
+* If the environment is not avialable, assign it to "Default Organization" and "Default Location".
 
 ~~~ENDSECTION~~~
 
@@ -193,6 +194,8 @@ in the Provisioning tab as Root password. This is an MD5 hash for being supporte
 ### Open Foreman's host dialog using "Host > Create Host"
 
 ### On the Host tab name it "pxe" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
+
+If the environment is not avialable, assign it to "Default Organization" and "Default Location".
 
 ### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
 
