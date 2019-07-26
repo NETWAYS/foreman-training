@@ -12,7 +12,7 @@
  * Fine role based privileges
 
 <div style="float:right">
-<img src="./_images/foreman_loginscreen.png" style="max-width3200px; max-height: 200px; width: 300px; height: 120px; margin: 1px; margin-right: 100px" alt="Foreman Loginscreen"/>
+<img src="./_images/foreman_loginscreen.png" style="max-width320px; max-height: 200px; width: 300px; height: 120px; margin: 1px; margin-right: 100px" alt="Foreman Loginscreen"/>
 </div>
 
 ~~~SECTION:notes~~~
@@ -23,6 +23,8 @@
 ~~~ENDSECTION~~~
 
 ~~~SECTION:handouts~~~
+
+****
 
 ~~~PAGEBREAK~~~
 

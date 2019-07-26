@@ -39,13 +39,15 @@ the project homepage. For the training we will stick to the default all-in-one s
 
 * Default setup on unparameterized run
 
-<img src="./_images/installation_all-in-one.png" style="width: 450px; height: 250px;" alt="Installation All-in-one">
+<img src="./_images/installation_all-in-one.png" style="width: 440px; height: 244px;" alt="Installation All-in-one">
 
 * Expandable with additional plugins and Smart proxies
 
 ~~~SECTION:handouts~~~
 
 ****
+
+~~~PAGEBREAK~~~
 
 The Foreman installer by default installs an all-in-one scenario with Apache httpd and Passenger
 serving the Foreman Web GUI and API and the Puppet Master including the certificate authority.
@@ -65,7 +67,7 @@ will be covered later.
 * Precreate certificates on Puppet CA
 * Run installer with parameters to disable Foreman on additional Puppet Masters
 
-<div style="text-align:center"><img src="./_images/installation_additional-masters.png" style="float: center; margin-left: 50px; width: 616px; height: 393px;" alt="Installation Additional Puppet Masters"></div>
+<div style="text-align:center"><img src="./_images/installation_additional-masters.png" style="float: center; margin-left: 50px; width: 560px; height: 393px;" alt="Installation Additional Puppet Masters"></div>
 
 ~~~SECTION:notes~~~
 
@@ -82,7 +84,7 @@ will be covered later.
 * Precreate certificates on Puppet CA
 * Run installer with parameters to disable Foreman on additional Puppet Masters
 
-<img src="./_images/installation_additional-masters.png" style="width: 450px; height: 393px;" alt="Installation Additional Puppet Masters">
+<img src="./_images/installation_additional-masters.png" style="width: 450px; height: 315px;" alt="Installation Additional Puppet Masters">
 
 ~~~SECTION:handouts~~~
 
@@ -93,7 +95,6 @@ For the Foreman host run the same setup like before afterwards create certificat
 Puppet Masters to be added. If you do not do so, it will create an additional CA on this
 systems. Last run the Foreman installer on the systems with parameters to disable Foreman
 and the Puppet CA.
-
 Depending on your infrastructure there are different ways to balance the load on the Puppet
 Masters:
 
@@ -111,7 +112,7 @@ DNS alias
 * Setup on Foreman host with Puppet Master and Smart Proxies disabled
 * Run installer with parameters to disable Foreman on separate Puppet Masters
 
-<div style="text-align:center"><img src="./_images/installation_separate-masters.png" style="float: center; margin-left: 50px; width: 616px; height: 446px;" alt="Installation Separate Puppet Masters"></div>
+<div style="text-align:center"><img src="./_images/installation_separate-masters.png" style="float: center; margin-left: 50px; width: 599px; height: 446px;" alt="Installation Separate Puppet Masters"></div>
 
 ~~~SECTION:notes~~~
 
@@ -160,7 +161,7 @@ certificate authority and setup a solution to load balance the agents.
 
 * Foreman installer helps to setup Smart Proxies
 
-<img src="./_images/installation_smart-proxies.png" style="width: 450px; height: 176px;" alt="Installation Smart Proxies">
+<img src="./_images/installation_smart-proxies.png" style="width: 440px; height: 172px;" alt="Installation Smart Proxies">
 
 ~~~SECTION:handouts~~~
 
@@ -200,15 +201,15 @@ is required.
 
 * Foreman installer helps to integrate PuppetDB
 
-<img src="./_images/installation_puppetdb.png" style="width: 450px; height: 176px;" alt="Installation PuppetDB">
+<img src="./_images/installation_puppetdb.png" style="width: 440px; height: 172px;" alt="Installation PuppetDB">
 
 ~~~SECTION:handouts~~~
 ****
-<p>The Foreman installer allows to add PuppetDB as reporting target and storeconfigs backend
-to the Puppet Masters. It does not setup PuppetDB server!<br>
+The Foreman installer allows to add PuppetDB as reporting target and storeconfigs backend
+to the Puppet Masters. It does not setup PuppetDB server!<br/>
 PuppetDB is not required in a typical setup with Foreman. Instead of using storeconfigs
 or PuppetDB queries Foreman's own database could also be used for queries. The required
-function is part of the Puppet module "foreman" provided by the Foreman Project.</p>
+function is part of the Puppet module "foreman" provided by the Foreman Project.
 
 Installation of PuppetDB if required for your setup could easily be done with the Puppet
 module "puppetdb" provided by Puppetlabs.

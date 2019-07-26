@@ -22,6 +22,8 @@ Wikipedia defines configuration management as a *systems engineering process for
 product's performance, functional, and physical attributes with its requirements, design and operational information throughout
 its life.*
 
+~~~PAGEBREAK~~~
+
 So configuration management software is used to describe a desired state, configure a system to be in this state and recognize
 drifts from this state to revert them.
 

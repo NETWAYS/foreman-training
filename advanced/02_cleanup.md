@@ -22,6 +22,8 @@
 The configuration management solution sends reports to Foreman which are then stored in the database afterwards.
 Depending on the solution, configuration and interval the required storage space can differ.
 
+~~~PAGEBREAK~~~
+
 Foreman provides a cleanup job for this. Best Practice would be an execution as a cronjob. The command takes parameters
 for the maximum age to keep the status of the reports.
 
@@ -55,8 +57,6 @@ those with events 'after 7 days'.
 ****
 
 Backup should be done in a regular interval, but at least performed before any upgrade, and it should cover all components.
-
-~~~PAGEBREAK~~~
 
 Foreman backup can be done by archiving the configuration directory "/etc/foreman" and for the database a dump can
 be generated with the following command "foreman-rake db:dump" provided by the Foreman.

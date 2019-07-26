@@ -19,6 +19,7 @@ Foreman provides a new notification feature to notify about your own actions sin
 many plugins. This allows to keep track of actions run independently.
 
 ~~~ENDSECTION~~~
+
 !SLIDE smbullets small
 # Email Notifications
 
@@ -29,7 +30,7 @@ many plugins. This allows to keep track of actions run independently.
 * Puppet run with error on every run or as frequent summary
 
 <div style="text-align:right">
-<img src="./_images/foreman_email.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 265px" alt="Foreman Email"/>
+<img src="./_images/foreman_email.png" style="float: center, max-width:1000px; max-height: 250px; width: 400px; height: 200px; margin-top: 50px" alt="Foreman Email"/>
 </div>
 
 ~~~SECTION:handouts~~~

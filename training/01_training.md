@@ -6,8 +6,8 @@
 
 # Training
 
-<h3>This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
-The configuration management solution used will be Puppet.</h3>
+This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
+The configuration management solution used will be Puppet.
 
 * Foreman architecture
 * Installation
@@ -17,6 +17,8 @@ The configuration management solution used will be Puppet.</h3>
 * Advanced Use
 
 ~~~SECTION:handouts~~~
+
+****
 
 ~~~PAGEBREAK~~~
 ## Foreman architecture

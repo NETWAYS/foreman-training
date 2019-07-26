@@ -25,8 +25,6 @@
 
 Ansible is written in python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.
 
-~~~PAGEBREAK~~~
-
 For configuration it uses yaml format for simple playbooks and some additional structure for roles. An example for one
 task is shown above. Those files are stored on one or more control machines which also need an inventory as a static
 file or script for dynamic inventory. There is no agent required as it utilizes SSH (or winrm for Windows), so the control machine
@@ -55,6 +53,8 @@ back to other tools.
 
 Foreman can integrate Ansible in several ways and can also integrate itself into Ansible. Communication from the WebGUI to Ansible is handled
 using the Smart proxy for Ansible. It allows to import Ansible roles known to Ansible and to play Ansible roles.
+
+~~~PAGEBREAK~~~
 
 On the Ansible control machine a callback plugin can be activated to upload facts and reports to Foreman. Forthermore a script could be deployed
 to use Foreman as dynamic inventory.
@@ -278,6 +278,7 @@ Smart Proxy needs a SSH key to play roles.
 
 * Play roles using the webinterface 
 
+~~~ENDSECTION~~~
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure Graphical Integration
@@ -290,7 +291,9 @@ Smart Proxy needs a SSH key to play roles.
 
 * Install Foreman Plugin and Smart Proxy Plugin using foreman-installer
 
-    # foreman-installer --enable-foreman-plugin-ansible --enable-foreman-proxy-plugin-ansible
+
+<pre><code># foreman-installer --enable-foreman-plugin-ansible --enable-foreman-proxy-plugin-ansible</code></pre>
+
 
 * Import roles and assign them
 
@@ -299,12 +302,13 @@ Afterwards navigate to the host and edit them to assign the roles in the new "An
 
 * Prepare Smart proxy to play roles
 
-    # install -o foreman-proxy -g foreman-proxy -m 0700 -d ~foreman-proxy/.ssh
-    # su - foreman-proxy -s /bin/bash
-    # ssh-keygen -f .ssh/id_rsa_foreman_proxy
-    [ENTER]
-    [ENTER]
-    # ssh-copy-id -i .ssh/id_rsa_foreman_proxy root@foreman.localdomain
+<pre><code># install -o foreman-proxy -g foreman-proxy -m 0700 -d ~foreman-proxy/.ssh
+# su - foreman-proxy -s /bin/bash
+# ssh-keygen -f .ssh/id_rsa_foreman_proxy
+[ENTER]
+[ENTER]
+# ssh-copy-id -i .ssh/id_rsa_foreman_proxy root@foreman.localdomain
+</code></pre>
 
 * Play roles using the webinterface 
 

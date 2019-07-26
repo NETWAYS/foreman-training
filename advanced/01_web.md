@@ -46,7 +46,7 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 
 ****
 
-<br>
+<br/>
 Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
 "Monitor > Trends" and a cronjob is performs the data collection. By default this cronjob runs every 30 minutes matching 
 Puppet's default run interval because most trends will be based on the facts collected by the configuration management

@@ -2,4 +2,4 @@
 
 # FEEDBACK
 
-We look forward to your feedback
+<div class="div_center">We look forward to your feedback</div>

@@ -17,10 +17,14 @@
 
 ~~~SECTION:handouts~~~
 
+****
+
 The Cockpit project provides a WebGUI to manage Linux servers. It is available as native package or
 priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and Ubuntu.
 
 The Foreman plugin searches for an existing installation and integrates it into the Foreman WebGUI.
+
+~~~PAGEBREAK~~~
 
 More details on: https://github.com/theforeman/foreman_cockpit
 

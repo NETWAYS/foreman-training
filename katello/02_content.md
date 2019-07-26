@@ -12,7 +12,7 @@
 * Content management is based on products
 * Products consists of one or more repositories of any content type
 
-<div style:"text-align: center"><img src="./_images/products.png" style="width: 450px; height: 119px; margin-left: 105px" alt="Katello - Products"></div>
+<div style:"text-align: center"><img src="./_images/products.png" style="width: 450px; height: 119px" alt="Katello - Products"></div>
 
 ~~~SECTION:handouts~~~
 

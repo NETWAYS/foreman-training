@@ -11,13 +11,15 @@
 
 ~~~SECTION:handouts~~~
 
+****
+
 For the installation in an environment you do not have total control over the network infrastructure the
 Foreman Plugin Bootdisk provides 4 kinds of boot images based on iPXE.
 
+~~~PAGEBREAK~~~
+
 The host image contains a static network configuration, loads the installer from the media configured in Foreman
 and the Provisioning configuration from Foreman itself. So it requires no DHCP and TFTP in the network.
-
-~~~PAGEBREAK~~~
 
 The full host image contains the operating system specific installer so it requires no downloading of it, but is
 configured to boot from DHCP instead of having a static network configuration. To get its Provisioning configuration

@@ -14,17 +14,17 @@
 
 # Training Environment
 
-<img src="./_images/environment.png" style="width: 450px; height: 242px;" alt="Training Environment">
+<img src="./_images/environment.png" style="width: 440px; height: 236px;" alt="Training Environment">
 
 ~~~SECTION:handouts~~~
 
-<p>The laptop provided for the training is running CentOS 7 with Gnome 3 in Fallback mode.
+The laptop provided for the training is running CentOS 7 with Gnome 3 in Fallback mode.
 You can login with the unprivileged user "training" and password "netways". 
-The password for user "root" required for some exercises is "netways0815".<br>
+The password for user "root" required for some exercises is "netways0815".<br/>
 For virtualization the laptop runs KVM with libvirt. A virtual network named "foreman"
 is configured with the IP address "10.0.0.1" assigned to the laptop and a host entry 
 "host.localdomain", the IP address "10.0.0.2" is assigned to an already existing VM
-used to install Foreman.</p>
+used to install Foreman.
 
 ~~~PAGEBREAK~~~
 

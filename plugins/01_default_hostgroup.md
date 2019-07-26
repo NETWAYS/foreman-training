@@ -27,7 +27,7 @@ containing a hash which maps facts to hostgroups to assign.
         "Default":
           "hostname": ".*"
 
-<p><br></p>
+<br/>
 
 The plugin is very useful if you plan to embed Foreman in an already puppetized
 environment as Puppet ENC.

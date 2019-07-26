@@ -11,6 +11,7 @@
 
 ~~~SECTION:handouts~~~
 
+****
 
 By installing the plugin you get a synchronisation job for templates which per default
 import the community templates from https://github.com/theforeman/community-templates
@@ -18,6 +19,8 @@ matching your Foreman version and adding support for more operating systems. Thi
 also be used to import your own git repository if you want to manage the templates on
 an external version control system. In addition the imported templates will also be associated
 to the existing operating systems.
+
+<br/>
 
 More details on: https://theforeman.org/plugins/foreman_templates/6.0/index.html
 

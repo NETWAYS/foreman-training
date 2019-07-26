@@ -11,7 +11,7 @@
 
 * Identifier is the name of the system
 
-<img src="./_images/compute_resource.png" style="width: 450px; height: 252px;" alt="Provisioning Compute resource libvirt">
+<img src="./_images/compute_resource.png" style="width: 445px; height: 249px;" alt="Provisioning Compute resource libvirt">
 
 ~~~SECTION:handouts~~~
 
@@ -130,13 +130,11 @@ Validate your settings with "Test Connection" before clicking on "Submit".
  * In the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
  * In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
  * In the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
-the suggested IP address, for the Libvirt options choose the virtual network "foreman"
+the suggested IP address, for the Libvirt options choose the virtual network "foreman".
 
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 Compute resource options depend on the used Compute resource so other options will be available for VMware than for libvirt.
 
@@ -212,6 +210,8 @@ Compute profiles are used to provide defaults for the virtual machine creation. 
 are available and only have to be configured, but you can create as many as needed. The same profile can differ
 based on the Compute resource used to provide defaults matching the virtualization platform.
 
+~~~PAGEBREAK~~~
+
 If one is configured for a Compute resource option to choose from it is available on new host dialog after choosing
 the Compute resource to deploy on.
 
@@ -233,6 +233,8 @@ the Compute resource to deploy on.
 ~~~SECTION:handouts~~~
 
 ****
+
+~~~PAGEBREAK~~~
 
 Images are available as install source to all Compute resources, for some as the only source. To be available to Foreman
 it has also to be configured using the "New image" dialog after selecting a Compute resource. The image has to be created
@@ -262,9 +264,8 @@ like having some proprietary software installed which is quite complicated to in
 ****
 
 Foreman uses the javascript library noVNC to give the user direct access to the console
-of a virtual machine depending on the Compute Resource provider. The Foreman manual
-explains additional steps required on the Compute Resource if not available by default.
-
+of a virtual machine depending on the Compute Resource provider. 
+The Foreman manual explains additional steps required on the Compute Resource if not available by default.
 The protocols available are VNC and SPICE, encryption and authentication depends on
 your setup.
 
@@ -273,7 +274,7 @@ executing the following command on the laptop.
 
     # iptables -I INPUT -p tcp -m multiport --dports 5901:6000 -i virbr1 -j ACCEPT
 
-<p><br></p>
+<br/>
 
 Furthermore Firefox will block the websocket connection unless you change setting 
 network.websocket.allowInsecureFromHTTPS to true in about:config.

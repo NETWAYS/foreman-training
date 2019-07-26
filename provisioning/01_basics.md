@@ -58,13 +58,13 @@ If the installer could not solve requirements directly, scripts could be provide
 
 The mechanism differs for the distributions.
 
+
 Operating system family | Installer        | Answer files
 ------------------------|------------------|--------------
 Red Hat                 | Anaconda         | Kickstart
 Debian                  | Debian-Installer | Preseed
 SuSE                    | YaST2            | AutoYaST2
-
-~~~PAGEBREAK~~~
+<br/>
 
 Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires
 answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or usb.
@@ -131,7 +131,6 @@ Additional information: https://access.redhat.com/documentation/en-US/Red_Hat_En
 ****
 
 Preseed is the answer file for the Debian Installer used by Debian and Ubuntu.
-
 It is basicly a simple text file providing answers to the installation questions. It uses for all types of 
 configuration the same syntax. Scripts can be downloaded to the system and be executed after the installation.
 
@@ -158,6 +157,8 @@ Additional information: https://wiki.debian.org/DebianInstaller/Preseed
 ****
 
 AutoYaST2 is the answer file for SuSE Linux Enterprise Server, Desktop and openSuSE using YaST2 as installer.
+
+~~~PAGEBREAK~~~
 
 It is a structured XML file meant to be created by YaST and not by hand which provides answers to the installer
 quests. Different data structures are used for all kinds of configuration. It can run scripts before installation

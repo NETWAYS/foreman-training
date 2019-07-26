@@ -74,8 +74,6 @@ Port        | Protocol  | Required For
 
 ****
 
-~~~PAGEBREAK~~~
-
 Depending on your installation the ports above are required to be accessable on the Foreman server,
 by Foreman and the managed systems.
 

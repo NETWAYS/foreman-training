@@ -19,10 +19,10 @@
 The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
 It utilizes different providers, which are SSH and Ansible for now.
 
+~~~PAGEBREAK~~~
+
 The SSH provider runs per default command as root, but can also be configure to run as unpriviledged
 user and run sudo to accquire elevated privileges.
-
-~~~PAGEBREAK~~~
 
 It is usefully to trigger configuration management runs immediately to get an adhoc deployment,
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.

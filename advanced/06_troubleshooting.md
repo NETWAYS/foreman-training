@@ -123,10 +123,9 @@ the agent has to run more than once to complete the full configuration.
 ~~~SECTION:handouts~~~
 
 ****
+The Foreman team tries to help with issues as good as they can. To achieve this there are several ways to get support available.
 
 ~~~PAGEBREAK~~~
-
-The Foreman team tries to help with issues as good as they can. To achieve this there are several ways to get support available.
 
 First have a look into the Wiki page collecting common issues: http://projects.theforeman.org/projects/1/wiki/Troubleshooting
 

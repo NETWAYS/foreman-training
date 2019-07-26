@@ -26,9 +26,8 @@ In addition to the sources you can find the rendered material on
 
 Feel free to use this material as it is to provide your own training.
 
-To run the presentation you will need [showoff 0.20.0](https://rubygems.org/gems/showoff/versions/0.20.0).
-After installing it simply run `showoff serve` to get presenter mode with additional notes
-and display window to present to your students.
+To run the presentation you will need [showoff 0.19.6](https://rubygems.org/gems/showoff/versions/0.19.6).
+After installing you have to run the /global/wizard.sh script. It will give you some options how to start your presentation. You can switch between the serve and print mode.
 
 For creating the rendered documents on your own run `showoff static print` (handouts),
 `showoff static supplemental exercises` (exercises) or `showoff static supplemental solutions`

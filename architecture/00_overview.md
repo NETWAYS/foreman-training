@@ -26,8 +26,11 @@
 ~~~SECTION:handouts~~~
 
 ****
-<p>Foreman was originally writen by Paul Kelly and Ohad Levy and initially released on 10 September 2009.<br>
-Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Network Satellite and Red Hat OpenStack distribution.</p>
+Foreman was originally writen by Paul Kelly and Ohad Levy and initially released on 10 September 2009.<br/>
+
+~~~PAGEBREAK~~~
+
+Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Network Satellite and Red Hat OpenStack distribution.
 
 It is writen in Ruby and Javascript to provide a Web based GUI for server lifecyclemanagement, from provisioning and
 configuration to orchestration and monitoring. For integration in the IT infrastructure it utilizes other tools via
@@ -56,7 +59,7 @@ help the community and consists of more than 200 contributors.
 
 # Architecture
 
-<img src="./_images/foreman_architecture.png" style="width: 450px; height: 272px;" alt="Foreman - Architecture">
+<img src="./_images/foreman_architecture.png" style="width: 400px; height: 242px;" alt="Foreman - Architecture">
 
 ~~~SECTION:handouts~~~
 

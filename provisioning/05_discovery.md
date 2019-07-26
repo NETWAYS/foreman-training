@@ -15,6 +15,10 @@
 
 ~~~SECTION:handouts~~~
 
+****
+
+~~~PAGEBREAK~~~
+
 For the installation the system boots a discovery image and identifies itself as "Discovered Host" in the Foreman Web GUI.
 As an identifier the host uses its mac address. Then configuration is done in Foreman and after submitting it the image 
 is told to reboot and starts an installation via PXE afterwards.

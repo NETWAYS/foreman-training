@@ -69,8 +69,6 @@ Directory focused on Linux) is supported.
 The Smart Proxy DHCP is used to add and remove host reservations to preconfigured subnets and allows to
 import them to foreman.
 
-~~~PAGEBREAK~~~
-
 On Linux typically a ISC compatible implementation is used to manage DHCP which allows to send commands
 via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server system is required which
 needs netsh command installed and the user running the service needs administrative privileges, but the
@@ -94,12 +92,12 @@ Additional providers like infoblox or remote connection to ISC DHCP are availabl
  * alternativly: uses dnscmd on a windows server
 * PowerDNS:
  * directly connects to the database backend
-* Route53 (DNS in AWS cloud):
- * requires Amazon Web Service account
- * access and secret key of IAM account with access to Route53
 
 ~~~PAGEBREAK~~~
 
+* Route53 (DNS in AWS cloud):
+ * requires Amazon Web Service account
+ * access and secret key of IAM account with access to Route53
 * Libvirt:
  * not for productive use
  * uses libvirt API to manage dnsmasq for libvirt
@@ -124,7 +122,6 @@ with Kerberos principal. The same mechanism could be used for sending updates to
 possibilty is to install the Smart Proxy on a Windows server and give it the privileges to run dnscmd.
 Other implementations like PowerDNS and Route53 are also supported. Libvirt is again only supported as a
 testing environment.
-
 Additional providers like infoblox or powerdns are available as plugins.
 
 ~~~ENDSECTION~~~
@@ -174,11 +171,11 @@ WIP: Tokenbased autosigning - https://github.com/theforeman/smart-proxy/pull/592
 
 ****
 
+~~~PAGEBREAK~~~
+
 The Smart Proxy Puppet connects to the API of Puppet to query puppet environments and classes for import. It
 optionally triggers immediate Puppet runs using the deprecated puppet kick command, mcollective, executing puppet
 agent command via ssh on the remote system, salt or any custom script. 
-
-~~~PAGEBREAK~~~
 
 Also it automatically allows a Puppet master known to Foreman as Smart Proxy to upload facts and reports. In addition
 the Puppet master can access Foreman as an External Node Classifier to build its catalog.

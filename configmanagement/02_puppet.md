@@ -14,7 +14,7 @@
 </pre>
 
 !SLIDE smbullets small
-#Puppet
+#Puppet Workflow
 
 * Workflow
  * Manifests stored on a central server "Puppet Master"
@@ -23,7 +23,6 @@
  * Master compiles catalog for agent to realize using an abstraction layer
  * Agent reports back to master
  * Master transfers reports to other tools
-
 
 ~~~SECTION:notes~~~
 
@@ -60,7 +59,7 @@ A diagram showing this workflow is provided on the next page.
 !SLIDE smbullets small printonly
 # Puppet Workflow
 
-<img src="./_images/puppet_workflow.png" style="float: center; width: 468px; height: 230px;" alt="Puppet Workflow">
+<img src="./_images/puppet_workflow.png" style="float: center; width: 450px; height: 221px;" alt="Puppet Workflow">
 
 ~~~SECTION:handouts~~~
 
@@ -86,6 +85,8 @@ Image copyright by Puppetlabs.
 ~~~SECTION:handouts~~~
 
 ****
+
+~~~PAGEBREAK~~~
 
 Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled 
 using the Smart proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
@@ -193,6 +194,23 @@ If you follow the Puppet Role Profile Pattern something like this could be helpf
  * Same options like Smart class parameters
 * All are hideable from unprivileged users
 
+!SLIDE smbullets small noprint
+# Parameters vs. Smart class parameters vs. Smart Variables
+
+* Parameters
+ * Simple string
+ * Usable in Foreman's Provisioning Templates
+ * Usable in Puppet as global parameters
+ * Override by creating one of the same name in a more specific scope
+* Smart class parameters
+ * Available from Puppet classes
+ * Different types
+ * Validators
+ * Override options to handle override order and behaviour
+* Smart variables
+ * Global parameters assigned to a Puppet class
+ * Same options like Smart class parameters
+* All are hideable from unprivileged users
 
 ~~~SECTION:handouts~~~
 
@@ -203,6 +221,8 @@ Foreman does differentiate between three kinds of parameters.
 Parameters are global parameters in a very simple fashion. Their values can only be strings and override is simply
 done by creating a parameter with the same name in a more specific scope. To Puppet they are presented as a global
 parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.
+
+~~~PAGEBREAK~~~
 
 Smart class parameters become available from imported Puppet classes and can have different types like boolean, hash
 or yaml. For this types an input validator can be created to verify user input. An override behavior and order can be
@@ -418,8 +438,7 @@ required to run Foreman or managed by the Smart Proxy.
 
 <pre>
 $foreman = foreman({ item => 'hosts',
-                     search => 'status.failed = 0',
-                     per_page => 1000,
+                     search => 'status.failed = 0', per_page => 1000,
                      foreman_url => 'https://foreman.localdomain',
                      foreman_user => 'admin',
                      foreman_pass => 'PASSWORD' })
@@ -432,5 +451,4 @@ This is an alternative for exported resources or a PuppetDB query. It takes a ha
 a result hash including an array of hashes describing the hosts. 
 The hash is best used with a defined resource and create_resource function or within a template.
 Next release of the function will also allow to provide a filter for reducing the data for easier handling.
-
 ~~~ENDSECTION~~~

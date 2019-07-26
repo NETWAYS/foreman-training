@@ -21,9 +21,10 @@ For monitoring Foreman you should include a check to verify if the Webinterface 
 if it includes the string "Welcome to foreman" as it is possible that it shows a stracktrace if something is
 goes wrong. If using monitoring plugins with Icinga or something similar you could use check_http.
 
+~~~PAGEBREAK~~~
+
     check_http -H foreman.localdomain -p 443 -S -f follow -s 'Welcome to Foreman'
 
-~~~PAGEBREAK~~~
 
 During provisioning also plain HTTP requests will be required, but you can not simulate exactly this request
 because of redirect rules directing the request to HTTPs.

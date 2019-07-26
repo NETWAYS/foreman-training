@@ -17,7 +17,7 @@
 
 * Identifier is the mac address
 
-<img src="./_images/pxe.png" style="width: 456px; height: 204px;" alt="Provisioning PXE">
+<img src="./_images/pxe.png" style="width: 445px; height: 199px;" alt="Provisioning PXE">
 
 ~~~SECTION:handouts~~~
 
