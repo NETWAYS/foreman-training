@@ -14,7 +14,7 @@
  * Red Hat Subscriptions
  * Track internal use
 * Defined scenario for Foreman Installer
-* Upstream project for Red Hat Network Satellite 6
+* Upstream project for Red Hat Network Satellite 6 and orcharhino
 
 <div style="text-align:right">
 <img src="./_images/katello-logo.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo"/>
@@ -33,7 +33,7 @@
  * Red Hat Subscriptions
  * Track internal use
 * Defined scenario for Foreman Installer
-* Upstream project for Red Hat Network Satellite 6
+* Upstream project for Red Hat Network Satellite 6 and orcharhino
 
 ~~~SECTION:handouts~~~
 
@@ -52,7 +52,7 @@ cases Red Hat. It also provides the possiblity to track the internal use of some
 It uses the same technology for installation as the Foreman by providing a scenario to the Foreman installer. The usage of this
 installer is the supported way of installation for Katello, so there is no way of adding the plugin later to an existing Foreman installation for now.
 
-Katello is also the upstream project for Red Hat Network Satellite 6 like Spacewalk was for Satellite 5.
+Katello is also the upstream project for Red Hat Network Satellite 6 and orcharhino like Spacewalk was for Satellite 5.
 
 Detailed information on the project homepage: http://www.katello.org/
 
