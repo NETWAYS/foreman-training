@@ -77,7 +77,11 @@
  ************************************************/
 
 .net-header img {
-  margin-right: 1.5em;
+  margin-right: 0;
+  display: block;
+  width: auto;
+  height: 97%;
+  margin-top: -1em;
 }
 
 .content .net-header + h1:not(.section-title) {
@@ -162,15 +166,16 @@
     height: 4em;
     border-bottom: .0625em solid black;
     width: 100%;
+    text-align: right;
   }
 
   .net-header img {
-    height: 65px; /* The negative margin workaround does not work with wkhtmltopdf.. */
-    width: 75px;
-    text-align: right;
-    margin-right: 10px;
+    height: 65px; 
+    width: auto;
+    margin-right: 30px;
     margin-bottom: 10px;
-    float: right;
+    margin-top: -0.5em;
+    display:inline-block;
   }
 
   #pre_netways_title_00_title1 .net-header,
@@ -191,6 +196,13 @@
 
   .net-footer {
     display: none;
+  }
+}
+
+@media print and (max-width: 11cm) {
+  .net-header img {
+    width: 90px;
+    height:70px;
   }
 }
 
