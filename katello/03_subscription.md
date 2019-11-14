@@ -19,13 +19,13 @@
 
 Subscription management is primarily implemented for cosuming Red Hat Content you subcribed.
 
+~~~PAGEBREAK~~~
+
 Red Hat allows to create a Subscription Manifest to move Subscription management from Red Hat
 Network to your environment. This manifest includes the certificates required for communication
 and the subscription data. Red Hat Repositories View shows available products and repositories
 covered by the subscription data and allows to select them which will automatically create and
 synchronize them to your system.
-
-~~~PAGEBREAK~~~
 
 For SUSE a similar workflow can be enabled when using the Foreman SCC Manager plugin which is
 available as package and you can find upstream at https://github.com/ATIX-AG/foreman_scc_manager.

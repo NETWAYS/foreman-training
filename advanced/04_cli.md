@@ -22,6 +22,8 @@ like the WebGUI and the API. Some of the Foreman plugins also provide a Hammer p
 some other tools especially around Katello do. But the framework is not limited to the Foreman
 environment, so feel free to create your own plugins to solve your own administrative tasks.
 
+<br/>
+
 A list of plugins is provided by the Github page of the framework: https://github.com/theforeman/hammer-cli
 
 ~~~ENDSECTION~~~

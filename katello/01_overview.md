@@ -4,6 +4,10 @@
 !SLIDE smbullets small noprint
 # Katello
 
+<div style="text-align:right">
+<img src="./_images/katello-logo.png" style="float: right; max-width:200px; max-height: 150px; width: auto; height: auto; margin: 20px" alt="Katello Logo"/>
+</div>
+
 * Defined set of Foreman plugins to provide Content management:
  * YUM repositories (RPM + Errata)
  * Puppet modules
@@ -17,10 +21,6 @@
 * Upstream project for
  * Red Hat Network Satellite 6
  * orcharhino
-
-<div style="text-align:right">
-<img src="./_images/katello-logo.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Katello Logo"/>
-</div>
 
 !SLIDE smbullets small printonly
 # Katello
@@ -44,6 +44,8 @@
 ****
 
 Katello is a defined set of Foreman plugins which add Content management and Subcription management.
+
+~~~PAGEBREAK~~~
 
 The Content management feature can manage YUM repositories to provide software in RPM package format and
 errata explaining the importance of the package updates, puppet modules for configuration management,

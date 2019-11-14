@@ -1,8 +1,7 @@
 !SLIDE center noprint
 # Demo
 
-Katello Demo
-
+<div class="div_center">Katello Demo</div>
 
 !SLIDE printonly
 # Demo

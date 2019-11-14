@@ -2,7 +2,7 @@
 
 # Training Environment
 
-<div style="text-align: center"><img src="./_images/environment.png" style="float: center; margin-left: 50px; width: 794px; height: 428px;" alt="Training Environment"></div>
+<div style="text-align: center"><img src="./_images/environment.png" style="float: center; margin-left: 115px; width: 794px; height: 428px;" alt="Training Environment"></div>
 
 ~~~SECTION:notes~~~
 
@@ -14,16 +14,13 @@
 
 # Training Environment
 
-<img src="./_images/environment.png" style="width: 450px; height: 242px;" alt="Training Environment">
+<img src="./_images/environment.png" style="width: 440px; height: 236px;" alt="Training Environment">
 
 ~~~SECTION:handouts~~~
 
-****
-
 The laptop provided for the training is running CentOS 7 with Gnome 3 in Fallback mode.
 You can login with the unprivileged user "training" and password "netways". 
-The password for user "root" required for some exercises is "netways0815".
-
+The password for user "root" required for some exercises is "netways0815".<br/>
 For virtualization the laptop runs KVM with libvirt. A virtual network named "foreman"
 is configured with the IP address "10.0.0.1" assigned to the laptop and a host entry 
 "host.localdomain", the IP address "10.0.0.2" is assigned to an already existing VM
@@ -43,4 +40,3 @@ the repositories hosted by the trainer. He will give you information about the a
 Please do _not_ use the upstream repositories, it will slow down the performance!
 
 ~~~ENDSECTION~~~
-

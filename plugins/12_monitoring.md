@@ -22,12 +22,14 @@ Smart proxy plugin for the communication. So it shows a global and detailed moni
 status for hosts, manages monitoring objects during provisioning and deprovisioning and
 allows to set downtimes.
 
+~~~PAGEBREAK~~~
+
 For now it only supports Icinga 2 as monitoring solution and if requiring a more comfortable
 administration Icinga 2 and in addition its graphical frontend Icinga Web 2 Director.
 
 More details on: <br/>
-* https://github.com/theforeman/foreman_monitoring <br/>
-* https://github.com/theforeman/smart_proxy_monitoring <br/>
+ https://github.com/theforeman/foreman_monitoring <br/>
+ https://github.com/theforeman/smart_proxy_monitoring <br/>
 
 ~~~ENDSECTION~~~
 

@@ -20,6 +20,8 @@ also be used to import your own git repository if you want to manage the templat
 an external version control system. In addition the imported templates will also be associated
 to the existing operating systems.
 
+<br/>
+
 More details on: https://theforeman.org/plugins/foreman_templates/6.0/index.html
 
 ~~~ENDSECTION~~~

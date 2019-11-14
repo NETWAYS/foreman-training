@@ -37,12 +37,12 @@ to find the boot media and software packages, partition tables and provisioning 
 
 ****
 
+~~~PAGEBREAK~~~
+
 The templates are using ERB (embedded ruby) which allows to use parameters in the files, basic scripting
 like conditionals and inclusion of snippets. Snippets can be everything from scripts to configuration files
 you want to maintain independently because it is the same configuration for inclusion in different other
 files or it will bloat up one file to render it unmaintainable.
-
-~~~PAGEBREAK~~~
 
 Depending on different provisioning mechanisms and methods other kinds of templates are required.
 
@@ -54,9 +54,10 @@ Depending on different provisioning mechanisms and methods other kinds of templa
 * user_data - Similar to a Finish script, this can be assigned to hosts built on user_data-capable images (e.g. Openstack, EC2, etc)
 * Script - An arbitrary script, not used by default, useful for certain custom tasks
 
+~~~PAGEBREAK~~~
+
 Templates can be associated to operating systems, host groups, environments or combinations of host group and environment.
 It will then select the templates to use on best match.
-
 Partition tables are handled separately to allow the usage of the same host template with different disk layouts.
 
 ~~~ENDSECTION~~~
@@ -143,7 +144,7 @@ Click on "Submit".
  * Associate the finish template "Preseed default finish" with Debian
  * Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed custom LVM" and "Preseed default", Installation media "Debian mirror" and set parameter "enable-puppetlabs-puppet5-repo" to "true"
 
-~~~SECTION:handouts~~~
+~~~SECTION:notes~~~
 
 * Tell the students to skip Debian if only providing a local CentOS-Mirror.
 
@@ -159,6 +160,7 @@ Click on "Submit".
 * Prepare the installation of Debian using PXE
 
 ## Steps:
+
 
 ****
 

@@ -11,8 +11,8 @@
  * Internal / LDAP / Kerberos (via Apache Authentication)
  * Fine role based privileges
 
-<div style="text-align:right">
-<img src="./_images/foreman_loginscreen.png" style="float: right, max-width:200px; max-height: 150px; width: auto; height: auto; margin: 50px" alt="Foreman Loginscreen"/>
+<div style="float:right">
+<img src="./_images/foreman_loginscreen.png" style="max-width320px; max-height: 200px; width: 300px; height: 120px; margin: 1px; margin-right: 100px" alt="Foreman Loginscreen"/>
 </div>
 
 ~~~SECTION:notes~~~
@@ -25,6 +25,8 @@
 ~~~SECTION:handouts~~~
 
 ****
+
+~~~PAGEBREAK~~~
 
 Foreman provides in addition to the Web Interface an API and CLI.
 

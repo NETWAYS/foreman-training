@@ -19,10 +19,10 @@
 The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
 It utilizes different providers, which are SSH and Ansible for now.
 
+~~~PAGEBREAK~~~
+
 The SSH provider runs per default command as root, but can also be configure to run as unpriviledged
 user and run sudo to accquire elevated privileges.
-
-~~~PAGEBREAK~~~
 
 It is usefully to trigger configuration management runs immediately to get an adhoc deployment,
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
@@ -133,11 +133,11 @@ Navigate to the host and press "Run OpenSCAP scan". It will automatically choose
 
 ****
 
+~~~PAGEBREAK~~~
+
 It is also possible to write templates for jobs in a similar manner like Provisioning Templates. In this
 templates you can use a special function "input" to get the value of input fields associated to it. These
 fields can be a free-form or list of values for a user to add, facts, variables or Puppet parameters. 
-
-~~~PAGEBREAK~~~
 
 Furthermore you can reference another template, which you can also render in your newly created one with the
 "render_template" function.

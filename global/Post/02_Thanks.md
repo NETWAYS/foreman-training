@@ -2,4 +2,4 @@
 
 # THANK YOU
 
-Thank you for your attention!
+<div class="div_center">Thank you for your attention!</div>

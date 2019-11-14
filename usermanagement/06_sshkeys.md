@@ -7,8 +7,10 @@
 * Used in snippet "create_users" during provisioning
 
 <div style="text-align:right">
-<img src="./_images/foreman_usersshkey.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 50px" alt="Foreman User SSH Keys"/>
+<img src="./_images/foreman_usersshkey.png" style="float: right, max-width:200px; max-height: 250px; width: 420px; height: auto" alt="Foreman User SSH Keys"/>
 </div>
+
+
 
 ~~~SECTION:handouts~~~
 

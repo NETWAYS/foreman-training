@@ -24,14 +24,14 @@
 
 ****
 
+~~~PAGEBREAK~~~
+
 The smart proxy is an autonomous web-based component providing a restful API to connect to varios
 systems from higher ochestration tools such as Foreman. 
 
 The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
 source allows to support other Linux distributions and also Windows which is required for some 
 implementations of subsystems.
-
-~~~PAGEBREAK~~~
 
 There are different implementations of various subsystems included in the smart proxy by default
 and it easily allows to add additional subsystems and implementations as plugins. For configuration
@@ -47,14 +47,11 @@ Directory focused on Linux) is supported.
 * Adds and removes host reservations
 * Requires subnets to be configured
 * Supports: ISC DHCP, MS DHCP, Libvirt
-
 * ISC DHCP:
  * uses OMAPI 
-
 * MS DHCP:
  * uses netsh on a windows server
  * needs administrative privileges
-
 * Libvirt:
  * not for productive use
  * uses libvirt API to manage dnsmasq for libvirt
@@ -72,8 +69,6 @@ Directory focused on Linux) is supported.
 The Smart Proxy DHCP is used to add and remove host reservations to preconfigured subnets and allows to
 import them to foreman.
 
-~~~PAGEBREAK~~~
-
 On Linux typically a ISC compatible implementation is used to manage DHCP which allows to send commands
 via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server system is required which
 needs netsh command installed and the user running the service needs administrative privileges, but the
@@ -84,27 +79,25 @@ Additional providers like infoblox or remote connection to ISC DHCP are availabl
 
 ~~~ENDSECTION~~~
 
-!SLIDE smbullets small
+!SLIDE small smbullets
 # Smart Proxy - DNS
 
 * Adds and removes dns records of type A, AAAA and PTR
 * Requires zone to be configured as dynamic zones
 * Supports: Bind, PowerDNS, Route53, MS DNS, Libvirt
-
 * Bind:
  * uses nsupdate with preshared key or Kerberos principal
-
 * MS DNS:
  * uses nsupdate with Kerberos principal
  * alternativly: uses dnscmd on a windows server
-
 * PowerDNS:
  * directly connects to the database backend
+
+~~~PAGEBREAK~~~
 
 * Route53 (DNS in AWS cloud):
  * requires Amazon Web Service account
  * access and secret key of IAM account with access to Route53
-
 * Libvirt:
  * not for productive use
  * uses libvirt API to manage dnsmasq for libvirt
@@ -129,7 +122,6 @@ with Kerberos principal. The same mechanism could be used for sending updates to
 possibilty is to install the Smart Proxy on a Windows server and give it the privileges to run dnscmd.
 Other implementations like PowerDNS and Route53 are also supported. Libvirt is again only supported as a
 testing environment.
-
 Additional providers like infoblox or powerdns are available as plugins.
 
 ~~~ENDSECTION~~~
@@ -179,11 +171,11 @@ WIP: Tokenbased autosigning - https://github.com/theforeman/smart-proxy/pull/592
 
 ****
 
+~~~PAGEBREAK~~~
+
 The Smart Proxy Puppet connects to the API of Puppet to query puppet environments and classes for import. It
 optionally triggers immediate Puppet runs using the deprecated puppet kick command, mcollective, executing puppet
 agent command via ssh on the remote system, salt or any custom script. 
-
-~~~PAGEBREAK~~~
 
 Also it automatically allows a Puppet master known to Foreman as Smart Proxy to upload facts and reports. In addition
 the Puppet master can access Foreman as an External Node Classifier to build its catalog.

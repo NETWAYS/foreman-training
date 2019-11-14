@@ -6,9 +6,7 @@
 
 * Definition:
 
-*Configuration management is a systems engineering process for establishing and maintaining consistency of a 
-product performance, functional, and physical attributes with its requirements, design and operational 
-information throughout its life.*
+ * Configuration management is a systems engineering process for establishing and maintaining consistency of a product performance, functional, and physical attributes with its requirements, design and operational information throughout its life.
 
 * Tools integrated in Foreman:
  * Puppet
@@ -24,10 +22,10 @@ Wikipedia defines configuration management as a *systems engineering process for
 product's performance, functional, and physical attributes with its requirements, design and operational information throughout
 its life.*
 
+~~~PAGEBREAK~~~
+
 So configuration management software is used to describe a desired state, configure a system to be in this state and recognize
 drifts from this state to revert them.
-
-~~~PAGEBREAK~~~
 
 Foreman integrates different tools to solve this task. Puppet is deeply integrated because Foreman started as a WebGUI for it,
 but it is planned to move on to a state being a plugin equal to all the other solutions. The features of the plugins differ depending

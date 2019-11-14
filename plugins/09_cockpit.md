@@ -24,6 +24,8 @@ priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and 
 
 The Foreman plugin searches for an existing installation and integrates it into the Foreman WebGUI.
 
+~~~PAGEBREAK~~~
+
 More details on: https://github.com/theforeman/foreman_cockpit
 
 ~~~ENDSECTION~~~

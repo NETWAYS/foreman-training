@@ -1,4 +1,4 @@
-!SLIDE small noprint
+!SLIDE noprint
 # Forthcoming Hands-on Training
 
 * 09.04.2019 - 10.04.2019 [NETWAYS](https://www.netways.de/trainings/foreman/) (German)
@@ -8,7 +8,6 @@
 
 !SLIDE center noprint
 # Forthcoming Hands-on Training
-
 For other events and trainings hosted by NETWAYS see our
 
 [event calendar](https://www.netways.de/en/events/)

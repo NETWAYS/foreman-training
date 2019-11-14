@@ -20,14 +20,10 @@ The configuration management solution used will be Puppet.
 
 ****
 
-This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
-The configuration management solution used will be Puppet.
-
+~~~PAGEBREAK~~~
 ## Foreman architecture
 
 This chapter will give you a basic understanding of the architecture of Foreman, its Smart proxies and Compute Resources.
-
-~~~PAGEBREAK~~~
 
 ## Installation
 
@@ -41,6 +37,8 @@ in the Foreman Web GUI. Afterwards several installation scenarios will be covere
 over creating virtual machines using Compute Resources and metal as a service with Foreman's Discovery Plugin to creating
 a setup using installation media instead of PXE.
 
+~~~PAGEBREAK~~~
+
 ## Configuration management
 
 Some basic explainations will give you enough knowledge to understand how Puppet works and to use it to configure newly provisioned
@@ -48,12 +46,12 @@ systems to your needs. Some existing Puppet modules will be imported, parameteri
 via a host group. Configuration runs will be reported back to Foreman so the administrator can see success and failure.
 Furthermore similar exercises are provided for Ansible.
 
-~~~PAGEBREAK~~~
-
 ## User management
 
 To give more users access to the Foreman Web GUI LDAP authentication will be added. Privileges will be added to the new users.
 Also the auditing capabilities of Foreman will be covered so you can see what your new users do.
+
+~~~PAGEBREAK~~~
 
 ## Advanced Use
 

@@ -12,7 +12,7 @@
 * Content management is based on products
 * Products consists of one or more repositories of any content type
 
-<img src="./_images/products.png" style="width: 450px; height: 119px;" alt="Katello - Products">
+<div style:"text-align: center"><img src="./_images/products.png" style="width: 450px; height: 119px" alt="Katello - Products"></div>
 
 ~~~SECTION:handouts~~~
 
@@ -21,6 +21,8 @@
 In Katello the Content management is based on products which consist of one or more repositories of
 any content type. For packages different sync options are available in Katello >= 3.0 which allow to
 sync packages also only on demand.
+
+~~~PAGEBREAK~~~
 
 This allows different configurations depending on your focus. For example you can create a product
 named after the operatingsystem you run and add all repositories you require and have a second product
@@ -38,7 +40,7 @@ application itself.
 * Allow to filter several software packages
 * Composite Content Views are possible
 
-<div style="text-align:center"><img src="./_images/contentviews.png" style="float: center; margin-left: 50px; width: 796px; height: 186px;" alt="Katello - Content Views"></div>
+<div style="text-align:center"><img src="./_images/contentviews.png" style="float: center; margin-left: 102px; width: 796px; height: 186px;" alt="Katello - Content Views"></div>
 
 !SLIDE smbullets small printonly
 # Content management - Content Views
@@ -56,6 +58,8 @@ application itself.
 A Content View allows to create a versioned snapshot of one or more repositories and if required to filter
 specific packages or problematic versions of a package. New versions of a content view can be published
 afterwards and be promoted to a Lifecyle Environment.
+
+~~~PAGEBREAK~~~
 
 Incremental updates allow to push a security hotfix or something similar directly to all snapshots.
 
@@ -117,8 +121,6 @@ different workflows of projects or departments.
 The Content Host is a different view on the host representing it as consumer of content and subscriptions
 for Katello. The Host in Foreman is used for provisioning and configuration management. A host is always
 represented as both starting with the ongoing process to unify the views starting with Katello 3.0.
-
-~~~PAGEBREAK~~~
 
 An optional agent allows to execute commands issued in the WebGUI on the host like installing a package or updating
 all packages. A chat is used for this feature allowing for just in time execution.
