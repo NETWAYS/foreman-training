@@ -14,6 +14,8 @@ Material is licensed under [Creative Commons Attribution-ShareAlike 4.0 Internat
 David Okon
 Dirk G&ouml;tz
 Julien Pivotto
+Mark Hlawatschek
 Markus Waldm&uuml;ller
 Simon H&ouml;nscheid
+Tobias Bauriedel
 </pre></center>

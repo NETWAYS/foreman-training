@@ -19,10 +19,8 @@ Requirements:
 
 * git
 * vagrant (libvirt or virtualbox provider)
-* docker and docker-compose
 
-<br/><br/>The repository https://github.com/Katello/katello-deploy/ includes everything else you need.
-Simply clone it with git, use vagrant to provide a Katello server and docker-compose to create
-Content Hosts.
+The repository https://github.com/Katello/katello-deploy/ includes everything else you need.
+Simply clone it with git, use vagrant to provide a Katello server.
 
 ~~~ENDSECTION~~~

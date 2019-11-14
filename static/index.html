@@ -3268,8 +3268,8 @@ without knowing puppet in-depth.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="configmanagement" data-title="02_puppet" id="configmanagement_02_puppet1" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="configmanagement/02_puppet:1">
+<div data-section="configmanagement" data-title="02_puppet" id="configmanagement_02_puppet1" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="configmanagement/02_puppet:1">
 <div class="net-header">
     <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
@@ -3301,16 +3301,13 @@ without knowing puppet in-depth.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="configmanagement" data-title="02_puppet" id="configmanagement_02_puppet2" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="configmanagement/02_puppet:2">
+<div data-section="configmanagement" data-title="02_puppet" id="configmanagement_02_puppet2" class="slide smbullets small noprint" data-transition="none">
+<div class="content smbullets small noprint" ref="configmanagement/02_puppet:2">
 <div class="net-header">
     <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
 <h1>Puppet Workflow</h1>
-
-<ul>
-<li>Workflow
 
 <ul>
 <li>Manifests stored on a central server "Puppet Master"</li>
@@ -3320,10 +3317,6 @@ without knowing puppet in-depth.</p>
 <li>Agent reports back to master</li>
 <li>Master transfers reports to other tools</li>
 </ul>
-</li>
-</ul>
-
-
 
 
 
@@ -3331,26 +3324,6 @@ without knowing puppet in-depth.</p>
     <p id="footer-left">Official Foreman Training</p>
     <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
 </div>
-</div>
-<div class="notes-section handouts">
-
-<hr>
-
-<p>Puppet is written in ruby and provided as a true Open Source version and as an Enterprise version with additional features and
-packages with a defined software stack for easier support.</p>
-
-<div class="pagebreak">continued...</div>
-
-<p>Independently of the version it runs on Linux, Unix and Windows it can also configure some network devices. For configuration
-it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
-The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
-configuration items with the node to be configured these central servers can use an ENC (External Node Classifier). The agent runs
-on the nodes and collects system information using a tool named facter before contacting the central server. The master compiles then
-a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an
-abstraction layer and also sends a report to the master. The master uses different handlers to send the report to other tools.</p>
-
-<p>A diagram showing this workflow is provided on the next page.</p>
-
 </div>
 <div class="notes-section notes">
 
@@ -4999,98 +4972,6 @@ enhanced to support tailoring files.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="plugins" data-title="09_cockpit" id="plugins_09_cockpit1" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="plugins/09_cockpit:1">
-<div class="net-header">
-    <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
-</div>
-
-<h1>Cockpit</h1>
-
-<ul>
-<li>WebGUI to manage your server</li>
-<li>Available on RHEL, CentOS, Fedora, Arch Linux and Ubuntu</li>
-<li><p>Available as native package or docker container for atomic</p></li>
-<li>
-<p><u>Use case:</u> </p>
-
-<ul>
-<li>Manage atomic installations</li>
-<li>Manage servers via WebGUI instead of direct console access</li>
-</ul>
-</li>
-</ul>
-
-
-
-
-
-<div class="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-<div class="notes-section handouts">
-
-<hr>
-
-<p>The Cockpit project provides a WebGUI to manage Linux servers. It is available as native package or
-priviledged docker container for atomic on RHEL, CentOS, Fedora, Arch Linux and Ubuntu.</p>
-
-<p>The Foreman plugin searches for an existing installation and integrates it into the Foreman WebGUI.</p>
-
-<div class="pagebreak">continued...</div>
-
-<p>More details on: <a href="https://github.com/theforeman/foreman_cockpit" target="_blank">https://github.com/theforeman/foreman_cockpit</a></p>
-
-</div>
-<div class="notes-section notes">
-
-<ul>
-<li>Cockpit runs on Port 9090 and encryption depends on the protocol used to connect</li>
-</ul>
-
-</div>
-<canvas class="annotations"></canvas>
-</div>
-<div data-section="plugins" data-title="09_cockpit" id="plugins_09_cockpit2" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="plugins/09_cockpit:2">
-<div class="net-header">
-    <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
-</div>
-
-<h1>Lab 7.5: Cockpit</h1>
-
-<ul>
-<li>Objective:
-
-<ul>
-<li>Inspect your system using Cockpit integrated in the Foreman</li>
-</ul>
-</li>
-<li>Steps:
-
-<ul>
-<li>Install and enable Cockpit</li>
-<li>Install the Foreman Plugin Cockpit</li>
-</ul>
-</li>
-</ul>
-
-
-
-<div class="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-<div class="notes-section notes">
-
-<p>Requires <a href="https://github.com/theforeman/foreman_cockpit/pull/15" target="_blank">https://github.com/theforeman/foreman_cockpit/pull/15</a> to be applied via patch as it is not a part of release</p>
-
-</div>
-<canvas class="annotations"></canvas>
-</div>
 <div data-section="plugins" data-title="10_remote_execution" id="plugins_10_remote_execution1" class="slide smbullets small" data-transition="none">
 <div class="content smbullets small" ref="plugins/10_remote_execution:1">
 <div class="net-header">
@@ -5157,7 +5038,7 @@ It also allows to schedule jobs or reoccurring execution.</p>
     <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 7.6: Remote Execution</h1>
+<h1>Lab 7.5: Remote Execution</h1>
 
 <ul>
 <li>Objective:
@@ -5254,7 +5135,7 @@ handling and "Run Command" to run a simple commandline.</p>
     <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 7.7: Remote Execution - Job Template</h1>
+<h1>Lab 7.6: Remote Execution - Job Template</h1>
 
 <ul>
 <li>Objective:
@@ -5338,7 +5219,7 @@ shutdown and deletion can not be automated but it will at least notify.</p>
     <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 7.8: Expire Hosts</h1>
+<h1>Lab 7.7: Expire Hosts</h1>
 
 <ul>
 <li>Objective:
@@ -5440,7 +5321,7 @@ administration Icinga 2 and in addition its graphical frontend Icinga Web 2 Dire
     <img src="./file///global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 7.9: Monitoring Integration</h1>
+<h1>Lab 7.8: Monitoring Integration</h1>
 
 <ul>
 <li>Objective:
@@ -6556,7 +6437,13 @@ DHCP server to ensure answers are not provided from another system.</p>
 </ul>
 </li>
 <li>Defined scenario for Foreman Installer</li>
-<li>Upstream project for Red Hat Network Satellite 6</li>
+<li>Upstream project for
+
+<ul>
+<li>Red Hat Network Satellite 6</li>
+<li>orcharhino</li>
+</ul>
+</li>
 </ul>
 
 <div class="net-footer">
@@ -6807,8 +6694,10 @@ Content Hosts for products.</p>
 David Okon
 Dirk Götz
 Julien Pivotto
+Mark Hlawatschek
 Markus Waldmüller
 Simon Hönscheid
+Tobias Bauriedel
 </pre></center>
 
 <div class="net-footer">
