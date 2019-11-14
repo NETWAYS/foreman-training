@@ -27,12 +27,15 @@ In addition to the sources you can find the rendered material on
 Feel free to use this material as it is to provide your own training.
 
 To run the presentation you will need [showoff 0.19.6](https://rubygems.org/gems/showoff/versions/0.19.6).
-After installing you have to run the /global/wizard.sh script. It will give you some options how to start your presentation. You can switch between the serve and print mode.
+After installing it simply run showoff serve to get presenter mode with additional notes and display window to present to your students.
 
 For creating the rendered documents on your own run `showoff static print` (handouts),
 `showoff static supplemental exercises` (exercises) or `showoff static supplemental solutions`
 (solutions) followed by 
 `wkhtmltopdf -s A5 --print-media-type --footer-left [page] --footer-right 'Foreman Training' static/index.html handouts.pdf`
+
+As alternative you can run the `./global/wizard.sh` script which requires docker. It will give you some options how to serve your presentation
+and provides a print mode to generate the rendered documents.
 
 If you want to change the design to represent your corporate identity have a look at 'foreman.css',
 to change the included content adjust 'showoff.json' for example to add your own introduction as pre slides.

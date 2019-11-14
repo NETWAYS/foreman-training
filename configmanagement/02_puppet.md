@@ -1,4 +1,4 @@
-!SLIDE smbullets small
+!SLIDE smbullets small noprint
 # Puppet
 
 * Written in ruby
@@ -13,8 +13,36 @@
     }
 </pre>
 
-!SLIDE smbullets small
+!SLIDE smbullets small noprint
 #Puppet Workflow
+
+* Manifests stored on a central server "Puppet Master"
+* Agent collects system information using facter
+* Agent contacts central server with this information
+* Master compiles catalog for agent to realize using an abstraction layer
+* Agent reports back to master
+* Master transfers reports to other tools
+
+~~~SECTION:notes~~~
+
+* Next slide provides a diagram of the workflow.
+
+~~~ENDSECTION~~~
+
+!SLIDE smbullets small printonly
+# Puppet
+
+* Written in ruby
+* Choice between Open Source or Enterprise version
+ * Enterprise edition is not supported by Foreman
+* Runs on Linux, Unix, Windows, …
+* Describes desired state in its own declarative language
+
+<pre>
+    package { 'openssh':
+      ensure => 'installed',
+    }
+</pre>
 
 * Workflow
  * Manifests stored on a central server "Puppet Master"
@@ -23,12 +51,6 @@
  * Master compiles catalog for agent to realize using an abstraction layer
  * Agent reports back to master
  * Master transfers reports to other tools
-
-~~~SECTION:notes~~~
-
-* Next slide provides a diagram of the workflow.
-
-~~~ENDSECTION~~~
 
 ~~~SECTION:handouts~~~
 
