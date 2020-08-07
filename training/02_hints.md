@@ -7,5 +7,7 @@
 * Join the conversation! Many of these exercises require real world scenarios and your feedback and questions.
 * Work together! Be part of the training team and find solutions together.
 
-* Additional documentation in your browser at http://theforeman.org/manuals/latest
+* Additional documentation in your browser at
+ * http://theforeman.org/manuals/latest
+ * https://docs.theforeman.org/web/
 

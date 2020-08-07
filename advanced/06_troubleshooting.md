@@ -79,7 +79,7 @@ You can enable Logs access from the WebGUI by adding in
 Troubleshooting of the provisioning process can be required if deployment of a system fails or differs from expectation.
 In most cases the output of the WebGUI is quite useful, but sometimes a deeper look is required to find a solution.
 
-You can get the provisioning configuration files by spoofing the URL:
+In addition to the template preview at the host you can get the provisioning configuration files by spoofing the URL:
 
      https://foreman.localdomain/unattended/provision?spoof=10.0.0.100
 
@@ -118,11 +118,14 @@ the agent has to run more than once to complete the full configuration.
 * Server fault
 * Youtube
 * Issue tracker
-* Debug tool
+* Gathering information
+ * Debug tool (to be deprecated)
+ * sosreport
 
 ~~~SECTION:handouts~~~
 
 ****
+
 The Foreman team tries to help with issues as good as they can. To achieve this there are several ways to get support available.
 
 ~~~PAGEBREAK~~~
@@ -148,8 +151,9 @@ http://projects.theforeman.org/projects/foreman/issues
 
 Sometimes you could be asked to send a debug report which could be generated with "foreman-debug" including the complete
 configuration stripped of security data. With "foreman-debug -u" it could be uploaded to a location only accessable by the
-Foreman core developers.
+Foreman core developers. This tool is going to be deprecated and be replaced by a plugin for sosreport.
+
+Sosreport can collect even more system information and based other already existing plugins also those of required or managed
+services. The only feature missing is the built-in upload of the report.
 
 ~~~ENDSECTION~~~
-
-

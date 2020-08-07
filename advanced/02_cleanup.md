@@ -12,7 +12,7 @@
  * Requires a lot of space
 
 * Cleanup job is provided by the Foreman
- * Execute via cron
+ * Executed via cron
  * Can run with different parameters
 
 ~~~SECTION:handouts~~~
@@ -24,13 +24,13 @@ Depending on the solution, configuration and interval the required storage space
 
 ~~~PAGEBREAK~~~
 
-Foreman provides a cleanup job for this. Best Practice would be an execution as a cronjob. The command takes parameters
+Foreman provides a cleanup job for this in form of a cronjob. Best Practice would be to adjust is based on your needs. The command takes parameters
 for the maximum age to keep the status of the reports.
 
-Depending on your needs configure a daily cronjob like this to delete all reports 'without event', 'after one day' or
+For example configure the daily cronjob like this to delete all reports 'without event' 'after one day' and
 those with events 'after 7 days'.
 
-    #!/bin/sh
+    # vi /etc/cron.d/foreman
     foreman-rake reports:expire days=1 status=0
     foreman-rake reports:expire days=7
 
@@ -142,6 +142,7 @@ and see pending config changes, if some are shown run the foreman-installer agai
  * Restore
 * Handles Updates including Health checks
 * Maintenance mode prevents access to Foreman
+* Yum plugin prevents unexpected package sources
 
 ~~~SECTION:handouts~~~
 
@@ -149,6 +150,8 @@ and see pending config changes, if some are shown run the foreman-installer agai
 
 Foreman Maintain is a newly developed tool which tries to automate the previous tasks. It can handle multiple strategies for backup and restore,
 like offline and online, full and incremental. It ensures system health during Update and its maintenance mode prevents access to Foreman.
+
+The yum plugin "foreman-protector" is created to prevent accidental updates of packages from unexpected sources.
 
 For more information: https://theforeman.org/plugins/foreman_maintain/0.2/index.html
 

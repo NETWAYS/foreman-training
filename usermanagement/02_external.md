@@ -7,6 +7,9 @@
  * Manual configuration and tell Foreman to trust
 * PAM
  * Apache module to validate login form input against PAM
+* OpenID Connect 
+ * Installation and configuration of Apache Modul and OpenID client
+ * Settings in Foreman to point to OpenID provider 
 * Autocreation of user possible
 * Differentiates between WebGUI and API
 
@@ -28,6 +31,10 @@ users.
 
 Another way to configure Foreman to use external authentication providers is by using the Apache
 module "intercept_form_submit" to pass the login form input to PAM for validation.
+
+An integration with OpenID is also now possible which requires the Apache Module `mod_auth_openidc`
+and the corresponding client of the OpenID provider before you can configure the Foreman via its
+settings to integrate it.
 
 It is also possible to enable autocreation of users in Foreman for external authentication.
 

@@ -23,4 +23,7 @@ is provided.
 All this auditing data are browse and searchable in the WebGUI via "Monitor > Audits". To get detailed
 auditing data or specific change history simply select an entry.
 
+The events can be deleted or anonymized via cron as needed. This will be covered in a later section of the
+training material.
+
 ~~~ENDSECTION~~~

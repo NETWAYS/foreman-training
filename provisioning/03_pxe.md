@@ -56,7 +56,7 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
  * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
+ * Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your VM "pxe" and select the network "foreman"
  * Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created
@@ -86,7 +86,7 @@ and start it up again later
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
 * Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
+* Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your VM "pxe" and select the network "foreman"
 * Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created
@@ -111,9 +111,9 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 In the first step of the wizard select the network boot
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
+### Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.5"
+In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.7"
 for CentOS or "Debian Stretch" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
 
 ### Keep the minimum requirements for RAM, CPU and Disk

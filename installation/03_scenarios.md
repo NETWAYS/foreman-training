@@ -2,8 +2,8 @@
 # Scenarios
 
 * All-in-one
-* All-in-one with additional Puppet masters
-* Separate Puppet masters
+* All-in-one with additional Puppet servers
+* Separate Puppet servers
 * Smart proxies
 * Integration of PuppetDB
 
@@ -20,7 +20,8 @@ the project homepage. For the training we will stick to the default all-in-one s
 !SLIDE smbullets small noprint
 # All-in-one
 
-* Default setup on unparameterized run
+* Default setup on unparameterized run only for Configuration Management
+* Add at least Smart Proxy TFTP for Provisioning
 
 <div style="text-align:center"><img src="./_images/installation_all-in-one.png" style="float: center; margin-left: 50px; width: 680px; height: 377px;" alt="Installation All-in-one"></div>
 
@@ -29,7 +30,7 @@ the project homepage. For the training we will stick to the default all-in-one s
 ~~~SECTION:notes~~~
 
 * Plugins can be added simply as parameter during installation or later on
-* Smart proxies are covered later because it is same procedure for installation on Foreman host or others
+* Smart proxies are covered later because it is the same procedure for installation on Foreman host or others
 
 ~~~ENDSECTION~~~
 
@@ -37,7 +38,8 @@ the project homepage. For the training we will stick to the default all-in-one s
 !SLIDE smbullets small printonly
 # All-in-one
 
-* Default setup on unparameterized run
+* Default setup on unparameterized run only for Configuration Management
+* Add at least Smart Proxy TFTP for Provisioning
 
 <img src="./_images/installation_all-in-one.png" style="width: 440px; height: 244px;" alt="Installation All-in-one">
 
@@ -49,10 +51,12 @@ the project homepage. For the training we will stick to the default all-in-one s
 
 ~~~PAGEBREAK~~~
 
-The Foreman installer by default installs an all-in-one scenario with Apache httpd and Passenger
-serving the Foreman Web GUI and API and the Puppet Master including the certificate authority.
-In addition it installs and configures TFTP and the Smart Proxy covering the installed components
-Puppet, Puppet CA and TFTP.
+The Foreman installer by default installs an all-in-one scenario with Apache httpd and Puma
+serving the Foreman Web GUI and API and the Puppet server including the certificate authority.
+In addition it installs and configures the Smart Proxy covering the installed components
+Puppet and  Puppet CA so it can work as UI for Puppet. 
+
+In addition it makes to prepare TFTP or another way of Provisioning.
 
 Additional plugins including Compute Resources could be enabled setting the corresponding parameter
 to true. Smart Proxies can also be added to the system hosting Foreman or on different machines which
@@ -61,30 +65,30 @@ will be covered later.
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# All-in-one with additional Puppet masters
+# All-in-one with additional Puppet servers
 
 * Default setup on Foreman host
 * Precreate certificates on Puppet CA
-* Run installer with parameters to disable Foreman on additional Puppet Masters
+* Run installer with parameters to disable Foreman on additional Puppet servers
 
-<div style="text-align:center"><img src="./_images/installation_additional-masters.png" style="float: center; margin-left: 50px; width: 560px; height: 393px;" alt="Installation Additional Puppet Masters"></div>
+<div style="text-align:center"><img src="./_images/installation_additional-servers.png" style="float: center; margin-left: 50px; width: 560px; height: 393px;" alt="Installation Additional Puppet servers"></div>
 
 ~~~SECTION:notes~~~
 
-* Preferred scenario for growing the Infrastructure and making Puppet Master high available.
-* But all Puppet Master depend on Foreman so place it on a high available machine.
+* Preferred scenario for growing the Infrastructure and making Puppet server high available.
+* But all Puppet server depend on Foreman so place it on a high available machine.
 
 ~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small printonly
-# All-in-one with additional Puppet masters
+# All-in-one with additional Puppet servers
 
 * Default setup on Foreman host
 * Precreate certificates on Puppet CA
-* Run installer with parameters to disable Foreman on additional Puppet Masters
+* Run installer with parameters to disable Foreman on additional Puppet servers
 
-<img src="./_images/installation_additional-masters.png" style="width: 450px; height: 315px;" alt="Installation Additional Puppet Masters">
+<img src="./_images/installation_additional-servers.png" style="width: 450px; height: 315px;" alt="Installation Additional Puppet servers">
 
 ~~~SECTION:handouts~~~
 
@@ -92,42 +96,42 @@ will be covered later.
 
 
 For the Foreman host run the same setup like before afterwards create certificates for the
-Puppet Masters to be added. If you do not do so, it will create an additional CA on this
+Puppet servers to be added. If you do not do so, it will create an additional CA on this
 systems. Last run the Foreman installer on the systems with parameters to disable Foreman
 and the Puppet CA.
 Depending on your infrastructure there are different ways to balance the load on the Puppet
-Masters:
+servers:
 
-* Manual point servers to a Puppet Master
-* Use Round-robin DNS which requires your Puppet Master certificates to be created with an 
+* Manual point servers to a Puppet server
+* Use Round-robin DNS which requires your Puppet server certificates to be created with an 
 DNS alias
 * Use a Loadbalancer solution which depending on SSL handling also requires DNS aliases
-* Utilize DNS SRV records which requires Puppet 3 and appropriate agent configuration
+* Utilize DNS SRV records which requires Puppet 3 or higher and appropriate agent configuration
 
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# Separate Puppet masters
+# Separate Puppet servers
 
-* Setup on Foreman host with Puppet Master and Smart Proxies disabled
-* Run installer with parameters to disable Foreman on separate Puppet Masters
+* Setup on Foreman host with Puppet server and Smart Proxies disabled
+* Run installer with parameters to disable Foreman on separate Puppet servers
 
-<div style="text-align:center"><img src="./_images/installation_separate-masters.png" style="float: center; margin-left: 50px; width: 599px; height: 446px;" alt="Installation Separate Puppet Masters"></div>
+<div style="text-align:center"><img src="./_images/installation_separate-servers.png" style="float: center; margin-left: 50px; width: 599px; height: 446px;" alt="Installation Separate Puppet servers"></div>
 
 ~~~SECTION:notes~~~
 
-* Same as the scenario before but removes load created by Puppet Master from the Foreman server
+* Same as the scenario before but removes load created by Puppet server from the Foreman server
 
 ~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small printonly
-# Separate Puppet masters
+# Separate Puppet servers
 
-* Setup on Foreman host with Puppet Master and Smart Proxies disabled
-* Run installer with parameters to disable Foreman on separate Puppet Masters
+* Setup on Foreman host with Puppet server and Smart Proxies disabled
+* Run installer with parameters to disable Foreman on separate Puppet servers
 
-<img src="./_images/installation_separate-masters.png" style="width: 450px; height: 316px;" alt="Installation Separate Puppet Masters">
+<img src="./_images/installation_separate-servers.png" style="width: 450px; height: 316px;" alt="Installation Separate Puppet servers">
 
 ~~~SECTION:handouts~~~
 
@@ -135,8 +139,8 @@ DNS alias
 
 ~~~PAGEBREAK~~~
 
-This is nearly the same setup as before but removes the load created by being a Puppet Master
-from the Foreman server. You still have to remember to create only the first Puppet master as a
+This is nearly the same setup as before but removes the load created by being a Puppet server
+from the Foreman server. You still have to remember to create only the first Puppet server as a
 certificate authority and setup a solution to load balance the agents.
 
 ~~~ENDSECTION~~~
@@ -206,7 +210,7 @@ is required.
 ~~~SECTION:handouts~~~
 ****
 The Foreman installer allows to add PuppetDB as reporting target and storeconfigs backend
-to the Puppet Masters. It does not setup PuppetDB server!<br/>
+to the Puppet servers. It does not setup PuppetDB server!<br/>
 PuppetDB is not required in a typical setup with Foreman. Instead of using storeconfigs
 or PuppetDB queries Foreman's own database could also be used for queries. The required
 function is part of the Puppet module "foreman" provided by the Foreman Project.

@@ -4,6 +4,7 @@
 * Notification for own actions
 * New feature since 1.15
 * Used by Foreman and many plugins
+* Also integrates the Foreman RSS feed
 
 <div style="text-align:right">
 <img src="./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 95px; margin-right: 95px" alt="Foreman Notification"/>
@@ -17,6 +18,9 @@
 
 Foreman provides a new notification feature to notify about your own actions since 1.15 which is already used by Foreman and
 many plugins. This allows to keep track of actions run independently.
+
+Furthermore it integrates the Foreman RSS feed to keep the user updated, but also to provide some numbers to the Foreman Project.
+You can simply opt-out via the setting "RSS enable" on the "Administer > Settings > Notification" tab.
 
 ~~~ENDSECTION~~~
 
@@ -42,5 +46,7 @@ or manual editing of the configuration file "/etc/foreman/email.yaml". With this
 opt-in for several kinds of notification. It can send a daily, weekly or monthly summary of audit events which allows to add a
 search to specify a subset of events. It also can notify on every successful host build and for Puppet runs on every failed run
 or as a frequent summary.
+
+More options are provided by plugins like Katello.
 
 ~~~ENDSECTION~~~

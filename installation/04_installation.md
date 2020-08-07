@@ -5,7 +5,7 @@
  * Prepare the installation of Foreman
 * Steps:
  * Start the virtual machine "foreman.localdomain" and connect via SSH
- * Make Puppet vendor repository for Puppet 5 available
+ * Make Puppet vendor repository for Puppet available
  * Make EPEL repository available
  * Make Foreman repository available
  * Install foreman-installer
@@ -32,9 +32,9 @@ via SSH as 'root' so you can copy and paste to the console.
 * Make Puppet vendor repository available
 
 Install the release package provided by the Puppet vendor repository to make it available for package
-installation of open source version of Puppet. We will use Puppet 5.
+installation of open source version of Puppet. We will use Puppet 6.
 
-URL: http://yum.puppet.com/puppet5
+URL: http://yum.puppet.com/puppet6
 
 * Make EPEL repository available
 
@@ -88,11 +88,11 @@ and paste to the console.
 Install the release package provided by the Puppet vendor repository to make it available for package
 installation of open source version of Puppet.
 
-    # yum install https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm -y
+    # yum install https://yum.puppet.com/puppet6/puppet6-release-el-8.noarch.rpm -y
 
 ### Make EPEL repository available
 
-Install the release package provided by the CentOS to make it available for package
+Install the release package provided by CentOS to make it available for package
 installation required as dependency.
 
     # yum install epel-release -y
@@ -102,7 +102,7 @@ installation required as dependency.
 Install the release package provided by the Foreman repository to make it available for package
 installation of Foreman and its components.
 
-    # yum install http://yum.theforeman.org/releases/latest/el7/x86_64/foreman-release.rpm -y
+    # yum install http://yum.theforeman.org/releases/latest/el8/x86_64/foreman-release.rpm -y
 
 ### Install foreman-installer
 
@@ -115,16 +115,18 @@ Install the package "foreman-installer" from the now available repositories.
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install an All-in-one setup
 
 * Objective:
- * Install an All-in-one setup of Foreman with DNS and DHCP
+ * Install an All-in-one setup of Foreman with TFTP, DNS and DHCP
 * Steps:
  * Run foreman-installer with additional parameters
 * Notes:
- * DNS (interface=eth0, zone=localdomain, reverse=0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
- * DHCP (interface=eth0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)
+ * TFTP (default configuration)
+ * DNS (interface=ens3, zone=localdomain, reverse=0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
+ * DHCP (interface=ens3, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)
 
 ~~~SECTION:notes~~~
 
 * Show the students the interactive mode in advance - we will not use it to prevent typos
+* Explain array handling (same parameter multiple times) and dhcp range (whitespace-separated string like in the config)
 * Show the students the answer file - it provides information for further runs of the installer
 
 ~~~ENDSECTION~~~
@@ -147,16 +149,18 @@ Install the package "foreman-installer" from the now available repositories.
 
 #### Notes:
 
+TFTP can use its default configuration.
+
 DNS should be enabled and configured with the following parameters:
 
- * interface=eth0
+ * interface=ens3
  * zone=localdomain
  * reverse=0.10.in-addr.arpa
  * forwarders=8.8.8.8,8.8.4.4
 
 DHCP should be enabled and configured with the following parameters:
 
- * interface=eth0
+ * interface=ens3
  * gateway=10.0.0.1
  * range=10.0.0.100-10.0.0.200
  * nameserver=10.0.0.2
@@ -165,7 +169,7 @@ DHCP should be enabled and configured with the following parameters:
 
 The Foreman installer runs successfully and provides login credentials to login to 'https://foreman.localdomain'.
 
-You can find your provided parameters in the answer file created in '/etc/foreman/foreman-installer-answers.yaml'.
+You can find your provided parameters in the answer file created in '/etc/foreman-installer/scenarios.d/foreman-answers.yaml'.
 
 
 !SLIDE supplemental solutions
@@ -182,14 +186,15 @@ You can find your provided parameters in the answer file created in '/etc/forema
 To install run the following command:
 
     # foreman-installer \
+    --foreman-proxy-tftp=true \
     --foreman-proxy-dns=true \
-    --foreman-proxy-dns-interface=eth0 \
+    --foreman-proxy-dns-interface=ens3 \
     --foreman-proxy-dns-zone=localdomain \
     --foreman-proxy-dns-reverse=0.10.in-addr.arpa \
     --foreman-proxy-dns-forwarders=8.8.8.8 \
     --foreman-proxy-dns-forwarders=8.8.4.4 \
     --foreman-proxy-dhcp=true \
-    --foreman-proxy-dhcp-interface=eth0 \
+    --foreman-proxy-dhcp-interface=ens3 \
     --foreman-proxy-dhcp-gateway=10.0.0.1 \
     --foreman-proxy-dhcp-range="10.0.0.100 10.0.0.200" \
     --foreman-proxy-dhcp-nameservers="10.0.0.2"
@@ -222,7 +227,7 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 
 * If the Puppet agent on the Foreman server has already run the domain will already be created
 but not associated.
-* With Foreman 1.21 multi-tenancy is active by default, but not all objects get it assigned by default.
+* With Foreman 1.21 multi-tenancy is active by default, but only since 1.22 all objects get it assigned by default.
 
 ~~~ENDSECTION~~~
 
@@ -249,9 +254,9 @@ but not associated.
 If the Puppet agent on the Foreman server has already run the domain will already be created
 but not associated.
 
-With Foreman 1.21 multi-tenancy is active by default, but not all objects get it assigned by default.
-So you have to switch to "Any Organization" and "Any Location" to find those objects and ensure
-organization and location are set when adjusting objects.
+With Foreman 1.21 multi-tenancy is active by default, and since 1.22 all objects get it assigned
+by default if only one present. If more than one present you have to switch to "Any Organization"
+and "Any Location" to find those objects and ensure organization and location are set when adjusting objects.
 
 
 !SLIDE supplemental solutions
@@ -296,7 +301,8 @@ Press 'Submit' to store the configuration.
 ~~~SECTION:notes~~~
 
 * Subnets are not automatically created like domains.
-* The Smart Proxy should be moved into organization and location before creating the subnet.
+* The Smart Proxy should be moved into organization and location before creating the subnet if not done by default.
+* If TFTP is missing, it is not default enabled with 2.2 any longer.
 
 ~~~ENDSECTION~~~
 
@@ -342,17 +348,18 @@ context when creating the subnet.
 Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'foreman.localdomain' and in the dialog insert:
 
 * Name: 'foreman'
-* Description: keep empty
+* Description: *keep empty*
 * Protocol: IPv4
 * Network address: '10.0.0.0' 
 * Network prefix: '16' 
 * Network mask: '255.255.0.0' 
 * Gateway address: '10.0.0.1' 
 * Primary DNS server: '10.0.0.2' 
-* Secondary DNS server: keep empty
+* Secondary DNS server: *keep empty*
 * IPAM: 'DHCP'
-* VLAN ID: keep empty
-* MTU: keep default
+* VLAN ID: *keep empty*
+* MTU: *keep default*
+* Link Delay: *keep default*
 * Boot mode: 'DHCP'
 
 Press 'Submit' to store the configuration.
@@ -371,6 +378,7 @@ Afterwards we have to return to the configuration via 'Infrastructure > Subnets'
 * Proxies tab:
  * DHCP Proxy: 'foreman.localdomain'
  * TFTP Proxy: 'foreman.localdomain'
+ * HTTPBoot Proxy: *keep empty*
  * Reverse DNS Proxy: 'foreman.localdomain'
 
 No parameters, "Default Organization" and "Default location" should be the default.

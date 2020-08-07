@@ -2,7 +2,7 @@
 
 This training is designed as a two day hands-on training introducing Foreman.
 
-In the training you will get basic knowlegde of the architecture of Foreman. You will
+In the training you will get basic knowledge of the architecture of Foreman. You will
 install and configure Foreman to provide several ways of provisioning. The configuration
 management solution used is Puppet to show configuration management integration into Foreman.
 Furthermore user and permission management of Foreman is shown. And last but not least
@@ -18,9 +18,9 @@ In addition to the sources you can find the rendered material on
 [netways.github.io](https://netways.github.io/foreman-training)
 
 * [Presentation](https://netways.github.io/foreman-training)
-* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.4/foreman-training-handouts.pdf)
-* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.4/foreman-training-exercises.pdf)
-* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.4/foreman-training-solutions.pdf)
+* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.6/foreman-training-handouts.pdf)
+* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.6/foreman-training-exercises.pdf)
+* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.6/foreman-training-solutions.pdf)
 
 ## Provide your own training
 

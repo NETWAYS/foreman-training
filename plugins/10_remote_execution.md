@@ -5,12 +5,15 @@
 * It can handle different protocols
  * SSH
  * Ansible
+ * Salt
+* Provides a Cockpit integration via SSH
 
 * _Use case:_ 
  * Trigger configuration management runs immediately
  * Execute one-time or irregular commands
  * Orchestrate operations on servers
  * OpenSCAP scans on demand
+ * Webconsole to the systems
 
 ~~~SECTION:handouts~~~
 
@@ -21,8 +24,12 @@ It utilizes different providers, which are SSH and Ansible for now.
 
 ~~~PAGEBREAK~~~
 
-The SSH provider runs per default command as root, but can also be configure to run as unpriviledged
-user and run sudo to accquire elevated privileges.
+The SSH provider runs per default commands as root, but can also be configure to run as unpriviledged
+user and run sudo to accquire elevated privileges. It also integrates Cockpit as a Webconsole using
+this credentials and a SSH socket.
+
+The Ansible provider uses the same SSH configuration but uses Ansible syntax for the jobs.
+The same goes for Salt.
 
 It is usefully to trigger configuration management runs immediately to get an adhoc deployment,
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
@@ -30,7 +37,7 @@ It also allows to schedule jobs or reoccurring execution.
 
 With the OpenSCAP plugin installed in addition an option to run scans on demand is added.
 
-More details on: https://theforeman.org/plugins/foreman_remote_execution/1.3/index.html
+More details on: https://theforeman.org/plugins/foreman_remote_execution/1.7/index.html
 
 ~~~ENDSECTION~~~
 
@@ -204,3 +211,79 @@ the "Hosts" tab of the job.
 
 Select a host to run the job, provide a different target as input and have a look on the output by clicking
 the hostname on the "Hosts" tab of the job.
+
+
+!SLIDE smbullets small
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Remote Execution - Webconsole
+
+* Objective:
+ * Integrate Cockpit
+* Steps:
+ * Enable the integration in the Foreman plugin using the foreman-installer
+ * Install Cockpit on the client
+ * Access the webconsole from the host view
+
+
+!SLIDE supplemental exercises
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Remote Execution - Webconsole
+
+## Objective:
+
+****
+
+* Integrate Cockpit
+
+## Steps:
+
+****
+
+* Enable the integration in the Foreman plugin using the foreman-installer
+
+The integration requires some additional configuration which can all be automated by the parameter `--enable-foreman-plugin-remote-execution-cockpit`
+
+* Install Cockpit on the client
+
+Cockpit shows all of its installed plugins in the interface, but as a minimum you need to install `cockpit-system`.
+
+* Access the webconsole from the host view
+
+If the integration is enabled and Cockpit is detected on a system the webconsole button will be enabled on the host view.
+
+
+!SLIDE supplemental solutions
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Remote Execution - Job template
+
+****
+
+## Integrate Cockpit
+
+****
+
+### Enable the integration in the Foreman plugin using the foreman-installer
+
+Run the `foreman-installer` with `--enable-foreman-plugin-remote-execution-cockpit` to enable it.
+
+```
+# foreman-installer --enable-foreman-plugin-remote-execution-cockpit
+```
+
+### Install Cockpit on the client
+
+The client can be every system you prepared with the SSH key. The installation differs then based on the system.
+
+On CentOS:
+
+```
+yum install -y cockpit-system
+```
+
+On Debian:
+
+```
+apt install -y cockpit-system
+```
+
+### Access the webconsole from the host view
+
+Navigate to the Host view and click on one of the prepared hosts to get the host view. In the host view click webconsole to enter Cockpit.
+You can see now some system information and control options, furthermore there is a terminal you can use.

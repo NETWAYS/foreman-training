@@ -21,8 +21,8 @@ Foreman Plugin Bootdisk provides 4 kinds of boot images based on iPXE.
 The host image contains a static network configuration, loads the installer from the media configured in Foreman
 and the Provisioning configuration from Foreman itself. So it requires no DHCP and TFTP in the network.
 
-The full host image contains the operating system specific installer so it requires no downloading of it, but is
-configured to boot from DHCP instead of having a static network configuration. To get its Provisioning configuration
+The full host image contains the operating system specific installer so it requires no downloading of it, and is
+configured to boot from DHCP or a static network configuration based on Subnet configuration . To get its Provisioning configuration
 from Foreman it identifies itself with a token only valid for one deployment.
 
 The generic image boots from a dynamic IP address of the DHCP pool and is identified by the MAC address for Foreman
@@ -30,7 +30,7 @@ providing the correct installer via TFTP and Provisioning configuration to load.
 
 The subnet image is basicly the same as the generic image but uses another TFTP server specified for the subnet.
 
-Depending on the Compute resource used the plugin adds disk based provisioning.
+Depending on the Compute resource used the plugin adds disk based provisioning as another option.
 
 ~~~ENDSECTION~~~
 
@@ -42,7 +42,7 @@ Depending on the Compute resource used the plugin adds disk based provisioning.
  * Install and configure the Bootdisk plugin
 * Steps:
  * Run the Foreman installer to install the Bootdisk plugin
- * Associate iPXE template for operating systems
+ * Associate iPXE template to operating systems
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install and configure the Bootdisk plugin
@@ -58,7 +58,7 @@ Depending on the Compute resource used the plugin adds disk based provisioning.
 ****
 
 * Run the Foreman installer to install the Bootdisk plugin
-* Associate iPXE template for operating systems
+* Associate iPXE template to operating systems
 
 
 !SLIDE supplemental solutions
@@ -76,7 +76,7 @@ Add the parameters to enable the Bootdisk plugin
 
     # foreman-installer --enable-foreman-plugin-bootdisk
 
-### Associate iPXE template for operating systems
+### Associate iPXE template to operating systems
 
 Navigate to "Hosts > Provisioning Templates" and search for the iPXE templates.
 Associate "Kickstart default iPXE" to CentOS and "Preseed default iPXE" to Debian.
@@ -125,7 +125,8 @@ Navigate to "Hosts > Operating systems" and select the iPXE templates associated
 
 Navigate to the Host view of your virtual machine "pxe" and press "Build", accept the dialog telling you
 it will delete reports and then download the host image. If "Build" warns you about possible errors, edit
-the host accordingly.
+the host accordingly. In our training setup a typical problem is the operating system gets updated but
+we do not associate the newer version which gets assigned from the facts provided by configuration management.
 
 ### Configure virtual machine to boot from image by adding a "CDROM" device and selecting it as boot media
 

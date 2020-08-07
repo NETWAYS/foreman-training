@@ -37,6 +37,7 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 * Graphs changes in your enviroment
 * Configured in the WebGUI and collected by a cronjob
 * Internal Host parameters or Facts provided by Configuration Management
+* Moved to a separate plugin with Foreman 2.2
 
 <div style="text-align:right">
 <img src="./_images/foreman-trend-puppetversion.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 260px" alt="Foreman Trends"/>
@@ -48,8 +49,10 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 
 <br/>
 Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
-"Monitor > Trends" and a cronjob is performs the data collection. By default this cronjob runs every 30 minutes matching 
+"Monitor > Trends" and a cronjob performs the data collection. By default this cronjob runs every 30 minutes matching 
 Puppet's default run interval because most trends will be based on the facts collected by the configuration management
 solution, another source are Foreman's internal parameters like the operatingsystem of the host.
+
+This functionality was moved to a separate plugin with Foreman 2.2 which can enabled using `foreman-installer --enable-foreman-plugin-statistics`.
 
 ~~~ENDSECTION~~~

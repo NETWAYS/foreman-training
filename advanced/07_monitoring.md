@@ -5,7 +5,7 @@
 # Foreman & Smart Proxy
 
 * Foreman
- * Webinterface should be available using HTTPs include "Welcome to foreman"
+ * Webinterface should be available using HTTPs include "login-page"
  * Provisioning requires also HTTP requests being answered
  * Foreman log should not have entries "500 Internal Server Error"
 
@@ -23,7 +23,7 @@ goes wrong. If using monitoring plugins with Icinga or something similar you cou
 
 ~~~PAGEBREAK~~~
 
-    check_http -H foreman.localdomain -p 443 -S -f follow -s 'Welcome to Foreman'
+    check_http -H foreman.localdomain -p 443 -S -f follow -s 'login-page'
 
 
 During provisioning also plain HTTP requests will be required, but you can not simulate exactly this request
@@ -64,11 +64,13 @@ In the log monitor for entries marked as "ERROR".
 
 Best way to verify that Puppet is available is trying to get a catalog and check it for some
 content like the name. It will require to use the client certificate of the host for authentication.
-For Puppet 3 this could look like this.
+Which are not accessable by an unprivileged user by default.
+
+For Puppet 6 this could look like this.
 
     check_http -H foreman.localdomain -S -p 8140 \ 
-    -J /var/lib/puppet/ssl/certs/foreman.localdomain.pem \
-    -K /var/lib/puppet/ssl/private_keys/foreman.localdomain.pem \
+    -J /etc/puppetlabs/puppet/ssl/certs/foreman.localdomain.pem \
+    -K /etc/puppetlabs/puppet/ssl/private_keys/foreman.localdomain.pem \
     -u /production/catalog/foreman.localdomain \
     -s '"name":"foreman.localdomain"'
 

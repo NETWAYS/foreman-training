@@ -62,9 +62,9 @@ a Puppet run.
 
 ### Install the Foreman Plugin Column View using the package "tfm-rubygem-foreman_column_view"
 
-    # yum install tfm-rubygem-foreman_column_view -y
+    # yum install rubygem-foreman_column_view -y
 
 ### Configure it to show the facts architecture and uptime and restart the service
 
     # cp /etc/foreman/plugins/foreman_column_view.yaml.example /etc/foreman/plugins/foreman_column_view.yaml
-    # systemctl restart httpd.service
+    # systemctl restart foreman.service

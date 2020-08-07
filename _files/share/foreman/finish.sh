@@ -3,9 +3,11 @@ echo "10.0.0.1 host.localdomain host" >> /etc/hosts
 echo "10.0.0.2 foreman.localdomain foreman" >> /etc/hosts
 echo "10.0.0.3 monitoring.localdomain monitoring" >> /etc/hosts
 
-yum install -y openldap-servers openldap-clients
+yum install -y wget
+wget -q https://repo.symas.com/configs/SOFL/rhel8/sofl.repo -O /etc/yum.repos.d/sofl.repo
+yum install -y symas-openldap-servers symas-openldap-clients
 
-echo 'dn: olcDatabase={2}hdb,cn=config
+echo 'dn: olcDatabase={2}mdb,cn=config
 changetype: modify
 replace: olcSuffix
 olcSuffix: dc=localdomain

@@ -6,7 +6,7 @@
 # Provisioning
 
 * Definition:
- * Server provisioning is a set of actions to prepare a server with appropriate systems, data and software,
+ * *Server provisioning is a set of actions to prepare a server with appropriate systems, data and software,
 and make it ready for network operation.* 
 
 * Task:
@@ -112,7 +112,7 @@ during installation.
 The URL to the kickstart file can be provided during installation or for automation added as a kernel parameter
 to the boot media. Necessary answers missing will be queried.
 
-Additional information: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html
+Additional information: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/performing_an_automated_installation_using_kickstart
 
 ~~~ENDSECTION~~~
 

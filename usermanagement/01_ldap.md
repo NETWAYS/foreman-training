@@ -18,7 +18,7 @@ Foreman supports LDAP authentication natively and provides a webbased configurat
 
 ~~~PAGEBREAK~~~
 
-Supported are LDAP and LDAPS as protocol, (at the moment) for now no StartTLS. If using certificate based encyrption
+Supported are LDAP and LDAPS as protocol, for now no StartTLS. If using certificate based encyrption
 trust to the certificate is mandatory. It supports the POSIX, Active Directory and FreeIPA schema
 for storing users and groups, but attribute mapping can be configured manually. For the autocreation
 of users the attributes "Login Name", "First Name", "Surname" and "Email" are required, optionally a
@@ -37,6 +37,11 @@ avatar can be stored as base64 encoded string in a "Photo" attribute.
 * Optional:
  * Add a photo to the administrator account
 
+~~~SECTION:notes~~~
+
+* Saving the password of the Foreman login in the browser can accidently fill the user field in this form
+
+~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: LDAP Authentication
@@ -86,7 +91,7 @@ Details on the LDAP server:
 
 ### Configure the LDAP authentication including group synchronisation
 
-Navigate to "Administer > LDAP Authentication" and press the "Create Authentication Source" button. In the dialog add the following values:
+Navigate to "Administer > Authentication Sources" and press the "Create Authentication Source" button. In the dialog add the following values:
 
 * LDAP Server
  * Name: Foreman
@@ -101,7 +106,7 @@ Navigate to "Administer > LDAP Authentication" and press the "Create Authenticat
  * Groups base DN: ou=groups,dc=localdomain
  * Use netgroups: *unchecked*
  * LDAP filter: *keep empty*
- * Onthefly register: *checked*
+ * Automatically Create Accounts in Foreman: *checked*
  * Usergroup sync: *checked*
 * Attribute mappings
  * Login name attribute: uid

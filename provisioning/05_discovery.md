@@ -1,7 +1,7 @@
 !SLIDE smbullets small noprint
 # Provisioning using Discovery plugin
 
-* Identifies itself as discovered host with its mac address
+* Identifies itself as discovered host with its mac address by default
 
 <div style="text-align: center"><img src="./_images/discovery.png" style="float: center; margin-left: 125px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
 
@@ -9,7 +9,7 @@
 !SLIDE smbullets small printonly
 # Provisioning using Discovery plugin
 
-* Identifies itself as discovered host with its mac address
+* Identifies itself as discovered host with its mac address by default
 
 <img src="./_images/discovery.png" style="width: 450px; height: 256px;" alt="Provisioning Discovery">
 
@@ -20,7 +20,7 @@
 ~~~PAGEBREAK~~~
 
 For the installation the system boots a discovery image and identifies itself as "Discovered Host" in the Foreman Web GUI.
-As an identifier the host uses its mac address. Then configuration is done in Foreman and after submitting it the image 
+As an identifier the host uses its mac address by default. Then configuration is done in Foreman and after submitting it the image 
 is told to reboot and starts an installation via PXE afterwards.
 For this communication the discovery image uses the Smart proxy included in it.
 
@@ -50,7 +50,7 @@ For this communication the discovery image uses the Smart proxy included in it.
 ****
 
 * Run the Foreman installer to install the Discovery plugin for Foreman and the Smart Proxy and download the image
-* Adjust and deploy the PXE default configuration
+* Adjust and deploy the PXE default configuration from the "Provisioning Templates" view
 * Enable the discovery widget in the dashboard
 
 !SLIDE supplemental solutions
@@ -89,7 +89,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
  * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
+ * Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
  * Keep the minimum requirements for RAM, CPU and Disk
  * Name your virtual machine "discovery" and select the network "foreman"
  * Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
@@ -116,7 +116,7 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
 * Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
+* Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
 * Keep the minimum requirements for RAM, CPU and Disk
 * Name your virtual machine "discovery" and select the network "foreman"
 * Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
@@ -146,9 +146,9 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 In the first step of the wizard select the network boot
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.5" for CentOS or "Debian Stretch" for Debian according to your preferences
+### Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.5"
+In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.7"
 for CentOS or "Debian Stretch" for Debian. 
 
 ### Keep the minimum requirements for RAM, CPU and Disk
@@ -253,7 +253,7 @@ and the system is installed based on the configuration of the selected hostgroup
 allows to use facts or random numbers, by default the macaddress is used. Setting a limit and a priority allows some ordering like
 deploy first two backend systems of this size and then two frontend systems.
 
-Usage of the rule based installation is not enabled by default but simple switched on by changing the "Discovered" setting "Auto provisioning" to "true".
+Usage of the rule based installation is not enabled by default but simply switched on by changing the "Discovered" setting "Auto provisioning" to "true".
 
 ~~~ENDSECTION~~~
 
@@ -276,6 +276,6 @@ It also allows to add custom facts in its interface, as boot parameter or as an 
 and adding desired system type as fact.
 
 Furthermore it could be used in enviroments without PXE and DHCP by providing all settings including an ip address and boot directly
-into a new kernel with kexec. This is only available for Red Hat derivates at the moment.
+into a new kernel with kexec. This is only available for Red Hat derivates and Debian at the moment.
 
 ~~~ENDSECTION~~~

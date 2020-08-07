@@ -16,12 +16,12 @@
 !SLIDE smbullets small noprint
 #Puppet Workflow
 
-* Manifests stored on a central server "Puppet Master"
+* Manifests stored on a central Puppet Server
 * Agent collects system information using facter
 * Agent contacts central server with this information
-* Master compiles catalog for agent to realize using an abstraction layer
-* Agent reports back to master
-* Master transfers reports to other tools
+* Server compiles catalog for agent to realize using an abstraction layer
+* Agent reports back to server
+* Puppet Server transfers reports to other tools
 
 ~~~SECTION:notes~~~
 
@@ -45,29 +45,29 @@
 </pre>
 
 * Workflow
- * Manifests stored on a central server "Puppet Master"
+ * Manifests stored on a central Puppet Server
  * Agent collects system information using facter
  * Agent contacts central server with this information
- * Master compiles catalog for agent to realize using an abstraction layer
- * Agent reports back to master
- * Master transfers reports to other tools
+ * Server compiles catalog for agent to realize using an abstraction layer
+ * Agent reports back to server
+ * Puppet Server transfers reports to other tools
 
 ~~~SECTION:handouts~~~
 
 ****
 
 Puppet is written in ruby and provided as a true Open Source version and as an Enterprise version with additional features and
-packages with a defined software stack for easier support.
+packages.
 
 ~~~PAGEBREAK~~~
 
-Independently of the version it runs on Linux, Unix and Windows it can also configure some network devices. For configuration
+Independently of the version it runs on Linux, Unix and Windows. It can also configure some network devices. For configuration
 it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
 The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
 configuration items with the node to be configured these central servers can use an ENC (External Node Classifier). The agent runs
-on the nodes and collects system information using a tool named facter before contacting the central server. The master compiles then
+on the nodes and collects system information using a tool named facter before contacting the central server. The server compiles then
 a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an
-abstraction layer and also sends a report to the master. The master uses different handlers to send the report to other tools.
+abstraction layer and also sends a report to the server. The server uses different handlers to send the report to other tools.
 
 A diagram showing this workflow is provided on the next page.
 
@@ -76,20 +76,12 @@ A diagram showing this workflow is provided on the next page.
 !SLIDE smbullets small noprint
 # Puppet Workflow
 
-<center><img src="./_images/puppet_workflow.png" style="width: 720px; height: 354px; margin-top: 100px;" alt="Puppet Workflow"></center>
+<center><img src="./_images/puppet_workflow.png" style="width: 546px; height: 456px; margin-top: 50px;" alt="Puppet Workflow"></center>
 
 !SLIDE smbullets small printonly
 # Puppet Workflow
 
-<img src="./_images/puppet_workflow.png" style="float: center; width: 450px; height: 221px;" alt="Puppet Workflow">
-
-~~~SECTION:handouts~~~
-
-****
-
-Image copyright by Puppetlabs.
-
-~~~ENDSECTION~~~
+<img src="./_images/puppet_workflow.png" style="float: center; width: 450px; height: 376px;" alt="Puppet Workflow">
 
 !SLIDE smbullets small
 # Foreman Puppet Integration
@@ -117,7 +109,7 @@ is allowed and also allows to manage the complete CA in the WebGUI.
 
 On the Puppet master a script is deployed which integrates Foreman as an ENC so classes selected in the WebGUI are deployed on the system.
 This mechanism is also used to upload the facts provided by the agent during Puppet agent run and creating a host entry if facts are provided
-for an not already existing system. Also Puppet is integrated as a reporting target to enable the web interface to show reports.
+for a not already existing system. Also Foreman is integrated as a reporting target to enable the web interface to show reports.
 
 ~~~ENDSECTION~~~
 
@@ -195,10 +187,10 @@ If you follow the Puppet Role Profile Pattern something like this could be helpf
       - !ruby/regexp '/^(?!role|profile).*$/'
 
 !SLIDE smbullets small
-# Parameters vs. Smart class parameters vs. Smart Variables
+# Parameters vs. Smart class parameters
 
 * Parameters
- * Simple string
+ * Different types since 1.22
  * Usable in Foreman's Provisioning Templates
  * Usable in Puppet as global parameters
  * Override by creating one of the same name in a more specific scope
@@ -207,42 +199,17 @@ If you follow the Puppet Role Profile Pattern something like this could be helpf
  * Different types
  * Validators
  * Override options to handle override order and behaviour
-
-!SLIDE smbullets small
-# Parameters vs. Smart class parameters vs. Smart Variables
-
-* Smart variables
- * Global parameters assigned to a Puppet class
- * Same options like Smart class parameters
-* All are hideable from unprivileged users
-
-!SLIDE smbullets small noprint
-# Parameters vs. Smart class parameters vs. Smart Variables
-
-* Parameters
- * Simple string
- * Usable in Foreman's Provisioning Templates
- * Usable in Puppet as global parameters
- * Override by creating one of the same name in a more specific scope
-* Smart class parameters
- * Available from Puppet classes
- * Different types
- * Validators
- * Override options to handle override order and behaviour
-* Smart variables
- * Global parameters assigned to a Puppet class
- * Same options like Smart class parameters
 * All are hideable from unprivileged users
 
 ~~~SECTION:handouts~~~
 
 ****
 
-Foreman does differentiate between three kinds of parameters.
+Foreman does differentiate between two kinds of parameters.
 
-Parameters are global parameters in a very simple fashion. Their values can only be strings and override is simply
-done by creating a parameter with the same name in a more specific scope. To Puppet they are presented as a global
-parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.
+Parameters are global parameters in a very simple fashion. Their values can be of different types since 1.22, before that
+they could only be strings. Override is simply done by creating a parameter with the same name in a more specific scope.
+To Puppet they are presented as a global parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.
 
 ~~~PAGEBREAK~~~
 
@@ -250,8 +217,7 @@ Smart class parameters become available from imported Puppet classes and can hav
 or yaml. For this types an input validator can be created to verify user input. An override behavior and order can be
 defined to enable merging values depending on facts.
 
-Smart variable provides the same options as Smart class parameters but are manually assigned to a Puppet Class and
-provided to Puppet as global parameters and not class parameters.
+Smart variables were a third type, meant for older puppet versions and are now removed.
 
 All types have to be created on the global scope to be available in more specific scopes and all allow to hide them
 from unprivileged users.
@@ -385,36 +351,6 @@ assignment via another layer of abstraction.
 
 
 !SLIDE smbullets small
-# Triggering an Puppet agent run
-
-* Multiple protocols available
- * Puppet kick - requires Puppet agent to listen for incoming events
- * Mcollective - requires a message queue and the Mcollective framework
- * Puppetssh - runs Puppet agent command via ssh
- * Salt - uses Salts remote execution to trigger a Puppet agent run
- * Customrun - runs whatever script you provide
-
-* Has to be enabled via a setting
-
-* Remote Execution plugin provides more flexibility
-
-~~~SECTION:handouts~~~
-
-****
-
-~~~PAGEBREAK~~~
-
-The Smart proxy Puppet allows to trigger the Puppet run we manually triggered in the last exercise from the WebGUI.
-For this we enable it by setting the option "Puppetrun" to true and configure the Smart Proxy to use one of the mentioned
-providers, but all of them will also require some configuration on the agent side.
-
-The Foreman plugin Remote Execution is more flexible and also handles the agent configuration but only provides SSH for now.
-We will have a deeper look into this instead of configuring the "Puppetrun" feature.
-
-~~~ENDSECTION~~~
-
-
-!SLIDE smbullets small
 # Managing Foreman with Puppet
 
 * Puppet modules provided by Foreman Project
@@ -442,7 +378,7 @@ We will have a deeper look into this instead of configuring the "Puppetrun" feat
 It is also possible to manage Foreman and/or its Smart Proxies using Puppet. The modules to do so are provided by the
 Foreman Project itself and are already used in the Foreman Installer. The modules are written to be compatible with
 all supported platforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
-in the README. File.
+in the README file.
 
 The modules provided can configure Foreman, the Smart Proxy and Puppet in the way it is required by Foreman and the services
 required to run Foreman or managed by the Smart Proxy.
@@ -457,20 +393,25 @@ required to run Foreman or managed by the Smart Proxy.
  * Alternative to exported resources and PuppetDB query
  * Login data and query as hash
  * Returns hash
+ * Filter can reduce the data
 
 <pre>
-$foreman = foreman({ item => 'hosts',
-                     search => 'status.failed = 0', per_page => 1000,
-                     foreman_url => 'https://foreman.localdomain',
-                     foreman_user => 'admin',
-                     foreman_pass => 'PASSWORD' })
+$hosts = foreman('hosts',
+                 'hostgroup=Grid',
+                 '20',
+                 'https://foreman.localdomain',
+                 'my_api_foreman_user',
+                 'my_api_foreman_pass')
 </pre>
 
 ~~~SECTION:handouts~~~
+
 ****
+
 The Puppet module "foreman" provided by the Foreman project includes a function to query the Foreman API in a puppet class.
-This is an alternative for exported resources or a PuppetDB query. It takes a hash with the login data and the query and returns
+This is an alternative for exported resources or a PuppetDB query. It takes the login data and the query options and returns
 a result hash including an array of hashes describing the hosts. 
 The hash is best used with a defined resource and create_resource function or within a template.
-Next release of the function will also allow to provide a filter for reducing the data for easier handling.
+Latest release of the function allow to provide a filter for reducing the data for easier handling.
+
 ~~~ENDSECTION~~~

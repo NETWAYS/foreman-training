@@ -50,7 +50,8 @@ Katello is a defined set of Foreman plugins which add Content management and Sub
 The Content management feature can manage YUM repositories to provide software in RPM package format and
 errata explaining the importance of the package updates, puppet modules for configuration management,
 docker container for deploying application container and OSTree branches to support this type of update
-format. With Katello 3.6 support for Debian Repositories was added.
+format. With Katello 3.6 support for Debian Repositories was added. With 3.15 and the move from Pulp 2
+to 3 Puppet and OSTree are now deprecated.
 
 The Subscription management feature allows to subscribe to a software distributor which will be in most
 cases Red Hat. It also provides the possiblity to track the internal use of some software which can be very useful for support contracts or with multitenancy to handle customer environments.

@@ -6,7 +6,7 @@
 
 * Definition:
 
- * Configuration management is a systems engineering process for establishing and maintaining consistency of a product performance, functional, and physical attributes with its requirements, design and operational information throughout its life.
+ * *Configuration management is a systems engineering process for establishing and maintaining consistency of a product performance, functional, and physical attributes with its requirements, design and operational information throughout its life.*
 
 * Tools integrated in Foreman:
  * Puppet
@@ -29,11 +29,12 @@ drifts from this state to revert them.
 
 Foreman integrates different tools to solve this task. Puppet is deeply integrated because Foreman started as a WebGUI for it,
 but it is planned to move on to a state being a plugin equal to all the other solutions. The features of the plugins differ depending
-on the capabilities based ont the tools they depend on. For example some can only report system information and state while others can assign a configuration
+on the capabilities based on the tools they depend on. For example some can only report system information and state while others can assign a configuration
 using the web interface. Some tools also have a focus more on rapid deployment than on managing the system state.
 
 We will use puppet in this training because it provides the complete feature set and its descriptive language is also quite accessible/readable
-without knowing puppet in-depth.
+without knowing puppet in-depth. As a second option Ansible is integrated for its simplicity and being quite common in environments
+introducing configuration management nowadays.
 
 ~~~ENDSECTION~~~
 

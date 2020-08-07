@@ -20,9 +20,12 @@ also be used to import your own git repository if you want to manage the templat
 an external version control system. In addition the imported templates will also be associated
 to the existing operating systems.
 
-<br/>
-
 More details on: https://theforeman.org/plugins/foreman_templates/6.0/index.html
+
+A different approach is provided by the plugin "foreman_git_templates" which directly
+uses the templates stored in git without syncing them to Foreman.
+
+For details visit: https://github.com/dm-drogeriemarkt/foreman_git_templates
 
 ~~~ENDSECTION~~~
 
@@ -51,7 +54,7 @@ More details on: https://theforeman.org/plugins/foreman_templates/6.0/index.html
 ****
 
 * Install the Foreman Plugin Templates using the foreman-installer
-* Run the synchronisation job with an API call
+* Run the synchronisation job (using UI, with Rake job or an API call)
 
 ## Optional:
 
@@ -76,8 +79,11 @@ Additional templates are available in the WebGUI.
 
     # foreman-installer --enable-foreman-plugin-templates
 
-### Run the synchronisation job with an API call
+### Run the synchronisation job with (using UI, with Rake job or an API call)
 
+Navigate to "Hosts > Sync Templates" and use the wizard to sync.
+
+    # foreman-rake templates:import
     # curl -H "Accept:application/json,version=2" -H "Content-Type:application/json" \
     -u admin:PASSWORD -k https://foreman.localdomain/api/v2/templates/import -X POST
 

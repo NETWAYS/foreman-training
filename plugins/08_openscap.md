@@ -9,6 +9,8 @@
 * Profiles provided by different resources
  * Files to start with included
  * Other resources like the "National Institute of Standards and Technology"
+* Client provided in a separate Client repository
+ * Installation via Puppet, Ansible or manual
 
 * _Use case:_ Collect security compliance reports in the WebGUI
 
@@ -23,16 +25,21 @@ different pre-existing security standards like CVE, CCE, CPE, CVSS, XCCDF, OVAL,
 and TMSAD.  All these informations are combined in datastream files which can contain different profiles
 a system can be validated against. To get a compliant system a guide can be created or a compliance report
 including some remediation scripts. The required files can be created by hand but are in XML so best practice is to use
-a tool like the Workbench to tailor the existing files to the like of the one provided by the OpenSCAP project or
+a tool like the Workbench to tailor the existing files like of the one provided by the OpenSCAP project or
 the "National Institute of Standards and Technology" (NIST).
 
 Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
-as part of the installation process.
+as part of the installation process. Also the remediation scripts in bash and/or Ansible are not used
+for now.
 
 With Foreman 1.11 the Plugin got a rewrite to remove the dependency on "scaptimony"! With Foreman 1.15 the Plugin was
 enhanced to support tailoring files.
 
-More details on: https://theforeman.org/plugins/foreman_openscap/0.8/index.html
+The Client is provided by the Foreman Project in a separate Client repository and for installation and configuration
+a Puppet module exists in the puppet Forge, an Ansible role in th Ansible galaxy, and instructions for manually doing
+it is provided by the Foreman Webinterface.
+
+More details on: https://theforeman.org/plugins/foreman_openscap/1.0/index.html
 
 ~~~ENDSECTION~~~
 
@@ -44,7 +51,7 @@ More details on: https://theforeman.org/plugins/foreman_openscap/0.8/index.html
 * Steps:
  * Install the Foreman and Smart Proxy Plugin OpenSCAP
  * Make the Puppet Module "foreman_scap_client" available
- * Create a Policy for CentOS 7 and assign it to a host
+ * Create a Policy for JRE and assign it to a host
  * Make the Foreman client repository available to one host
  * Initiate a Puppet agent run on the host
  * Create a report on the host and upload it to the Smart proxy
@@ -67,7 +74,7 @@ More details on: https://theforeman.org/plugins/foreman_openscap/0.8/index.html
 
 * Install the Foreman and Smart Proxy Plugin OpenSCAP using the foreman-installer
 * Make the Puppet Module "foreman_scap_client" available
-* Create a Policy for CentOS 7 and assign it to a host
+* Create a Policy for JRE and assign it to a host
 * Make the Foreman client repository available to one host
 * Initiate a Puppet agent run on the host
 * Create a report on the host and upload it to the Smart proxy
@@ -102,32 +109,33 @@ Compliance Report is available in the Foreman WebGUI.
 Install the module on the Puppet master.
 
     # puppet module install theforeman-foreman_scap_client
+    # puppet module upgrade puppetlabs-stdblib
 
 Import the Puppet Class from the WebGUI ("Configure > Environments" or "Configure > Classes").
 
-### Create a Policy for CentOS 7 and assign it to a host
+### Create a Policy for JRE and assign it to a host
 
 Create a Hostgroup "Scap" via "Configure > Host groups" with only the "Name" and the "Openscap Proxy" set.
 
 Content files are provided by the package "scap-security-guide" and located in "/usr/share/xml/scap/ssg/content".
 The Foreman plugin requires the datastream files which have "ds" in their name. You can upload them via
-"Hosts > SCAP content" and name it "Centos-7".
+"Hosts > SCAP content" and name it matching your operatingsystem. We are coosing JRE because it is a very small policy.
 
 Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Policy".
-Name it "Centos-7-Common", choose SCAP Content "Centos-7" and XCCDF Profile "Standard System Security Profile",
+Choose "Puppet" as Deployment Option, name it, choose SCAP Content provided and XCCDF Profile you prefer,
 schedule it "Weekly" on "Sunday" and assign it to Hostgroup "SCAP".
 
 To view the guide click on the "Show Guide" button next to the policy.
 
-Assign this Hostgroup to one off your CentOS 7 systems.
+Assign this Hostgroup to one off your matching systems.
 
 ###  Make the Foreman client repository available to one host
 
 Login to the host you assigned the Hostgroup with the Policy and execute
 
-   # yum install -y http://yum.theforeman.org/client/1.21/el7/x86_64/foreman-client-release.rpm
+   # yum install -y http://yum.theforeman.org/client/latest/el8/x86_64/foreman-client-release.rpm
 
-Replace the version number with the one of your Foreman installation.
+Replace the latest with the one of your Foreman installation if needed and el8 with your operatingsystem release.
 
 ~~~PAGEBREAK~~~
 
@@ -139,7 +147,7 @@ Login to the host you assigned the Hostgroup with the Policy and execute
 
 ### Create a report on the host and upload to Smart proxy
 
-The Puppet agent prepared a cronjob on your system, get it and execute its content.
+The Puppet agent prepared a cronjob on your system, get it and execute its content. Depending on the number of rules it may take a while.
 
     # cat /etc/cron.d/foreman_scap_client_cron
     # /usr/bin/foreman_scap_client 1
@@ -156,7 +164,7 @@ Navigate to that report and then press the "Report at" column to inspect it.
 
 ### Customize the Policy with a tailor file created with SCAP workbench
 
-Open SCAP workbench on your laptop, choose the CentOS7 content and select the Common Profile. Press Customize and name
+Open SCAP workbench on your laptop, choose the content matching your operatingsystem release and select the choosen profile. Press Customize and name
 the Profile. In the new dialog select or unselect checks and click OK. Afterwards save the tailor file via "File > Save Customization Only".
 Upload this file to Foreman in the "Hosts > Tailoring Files" dialog and then edit the policy and rerun the Puppet agent and
 Upload of the report.

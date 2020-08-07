@@ -5,8 +5,9 @@
 * Recommended way of installation
 * Utilizes Puppet modules to install and configure
  * Foreman web UI
+ * Apache HTTP
+ * Puppet Server
  * Smart Proxy
- * Passenger (for Puppet master and Foreman)
  * TFTP
  * DNS
  * DHCP
@@ -29,9 +30,9 @@ in interactive mode. The installer supports also predefined scenarios which is o
 
 In a default installation this would be:
 
-* Apache HTTP with SSL (using a certificate signed by Puppet CA)
-* Foreman running under mod_passenger
-* Puppet master running under mod_passenger
+* Apache HTTP with SSL (using a certificate signed by Puppet CA, proxying to Foreman)
+* Foreman running via Puma (ruby webserver)
+* Puppet server
 * TFTP server (on RHEL and derivates under xinetd)
 * Smart Proxy using SSL configured for Puppet and TFTP
 

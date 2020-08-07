@@ -126,10 +126,10 @@ Validate your settings with "Test Connection" before clicking on "Submit".
  * Create the virtual machine "compute" from Foreman Web GUI and start an unattended installation
 * Steps:
  * Open Foreman's host dialog using "Host > Create Host"
- * In the Virtual Machine tab change the Storage type to "QCOW2"
- * In the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
- * In the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
- * In the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
+ * On the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
+ * On the Virtual Machine tab change the Storage type to "QCOW2"
+ * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
+ * On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
 the suggested IP address, for the Libvirt options choose the virtual network "foreman".
 
 ~~~SECTION:handouts~~~
@@ -226,6 +226,7 @@ the Compute resource to deploy on.
  * On Compute resource using "New image"
  * Has to provide access via ssh to run finish scripts
  * API can allow to run user_data scripts for additional changes
+ * cloud_init can be installed to use the scripts of the same name
 * Available in "Create host" dialog
  * Speeds up installation
  * Should be very basic image, but of course can be very featureful if required
@@ -239,7 +240,8 @@ the Compute resource to deploy on.
 Images are available as install source to all Compute resources, for some as the only source. To be available to Foreman
 it has also to be configured using the "New image" dialog after selecting a Compute resource. The image has to be created
 with an user which has shell access to run finish scripts and depending on the Compute resource also user_data scripts can run
-during virtual machine creation to change settings.
+during virtual machine creation to change settings. Another option are cloud_init scripts if you installed cloud_init at the system
+and pointed it to Foreman.
 
 If a image is configured it is possible to choose it from the "Create host" dialog on the "Operating system" tab. In some cases
 it can speed up the installation process, but of course an unattended installation will give you a cleaner and more up to date
@@ -254,7 +256,10 @@ like having some proprietary software installed which is quite complicated to in
 
 * Direct console access on virtual machines
 * Javascript library noVNC
-* Protocols: VNC or SPICE
+* Protocols: 
+ * VNC
+ * SPICE
+ * VMRC (for VMware)
 * Depending on Compute Resource provider
 * Encryption and Authentication based on environment
 
@@ -278,5 +283,8 @@ executing the following command on the laptop.
 
 Furthermore Firefox will block the websocket connection unless you change setting 
 network.websocket.allowInsecureFromHTTPS to true in about:config.
+
+Another option is VMRC which is available for the Compute Resource VMware and provides a link to use
+with the client for a direct access instead of the embedded option via noVNC.
 
 ~~~ENDSECTION~~~

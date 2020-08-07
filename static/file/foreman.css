@@ -543,15 +543,11 @@
     font-size: 16px;
   } 
 
-/*  li, td { */
   td {
     font-size: 8px;
     border-color: black;
     border-width: 1px;
     border-style: solid;
-/*    border-right: 1px solid black;
-    border-bottom: 1px solid black;*/
-/*    background-color: lightgrey;*/
     border-collapse: collapse;
     text-align: center;
   }

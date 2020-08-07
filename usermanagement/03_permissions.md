@@ -6,6 +6,18 @@
 * Complemented by filters
 * Plugins can add items to the permission system
 
+~~~SECTION:handouts~~~
+
+****
+
+Foreman has a fine granular permission system which is abstracted to roles. There are some provided by default,
+but you can create your own. The permissions are complemented by filters allowing to give a permission only to
+some specific hosts for example.
+
+Every plugin can add additional permissions and pre-defined roles based on its needs, so make sure to review permissions
+for non-administrative accounts after installing plugins.
+
+~~~ENDSECTION~~~
 
 !SLIDE smbullets small
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add unprivileged users

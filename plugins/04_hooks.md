@@ -10,6 +10,12 @@
  * Extend the Foreman without writing a plugin
  * Work around the limitations and problems of existing tools
 
+~~~SECTION:notes~~~
+
+* Will be replaced by https://github.com/timogoebel/foreman_webhooks in the future to improve security and stability
+
+~~~ENDSECTION~~~
+
 ~~~SECTION:handouts~~~
 
 ****
