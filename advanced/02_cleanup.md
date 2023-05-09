@@ -51,6 +51,9 @@ those with events 'after 7 days'.
 * Smart proxies 
  * Smart proxies itself - Archive the Smart proxy configuration 
  * Managed Service - Follow instructions for the service
+* Katello
+ * Candlepin - Database backup
+ * Pulp - Database backup + Content archive
 
 ~~~SECTION:handouts~~~
 
@@ -67,6 +70,9 @@ way.
 
 To backup the Smart proxy, archive the folder "/etc/foreman-proxy" and do not forget about the managed service. 
 For this follow the instructions for the service. With the "Orchestration rebuilder" feature, the Foreman can also rebuild all configuration issued via the Smart proxy from the "All Hosts" menu as an action.
+
+Katello adds to additional components requiring backup. Candlepin uses its own database which needs to be backuped. The same with Pulp which also requires you to archive the content if not everything could be downloaded again.
+The recommended way to run a backup for Katello is using foreman-maintain, we will discuss at the end of the section.
 
 ~~~ENDSECTION~~~
 
@@ -85,14 +91,15 @@ For this follow the instructions for the service. With the "Orchestration rebuil
 * Smart proxies 
  * Smart proxies itself - Restore the Smart proxy configuration 
  * Managed Service - Follow instructions for the service
+* Katello
+ * Candlepin - Database needs to be restored
+ * Pulp - Database + Content needs to be restored
 
 ~~~SECTION:handouts~~~
 
 ****
 
 Before starting a restore always stop the service!
-
-~~~PAGEBREAK~~~
 
 Restore the configuration directory of the Foreman carefully and inspect it before overwritting the current one. The database
 dump can be restored with the command "foreman-rake db:import_dump file=/usr/share/foreman/db/foreman.TIMESTAMP.sql". Drop
@@ -101,34 +108,43 @@ an existing database in advance to have a clean restore.
 For Puppet restore simply copy back the files, the same goes for the Smart proxy. The managed services should be restored according to
 their instructions.
 
+Katello's additional services also need to be restored using foreman-maintain.
+
 ~~~ENDSECTION~~~
 
 
 !SLIDE smbullets small
 # Upgrade
 
-* _Always follow the instructions in the Foreman manual!_
+* _Always follow the instructions in the Foreman documentation!_
 
 * In General:
  * _Backup_
  * Change package repository to the new release
  * Update the packages
+ * *Run the foreman-installer to:*
  * Run Database migration and seed script
  * Clear the cache and sessions
- * Optionally run the foreman-installer to verify
  * Restart the service
+
+* Operating System upgrade:
+ * Use Leapp for switching EL7 to EL8
+
+* Katello:
+ * No separate update of Foreman, always wait for Katello release
 
 ~~~SECTION:handouts~~~
 
 ****
 
-Always follow the instructions in the Foreman manual providing release and operating system specific steps to do.
+Always follow the instructions in the Foreman documentation providing release and operating system specific steps to do.
 
-~~~PAGEBREAK~~~
+In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages. 
+Run the foreman-installer to execute the database migration and seed script, clear the cache and existing sessions, and restarts the services.
 
-In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages. It should run the database migration and seed script during the package update but if running them manually will show you any error then clear the cache and existing sessions. As a last step
-before restarting the service you can optionally run the foreman-installer in simulation mode to verify the installation
-and see pending config changes, if some are shown run the foreman-installer again to apply them finally.
+Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. In other cases nothing special is required for an operating system upgrade.
+
+Updating Katello requires to have both parts releases to be announced, so after a Foreman release was announced waiting normally 2 to 3 weeks for the corresponding Katello release is required.
 
 ~~~ENDSECTION~~~
 

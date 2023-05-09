@@ -70,7 +70,7 @@ Furthermore you can set which organization and location should be his default on
 
 ### Create a role "Selfservice" to allow creation of new hosts and management of own hosts
 
-Navigate to "Administer > Roles" and press "Create role", name it "Selfservice" and save it by clicking "Submit".
+Navigate to "Administer > Roles" and press "Create role", name it "Selfservice", select Organization and Location and save it by clicking "Submit".
 Afterwards you can add filters to the role.
 
 Resource         | Permissions                                                       | Unlimited | Search

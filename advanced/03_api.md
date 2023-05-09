@@ -11,6 +11,7 @@
  * Requires username and password
  * Collections are paged
  * Search strings like provided in the WebGUI
+ * Apidoc generated on your system at /apidoc
 * GraphQL
  * Available since 1.22, still considered experimental
  * Intended for development
@@ -19,13 +20,13 @@
 
 ****
 
+~~~PAGEBREAK~~~
+
 Foreman provides a web based JSON API which is shared with Katello. This is Version 2 of the
 API which is favored instead of the already deprecated version 1. It requires an authentication
 by username and password. Perhaps unusal is the handling of collections which are paged in the
 same way like in the webinterface. The same way it handles search strings like they are provided
 in the WebGUI but they have to be URL encoded.
-
-~~~PAGEBREAK~~~
 
 Another API was introduced with GraphQL in 1.22. This API is more intended for development of
 plugins instead of scripting and still considered experimental, but should cover all objects
@@ -33,7 +34,7 @@ of the core now and be available for a good number of plugins already.
 
 Usage explainations can be found at http://theforeman.org/manuals/latest/index.html#5.1API
 
-API documentation is located at http://theforeman.org/api/2.0/index.html
+API documentation is located at http://theforeman.org/api/2.0/index.html or on your system at /apidocs.
 
 ~~~ENDSECTION~~~
 

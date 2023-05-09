@@ -4,7 +4,7 @@
 * Content management is based on products
 * Products consists of one or more repositories of any content type
 
-<div style="text-align: center"><img src="./_images/products.png" style="float: center; margin-left: 50px; width: 798px; height: 211px;" alt="Katello - Products"></div>
+<div style="text-align: center"><img src="./_images/products.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px;" alt="Katello - Products"></div>
 
 !SLIDE smbullets small printonly
 # Content management - Products
@@ -12,58 +12,17 @@
 * Content management is based on products
 * Products consists of one or more repositories of any content type
 
-<div style:"text-align: center"><img src="./_images/products.png" style="width: 450px; height: 119px" alt="Katello - Products"></div>
+<div style:"text-align: center"><img src="./_images/products.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px;" alt="Katello - Products"></div>
 
 ~~~SECTION:handouts~~~
 
 ****
 
 In Katello the Content management is based on products which consist of one or more repositories of
-any content type. For packages different sync options are available in Katello >= 3.0 which allow to
-sync packages also only on demand.
+any content type. For packages different sync options are available which allow to sync packages also only on demand.
 
-~~~PAGEBREAK~~~
-
-This allows different configurations depending on your focus. For example you can create a product
-named after the operatingsystem you run and add all repositories you require and have a second product
-named Puppet containing all Puppet modules in use. Or you can create a product named after your application
-containing all repositories for every operatingsystem you use and one for the puppet module to manage the
-application itself.
-
-~~~ENDSECTION~~~
-
-
-!SLIDE smbullets small noprint
-# Content management - Content Views
-
-* Content Views create versioned snapshots of one or more repositories
-* Allow to filter several software packages
-* Composite Content Views are possible
-
-<div style="text-align:center"><img src="./_images/contentviews.png" style="float: center; margin-left: 102px; width: 796px; height: 186px;" alt="Katello - Content Views"></div>
-
-!SLIDE smbullets small printonly
-# Content management - Content Views
-
-* Content Views create versioned snapshots of one or more repositories
-* Allow to filter several software packages
-* Composite Content Views are possible
-
-<img src="./_images/contentviews.png" style="width: 450px; height: 105px;" alt="Katello - Content Views">
-
-~~~SECTION:handouts~~~
-
-****
-
-A Content View allows to create a versioned snapshot of one or more repositories and if required to filter
-specific packages or problematic versions of a package. New versions of a content view can be published
-afterwards and be promoted to a Lifecyle Environment.
-
-~~~PAGEBREAK~~~
-
-Incremental updates allow to push a security hotfix or something similar directly to all snapshots.
-
-Composite Content Views are possible to combine existing Content Views in one.
+This allows to separate repository by vendor and having different sync plans based on their release policy
+while having all the provided content in one place, RPM, DEB, Container images, ...
 
 ~~~ENDSECTION~~~
 
@@ -74,7 +33,7 @@ Composite Content Views are possible to combine existing Content Views in one.
 * Lifecycle Environments represent different stages
 * Multiple Lifecycle Environments Paths allow different staging models
 
-<div style="text-align: center"><img src="./_images/lifecycle.png" style="float: center; margin-left: 50px; width: 798px; height: 160px;" alt="Katello - Lifecycle Environments"></div>
+<div style="text-align: center"><img src="./_images/lifecycle.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px;" alt="Katello - Lifecycle Environments"></div>
 
 !SLIDE smbullets small printonly
 # Content management - Lifecycle Environments
@@ -82,7 +41,7 @@ Composite Content Views are possible to combine existing Content Views in one.
 * Lifecycle Environments represent different stages
 * Multiple Lifecycle Environments Paths allow for different staging models
 
-<img src="./_images/lifecycle.png" style="width: 450px; height: 90px;" alt="Katello - Lifecycle Environments">
+<img src="./_images/lifecycle.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px;" alt="Katello - Lifecycle Environments">
 
 ~~~SECTION:handouts~~~
 
@@ -99,31 +58,76 @@ different workflows of projects or departments.
 
 
 !SLIDE smbullets small noprint
-# Content management - Content Hosts
+# Content management - Content Views
 
-* Consumer of content and subscriptions - different view on a host than Hosts in Foreman
-* Optional Agent allows to execute commands
+* Content Views create versioned snapshots of one or more repositories
+* Allow to filter several software packages
+* Incremental Content Views provide faster workflow for security fixes
+* Composite Content Views are possible
 
-<div styele="text-align: center"><img src="./_images/contenthost.png" style="float: center; margin-left: 50px; width: 794px; height: 347px;" alt="Katello - Content Host"></div>
+<div style="text-align:center"><img src="./_images/contentviews.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px;" alt="Katello - Content Views"></div>
 
 !SLIDE smbullets small printonly
-# Content management - Content Hosts
+# Content management - Content Views
 
-* Consumer of content and subscriptions - different view on a host than Hosts in Foreman
-* Optional Agent allows to execute commands
+* Content Views create versioned snapshots of one or more repositories
+* Allow to filter several software packages
+* Incremental Content Views provide faster workflow for security fixes
+* Composite Content Views are possible
 
-<img src="./_images/contenthost.png" style="width: 450px; height: 197px;" alt="Katello - Content Host">
+<img src="./_images/contentviews.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px;" alt="Katello - Content Views">
 
 ~~~SECTION:handouts~~~
 
 ****
 
+A Content View allows to create a versioned snapshot of one or more repositories and if required to filter
+specific packages or problematic versions of a package. New versions of a content view can be published
+afterwards and be promoted to a Lifecyle Environment.
+
+Incremental updates allow to push a security hotfix or something similar directly to all snapshots.
+
+Composite Content Views are possible to combine existing Content Views in one.
+This can become handy for applications were a server needs to be always upgraded first.
+
+~~~ENDSECTION~~~
+
+
+!SLIDE smbullets small noprint
+# Content management - Content Hosts
+
+* Consumer of content and subscriptions 
+ * different view on a host than Hosts in Foreman
+ * ongoing work to integrate this completely
+* Remote Execution allows to execute commands
+* Client tools report installed packages and required restarts
+
+<div style="text-align: center"><img src="./_images/contenthost.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px" alt="Katello - Content Host"></div>
+
+!SLIDE smbullets small printonly
+# Content management - Content Hosts
+
+* Consumer of content and subscriptions 
+ * different view on a host than Hosts in Foreman
+ * ongoing work to integrate this completely
+* Remote Execution allows to execute commands
+* Client tools report installed packages and required restarts
+
+<img src="./_images/contenthost.png" style="float: center; max-width: 95%; height: auto; border-style: solid; border-width: 1px" alt="Katello - Content Host">
+
+~~~SECTION:handouts~~~
+
+****
+
+~~~PAGEBREAK~~~
+
 The Content Host is a different view on the host representing it as consumer of content and subscriptions
 for Katello. The Host in Foreman is used for provisioning and configuration management. A host is always
 represented as both starting with the ongoing process to unify the views starting with Katello 3.0.
+Ongoing work has already integrated most of this to the normal host view leaving content host as an alternative, historical entrypoint.
 
-An optional agent allows to execute commands issued in the WebGUI on the host like installing a package or updating
-all packages. A chat is used for this feature allowing for just in time execution.
+Remote Execution allows to execute commands issued in the WebGUI on the host like installing a package or updating
+all packages. The client tools will then report back the installed packages and required restarts of a service or the system.
 
 By creating an Activation Key and using it to register a Content Host setting defaults like consumed products is
 possible.

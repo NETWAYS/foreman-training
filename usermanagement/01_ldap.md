@@ -91,7 +91,7 @@ Details on the LDAP server:
 
 ### Configure the LDAP authentication including group synchronisation
 
-Navigate to "Administer > Authentication Sources" and press the "Create Authentication Source" button. In the dialog add the following values:
+Navigate to "Administer > Authentication Sources" and press the "Create LDAP Authentication Source" button. In the dialog add the following values:
 
 * LDAP Server
  * Name: Foreman
@@ -128,7 +128,7 @@ Navigate to "Administer > User groups" and open the group dialog by pressing "Cr
  * User Groups: *empty*
  * Users: *empty*
 * Roles:
- * Admin: *checked*
+ * Administrator: *checked*
  * Roles: *non selected*
 * External groups:
  * Name: admins

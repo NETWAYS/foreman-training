@@ -128,8 +128,6 @@ the agent has to run more than once to complete the full configuration.
 
 The Foreman team tries to help with issues as good as they can. To achieve this there are several ways to get support available.
 
-~~~PAGEBREAK~~~
-
 First have a look into the Wiki page collecting common issues: http://projects.theforeman.org/projects/1/wiki/Troubleshooting
 
 If your problem is not covered there the fastest way to get in touch with the team is the IRC Channel. The channel #theforeman is
@@ -137,8 +135,6 @@ hosted on irc.freenode.net, the developer channel #theforeman-dev is only for su
 
 The mailing lists have been replaced with Discourse to provide a Community Platform which is basicly a forum with mailing list support.
 You can get help here, discuss development and follow release workflow including test weeks.
-
-~~~PAGEBREAK~~~
 
 On 'Server Fault' you can ask questions and find answers tagged with foreman: http://serverfault.com/questions/tagged/foreman
 

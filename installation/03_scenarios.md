@@ -1,11 +1,14 @@
 !SLIDE smbullets small
 # Scenarios
 
-* All-in-one
-* All-in-one with additional Puppet servers
-* Separate Puppet servers
-* Smart proxies
-* Integration of PuppetDB
+* Foreman
+ * All-in-one
+ * All-in-one with additional Puppet servers
+ * Separate Puppet servers
+ * Smart proxies
+ * Integration of PuppetDB
+ * For Ansible without Puppet
+* Katello
 
 ~~~SECTION:handouts~~~
 
@@ -13,17 +16,17 @@
 
 The Foreman installer allows to setup different scenarios depending on its parameters or answers in interactive mode.
 All the scenarios above are explained in the course material, commands required can be found in the Foreman manual on
-the project homepage. For the training we will stick to the default all-in-one setup and add additional Smart proxies.
+the project homepage. For the training we will the Katello scenario and add additional Smart proxies for Provisioning.
 
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# All-in-one
+# Foreman: All-in-one
 
 * Default setup on unparameterized run only for Configuration Management
 * Add at least Smart Proxy TFTP for Provisioning
 
-<div style="text-align:center"><img src="./_images/installation_all-in-one.png" style="float: center; margin-left: 50px; width: 680px; height: 377px;" alt="Installation All-in-one"></div>
+<div style="text-align:center"><img src="./_images/installation_all-in-one.png" style="float: center; margin-left: 50px; height: 377px;" alt="Installation All-in-one"></div>
 
 * Expandable with additional plugins and Smart proxies
 
@@ -36,12 +39,12 @@ the project homepage. For the training we will stick to the default all-in-one s
 
 
 !SLIDE smbullets small printonly
-# All-in-one
+# Foreman: All-in-one
 
 * Default setup on unparameterized run only for Configuration Management
 * Add at least Smart Proxy TFTP for Provisioning
 
-<img src="./_images/installation_all-in-one.png" style="width: 440px; height: 244px;" alt="Installation All-in-one">
+<img src="./_images/installation_all-in-one.png" style="width: 95%;" alt="Installation All-in-one">
 
 * Expandable with additional plugins and Smart proxies
 
@@ -65,13 +68,13 @@ will be covered later.
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# All-in-one with additional Puppet servers
+# Foreman: All-in-one with additional Puppet servers
 
 * Default setup on Foreman host
 * Precreate certificates on Puppet CA
 * Run installer with parameters to disable Foreman on additional Puppet servers
 
-<div style="text-align:center"><img src="./_images/installation_additional-servers.png" style="float: center; margin-left: 50px; width: 560px; height: 393px;" alt="Installation Additional Puppet servers"></div>
+<div style="text-align:center"><img src="./_images/installation_additional-servers.png" style="float: center; margin-left: 50px; height: 395px;" alt="Installation Additional Puppet servers"></div>
 
 ~~~SECTION:notes~~~
 
@@ -82,18 +85,19 @@ will be covered later.
 
 
 !SLIDE smbullets small printonly
-# All-in-one with additional Puppet servers
+# Foreman: All-in-one with additional Puppet servers
 
 * Default setup on Foreman host
 * Precreate certificates on Puppet CA
 * Run installer with parameters to disable Foreman on additional Puppet servers
 
-<img src="./_images/installation_additional-servers.png" style="width: 450px; height: 315px;" alt="Installation Additional Puppet servers">
+<img src="./_images/installation_additional-servers.png" style="width: 95%;" alt="Installation Additional Puppet servers">
 
 ~~~SECTION:handouts~~~
 
 ****
 
+~~~PAGEBREAK~~~
 
 For the Foreman host run the same setup like before afterwards create certificates for the
 Puppet servers to be added. If you do not do so, it will create an additional CA on this
@@ -111,12 +115,12 @@ DNS alias
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# Separate Puppet servers
+# Foreman: Separate Puppet servers
 
 * Setup on Foreman host with Puppet server and Smart Proxies disabled
 * Run installer with parameters to disable Foreman on separate Puppet servers
 
-<div style="text-align:center"><img src="./_images/installation_separate-servers.png" style="float: center; margin-left: 50px; width: 599px; height: 446px;" alt="Installation Separate Puppet servers"></div>
+<div style="text-align:center"><img src="./_images/installation_separate-servers.png" style="float: center; margin-left: 50px; height: 446px;" alt="Installation Separate Puppet servers"></div>
 
 ~~~SECTION:notes~~~
 
@@ -126,12 +130,12 @@ DNS alias
 
 
 !SLIDE smbullets small printonly
-# Separate Puppet servers
+# Foreman: Separate Puppet servers
 
 * Setup on Foreman host with Puppet server and Smart Proxies disabled
 * Run installer with parameters to disable Foreman on separate Puppet servers
 
-<img src="./_images/installation_separate-servers.png" style="width: 450px; height: 316px;" alt="Installation Separate Puppet servers">
+<img src="./_images/installation_separate-servers.png" style="width: 95%;" alt="Installation Separate Puppet servers">
 
 ~~~SECTION:handouts~~~
 
@@ -146,11 +150,11 @@ certificate authority and setup a solution to load balance the agents.
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# Smart Proxies
+# Foreman: Smart Proxies
 
 * Foreman installer helps to setup Smart Proxies
 
-<div style="text-align:center"><img src="./_images/installation_smart-proxies.png" style="float: center; margin-left: 50px; width: 771px; height: 301px;" alt="Installation Smart proxies"></div>
+<div style="text-align:center"><img src="./_images/installation_smart-proxies.png" style="float: center; margin-left: 50px; height: 301px;" alt="Installation Smart proxies"></div>
 
 ~~~SECTION:notes~~~
 
@@ -161,11 +165,11 @@ certificate authority and setup a solution to load balance the agents.
 
 
 !SLIDE smbullets small printonly
-# Smart Proxies
+# Foreman: Smart Proxies
 
 * Foreman installer helps to setup Smart Proxies
 
-<img src="./_images/installation_smart-proxies.png" style="width: 440px; height: 172px;" alt="Installation Smart Proxies">
+<img src="./_images/installation_smart-proxies.png" style="width: 95%;" alt="Installation Smart Proxies">
 
 ~~~SECTION:handouts~~~
 
@@ -187,11 +191,11 @@ is required.
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small noprint
-# Integration of PuppetDB
+# Foreman: Integration of PuppetDB
 
 * Foreman installer helps to integrate PuppetDB
 
-<div style="text-align:center"><img src="./_images/installation_puppetdb.png" style="float: center; margin-left: 50px; width: 773px; height: 302px;" alt="Installation PuppetDB"></div>
+<div style="text-align:center"><img src="./_images/installation_puppetdb.png" style="float: center; margin-left: 50px; height: 302px;" alt="Installation PuppetDB"></div>
 
 ~~~SECTION:notes~~~
 
@@ -201,11 +205,11 @@ is required.
 
 
 !SLIDE smbullets small printonly
-# Integration of PuppetDB
+# Foreman: Integration of PuppetDB
 
 * Foreman installer helps to integrate PuppetDB
 
-<img src="./_images/installation_puppetdb.png" style="width: 440px; height: 172px;" alt="Installation PuppetDB">
+<img src="./_images/installation_puppetdb.png" style="width: 95%;" alt="Installation PuppetDB">
 
 ~~~SECTION:handouts~~~
 ****
@@ -220,3 +224,83 @@ module "puppetdb" provided by Puppetlabs.
 
 ~~~ENDSECTION~~~
 
+!SLIDE smbullets small noprint
+# Foreman: For Ansible without Puppet
+
+* Installing without Puppet is possible, but requires your own certificates
+* Ansible uses Remote Execution stack
+
+<div style="text-align:center"><img src="./_images/installation_ansible.png" style="float: center; margin-left: 50px; height: 340px;" alt="Installation Ansible"></div>
+
+~~~SECTION:notes~~~
+
+* Certificates can be self-signed
+* The Smart-Proxy can be part of the Foreman server
+* We talk later about Remote Execution in more detail
+
+~~~ENDSECTION~~~
+
+!SLIDE smbullets small printonly
+# Foreman: For Ansible without Puppet
+
+* Installing without Puppet is possible, but requires your own certificates
+* Ansible uses Remote Execution stack
+
+<img src="./_images/installation_ansible.png" style="width: 95%;" alt="Installation Ansible">
+
+~~~SECTION:handouts~~~
+****
+
+It is also possible to install Foreman without Puppet. (It will still need Puppet for the installer,
+but only the agent) But as Foreman is using the Puppet CA by default for certificate generation,
+you will need to provide your own certificates. The source can be every CA, even a self-signed one.
+
+~~~PAGEBREAK~~~
+
+As Ansible uses a push model instead of pull like Puppet, it uses the Remote Execution stack consisting
+of the task engine Dynflow on the Foreman server and Smart-Proxy getting the jobs from there to run
+Ansible. You can watch the job status, but it will also send reports back to Foreman.
+
+~~~ENDSECTION~~~
+
+
+!SLIDE smbullets small noprint
+# Katello
+
+* Katello adds additional complexity, so the amount of details are reduced to the main components
+ * Pulp is integrated for Content Management
+ * Candlepin is used for Subscription Management
+
+<div style="text-align:center"><img src="./_images/installation_katello.png" style="float: center; margin-left: 50px; height: 340px;" alt="Installation Katello"></div>
+
+* Requires a different scenario parameter for the installer!
+
+~~~SECTION:notes~~~
+
+* We will not add more details or scenarios, but if someone asks additional Smart-Proxies are possible including for Content distribution
+
+~~~ENDSECTION~~~
+
+!SLIDE smbullets small printonly
+# Katello
+
+* Katello adds additional complexity, so the amount of details are reduced to the main components
+ * Pulp is integrated for Content Management, Candlepin for Subscription Management
+ * Certificates are no longer from PuppetCA, instead its own CA is used
+
+<img src="./_images/installation_katello.png" style="width: 95%;" alt="Installation Katello">
+
+* Requires a different scenario parameter for the installer!
+
+~~~SECTION:handouts~~~
+****
+
+~~~PAGEBREAK~~~
+
+Katello adds complete new functionality to Foreman by integrating Pulp for Content Management and Candlepin for Subscription Management. This of course adds additional complexity to the setup.
+To reduce this complexity support-wise it is only supported to directly install this setup by adding `--scenario katello` to the Installer and not to later add it as a plugin.
+Packages for the installation are also limited to EL derivates, so support is limited to this platform.
+
+It also changes the setup by no longer relying on Puppet for providing a CA. Instead it uses its own CA which will provide certificates used by Candlepin and Puppet as SubCAs.
+
+~~~ENDSECTION~~~

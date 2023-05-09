@@ -31,6 +31,8 @@ containing a hash which maps facts to hostgroups to assign.
 
 <br/>
 
+This could also be configured using the installer, but managing complex hashes with it can be difficult.
+
 The plugin is very useful if you plan to embed Foreman in an already puppetized
 environment as Puppet ENC. It also works fine with Ansible setup module and 
 callback plugin to get hosts in Foreman. A similar workflow should be available

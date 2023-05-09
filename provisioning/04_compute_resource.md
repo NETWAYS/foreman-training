@@ -126,7 +126,7 @@ Validate your settings with "Test Connection" before clicking on "Submit".
  * Create the virtual machine "compute" from Foreman Web GUI and start an unattended installation
 * Steps:
  * Open Foreman's host dialog using "Host > Create Host"
- * On the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
+ * On the Host tab name it "compute" and select to deploy on the Compute resource
  * On the Virtual Machine tab change the Storage type to "QCOW2"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
  * On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
@@ -158,7 +158,7 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 ****
 
 * Open Foreman's host dialog using "Host > Create Host"
-* On the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
+* On the Host tab name it "compute" and select to deploy on the Compute resource
 * On the Virtual Machine tab change the Storage type to "QCOW2"
 * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
 * On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
@@ -174,7 +174,7 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 
 ### Open Foreman's host dialog using "Host > Create Host"
 
-### On the Host tab name it "compute" and select to deploy on the Compute resource, the Environment, Puppet CA and Master
+### On the Host tab name it "compute" and select to deploy on the Compute resource
 
 For "Deploy on" use "host.localdomain (Libvirt)" instead of "Bare Metal" which will enable all the options of Compute resource
 libvirt like the virtual network configuration or virtual hardware.
@@ -262,6 +262,7 @@ like having some proprietary software installed which is quite complicated to in
  * VMRC (for VMware)
 * Depending on Compute Resource provider
 * Encryption and Authentication based on environment
+* An alternative is the webconsole (part of Remote Execution)
 
 
 ~~~SECTION:handouts~~~
@@ -286,5 +287,7 @@ network.websocket.allowInsecureFromHTTPS to true in about:config.
 
 Another option is VMRC which is available for the Compute Resource VMware and provides a link to use
 with the client for a direct access instead of the embedded option via noVNC.
+
+Furthermore there is the option to use the Cockpit-based webconsole as part of the Remote Execution plugin.
 
 ~~~ENDSECTION~~~

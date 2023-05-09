@@ -87,7 +87,7 @@ Credentials are icinga:icinga.
 
 ### Configure Smart proxy to communicate with Icinga 2 and Icinga Web 2 Director
 
-    # scp monitoring.localdomain:/etc/icinga2/pki/ca.crt /etc/foreman-proxy/monitoring/ca.crt
+    # scp training@monitoring.localdomain:/var/lib/icinga2/certs/ca.crt /etc/foreman-proxy/monitoring/ca.crt
     # vi /etc/foreman-proxy/settings.d/monitoring_icinga2.yml
     :enabled: true
     :server: monitoring.localdomain

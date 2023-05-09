@@ -1,14 +1,9 @@
 class training::user (
-  $id,
-  $ssh_pub_key,
-  $ssh_key_type = "ssh-rsa",
-  $sudo = false
+  String $id,
+  String $ssh_pub_key,
+  Enum[ 'ssh-dss', 'dsa', 'ssh-rsa', 'rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp521', 'ssh-ed25519', 'ed25519' ] $ssh_key_type = 'ssh-rsa',
+  Boolean $sudo = false
 ) {
-  validate_string($id)
-  validate_string($ssh_pub_key)
-  validate_re($ssh_key_type, [ '^ssh-dss$', '^dsa$', '^ssh-rsa$', '^rsa$', '^ecdsa-sha2-nistp256$', '^ecdsa-sha2-nistp384$', '^ecdsa-sha2-nistp521$', '^ssh-ed25519$', '^ed25519$' ])
-  validate_bool($sudo)
-
   user { $id:
     ensure     => present,
     managehome => true,
@@ -30,3 +25,4 @@ class training::user (
     }
   }
 }
+

@@ -2,7 +2,7 @@
   "name": "Foreman | Lifecyclemanagement for Server",
   "location": "Nuremberg",
   "author": "Dirk Götz",
-  "release": "1.6",
+  "release": "1.7",
 
   "favicon": "image/global/favicon.ico",
 
@@ -26,8 +26,8 @@
    {"section":"configmanagement"}, 
    {"section":"usermanagement"}, 
    {"section":"plugins"}, 
-   {"section":"advanced"}, 
    {"section":"katello"}, 
+   {"section":"advanced"}, 
 
    {"section":"global/Post"}
   ]

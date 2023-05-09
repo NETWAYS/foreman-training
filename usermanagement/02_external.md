@@ -19,8 +19,6 @@
 
 Foreman can also be configure to use an external authentication provided by the webserver.
 
-~~~PAGEBREAK~~~
-
 In most cases this will be Kerberos to achieve a true Single Sign-On. If you use FreeIPA as your
 authentication provider the Foreman Installer can create the required configuration by passing the
 corresponding parameters to it.

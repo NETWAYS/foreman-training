@@ -6,9 +6,10 @@
 * Steps:
  * Start the virtual machine "foreman.localdomain" and connect via SSH
  * Make Puppet vendor repository for Puppet available
- * Make EPEL repository available
- * Make Foreman repository available
- * Install foreman-installer
+ * Make Powertools repository available
+ * Make Foreman and Katello repository available
+ * Enable the modules for katello and pulpcore
+ * Install foreman-installer-katello
 
 
 !SLIDE supplemental exercises
@@ -32,29 +33,31 @@ via SSH as 'root' so you can copy and paste to the console.
 * Make Puppet vendor repository available
 
 Install the release package provided by the Puppet vendor repository to make it available for package
-installation of open source version of Puppet. We will use Puppet 6.
+installation of open source version of Puppet. We will use Puppet 7.
 
-URL: http://yum.puppet.com/puppet6
+URL: http://yum.puppet.com/puppet7
 
-* Make EPEL repository available
+* Make Powertools repository available
 
-Install the release package provided by the EPEL repository to make it available for package
-installation required as dependency.
+The repository is already configured as disabled, so it only needs enabling.
 
-URL: http://fedoraproject.org/wiki/EPEL
+Command: dnf config-manager --set-enabled powertools
 
-Command: yum install epel-release
+* Make Foreman and Katello repository available
 
-* Make Foreman repository available
-
-Install the release package provided by the Foreman repository to make it available for package
-installation of Foreman and its components.
+Install the release packages provided by the Foreman and Katello repository to make it available for package
+installation of Foreman and its components. We use Foreman 3.5 and Katello 4.7.
 
 URL: http://yum.theforeman.org
 
-* Install foreman-installer
+* Enable the modules for katello and pulpcore
 
-Install the package "foreman-installer" from the now available repositories.
+The modules provided by the Foreman project will enable all module dependencies to get the correct software versions.
+
+* Install foreman-installer-katello
+
+Install the package "foreman-installer-katello" from the now available repositories. This is the installer with the
+scenario Katello included.
 
 #### Notes:
 
@@ -63,7 +66,7 @@ from the virtual machine network to the host so no configuration is required.
 
 #### Expected result:
 
-The Foreman installer is installed and "foreman-installer --help" could be run from command line.
+The Foreman installer is installed and "foreman-installer --scenario katello --help" could be run from command line.
 
 
 !SLIDE supplemental solutions
@@ -88,40 +91,50 @@ and paste to the console.
 Install the release package provided by the Puppet vendor repository to make it available for package
 installation of open source version of Puppet.
 
-    # yum install https://yum.puppet.com/puppet6/puppet6-release-el-8.noarch.rpm -y
+    # dnf install http://yum.puppet.com/puppet7/el/8/x86_64/puppet7-release-7.0.0-11.el8.noarch.rpm -y
 
-### Make EPEL repository available
+### Make Powertools repository available
 
-Install the release package provided by CentOS to make it available for package
-installation required as dependency.
+You can simply use the dnf config-manager, but editing the configuration directly will also work.
 
-    # yum install epel-release -y
+    # dnf config-manager --set-enabled powertools
 
 ### Make Foreman repository available
 
-Install the release package provided by the Foreman repository to make it available for package
-installation of Foreman and its components.
+Install the release packages provided by the Foreman and Katello repository to make it available for package
+installation of Foreman, Katello and its components. Taking the matching combination is required, for example
+Foreman 3.5 and Katello 4.7 form one release.
 
-    # yum install http://yum.theforeman.org/releases/latest/el8/x86_64/foreman-release.rpm -y
+    # dnf install http://yum.theforeman.org/releases/3.5/el8/x86_64/foreman-release.rpm \
+         http://yum.theforeman.org/katello/4.7/katello/el8/x86_64/katello-repos-latest.rpm -y
 
-### Install foreman-installer
+### Enable the modules for katello and pulpcore
 
-Install the package "foreman-installer" from the now available repositories.
+Enabling the modules will enable module dependencies. If you see errors about conflicts with the default modules,
+you can ignore them as this will be solved after module activation.
 
-    # yum install foreman-installer -y
+    # dnf module enable katello:el8 pulpcore:el8
+
+### Install foreman-installer-katello
+
+Install the package "foreman-installer-katello" from the now available repositories.
+
+    # dnf install foreman-installer-katello -y
 
 
 !SLIDE smbullets small
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install an All-in-one setup
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install Katello
 
 * Objective:
- * Install an All-in-one setup of Foreman with TFTP, DNS and DHCP
+ * Install Katello with TFTP, DNS and DHCP
 * Steps:
  * Run foreman-installer with additional parameters
 * Notes:
  * TFTP (default configuration)
- * DNS (interface=ens3, zone=localdomain, reverse=0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
- * DHCP (interface=ens3, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)
+ * DNS (interface=enp1s0, zone=localdomain, reverse=0.10.in-addr.arpa, forwarders=8.8.8.8,8.8.4.4)
+ * DHCP (interface=enp1s0, gateway=10.0.0.1, range=10.0.0.100-10.0.0.200, nameserver=10.0.0.2)
+ * Tuning "development" is needed because of sizing of the VM
+ * Optionally provide initial credentials, organization and location name
 
 ~~~SECTION:notes~~~
 
@@ -133,13 +146,13 @@ Install the package "foreman-installer" from the now available repositories.
 
 
 !SLIDE supplemental exercises
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install an All-in-one setup
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install Katello
 
 ## Objective:
 
 ****
 
-* In this lab we will install an All-in-one setup of Foreman with DNS and DHCP
+* In this lab we will install Katello with TFTP, DNS and DHCP
 
 ## Steps:
 
@@ -153,17 +166,19 @@ TFTP can use its default configuration.
 
 DNS should be enabled and configured with the following parameters:
 
- * interface=ens3
+ * interface=enp1s0
  * zone=localdomain
  * reverse=0.10.in-addr.arpa
  * forwarders=8.8.8.8,8.8.4.4
 
 DHCP should be enabled and configured with the following parameters:
 
- * interface=ens3
+ * interface=enp1s0
  * gateway=10.0.0.1
  * range=10.0.0.100-10.0.0.200
  * nameserver=10.0.0.2
+
+Tuning allows to configure for system size, in our case we need "development" for our under-sized VM.
 
 #### Expected result:
 
@@ -173,11 +188,11 @@ You can find your provided parameters in the answer file created in '/etc/forema
 
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install an All-in-one setup
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install Katello
 
 ****
 
-## Install an All-in-one setup of Foreman with DNS and DHCP
+## Install Katello with TFTP, DNS and DHCP
 
 ****
 
@@ -186,18 +201,20 @@ You can find your provided parameters in the answer file created in '/etc/forema
 To install run the following command:
 
     # foreman-installer \
+    --scenario katello \
     --foreman-proxy-tftp=true \
     --foreman-proxy-dns=true \
-    --foreman-proxy-dns-interface=ens3 \
+    --foreman-proxy-dns-interface=enp1s0 \
     --foreman-proxy-dns-zone=localdomain \
     --foreman-proxy-dns-reverse=0.10.in-addr.arpa \
     --foreman-proxy-dns-forwarders=8.8.8.8 \
     --foreman-proxy-dns-forwarders=8.8.4.4 \
     --foreman-proxy-dhcp=true \
-    --foreman-proxy-dhcp-interface=ens3 \
+    --foreman-proxy-dhcp-interface=enp1s0 \
     --foreman-proxy-dhcp-gateway=10.0.0.1 \
     --foreman-proxy-dhcp-range="10.0.0.100 10.0.0.200" \
-    --foreman-proxy-dhcp-nameservers="10.0.0.2"
+    --foreman-proxy-dhcp-nameservers="10.0.0.2" \
+    --tuning development
 
 This will output on success something similar:
 
@@ -217,17 +234,15 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add DNS configuration to Foreman
 
 * Objective:
- * Create the domain 'localdomain' and associate Smart proxy
+ * Verify the domain 'localdomain' was created and associate Smart proxy
 * Steps:
  * Login to Foreman
  * Navigate to 'Infrastructure > Domains'
- * Add the domain 'localdomain' and associate Smart Proxy 'foreman.localdomain'
+ * Verify the domain 'localdomain' was created and associate Smart Proxy 'foreman.localdomain'
 
 ~~~SECTION:notes~~~
 
-* If the Puppet agent on the Foreman server has already run the domain will already be created
-but not associated.
-* With Foreman 1.21 multi-tenancy is active by default, but only since 1.22 all objects get it assigned by default.
+* The Foreman server itself will automatically be registered and all required objects will be created
 
 ~~~ENDSECTION~~~
 
@@ -239,7 +254,7 @@ but not associated.
 
 ****
 
-* Foreman will be configured to know about the DNS domain 'localdomain'
+* Verify the domain 'localdomain' was created and associate Smart proxy
 
 ## Steps:
 
@@ -247,16 +262,12 @@ but not associated.
 
 * Login to Foreman
 * Navigate to 'Infrastructure > Domains'
-* Add the domain 'localdomain' and associate Smart proxy 'foreman.localdomain'
+* Verify the domain 'localdomain' was created and associate Smart Proxy 'foreman.localdomain'
 
 #### Notes:
 
-If the Puppet agent on the Foreman server has already run the domain will already be created
-but not associated.
-
-With Foreman 1.21 multi-tenancy is active by default, and since 1.22 all objects get it assigned
-by default if only one present. If more than one present you have to switch to "Any Organization"
-and "Any Location" to find those objects and ensure organization and location are set when adjusting objects.
+The Foreman server itself will automatically be registered and all required objects will be created.
+This is the reason we will see the domain already created but not associated to a Smart Proxy.
 
 
 !SLIDE supplemental solutions
@@ -264,7 +275,7 @@ and "Any Location" to find those objects and ensure organization and location ar
 
 ****
 
-## Create the domain 'localdomain' and associate Smart proxy
+## Verify the domain 'localdomain' was created and associate Smart proxy
 
 ****
 
@@ -276,14 +287,8 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 
 ### Add the domain 'localdomain' and associate Smart proxy 'foreman.localdomain'
 
-Click on 'New Domain' and in the dialog insert:
-
-* DNS domain: 'localdomain'
-* DNS Proxy: 'foreman.localdomain' 
-
-If the domain 'localdomain' was already created click on the domain name and change the
-DNS Proxy to 'foreman.localdomain'. Ensure organization and location are set to "Default
-Organization" and "Default Location".
+As the domain 'localdomain' will already be created click on the domain name and change the
+DNS Proxy to 'foreman.localdomain'.
 
 Press 'Submit' to store the configuration.
 
@@ -300,9 +305,7 @@ Press 'Submit' to store the configuration.
 
 ~~~SECTION:notes~~~
 
-* Subnets are not automatically created like domains.
-* The Smart Proxy should be moved into organization and location before creating the subnet if not done by default.
-* If TFTP is missing, it is not default enabled with 2.2 any longer.
+* Subnets are not automatically created like domains. Importing from a Smart Proxy is easier than manual creation.
 
 ~~~ENDSECTION~~~
 
@@ -314,7 +317,7 @@ Press 'Submit' to store the configuration.
 
 ****
 
-* Foreman will be configured to know about the DHCP subnet
+* Create the subnet 'foreman' and associate Smart proxies
 
 ## Steps:
 
@@ -327,9 +330,6 @@ Press 'Submit' to store the configuration.
 #### Notes:
 
 We will use the complete DHCP range the DHCP server provides.
-
-Ensure the Smart Proxy is in the correct organization and location and that you are in the right
-context when creating the subnet.
 
 
 !SLIDE supplemental solutions
@@ -378,7 +378,6 @@ Afterwards we have to return to the configuration via 'Infrastructure > Subnets'
 * Proxies tab:
  * DHCP Proxy: 'foreman.localdomain'
  * TFTP Proxy: 'foreman.localdomain'
- * HTTPBoot Proxy: *keep empty*
  * Reverse DNS Proxy: 'foreman.localdomain'
 
 No parameters, "Default Organization" and "Default location" should be the default.

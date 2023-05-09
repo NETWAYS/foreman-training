@@ -108,9 +108,9 @@ Additional providers like Infoblox, Dnsmasq, Bluecat, and Device42 are available
 
 ****
 
-The Smart Proxy DNS is used to add and remove dns records of type A and PTR, Foreman 1.12 introduced
-support for IPv6, but there is no support for additional records. For doing such updates it requires
-the zone to be a dynamic zone.
+The Smart Proxy DNS is used to add and remove dns records of type A and PTR. Foreman 1.12 introduced
+full support for IPv6, but the support for CNAME in the Smart Proxy is not yet utilized in Foreman.
+For doing such updates it requires the zone to be a dynamic zone.
 
 Commonly used on Linux is Bind which takes updates via nsupdate with preshared keys or if used in FreeIPA
 with Kerberos principal. The same mechanism could be used for sending updates to Microsofts DNS. Another
@@ -128,14 +128,21 @@ Libvirt is again only supported as a testing environment.
 * Downloads the required files with wget
 * Creates and deletes PXE configuration based on MAC address
 * Automatically configured during installation
+* Supports multiple bootloaders in multiple configurations
 
 ~~~SECTION:handouts~~~
 
 ****
 
 The Smart Proxy TFTP provides boot-images for PXE boot, these files are simply downloaded using wget the
-first time needed. PXE configuration is created during provisioning based on MAC address. For this subsystem
-in the most cases no manual configuration is required because it is completly included in the basic setup.
+first time needed. PXE configuration is created during provisioning based on MAC address.
+The support for different bootloaders has grown over the years from classic PXELinux over iPXE to using Grub2
+to work on systems with BIOS, UEFI and even UEFI with enabled SecureBoot.
+
+~~~PAGEBREAK~~~
+
+For this subsystem in the most cases no additional configuration is required because it is completly included
+in the basic setup when activated via one parameter.
 
 ~~~ENDSECTION~~~
 
@@ -154,6 +161,8 @@ in the most cases no manual configuration is required because it is completly in
  * allows certificate management using the Web GUI
  * creates autosign entry for hosts during provisioning
  * alternative a tokenbased autosigning can be used
+
+* Puppet integration requires also the Foreman plugin for full feature set
 
 ~~~SECTION:notes~~~
 
@@ -176,5 +185,7 @@ and creates autosign entry for hosts during provisioning for accessing puppet wi
 
 An alternative implementation using tokenbased autosigning exists, trading off the capability to manually create autosign entries
 for increased security and better debugging.
+
+To get the full feature set also the Foreman plugin needs to be installed as Puppet support was moved from core to a plugin with 3.0.
 
 ~~~ENDSECTION~~~

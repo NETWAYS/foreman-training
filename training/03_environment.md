@@ -2,7 +2,7 @@
 
 # Training Environment
 
-<div style="text-align: center"><img src="./_images/environment.png" style="float: center; margin-left: 115px; width: 794px; height: 428px;" alt="Training Environment"></div>
+<div style="text-align: center"><img src="./_images/environment.png" style="float: center; width: 90%;" alt="Training Environment"></div>
 
 ~~~SECTION:notes~~~
 
@@ -18,7 +18,7 @@
 
 ~~~SECTION:handouts~~~
 
-The laptop provided for the training is running CentOS 7 with Gnome 3 in Fallback mode.
+The laptop provided for the training is running CentOS Stream 9.
 You can login with the unprivileged user "training" and password "netways". 
 The password for user "root" required for some exercises is "netways0815".<br/>
 For virtualization the laptop runs KVM with libvirt. A virtual network named "foreman"

@@ -24,7 +24,7 @@ environment, so feel free to create your own plugins to solve your own administr
 
 <br/>
 
-An incomplete list of plugins is provided by the Github page of the framework: https://github.com/theforeman/hammer-cli
+An possibly incomplete list of plugins is provided by the Github page of the framework: https://theforeman.github.io/foreman-plugin-overview/
 
 ~~~ENDSECTION~~~
 
@@ -35,10 +35,16 @@ An incomplete list of plugins is provided by the Github page of the framework: h
  * Use the CLI to prepare a new Operatingsystem entry
 * Steps:
  * Make sure to provide the correct credentials.
- * Create the new Operatingsystem entry for "CentOS 6.8"
- * Associate the template "Kickstart default PXELinux" and set it as default template
- * Associate the template "Kickstart default" and set it as default template
+ * Create the new Operatingsystem entry for "CentOS Stream 9"
+ * Optionally add the parameter "enable-official-puppet7-repo"
 
+~~~SECTION:handouts~~~
+
+****
+
+For CentOS no need to associate templates occurs as there is a new feature handling this provided since Foreman 3.5, other Distributions than RHEL derivates still lack this feature, so additional steps are required.
+
+~~~ENDSECTION~~~
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Working with the CLI
@@ -54,10 +60,8 @@ An incomplete list of plugins is provided by the Github page of the framework: h
 ****
 
 * Make sure to provide the correct credentials.
-* Create the new Operatingsystem entry for "CentOS 6.8"
-* Associate the template "Kickstart default PXELinux" and set it as default template
-* Associate the template "Kickstart default" and set it as default template
-
+* Create the new Operatingsystem entry for "CentOS Stream 9"
+* Optionally add the parameter "enable-official-puppet7-repo"
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Working with the CLI
@@ -77,21 +81,17 @@ Adjust the configuration if required in `~/.hammer/cli.modules.d/foreman.yml`:
       :username: 'admin'
       :password: 'PASSWORD'
 
-### Create the new Operatingsystem entry for "CentOS 6.8"
+### Create the new Operatingsystem entry for "CentOS Stream 9"
 
-    # hammer os create --name CentOS --major 7 --minor 8 --description "CentOS 7.8" --architectures x86_64 \ 
-    --family "Redhat" --password-hash SHA256 --media "CentOS 7 mirror" --partition-tables "Kickstart default"
+    # hammer os create --name CentOS --major 9 --description "CentOS Stream 9" --architectures x86_64 \ 
+    --family "Redhat" --password-hash SHA256 --media "CentOS Stream 9 mirror" --partition-tables "Kickstart default"
 
-### Associate the template "Kickstart default PXELinux" and set as default template
+### Optionally add the parameter "enable-official-puppet7-repo"
 
-The ids may vary depending on our environment but you can get them with the list subcommands.
+Instead of running a separate command later you can add the parameter "--os-parameters-attributes" on the initial run, take key value or json as imput
 
-    # hammer template add-operatingsystem --name "Kickstart default PXELinux" \
-    --operatingsystem "CentOS 7.8"
-    # hammer os set-default-template --provisioning-template-id 35 --id 6
+    # ... --os-parameters-attributes '[{"name":"enable-official-puppet7-repo","value":"true","parameter_type":"boolean"}]'
 
-### Associate the template "Kickstart default" and set as default template
+Otherwise you can use the same parameter with `hammer os update` or use the command `hammer os set-parameter` instead.
 
-    # hammer template add-operatingsystem --name "Kickstart default" \
-    --operatingsystem "CentOS 7.8"
-    # hammer os set-default-template --provisioning-template-id 31 --id 6
+    # hammer os set-parameter --operatingsystem "CentOS Stream 9" --name enable-official-puppet7-repo --value true --parameter-type boolean

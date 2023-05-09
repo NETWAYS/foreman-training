@@ -2,7 +2,7 @@
 
 ## Virtual machine foreman.localdomain
 
-To setup a new version of the virtual machine install CentOS 8 from ISO, only configuration required is
+To setup a new version of the virtual machine install CentOS Stream 8 from ISO, only configuration required is
 setting the network interface to manual, ip address 10.0.0.2, netmask 255.255.0.0, gateway 10.0.0.1,
 dns 10.0.0.1.
 
@@ -10,12 +10,11 @@ Afterwards run the finish.sh provided in the _files directory to setup host entr
 
 ## Virtual machine monitoring.localdomain
 
-To setup a new version of the virtual machine install CentOS 8 from ISO, only configuration required is
+To setup a new version of the virtual machine install Ubuntu 22.04 Server from ISO, only configuration required is
 setting the network interface to manual, ip address 10.0.0.3, netmask 255.255.0.0, gateway 10.0.0.1,
-dns 10.0.0.1.
+dns 10.0.0.1 and creating a user training with the default password.
 
-Afterwards copy the files from _files/monitoring into /root/ and run the finish.sh to setup host including
-Icinga 2, Icinga Web 2 and Director with preparations for the exercise.
+Afterwards run the finish.sh to setup host including Icinga 2, Icinga Web 2 and Director with preparations for the exercise.
 
 ## Local mirror
 

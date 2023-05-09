@@ -66,7 +66,8 @@ For this communication the discovery image uses the Smart proxy included in it.
 
 Add the parameters to enable the Discovery plugin and download the image to the Foreman installer
 
-    # foreman-installer --enable-foreman-plugin-discovery --enable-foreman-proxy-plugin-discovery --foreman-proxy-plugin-discovery-install-images=true
+    # foreman-installer --enable-foreman-plugin-discovery --enable-foreman-proxy-plugin-discovery \
+      --foreman-proxy-plugin-discovery-install-images=true
 
 If the trainer provides a local copy of the image add the parameter --foreman-proxy-plugin-discovery-source-url and
 the provided URL.
@@ -88,9 +89,9 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 * Steps:
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
- * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
- * Keep the minimum requirements for RAM, CPU and Disk
+ * Select "Manual install"
+ * Type and then select the name of one of prepared operating systems according to your preferences
+ * Adjust the minimum requirements for RAM, CPU and Disk
  * Name your virtual machine "discovery" and select the network "foreman"
  * Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
  * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
@@ -115,9 +116,9 @@ Navigate to "Monitor > Dashboard" and select from "Manage > Add widgets" the "Di
 
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
-* Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
-* Keep the minimum requirements for RAM, CPU and Disk
+* Select "Manual install"
+* Type and then select the name of one of prepared operating systems according to your preferences
+* Adjust the minimum requirements for RAM, CPU and Disk
 * Name your virtual machine "discovery" and select the network "foreman"
 * Select "Adjust Virtual Machine settings" and add the nic and disk as boot options
 * Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
@@ -142,18 +143,20 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 ### Select "New virtual machine" from the menu or by pressing the button
 
-### Select PXE boot
+### Select "Manual install"
 
-In the first step of the wizard select the network boot
+In the first step of the wizard select the manuall installation as network installation is meant for other protocols
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
+### Type and then select the name of one of prepared operating systems according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.7"
-for CentOS or "Debian Stretch" for Debian. 
+As the list of operating system option has grown, you need to type at least one character before a list of all
+matching operating systems is displayed. Select the matching one for the operating system you want to install
+to get the optimizations.
 
-### Keep the minimum requirements for RAM, CPU and Disk
+### Adjust the minimum requirements for RAM, CPU and Disk
 
-In the third step stick with the minimum requirements for RAM and CPU because several system will be deployed.
+In the third step stick the minimum requirements for RAM and CPU are shown, but unfortunately this is for runtime and not enough for the installer.
+CentOS installer will require at least 3 GB instead of the default, Debian should also be fine with 3 GB, while Ubuntu requires 6 GB.
 In the forth step keep the disk as small as possible but it will not matter as long as it is thin provisioned.
 
 ### Name your virtual machine "discovery" and select the network "foreman"
@@ -179,7 +182,7 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 * Steps:
  * Select the newly discovered host from the widget
  * On the Discovered host view select the action "Provision" and then "Customize Host"
- * On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
+ * On the Host tab name it "discovery"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
  * On the Interface tab click edit to configure the interface add the Domain "localdomain"
  * Submit to start the installation
@@ -200,7 +203,7 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 
 * Select the newly discovered host form the widget
 * On the Discovered host view select the action "Provision" and then "Customize Host"
-* On the Host tab name it "discovery" and select the Environment, Puppet CA and Master
+* On the Host tab name it "discovery"
 * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password
 * On the Interface tab click edit to configure the interface add the Domain "localdomain"
 * Submit to start the installation
@@ -219,7 +222,7 @@ appears in the Foreman Web GUI in the "Discovery widget" named after the mac add
 
 ### On the Discovered host view select the action "Provision" and then "Customize Host"
 
-### On the Host tab name it "discovery" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
+### On the Host tab name it "discovery"
 
 ### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
 
@@ -276,6 +279,6 @@ It also allows to add custom facts in its interface, as boot parameter or as an 
 and adding desired system type as fact.
 
 Furthermore it could be used in enviroments without PXE and DHCP by providing all settings including an ip address and boot directly
-into a new kernel with kexec. This is only available for Red Hat derivates and Debian at the moment.
+into a new kernel with kexec. This is only available for Red Hat derivates and Debian/Ubuntu (including one template for Autoinstall) at the moment.
 
 ~~~ENDSECTION~~~

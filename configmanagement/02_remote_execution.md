@@ -2,8 +2,8 @@
 # Remote Execution
 
 * Execute jobs on remote systems from the Foreman WebGUI
-* It can handle different protocols
- * SSH
+* It can utilize different tools via providers
+ * Script (SSH for push and MQTT for pull)
  * Ansible
  * Salt
 * Provides a Cockpit integration via SSH
@@ -12,21 +12,21 @@
  * Trigger configuration management runs immediately
  * Execute one-time or irregular commands
  * Orchestrate operations on servers
- * OpenSCAP scans on demand
+ * OpenSCAP scans on demand (requires the plugin)
  * Webconsole to the systems
 
 ~~~SECTION:handouts~~~
 
 ****
 
-The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
-It utilizes different providers, which are SSH and Ansible for now.
-
 ~~~PAGEBREAK~~~
 
-The SSH provider runs per default commands as root, but can also be configure to run as unpriviledged
+The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
+It utilizes different providers.
+
+The Script provider runs per default commands via SSH as root, but can also be configure to run as unpriviledged
 user and run sudo to accquire elevated privileges. It also integrates Cockpit as a Webconsole using
-this credentials and a SSH socket.
+this credentials and a SSH socket. Also a pull mode using mqtt was introduced to it.
 
 The Ansible provider uses the same SSH configuration but uses Ansible syntax for the jobs.
 The same goes for Salt.
@@ -37,7 +37,7 @@ It also allows to schedule jobs or reoccurring execution.
 
 With the OpenSCAP plugin installed in addition an option to run scans on demand is added.
 
-More details on: https://theforeman.org/plugins/foreman_remote_execution/1.7/index.html
+More details on: https://docs.theforeman.org/3.5/Managing_Hosts/index-katello.html#Configuring_and_Setting_Up_Remote_Jobs_managing-hosts
 
 ~~~ENDSECTION~~~
 
@@ -45,13 +45,12 @@ More details on: https://theforeman.org/plugins/foreman_remote_execution/1.7/ind
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Remote Execution
 
 * Objective:
- * Trigger a Puppet run on a remote system
+ * Trigger a Job on a remote system
 * Steps:
  * Install the Foreman Plugin Remote Execution
  * Bring out the SSH key
- * Initiate the Puppet run
-* Optional:
- * Run OpenSCAP scan
+ * Change the settings to use IP instead of FQDN
+ * Schedule a Job executing the command "id"
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Remote Execution
@@ -60,7 +59,7 @@ More details on: https://theforeman.org/plugins/foreman_remote_execution/1.7/ind
 
 ****
 
-* Initiate a Puppet run on a remote system
+* Trigger a Job on a remote system
 
 ## Steps:
 
@@ -68,17 +67,15 @@ More details on: https://theforeman.org/plugins/foreman_remote_execution/1.7/ind
 
 * Install the Foreman Plugin Remote Execution using the Foreman Installer
 * Bring out the SSH key
-* Initiate the Puppet run
+* Change the settings to use IP instead of FQDN
 
-## Optional:
+In our environment Foreman is not using itself as DNS server so we need to change the settings to use IP.
 
-****
-
-* Run OpenSCAP scan
+* Schedule a Job executing the command "id"
 
 #### Expected result:
 
-Puppet run is executed on the remote system and report is uploaded
+The Job is executed and the result is visible in the WebUI
 
 
 !SLIDE supplemental solutions
@@ -86,7 +83,7 @@ Puppet run is executed on the remote system and report is uploaded
 
 ****
 
-## Trigger a Puppet run on a remote system
+## Trigger a Job on a remote system
 
 ****
 
@@ -95,7 +92,7 @@ Puppet run is executed on the remote system and report is uploaded
 This will install both the Foreman and Smart proxy Plugin, create a SSH key and restart the services.
 
     # foreman-installer --enable-foreman-plugin-remote-execution \
-                        --enable-foreman-proxy-plugin-remote-execution-ssh
+                        --enable-foreman-proxy-plugin-remote-execution-script
 
 ### Bring out the SSH key
 
@@ -103,20 +100,20 @@ You can use the "ssh-copy-id":
 
     # ssh-copy-id -i ~foreman-proxy/.ssh/id_rsa_foreman_proxy root@foreman.localdomain
 
-Or get it via the Smart proxy:
+Or get it via the Smart proxy (running on port 9090 on the Katello server instead of default 8443):
 
-    # curl -k https://foreman.localdomain:8443/ssh/pubkey >> ~/.ssh/authorized_keys
+    # curl -k https://foreman.localdomain:9090/ssh/pubkey >> ~/.ssh/authorized_keys
 
-### Trigger the Puppet run
+### Change the settings to use IP instead of FQDN
 
-Navigate to the host and press "Schedule Remote Job". For multiple hosts the action is also available in the action menu
-of the "All Hosts" view. To Trigger the Puppet agent run, select the Job Category "Puppet" which has the
-"Puppet Run Once" as default Job. For more output add "puppet_options" "--verbose". Press "Submit" to execute it and watch
-for the execution.
+Navigate to "Administer > Settings" and on the tab "Remote Execution" switch "Connect by IP" to "Yes".
 
-### Optional: Run OpenSCAP scan
+### Schedule a Job executing the command "id"
 
-Navigate to the host and press "Run OpenSCAP scan". It will automatically choose the Policy in this way.
+Navigate to the host and press "Schedule a Job". For multiple hosts the action is also available in the action menu
+of the "All Hosts" view. Keep the category "Commands" and the template "Run Command - Script default". 
+Keep the selected host and add the command "id". No need to change any advanced fields or the schedule, so on the review press "Run" to execute it and watch
+for the execution. By clicking on the host in the list, you can get the actual output of the Job run on the host.
 
 
 !SLIDE smbullets small
@@ -149,9 +146,7 @@ fields can be a free-form or list of values for a user to add, facts, variables 
 Furthermore you can reference another template, which you can also render in your newly created one with the
 "render_template" function.
 
-The default templates provided are "Puppet Run Once" to trigger a puppet run, "Package Action" for handling
-package management and "Service Action" for managing service which both include operating system specific 
-handling and "Run Command" to run a simple commandline.
+The default templates provided depend on the installed plugins and have evolved over time.
 
 ~~~ENDSECTION~~~
 
@@ -200,7 +195,7 @@ Navigate to "Hosts > Job templates" and click "New Job Templates". As a template
 
     ping -c 10 <%= input("ping_target").blank? ? "8.8.8.8" : input("ping_target") %>
 
-On the "Job" tab add an input with name "ping_target", input type "User input" and a description.
+On the "Inputs" tab add an input with name "ping_target", input type "User input" and a description.
 
 ### Run it without input and inspect the output
 
@@ -263,9 +258,7 @@ If the integration is enabled and Cockpit is detected on a system the webconsole
 
 Run the `foreman-installer` with `--enable-foreman-plugin-remote-execution-cockpit` to enable it.
 
-```
-# foreman-installer --enable-foreman-plugin-remote-execution-cockpit
-```
+    # foreman-installer --enable-foreman-plugin-remote-execution-cockpit
 
 ### Install Cockpit on the client
 
@@ -273,17 +266,15 @@ The client can be every system you prepared with the SSH key. The installation d
 
 On CentOS:
 
-```
-yum install -y cockpit-system
-```
+    # dnf install -y cockpit-system
 
-On Debian:
+On Debian/Ubuntu:
 
-```
-apt install -y cockpit-system
-```
+    # apt install -y cockpit-system
+
+The websocket and access to it is not required, so installting this subpackage is enough, but you can add others for more features.
 
 ### Access the webconsole from the host view
 
-Navigate to the Host view and click on one of the prepared hosts to get the host view. In the host view click webconsole to enter Cockpit.
-You can see now some system information and control options, furthermore there is a terminal you can use.
+Navigate to the Host overview and click on one of the prepared hosts to get the host view. In the host view click on the three dots and then "Web Console" to enter Cockpit.
+You can see now some system information and control options depending on the installed Cockpit plugins, furthermore there is a terminal you can use.

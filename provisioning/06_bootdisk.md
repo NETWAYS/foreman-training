@@ -79,7 +79,8 @@ Add the parameters to enable the Bootdisk plugin
 ### Associate iPXE template to operating systems
 
 Navigate to "Hosts > Provisioning Templates" and search for the iPXE templates.
-Associate "Kickstart default iPXE" to CentOS and "Preseed default iPXE" to Debian.
+"Kickstart default iPXE" should already be associated to CentOS so associate "Preseed default iPXE" to Debian.
+A template for Ubuntu Autoinstall is not provided yet, but this issue is already addressed.
 
 Navigate to "Hosts > Operating systems" and select the iPXE templates associated.
 
@@ -90,7 +91,7 @@ Navigate to "Hosts > Operating systems" and select the iPXE templates associated
 * Objective:
  * Reinstall the virtual machine "pxe" from a host image
 * Steps:
- * Set the Host in "Build" mode and download image
+ * Set the Host in "Build" mode and download the full host image
  * Configure virtual machine to boot from image
  * Boot and reinstall the virtual machine
 
@@ -107,7 +108,7 @@ Navigate to "Hosts > Operating systems" and select the iPXE templates associated
 
 ****
 
-* Set the Host "pxe" in "Build" mode and download the host image
+* Set the Host "pxe" in "Build" mode and download the full host image
 * Configure virtual machine to boot from image by adding a "CDROM" device and selecting it as boot media
 * Boot and reinstall the virtual machine
 
@@ -124,7 +125,7 @@ Navigate to "Hosts > Operating systems" and select the iPXE templates associated
 ### Set the Host "pxe" in "Build" mode and download the host image
 
 Navigate to the Host view of your virtual machine "pxe" and press "Build", accept the dialog telling you
-it will delete reports and then download the host image. If "Build" warns you about possible errors, edit
+it will delete reports and then download the full host image. If "Build" warns you about possible errors, edit
 the host accordingly. In our training setup a typical problem is the operating system gets updated but
 we do not associate the newer version which gets assigned from the facts provided by configuration management.
 

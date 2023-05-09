@@ -9,5 +9,5 @@
 
 * Additional documentation in your browser at
  * http://theforeman.org/manuals/latest
- * https://docs.theforeman.org/web/
+ * https://docs.theforeman.org/
 

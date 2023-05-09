@@ -43,7 +43,7 @@ by contacting Foreman.
 When Foreman is told an installation is finished, it will clean up by changing the PXE configuration to local boot
 and change other configurations only need during provisioning.
 
-The Foreman manual provides some more detailed workflow diagrams: http://theforeman.org/manuals/1.10/index.html#4.4.6Workflow
+The Foreman manual provides some more detailed workflow diagrams: http://theforeman.org/manuals/3.5/index.html#4.4.6Workflow
 
 ~~~ENDSECTION~~~
 
@@ -55,9 +55,9 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
 * Steps:
  * Open "Virtual Machine Manager" application
  * Select "New virtual machine" from the menu or by pressing the button
- * Select PXE boot
- * Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
- * Keep the minimum requirements for RAM, CPU and Disk
+ * Select "Manual install"
+ * Type and then select the name of one of prepared operating systems according to your preferences
+ * Adjust the minimum requirements for RAM, CPU and Disk
  * Name your VM "pxe" and select the network "foreman"
  * Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created
 
@@ -85,9 +85,9 @@ and start it up again later
 
 * Open "Virtual Machine Manager" application
 * Select "New virtual machine" from the menu or by pressing the button
-* Select PXE boot
-* Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
-* Keep the minimum requirements for RAM, CPU and Disk
+* Select "Manual install"
+* Type and then select the name of one of prepared operating systems according to your preferences
+* Adjust the minimum requirements for RAM, CPU and Disk
 * Name your VM "pxe" and select the network "foreman"
 * Create the VM and immediately pause it so in the next lab the required configuration in Foreman can be created
 
@@ -107,19 +107,20 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 ### Select "New virtual machine" from the menu or by pressing the button
 
-### Select PXE boot
+### Select "Manual install"
 
-In the first step of the wizard select the network boot
+In the first step of the wizard select the manuall installation as network installation is meant for other protocols
 
-### Select "Linux" and "Red Hat Enterprise Linux 7.7" for CentOS or "Debian Stretch" for Debian according to your preferences
+### Type and then select the name of one of prepared operating systems according to your preferences
 
-In the second step choose "Linux" as operating system type and accoding to your preferences as version "Red Hat Enterprise Linux 7.7"
-for CentOS or "Debian Stretch" for Debian. For later labs you will also have to choose an operating system, deploy at least one of every kind.
+As the list of operating system option has grown, you need to type at least one character before a list of all
+matching operating systems is displayed. Select the matching one for the operating system you want to install
+to get the optimizations.
 
-### Keep the minimum requirements for RAM, CPU and Disk
+### Adjust the minimum requirements for RAM, CPU and Disk
 
-In the third step stick with the minimum requirements for RAM and CPU because several system will be deployed.
-CentOS installer will require at least 1.5 GB instead of the default.
+In the third step stick the minimum requirements for RAM and CPU are shown, but unfortunately this is for runtime and not enough for the installer.
+CentOS installer will require at least 3 GB instead of the default, Debian should also be fine with 3 GB, while Ubuntu requires 6 GB.
 In the forth step keep the disk as small as possible but it will not matter as long as it is thin provisioned.
 
 ### Name your virtual machine "pxe" and select the network "foreman"
@@ -140,7 +141,7 @@ This change needs a shutdown of the VM, it applys only to the VM after powering 
  * Configure the system "pxe" in Foreman and start the installation
 * Steps:
  * Open Foreman's host dialog using "Host > Create Host"
- * On the Host tab name it "pxe" and select the Environment, Puppet CA and Master
+ * On the Host tab name it "pxe"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
  * On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.
  * Unpause the VM
@@ -176,7 +177,7 @@ in the Provisioning tab as Root password. This is an MD5 hash for being supporte
 ****
 
 * Open Foreman's host dialog using "Host > Create Host"
-* On the Host tab name it "pxe" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
+* On the Host tab name it "pxe"
 * On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
 * On the Interface tab click edit to configure the interface with the MAC address of the system created before, identifier "eth0", select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
 * Unpause the virtual machine
@@ -193,9 +194,9 @@ in the Provisioning tab as Root password. This is an MD5 hash for being supporte
 
 ### Open Foreman's host dialog using "Host > Create Host"
 
-### On the Host tab name it "pxe" and select the Environment "production", Puppet CA "foreman.localdomain" and Puppet Master "foreman.localdomain"
+### On the Host tab name it "pxe"
 
-If the environment is not avialable, assign it to "Default Organization" and "Default Location".
+Other options are not required yet
 
 ### On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
 

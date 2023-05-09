@@ -63,8 +63,8 @@ Operating system family | Installer        | Answer files
 ------------------------|------------------|--------------
 Red Hat                 | Anaconda         | Kickstart
 Debian                  | Debian-Installer | Preseed
+Ubuntu (since 20.04.3)  | Autoinstall      | Cloud-init
 SuSE                    | YaST2            | AutoYaST2
-<br/>
 
 Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires
 answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or usb.
@@ -95,8 +95,7 @@ management solution do its work.
 
 ****
 
-Kickstart is the answer file to the installer used by Red Hat Enterprise Linux, CentOS, Scientific Linux, other
-derivates and Fedora.
+Kickstart is the answer file to the installer used by Red Hat Enterprise Linux, CentOS, other derivates and Fedora.
 
 It is basicly a simple text file providing commands for basic configuration and partitioning in its main section
 and a list of packages and package groups to install in addition to the core system in a package section. Skripts
@@ -130,7 +129,7 @@ Additional information: https://access.redhat.com/documentation/en-us/red_hat_en
 
 ****
 
-Preseed is the answer file for the Debian Installer used by Debian and Ubuntu.
+Preseed is the answer file for the Debian Installer used by Debian and Ubuntu until version 20.04.3.
 It is basicly a simple text file providing answers to the installation questions. It uses for all types of 
 configuration the same syntax. Scripts can be downloaded to the system and be executed after the installation.
 
@@ -138,6 +137,37 @@ The URL to the preseed file can be added to the boot menu entry or as a kernel p
 automation, an additional parameter tells the installer to run unattended or use the answers only as default.
 
 Additional information: https://wiki.debian.org/DebianInstaller/Preseed
+
+~~~ENDSECTION~~~
+
+
+!SLIDE smbullets small
+# Autoinstall
+
+* Autoinstall runs from a LiveCD
+* Cloud-init with answers
+ * YAML formatted standard
+ * Schema for Autoinstall
+ * Generator tool exists
+ * Generator can translate preseed data
+* Both added as kernel parameter to boot media
+
+~~~SECTION:handouts~~~
+
+****
+
+Ubuntu introduced a new method for automated installation with 20.04.3 and 22.04.1 called Autoinstall.
+This runs from a LiveCD loaded by the kernel which will then query an URL for Cloud-init as answer file.
+Cloud-init is a YAML formatted standard which supports different schemas including one for autoinstall.
+This file can be generated via a generator tool also capable of translating preseed data.
+
+~~~PAGEBREAK~~~
+
+By default it will fallback to default values if an answer is not provided, but sections can also be defined
+as interactive. It will also ask for confirmation to avoid accidential reformatting if not an additional
+kernel parameter `autoinstall` is given.
+
+Additional information: https://ubuntu.com/server/docs/install/autoinstall
 
 ~~~ENDSECTION~~~
 

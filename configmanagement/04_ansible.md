@@ -23,6 +23,9 @@
 
 ~~~SECTION:handouts~~~
 
+****
+<br/>
+
 Ansible is written in python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.
 
 For configuration it uses yaml format for simple playbooks and some additional structure for roles. An example for one
@@ -60,7 +63,7 @@ includes the callback to upload facts and reports.
 On a separate Ansible control machine a callback plugin can be activated to upload facts and reports to Foreman, if you still want to use Ansible
 independent from Foreman. Forthermore a script could be deployed to use Foreman as dynamic inventory.
 
-For more information have a look at the plugin documentation: https://theforeman.org/plugins/foreman_ansible/3.x/index.html
+For more information have a look at the plugin documentation: https://docs.theforeman.org/3.5/Managing_Configurations_Ansible/index-katello.html
 
 ~~~ENDSECTION~~~
 
@@ -72,9 +75,9 @@ For more information have a look at the plugin documentation: https://theforeman
  * Configure Foreman Plugin and Smart Proxy Plugin
 * Steps:
  * Install Foreman Plugin and Smart Proxy Plugin
+ * Download the collection "community.general"
  * Download the role "geerlingguy.ntp"
  * Import roles and assign them
- * Prepare Smart proxy to play roles
  * Play roles using the webinterface 
 * Optional:
  * Import variables and overwrite values
@@ -89,7 +92,7 @@ For more information have a look at the plugin documentation: https://theforeman
 
 ****
 
-Graphical integration uses Remote-Execution plugin which will be covered later in more depth.
+Graphical integration uses Remote-Execution plugin which we covered earlier.
 
 ~~~ENDSECTION~~~
 
@@ -107,15 +110,12 @@ Graphical integration uses Remote-Execution plugin which will be covered later i
 ****
 
 * Install Foreman Plugin and Smart Proxy Plugin using foreman-installer
+* Download the collection "community.general"
 * Download the role "geerlingguy.ntp"
 
-Ansible roles can be downloaded from Ansible Galaxy using the CLI.
+Ansible roles and collections can be downloaded from Ansible Galaxy using the CLI or a Remote Execution Job.
 
 * Import roles and assign them
-* Prepare Smart proxy to play roles
-
-Smart Proxy needs a SSH key to play roles.
-
 * Play roles using the webinterface 
 
 Optional: 
@@ -138,7 +138,15 @@ Optional:
 
     # foreman-installer --enable-foreman-plugin-ansible --enable-foreman-proxy-plugin-ansible
 
+### Download the collection "community.general"
+
+You can run this on the commandline or use the Job "Ansible Collection - Install from Galaxy" from the category "Ansible Galaxy".
+
+    # ansible-galaxy collection install community.general -p /etc/ansible/collections
+
 ### Download the role "geerlingguy.ntp"
+
+You can run this on the commandline or use the Job "Ansible Roles - Install from Galaxy" from the category "Ansible Galaxy".
 
     # ansible-galaxy install geerlingguy.ntp -p /etc/ansible/roles
 
@@ -146,15 +154,6 @@ Optional:
 
 Navigate to "Configure > Roles" and import using "Import from foreman.localdomain".
 Afterwards navigate to the host and edit them to assign the roles in the new "Ansible Roles" tab.
-
-### Prepare Smart proxy to play roles
-
-    # install -o foreman-proxy -g foreman-proxy -m 0700 -d ~foreman-proxy/.ssh
-    # su - foreman-proxy -s /bin/bash
-    $ ssh-keygen -f .ssh/id_rsa_foreman_proxy
-    [ENTER]
-    [ENTER]
-    $ ssh-copy-id -i .ssh/id_rsa_foreman_proxy root@foreman.localdomain
 
 ### Play roles using the webinterface 
 
@@ -169,9 +168,9 @@ After the import set "ntp_manage_config" to "true" and "ntp_area" to your countr
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure Ansible Callback
 
 * Objective:
- * Install Ansible and configure the callback plugin for Foreman
+ * Install Ansible-Core and configure the callback plugin for Foreman
 * Steps:
- * Install Ansible
+ * Install Ansible-Core
  * Configure callback plugin
  * Add your host to the inventory
  * Create and distribute a SSH key
@@ -197,20 +196,21 @@ After the import set "ntp_manage_config" to "true" and "ntp_area" to your countr
 
 ****
 
-* Install Ansible using yum
+* Install Ansible-Core using dnf
 
 Ansible is available from centos-extras repository, the callback plugin also requires python-requests.
 In our training setup Ansible is already installed on the Foreman system if you have done the previous exercise.
 
 * Configure callback plugin 
 
-The callback plugin is moved to foreman-ansible-modules since Ansible 2.10, so easiest way to install it is via yum as "ansible-collection-theforeman-foreman" from the client repository.
+The callback plugin is moved to the Foreman Ansible Modules forming the Ansible collection "theforeman.foreman" since Ansible 2.10, 
+so easiest way to install it is via dnf as "ansible-collection-theforeman-foreman" from the client repository.
 The plugin itself can be enabled in the default section of ansible.cfg and configured in a new section of the configuration.
 Furthermore a setting needs to be enabled so Ansible uses the callback also on the `ansible` command in addition to `ansible-playbook`.
 
 * Add your host to the inventory
 
-We will use the static configuration for now, dynamic inventory will be introduced later.
+We will use the static configuration for now.
 
 * Create and distribute a SSH key
 
@@ -236,22 +236,21 @@ The setup module gathers facts about the system and via callback uploads them to
 
 ### Install Ansible using yum
 
-    # yum install ansible python3-requests -y
+    # dnf install ansible-core python39-requests -y
 
 ### Configure callback plugin 
 
-    # yum install http://yum.theforeman.org/client/latest/el8/x86_64/foreman-client-release.rpm -y
-    # yum install ansible-collection-theforeman-foreman -y
+    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.5/el8/x86_64/
+    # dnf install ansible-collection-theforeman-foreman -y
     # vi /etc/ansible/ansible.cfg
     [defaults]
-    callback_whitelist = foreman
+    callbacks_enabled = foreman
     bin_ansible_callbacks = True
-    ...
     [callback_foreman]
     url = 'https://foreman.localdomain'
-    ssl_cert = /etc/puppetlabs/puppet/ssl/certs/foreman.localdomain.pem
-    ssl_key = /etc/puppetlabs/puppet/ssl/private_keys/foreman.localdomain.pem
-    verify_certs = /etc/puppetlabs/puppet/ssl/certs/ca.pem
+    ssl_cert = /etc/foreman-proxy/foreman_ssl_cert.pem
+    ssl_key = /etc/foreman-proxy/foreman_ssl_key.pem
+    verify_certs = /etc/foreman-proxy/foreman_ssl_ca.pem
 
 ### Add your host to the inventory
 

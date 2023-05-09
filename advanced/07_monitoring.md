@@ -5,7 +5,7 @@
 # Foreman & Smart Proxy
 
 * Foreman
- * Webinterface should be available using HTTPs include "login-page"
+ * Webinterface should be available using HTTPs include "LoginPage"
  * Provisioning requires also HTTP requests being answered
  * Foreman log should not have entries "500 Internal Server Error"
 
@@ -23,7 +23,7 @@ goes wrong. If using monitoring plugins with Icinga or something similar you cou
 
 ~~~PAGEBREAK~~~
 
-    check_http -H foreman.localdomain -p 443 -S -f follow -s 'login-page'
+    check_http -H foreman.localdomain -p 443 -S -f follow -s 'LoginPage'
 
 
 During provisioning also plain HTTP requests will be required, but you can not simulate exactly this request
@@ -39,7 +39,7 @@ to monitor.
     --criticalpattern '500 Internal Server Error' --tag foreman
 
 To monitor the Smart proxy query the feature list for expected features as a feature will be deactivated if
-an error during startup occures.
+an error during startup occures. Remember the default port 8443 is changed to 9090 when using Katello because of Candlepin.
 
     check_http -H foreman.localdomain -S -p 8443 -u /features -s '["dhcp","dns","logs","puppet","puppetca","tftp"]'
 
@@ -66,15 +66,15 @@ Best way to verify that Puppet is available is trying to get a catalog and check
 content like the name. It will require to use the client certificate of the host for authentication.
 Which are not accessable by an unprivileged user by default.
 
-For Puppet 6 this could look like this.
+For Puppet 7 this could look like this.
 
     check_http -H foreman.localdomain -S -p 8140 \ 
     -J /etc/puppetlabs/puppet/ssl/certs/foreman.localdomain.pem \
     -K /etc/puppetlabs/puppet/ssl/private_keys/foreman.localdomain.pem \
-    -u /production/catalog/foreman.localdomain \
+    -u '/puppet/v3/catalog/foreman.localdomain?environment=production' \
     -s '"name":"foreman.localdomain"'
 
-~~~PAGEBREAK~~~
+<br/>
 
 To verify TFTP working fine try to get a small file like pxelinux.cfg/default (which you need to create).
 There are several plugins available like the one provided at http://william.leibzon.org/nagios/
@@ -90,5 +90,31 @@ DHCP providing DHCPOFFERS can only be verifed from systems not being the DHCP se
 DHCP server to ensure answers are not provided from another system.
 
     check_dhcp -s 10.0.0.2 -r 10.0.0.102 -u
+
+~~~ENDSECTION~~~
+
+!SLIDE smbullets small
+# Katello
+
+* Service status via Systemd and Journal
+* Functionality:
+ * Synchronization of the Products
+ * Patch level of Hosts
+
+~~~SECTION:handouts~~~
+
+****
+
+In most cases it should be enough to verify the services are running and watch for errors in the journal to verify
+Candlepin and Pulp are working. Candlepin is a Java application running on Tomcat and Pulp requires a bunch of services
+starting with pulp, pulpworker being instanciated multiple times with the exact number depending on your tuning.
+Best check known is check_systemd_service which only verifies the service being active. To query the journal another check is
+needed but there is none to recommend.
+
+~~~PAGEBREAK~~~
+
+Checking the functionality is another way to monitor Katello. The two checks check_katello_sync for the synchronization of the Products and
+check_katello_currency for the patch level of Hosts from Christian Stankowic are good ones to start with as the verify the most important
+functionalities. https://github.com/stdevel?tab=repositories&q=katello
 
 ~~~ENDSECTION~~~

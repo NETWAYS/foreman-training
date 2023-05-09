@@ -59,8 +59,6 @@
 Puppet is written in ruby and provided as a true Open Source version and as an Enterprise version with additional features and
 packages.
 
-~~~PAGEBREAK~~~
-
 Independently of the version it runs on Linux, Unix and Windows. It can also configure some network devices. For configuration
 it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
 The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
@@ -81,7 +79,7 @@ A diagram showing this workflow is provided on the next page.
 !SLIDE smbullets small printonly
 # Puppet Workflow
 
-<img src="./_images/puppet_workflow.png" style="float: center; width: 450px; height: 376px;" alt="Puppet Workflow">
+<img src="./_images/puppet_workflow.png" style="float: center; width: 95%;" alt="Puppet Workflow">
 
 !SLIDE smbullets small
 # Foreman Puppet Integration
@@ -120,6 +118,7 @@ for a not already existing system. Also Foreman is integrated as a reporting tar
 * Objective:
  * Make Puppet code available to Puppet and Foreman
 * Steps:
+ * Enable Puppet and install the Foreman and Smart Proxy plugins to integrate it
  * Place Puppet modules in Puppet environment "production"
  * Import classes in Foreman
 * Optional:
@@ -139,6 +138,7 @@ for a not already existing system. Also Foreman is integrated as a reporting tar
 
 ****
 
+* Enable Puppet and install the Foreman and Smart Proxy plugins to integrate it
 * Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppetlabs/code/environments/production" on foreman.localdomain
 * Import the Puppet classes in Foreman using "Configure > Classes"
 
@@ -160,10 +160,24 @@ for a not already existing system. Also Foreman is integrated as a reporting tar
 
 ****
 
+### Enable Puppet and install the Foreman and Smart Proxy plugins to integrate it
+
+All this can be done using the Foreman installer, but as Katello's certificates need to be used we need to give also these parameters.
+
+    # foreman-installer --enable-foreman-plugin-puppet \
+    --foreman-proxy-puppet true \
+    --foreman-proxy-puppetca true \
+    --foreman-proxy-content-puppet true \
+    --enable-puppet \
+    --puppet-server true \
+    --puppet-server-foreman-ssl-ca /etc/pki/katello/puppet/puppet_client_ca.crt \
+    --puppet-server-foreman-ssl-cert /etc/pki/katello/puppet/puppet_client.crt \
+    --puppet-server-foreman-ssl-key /etc/pki/katello/puppet/puppet_client.key
+
 ### Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppetlabs/code/environments/production" on foreman.localdomain
 
      # scp -r host.localdomain:/home/training/puppetmodules.tar.gz /tmp
-     # cd /etc/puppetlabs/code/environments/production
+     # cd /etc/puppetlabs/code/environments/production/modules
      # tar xvzf /tmp/puppetmodules.tar.gz
 
 ### Import the Puppet classes in Foreman using "Configure > Classes"
@@ -207,11 +221,11 @@ If you follow the Puppet Role Profile Pattern something like this could be helpf
 
 Foreman does differentiate between two kinds of parameters.
 
+~~~PAGEBREAK~~~
+
 Parameters are global parameters in a very simple fashion. Their values can be of different types since 1.22, before that
 they could only be strings. Override is simply done by creating a parameter with the same name in a more specific scope.
 To Puppet they are presented as a global parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.
-
-~~~PAGEBREAK~~~
 
 Smart class parameters become available from imported Puppet classes and can have different types like boolean, hash
 or yaml. For this types an input validator can be created to verify user input. An override behavior and order can be
@@ -267,16 +281,18 @@ from unprivileged users.
 
 Navigate to "Configure > Classes" and select the class "training::user". In the "Smart Class Parameter" tab
 insert your name as Default Value for the id of the user, add a ssh public key as Default Value for ssh_pub_key,
-for the parameter sudo select override, set the key type to boolean and the default to true.
+for the parameter sudo set the parameter type to boolean and the default to true.
+All this requires you to check the box next to Override!
 
 Hint: To create a ssh key pair run "ssh-keygen". The key string required for the puppet module is the second part
 of the pub file.
 
 ### Assign the Puppet class in the host menu to one host
 
-Select one of your hosts from the "Hosts > All Hosts" view and click "Edit". In the "Puppet Classes" tab select the
-class "training::user", afterwards you can see and change the parameter values in the "Parameter" tab. Press "Submit"
-to save your changes.
+Select one of your hosts from the "Hosts > All Hosts" view and click "Edit".
+On the "Host" tab select the production environment and your server as Puppet and Puppet CA Proxy.
+On the "Puppet ENC" tab select the class "training::user", afterwards you can see and change the parameter values in the "Parameter" tab.
+Press "Submit" to save your changes.
 
 !SLIDE smbullets small
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Trigger Puppet agent run and inspect the report
@@ -322,6 +338,8 @@ Login to the host you assigned the class earlier and execute the following comma
 
 This will run the agent in test mode (one time in foreground with verbose output) so you will see the changes
 configured in the puppet class.
+
+An alternative would be to use "Run Puppet Once" on the host view to utilizie Remote Execution.
 
 ### Inspect the report of the Puppet agent run
 

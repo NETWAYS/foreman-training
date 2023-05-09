@@ -1,16 +1,14 @@
 !SLIDE smbullets small
 # Requirements - Operating System
 
-* Red Hat Enterprise Linux 7 & 8
- * EPEL repository
- * Optional and RHSCL Channel (for 7)
- * Module Streams (for 8)
-* CentOS, Scientific Linux, Oracle Linux 7
- * EPEL repository
- * SCLorg SIG repository (for 7)
- * Module Streams (for 8)
-* Debian 10 (Buster)
-* Ubuntu 18.04 (Bionic)
+* Red Hat Enterprise Linux 8
+ * No EPEL repository
+ * Module Streams
+* CentOS Stream, AlmaLinux, Rocky Linux, Oracle Linux 8
+ * No EPEL repository
+ * Module Streams
+* Debian 11 (Bullseye)
+* Ubuntu 20.04 (Focal)
 * All need the Puppetlabs Repository
 
 ~~~SECTION:handouts~~~
@@ -31,27 +29,27 @@ Some plugins especially Katello will limit the available plattform.
 !SLIDE smbullets small
 # Requirements - Puppet & Facter
 
-* All-in-one and FHS packaging model are both supported for Puppet 5 and 6
- * Puppet 3 is no longer supported with Foreman 1.17 and higher
- * Puppet 4 is no longer supported with Foreman 1.24 and higher
+* Only All-in-one packaging model from Puppet is supported for Puppet 7
+ * Puppet 6 is technically still supported, but EOL
+ * Older Puppet versions are not supported
  * Puppet Enterprise is not supported
-* Puppet Master and Puppet Server are both supported
-* Structured Facts are supported with Foreman >= 1.12
+* Puppetserver gets telemetry disabled by default
+* Structured Facts are used by default
 
 ~~~SECTION:handouts~~~
 
 ****
 
-Puppet 5.x and 6.x is supported with current versions for All-in-one and Filesystem-Hierarchy-Standard packaging standard.
-Puppet 3.x support was dropped with Foreman 1.17, Puppet 4.x was dropped with 1.24.
+Puppet 7 is supported with current versions for All-in-one packaging standard by Puppet.
+Support for Puppet 6 was not dropped yet, but this version has reached end of life, older versions are no longer supported.
 Puppet Enterprise is not supported, but can work with manual tweaking of the setup.
 
 ~~~PAGEBREAK~~~
 
-Both versions of the central server in a Puppet environment are supported. If the All-in-one package of Puppet
-is found it will use the Puppet Server, in all other cases it will setup Puppet Master using Apache and Passenger.
+Puppetserver gets installed as central component and since the Foreman project wants to respect user’s privacy,
+it disables the telemetry introduced by Puppetserver by default. You can opt-in if you want.
 
-Support for structured facts provided by Facter 2.x was added with Foreman 1.12.
+Structured facts are used by default, so no need for legacy facts anymore.
 
 ~~~ENDSECTION~~~
 

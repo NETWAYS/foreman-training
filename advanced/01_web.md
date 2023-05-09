@@ -9,8 +9,8 @@
 * Most views provide additional searches
 * Bookmark and share your own search
 
-<div style="text-align:right">
-<img src="./_images/foreman-searches.png" style="float: right, max-width:200px; max-height: 250px; width: auto; height: auto; margin-top: 50px; margin-right: 290px" alt="Foreman Searches"/>
+<div style="text-align:center">
+<img src="./_images/foreman-searches.png" style="float: center; max-width: 95%; max-height: 300px; width: auto; height: auto; border-style: solid; border-width: 1px;" alt="Foreman Searches"/>
 </div>
 
 ~~~SECTION:handouts~~~
@@ -35,12 +35,12 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 # Trends
 
 * Graphs changes in your enviroment
-* Configured in the WebGUI and collected by a cronjob
+* Configured in the WebGUI and collected by a background task
 * Internal Host parameters or Facts provided by Configuration Management
 * Moved to a separate plugin with Foreman 2.2
 
-<div style="text-align:right">
-<img src="./_images/foreman-trend-puppetversion.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 50px; margin-right: 260px" alt="Foreman Trends"/>
+<div style="text-align:center">
+<img src="./_images/foreman-trend-puppetversion.png" style="float: center; max-width: 95%; max-height: 300px; width: auto; height: auto; border-style: solid; border-width: 1px;" alt="Foreman Trends"/>
 </div>
 
 ~~~SECTION:handouts~~~
@@ -49,7 +49,7 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 
 <br/>
 Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
-"Monitor > Trends" and a cronjob performs the data collection. By default this cronjob runs every 30 minutes matching 
+"Monitor > Trends" and collected by the background task "Trend Counter Job". By default this tasks runs every 30 minutes matching 
 Puppet's default run interval because most trends will be based on the facts collected by the configuration management
 solution, another source are Foreman's internal parameters like the operatingsystem of the host.
 

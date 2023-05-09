@@ -7,7 +7,7 @@
 # Training
 
 This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
-The configuration management solution used will be Puppet.
+The configuration management solution used will be Puppet and/or Ansible.
 
 * Foreman architecture
 * Installation
