@@ -63,3 +63,5 @@ The rendered content will be updated at least if we do a newer version of the ma
 will also be tagged on git.
 
 Material is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).
+
+Copyright (c) 2016 NETWAYS GmbH <info@netways.de>
