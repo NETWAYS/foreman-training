@@ -1,26 +1,32 @@
 #!/bin/bash
 DIR=$(pwd)
 CLANG=${CLANG:-C.UTF-8}
-IMAGE=${IMAGE:-netways/showoff:0.19.6}
+IMAGE=${IMAGE:-netways/showoff:0.20.4}
 CNAME=${CNAME:-showoff}
 TRAINING=${TRAINING:-$(basename "$DIR")}
-DOCKER=${DOCKER:-$(command -v docker)}
+RUNTIME=${RUNTIME:-$(command -v docker)}
 GIT=${GIT:-$(command -v git)}
 SCRIPT_DIR=$(cd $(dirname $0); pwd -P)
 NO_RESET=${NO_RESET:-""}
 
-# Functions
-
+# Run given command in the showoff container
 execdocker () {
-  if [[ -n $($DOCKER ps -aq -f name=$CNAME 2> /dev/null) ]]; then
-    $DOCKER rm -f $CNAME 2> /dev/null
+  if [[ -n $($RUNTIME ps -aq -f name=$CNAME 2> /dev/null) ]]; then
+    $RUNTIME rm -f $CNAME 2> /dev/null
   fi
 
-  $DOCKER run \
+  case $($RUNTIME -v) in
+      *podman*) USERNS=keep-id;;
+      *)        USERNS=host;;
+  esac
+
+  $RUNTIME run \
     -it \
     --name=$CNAME \
     --rm \
     -p 9090:9090 \
+    --user $(id -u) \
+    --userns=$USERNS \
     -v "$DIR:/training:z" \
     -e "LANG=$CLANG" \
     -e "LANGUAGE=$CLANG" \
@@ -29,25 +35,34 @@ execdocker () {
     $1
 }
 
+# Generate handouts as showoff HTML and convert HTML to PDF
 printhandouts () {
   echo -e "\n--- RUN SHOWOFF STATIC FOR HANDOUTS ---"
   execdocker "showoff static print"
+  # Removes showoff's Section markers for PDF output
+  sed -i 's/~~~.*~~~ //g' static/index.html
   echo -e "\n--- RUN WKHTMLTOPDF FOR HANDOUTS ---"
-  execdocker "wkhtmltopdf --load-error-handling ignore -s A5 --print-media-type --footer-left [page] --footer-right ©NETWAYS static/index.html ${TRAINING}_${1}-handouts.pdf"
+  execdocker "wkhtmltopdf --enable-local-file-access --load-error-handling ignore -s ${FORMAT} --print-media-type --footer-left [page] --footer-right ©NETWAYS static/index.html ${TRAINING}_${1}_${FORMAT}-handouts.pdf"
 }
 
+# Generate exercises as showoff HTML and convert HTML to PDF
 printexercises () {
   echo -e "\n--- RUN SHOWOFF STATIC FOR EXERCISES ---"
   execdocker "showoff static supplemental exercises"
+  # Removes showoff's Section markers for PDF output
+  sed -i 's/~~~.*~~~ //g' static/index.html
   echo -e "\n--- RUN WKHTMLTOPDF FOR EXERCISES ---"
-  execdocker "wkhtmltopdf --load-error-handling ignore -s A5 --print-media-type --footer-left [page] --footer-right ©NETWAYS static/index.html ${TRAINING}_${1}-exercises.pdf"
+  execdocker "wkhtmltopdf --enable-local-file-access --load-error-handling ignore -s ${FORMAT} --print-media-type --footer-left [page] --footer-right ©NETWAYS static/index.html ${TRAINING}_${1}_${FORMAT}-exercises.pdf"
 }
 
+# Generate solutions as showoff HTML and convert HTML to PDF
 printsolutions () {
   echo -e "\n--- RUN SHOWOFF STATIC FOR SOLUTIONS ---"
   execdocker "showoff static supplemental solutions"
+  # Removes showoff's Section markers for PDF output
+  sed -i 's/~~~.*~~~ //g' static/index.html
   echo -e "\n--- RUN WKHTMLTOPDF FOR SOLUTIONS ---"
-  execdocker "wkhtmltopdf --load-error-handling ignore -s A5 --print-media-type --footer-left [page] --footer-right ©NETWAYS static/index.html ${TRAINING}_${1}-solutions.pdf"
+  execdocker "wkhtmltopdf --enable-local-file-access --load-error-handling ignore -s ${FORMAT} --print-media-type --footer-left [page] --footer-right ©NETWAYS static/index.html ${TRAINING}_${1}_${FORMAT}-solutions.pdf"
 }
 
 setlayout () {
@@ -55,8 +70,11 @@ setlayout () {
   ln -s global/layouts/$1.css .
 }
 
-if [[ ! -x $DOCKER ]]; then
-  echo "Command 'docker' not found, exit"
+# Create reference if it doesn't exist
+ln -sf . global
+
+if [[ ! -x $RUNTIME ]]; then
+  echo "Command '${RUNTIME}' not found, exit"
   exit 1
 fi
 
@@ -95,6 +113,27 @@ case "$LAYOUT" in
 esac
 
 setlayout $LAYOUT
+
+echo -e "\n### FORMAT ###"
+
+echo -e "
+   [1] A5
+   [2] A4\n"
+
+FORMAT_DEFAULT=1
+read -p "Which format? [1-2] (Default: "$FORMAT_DEFAULT"): " FORMAT
+FORMAT="${FORMAT:-$FORMAT_DEFAULT}"
+
+while [[ $FORMAT != [1-2] ]]; do
+  echo "Invalid option, try again..."
+  read -p "Which format? [1-2] (Default: "$FORMAT_DEFAULT"): " FORMAT
+  FORMAT="${FORMAT:-$FORMAT_DEFAULT}"
+done
+
+case "$FORMAT" in
+  1) FORMAT=A5;;
+  2) FORMAT=A4;;
+esac
 
 echo -e "\n### MODE ###"
 
@@ -143,4 +182,3 @@ elif [[ $MODE == 2 ]]; then
        printsolutions $VERSION;;
   esac
 fi
-

@@ -1,3 +1,6 @@
-stats
 .vagrant
 *.pdf
+.DS_Store
+*.pdf
+stats/
+static/
