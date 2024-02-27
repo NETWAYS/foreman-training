@@ -74,7 +74,7 @@ the provided URL.
 
 ### Adjust and deploy the PXE default configuration
 
-Navigate to "Hosts > Provisioning Templates" and click on "Build PXE Default" to deploy the "PXELinux global default"
+Navigate to "Hosts > Templates > Provisioning Templates" and click on "Build PXE Default" to deploy the "PXELinux global default"
 on the TFTP server which includes a snippet "pxelinux_discovery".
 
 ### Enable the discovery widget on the dashboard

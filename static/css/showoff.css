@@ -512,13 +512,14 @@ img#disconnected {
   background-color: #dedede;
 }
 #askedQuestions li:hover:after {
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
   padding: 0 8px;
   float: right;
   content: "\f057"; /* fa-times-circle */
+  font-weight: 600;
 }
 #askedQuestions li.closed {
   text-decoration: line-through;
@@ -618,6 +619,28 @@ pre.highlight code .highlightedLine {
   overflow: hidden;
 }
 
+/* Fix spaces in line numbered code blocks */
+pre.highlight td.hljs-ln-numbers {
+    width: 1.5em;
+    text-align: right;
+    padding-right: 0.5em;
+    background-color: white;
+}
+
+pre.highlight td.hljs-ln-code {
+    padding-left: 0.5em;
+}
+
+pre.highlight tr:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+/* Do not add borders to line-numbered lines */
+pre.highlight tr:not(:last-child) {
+    border-bottom: none;
+}
+
 /* Diagram styling: overriding mermaid.css as needed */
 .language-render-diagram,
 .language-render-diagram .noteText,
@@ -636,10 +659,11 @@ pre.highlight code .highlightedLine {
 }
 
 .execute:after {
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
   content: "\F144";
   position: absolute;
   right: .5em;
+  font-weight: 600;
 }
 
 .executing:after {
@@ -650,8 +674,11 @@ pre.highlight code .highlightedLine {
 }
 
 .executing:hover { cursor: wait; }
-/* End code execution */
 
+.execute.numbers {
+  padding-bottom: 1.5em;
+}
+/* End code execution */
 
 #tips, #preshow_timer {
   display:inline;
@@ -681,7 +708,7 @@ pre.highlight code .highlightedLine {
   text-decoration: none;
 }
 #toc a::after {
-  content: leader(".") target-counter(attr(href), page);
+  content: leader(".") target-counter(attr(href url), page);
 }
 
 /**********************************
@@ -796,9 +823,10 @@ form .element {
 .slide.answerkey input::before {
   margin-left: -1em;
   vertical-align: top;
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
   font-weight: bold;
   text-decoration: none;
+  font-weight: 600;
 }
   /* Be careful with order here; these rules depend on cascading order */
   .slide.answerkey input::before,
@@ -1046,11 +1074,12 @@ form .element {
 
 /* Add the disclosure triangles */
 #stats div.row:before {
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: normal;
   font-size: 1.25em;
   text-decoration: inherit;
+  font-weight: 600;
 }
   #stats div.row.top:hover:before {
     position: absolute;
@@ -1173,16 +1202,17 @@ form .element {
 }
 
   .callout:before {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     font-style: normal;
     font-weight: normal;
     font-size: 2em;
     text-decoration: inherit;
     position: absolute;
     left: 0.3em;
+    font-weight: 600;
   }
   .callout:after {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     font-style: normal;
     font-weight: normal;
     font-size: 1.5em;
@@ -1191,6 +1221,7 @@ form .element {
     left: 0.5em;
     top: 0.65em;
     color: #fff;
+    font-weight: 600;
   }
 
   .callout.info,
@@ -1211,7 +1242,7 @@ form .element {
   .callout.exercise:before     { content: "\f41b"; } /* fa-pencil-square */
   .callout.stop:before         { content: "\f05e"; } /* fa-ban */
   .callout.thumbsup:before     { content: "\f164"; } /* fa-thumbs-up */
-  .callout.conversation:before { content: "\f0e5"; } /* fa-comment */
+  .callout.conversation:before { content: "\f075"; } /* fa-comment */
   .callout.glossary:before     { content: "\f02d"; } /* fa-book */
 
   .callout.terminal:before     { content: "\f0c8"; } /* fa-square */
@@ -1246,11 +1277,12 @@ a.term {
   text-decoration: none;
 }
 a.term:after {
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";;
   font-size: 0.8em;
   vertical-align: super;
   content: "\f27b";
   text-decoration: none;/* fa-commenting-o */
+  font-weight: 600;
 }
 
 

@@ -40,7 +40,7 @@ it is provided by the Foreman Webinterface.
 
 ~~~PAGEBREAK~~~
 
-More details on: https://docs.theforeman.org/3.5/Administering_Project/index-katello.html#Managing_Security_Compliance_admin
+More details on: https://docs.theforeman.org/3.9/Administering_Project/index-katello.html#Managing_Security_Compliance_admin
 
 ~~~ENDSECTION~~~
 
@@ -159,22 +159,22 @@ Or to get the latest version from git, download ans extract the tarball.
     # tar xvzf foreman_scap_client-master.tar.gz
     # mv puppet-foreman_scap_client-master/ foreman_scap_client
 
-Import the Puppet Class from the WebGUI ("Configure > Environments" or "Configure > Classes").
+Import the Puppet Class from the WebGUI ("Configure > Puppet ENC > Environments" or "Configure > Puppet ENC > Classes").
 
 For Ansible support install the role on the Ansible control machine.
 
     # ansible-galaxy install --roles-path /etc/ansible/roles/ theforeman.foreman_scap_client
 
-Import the Ansible Rolle from the WebGUI ("Configure > Roles").
+Import the Ansible Rolle from the WebGUI ("Configure > Ansible > Roles").
 
 ### Parameterize the Puppet Module / Ansible Role
 
 Depending on the Policy file used some parameters need to be changed, in our case we need to fetch remote resources.
 
-For Puppet navigate to "Configure > Smart Class Parameters" and select "fetch_remote_resources" from the list.
+For Puppet navigate to "Configure > Puppet ENC > Smart Class Parameters" and select "fetch_remote_resources" from the list.
 In the form select Override and set the Default Value to "true", then press "Submit".
 
-For Ansible navigate to "Configure > Variables" and select "foreman_scap_client_fetch_remote_resources" from the list.
+For Ansible navigate to "Configure > Ansible > Variables" and select "foreman_scap_client_fetch_remote_resources" from the list.
 In the form select Override and set the Default Value to "true", then press "Submit".
 
 ### Create a Hostgroup
@@ -188,11 +188,12 @@ Simply name the Hostgroup "CentOS" with only the "Name" and the "Openscap Proxy"
 
 Get the zip archive from https://github.com/ComplianceAsCode/content/releases which includes the Policy files.
 The Foreman plugin requires the datastream files which have "ds" in their name. You can upload them via
-"Hosts > SCAP content" and name it matching your operatingsystem. We are coosing CentOS 8 which is an automatically
-adjusted file based on the one for RHEL 8.
+"Hosts > Compliance > SCAP content" and name it matching your operatingsystem. We are choosing CentOS 8 which is an automatically
+adjusted file based on the one for RHEL 8. 
+Currently the URL of the OVAL files has to be adjusted to https://access.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2 or better to https://security.almalinux.org/oval/org.almalinux.alsa-8.xml.bz2.
 
-Content files are avaiable now so navigate to "Hosts > Policies" to create a "New Policy".
-Choose "Puppet" or Ansible as Deployment Option, name it, choose SCAP Content provided and XCCDF Profile you prefer,
+Content files are avaiable now so navigate to "Hosts > Compliance > Policies" to create a "New Policy".
+Choose "Puppet" or "Ansible" as Deployment Option, name it, choose SCAP Content provided and XCCDF Profile you prefer,
 schedule it "Weekly" on "Sunday" and assign it to Hostgroup "CentOS". If you have no preference, the "Standard System Security Profile"
 is a good one to start.
 
@@ -204,7 +205,7 @@ Assign this Hostgroup to one off your matching systems.
 
 ### Create an Activation key
 
-Navigate to "Content > Activation Keys" and click on "Create Activation Key".
+Navigate to "Content > Lifecycle > Activation Keys" and click on "Create Activation Key".
 In the form name it "CentOS" and simply select the Environment "Library" and the Content View "Default Organisation View" representing upstream.
 
 !SLIDE supplemental solutions
@@ -228,7 +229,7 @@ Alternatively it could use Puppet certificates so feel free to skip this step if
 
 Login to the host you assigned the Hostgroup with the Policy and execute
 
-   # yum install -y http://yum.theforeman.org/client/3.5/el8/x86_64/foreman-client-release.rpm
+   # yum install -y http://yum.theforeman.org/client/3.9/el8/x86_64/foreman-client-release.rpm
 
 Depending on the Puppet Module or Ansible Role version this could also be done by setting one of its parameters.
 
@@ -247,16 +248,16 @@ If using Ansible you can create a report using remote execution job "Run OpenSCA
 The Puppet agent prepared a cronjob on your system, get it and execute its content. Depending on the number of rules it may take a while.
 
     # cat /etc/cron.d/foreman_scap_client_cron
-    # /usr/bin/foreman_scap_client 1
+    # /usr/bin/foreman_scap_client ds 1
 
 The upload to Foreman will happen automatically, currently there is no card for OpenSCAP on the host detail page, so you can access the report
-via the status by clicking on "Manage all statuses" and then "Compliance". Otherwise "Host > Reports" will give you a list of all reports.
+via the status by clicking on "Manage all statuses" and then "Compliance". Otherwise "Host > Compliance > Reports" will give you a list of all reports.
 Click on the column "Reported At" to get a simplified overview. Choose the action "Full Report" to get the html view generated by OpenSCAP which can be quite slow.
 
 ### Customize the Policy with a tailor file created with SCAP workbench
 
 Open SCAP workbench on your laptop, choose the content matching your operatingsystem release and select the choosen profile. Press Customize and name
 the Profile. In the new dialog select or unselect checks and click OK. Afterwards save the tailor file via "File > Save Customization Only".
-Upload this file to Foreman in the "Hosts > Tailoring Files" dialog and then edit the policy and rerun the Puppet agent and
+Upload this file to Foreman in the "Hosts > Compliance > Tailoring Files" dialog and then edit the policy and rerun the Puppet agent or Ansible and
 Upload of the report.
 

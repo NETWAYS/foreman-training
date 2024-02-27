@@ -46,7 +46,7 @@ Command: dnf config-manager --set-enabled powertools
 * Make Foreman and Katello repository available
 
 Install the release packages provided by the Foreman and Katello repository to make it available for package
-installation of Foreman and its components. We use Foreman 3.5 and Katello 4.7.
+installation of Foreman and its components. We use Foreman 3.9 and Katello 4.11.
 
 URL: http://yum.theforeman.org
 
@@ -103,17 +103,17 @@ You can simply use the dnf config-manager, but editing the configuration directl
 
 Install the release packages provided by the Foreman and Katello repository to make it available for package
 installation of Foreman, Katello and its components. Taking the matching combination is required, for example
-Foreman 3.5 and Katello 4.7 form one release.
+Foreman 3.9 and Katello 4.11 form one release.
 
-    # dnf install http://yum.theforeman.org/releases/3.5/el8/x86_64/foreman-release.rpm \
-         http://yum.theforeman.org/katello/4.7/katello/el8/x86_64/katello-repos-latest.rpm -y
+    # dnf install http://yum.theforeman.org/releases/3.9/el8/x86_64/foreman-release.rpm \
+         http://yum.theforeman.org/katello/4.11/katello/el8/x86_64/katello-repos-latest.rpm -y
 
 ### Enable the modules for katello and pulpcore
 
 Enabling the modules will enable module dependencies. If you see errors about conflicts with the default modules,
 you can ignore them as this will be solved after module activation.
 
-    # dnf module enable katello:el8 pulpcore:el8
+    # dnf module enable katello:el8 -y
 
 ### Install foreman-installer-katello
 
@@ -162,7 +162,7 @@ Install the package "foreman-installer-katello" from the now available repositor
 
 #### Notes:
 
-TFTP can use its default configuration.
+TFTP should explizitly set the servername to its IP address.
 
 DNS should be enabled and configured with the following parameters:
 
@@ -203,6 +203,7 @@ To install run the following command:
     # foreman-installer \
     --scenario katello \
     --foreman-proxy-tftp=true \
+    --foreman-proxy-tftp-servername 10.0.0.2 \
     --foreman-proxy-dns=true \
     --foreman-proxy-dns-interface=enp1s0 \
     --foreman-proxy-dns-zone=localdomain \
@@ -221,9 +222,11 @@ This will output on success something similar:
     Success!
     * Foreman is running at https://foreman.localdomain
         Initial credentials are admin / PASSWORD
-    * Foreman Proxy is running at https://foreman.localdomain:8443
-    * Puppetmaster is running at port 8140
-    * The full log is at /var/log/foreman-installer/foreman-installer.log
+    * To install an additional Foreman proxy on separate machine continue by running:
+  
+        foreman-proxy-certs-generate --foreman-proxy-fqdn "$FOREMAN_PROXY" --certs-tar "/root/$FOREMAN_PROXY-certs.tar"
+    * Foreman Proxy is running at https://foreman.localdomain:9090
+
 
 With the provided credentials login to 'https://foreman.localdomain' using your browser.
 

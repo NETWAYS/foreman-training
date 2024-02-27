@@ -140,7 +140,7 @@ for a not already existing system. Also Foreman is integrated as a reporting tar
 
 * Enable Puppet and install the Foreman and Smart Proxy plugins to integrate it
 * Place Puppet modules found in "/home/training" on host.localdomain into "/etc/puppetlabs/code/environments/production" on foreman.localdomain
-* Import the Puppet classes in Foreman using "Configure > Classes"
+* Import the Puppet classes in Foreman using "Configure > Puppet ENC > Classes"
 
 #### Optional:
 
@@ -167,7 +167,6 @@ All this can be done using the Foreman installer, but as Katello's certificates 
     # foreman-installer --enable-foreman-plugin-puppet \
     --foreman-proxy-puppet true \
     --foreman-proxy-puppetca true \
-    --foreman-proxy-content-puppet true \
     --enable-puppet \
     --puppet-server true \
     --puppet-server-foreman-ssl-ca /etc/pki/katello/puppet/puppet_client_ca.crt \
@@ -180,9 +179,9 @@ All this can be done using the Foreman installer, but as Katello's certificates 
      # cd /etc/puppetlabs/code/environments/production/modules
      # tar xvzf /tmp/puppetmodules.tar.gz
 
-### Import the Puppet classes in Foreman using "Configure > Classes"
+### Import the Puppet classes in Foreman using "Configure > Puppet ENC > Classes"
 
-Navigate to "Configure > Classes" in the WebGUI and click on "Import from foreman.localdomain".
+Navigate to "Configure > Puppet ENC > Classes" in the WebGUI and click on "Import from foreman.localdomain".
 It will query you to select the changes you want to realize, so select the Environment "production" which should show you
 classes and press "Update". If you want to do the optional step press "Cancel" instead!
 
@@ -279,7 +278,7 @@ from unprivileged users.
 
 ### Set defaults to the Smart class parameters provided by the imported class
 
-Navigate to "Configure > Classes" and select the class "training::user". In the "Smart Class Parameter" tab
+Navigate to "Configure > Puppet ENC > Classes" and select the class "training::user". In the "Smart Class Parameter" tab
 insert your name as Default Value for the id of the user, add a ssh public key as Default Value for ssh_pub_key,
 for the parameter sudo set the parameter type to boolean and the default to true.
 All this requires you to check the box next to Override!

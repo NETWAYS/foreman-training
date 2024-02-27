@@ -63,7 +63,7 @@ includes the callback to upload facts and reports.
 On a separate Ansible control machine a callback plugin can be activated to upload facts and reports to Foreman, if you still want to use Ansible
 independent from Foreman. Forthermore a script could be deployed to use Foreman as dynamic inventory.
 
-For more information have a look at the plugin documentation: https://docs.theforeman.org/3.5/Managing_Configurations_Ansible/index-katello.html
+For more information have a look at the plugin documentation: https://docs.theforeman.org/3.9/Managing_Configurations_Ansible/index-katello.html
 
 ~~~ENDSECTION~~~
 
@@ -152,8 +152,8 @@ You can run this on the commandline or use the Job "Ansible Roles - Install from
 
 ### Import roles and assign them
 
-Navigate to "Configure > Roles" and import using "Import from foreman.localdomain".
-Afterwards navigate to the host and edit them to assign the roles in the new "Ansible Roles" tab.
+Navigate to "Configure > Ansible > Roles" and import using "Import from foreman.localdomain".
+Afterwards navigate to the host and edit them to assign the roles in the new tab group "Ansible" on the tab "Roles".
 
 ### Play roles using the webinterface 
 
@@ -161,7 +161,7 @@ Navigate to the host and press "Run Ansible roles" from the "Schedule Remote Job
 
 ### Optional: Import variables and overwrite values
 
-Navigate to "Configure > Variables" and import using "Import from foreman.localdomain".
+Navigate to "Configure > Ansible > Variables" and import using "Import from foreman.localdomain".
 After the import set "ntp_manage_config" to "true" and "ntp_area" to your country code, e.g. "de" for Germany.
 
 !SLIDE smbullets small
@@ -234,13 +234,13 @@ The setup module gathers facts about the system and via callback uploads them to
 
 ****
 
-### Install Ansible using yum
+### Install Ansible using dnf
 
-    # dnf install ansible-core python39-requests -y
+    # dnf install ansible-core python3.12-requests -y
 
 ### Configure callback plugin 
 
-    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.5/el8/x86_64/
+    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.9/el8/x86_64/
     # dnf install ansible-collection-theforeman-foreman -y
     # vi /etc/ansible/ansible.cfg
     [defaults]

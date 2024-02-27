@@ -1,10 +1,10 @@
-/* ShowOff JS Logic */
+/* Showoff JS Logic */
 
-var ShowOff = {};
+var Showoff = {};
 
 var preso_started = false
 var slidenum = 0
-var presenterSlideNum = 0
+var presenterSlideNum = null
 var slideTotal = 0
 var slides
 var currentSlide
@@ -22,10 +22,12 @@ var section = 'handouts'; // default to showing handout notes for display view
 var slideStartTime = new Date().getTime()
 var activityIncomplete = false; // slides won't advance when this is on
 
-var loadSlidesBool
-var loadSlidesPrefix
+var loadSlidesBool;
 
 var mode = { track: true, follow: true };
+
+// Make sure we have a sane value here
+location.root = location.root || location.pathname;
 
 // global variable to register tours with
 var tours = {};
@@ -52,7 +54,7 @@ document.cookie.split(';').forEach( function(item) {
 
 $(document).on('click', 'code.execute', executeCode);
 
-function setupPreso(load_slides, prefix) {
+function setupPreso(load_slides) {
 	if (preso_started) {
 		alert("already started");
 		return;
@@ -73,8 +75,7 @@ function setupPreso(load_slides, prefix) {
 
 	// Load slides fetches images
 	loadSlidesBool = load_slides;
-	loadSlidesPrefix = prefix || '/';
-	loadSlides(loadSlidesBool, loadSlidesPrefix);
+	loadSlides(loadSlidesBool);
 
   setupSideMenu();
 
@@ -177,8 +178,8 @@ function setupPreso(load_slides, prefix) {
 
 }
 
-function loadSlides(load_slides, prefix, reload, hard) {
-  var url = loadSlidesPrefix + "slides";
+function loadSlides(load_slides, reload, hard) {
+  var url = "slides";
   if (reload) {
     url += "?cache=clear";
   }
@@ -192,18 +193,18 @@ function loadSlides(load_slides, prefix, reload, hard) {
       }
       else {
         $("#slides img").batchImageLoad({
-          loadingCompleteCallback: initializePresentation(prefix)
+          loadingCompleteCallback: initializePresentation()
         });
       }
     })
   } else {
     $("#slides img").batchImageLoad({
-      loadingCompleteCallback: initializePresentation(prefix)
+      loadingCompleteCallback: initializePresentation()
     })
   }
 }
 
-function initializePresentation(prefix) {
+function initializePresentation() {
 	// unhide for height to work in static mode
   $("#slides").show();
 
@@ -240,6 +241,10 @@ function initializePresentation(prefix) {
 
       // then add focus on any lines marked
       highlightLines(block);
+
+      if($(block).hasClass('numbers')) {
+        hljs.lineNumbersBlock(block);
+      }
 
     } catch(e) {
       console.log('Syntax highlighting failed on ' + $(this).closest('div.slide').attr('id'));
@@ -399,7 +404,7 @@ function setupSideMenu() {
 
   $('#fileDownloads').click(function() {
     closeMenu();
-    window.open('/download');
+    window.open('download');
   })
 
   $("#paceSlower").click(function() {
@@ -670,12 +675,12 @@ function showTour(name, record) {
       if(record) {
         clientTours.push(name);
         document.cookieHash['tours'] = clientTours;
-        document.cookie = "tours="+JSON.stringify(clientTours);
+        document.cookie = "tours="+JSON.stringify(clientTours)+"; max-age=31536000; path=/;";
       }
 
       // this keeps track of the version of the presenter tour we've seen
       if(name == 'showoff:presenter:auto') {
-        document.cookie = "tourVersion="+tourVersion;
+        document.cookie = "tourVersion="+tourVersion+"; max-age=31536000; path=/;";
         document.cookieHash['tourVersion'] = tourVersion;
 
         // we don't need this anymore; let's save a byte or three
@@ -721,11 +726,13 @@ function showTour(name, record) {
 // get the value of an option=value class applied to a slide
 function getSlideOption(option) {
   var classes = currentSlide.attr('class').split(' ');
-  var match   = classes.find(function(item){
-    return (item.indexOf(option+'=') == 0);
-  });
 
-  return (match ? match.split('=')[1] : null);
+  for (var i=0; i < classes.length; i++) {
+    var item = classes[i].split('=');
+    if(item.length == 2 && item[0] == option) {
+      return item[1]
+    }
+  }
 }
 
 function checkSlideParameter() {
@@ -1257,7 +1264,8 @@ function renderForm(form) {
 function connectControlChannel() {
   if (interactive) {
     protocol     = (location.protocol === 'https:') ? 'wss://' : 'ws://';
-    ws           = new WebSocket(protocol + location.host + '/control');
+    path         = (location.root + '/control').replace('//', '/').replace('/presenter','');;
+    ws           = new WebSocket(protocol + location.host + path);
     ws.onopen    = function()  { connected();          };
     ws.onclose   = function()  { disconnected();       }
     ws.onmessage = function(m) { parseMessage(m.data); };
@@ -1792,7 +1800,7 @@ function reloadSlides (hard) {
   }
 
   if (confirm(message)) {
-    loadSlides(loadSlidesBool, loadSlidesPrefix, true, hard);
+    loadSlides(loadSlidesBool, true, hard);
   }
 }
 
@@ -1839,14 +1847,14 @@ var removeResults = function() {
   try { slaveWindow.removeResults() } catch (e) {};
 };
 
-var print = function(text) {
+var displayHUD = function(text) {
 	removeResults();
 	var _results = $('<div>').addClass('results').html('<pre>' + String(text).substring(0, 1500) + '</pre>');
 	$('body').append(_results);
 	_results.click(removeResults);
 
 	// if we're a presenter, mirror this on the display window
-  try { slaveWindow.print(text) } catch (e) {};
+  try { slaveWindow.displayHUD(text) } catch (e) {};
 };
 
 // Execute the first visible executable code block
@@ -1902,7 +1910,7 @@ function executeLocalCode(lang, codeDiv) {
   catch(e) {
     result = e.message;
   };
-  if (result != null) print(result);
+  if (result != null) displayHUD(result);
 }
 
 // request the server to execute a code block by path and index
@@ -1912,8 +1920,8 @@ function executeRemoteCode(lang, codeDiv) {
   var path  = slide.attr('ref');
 
   setExecutionSignal(true, codeDiv);
-  $.get('/execute/'+lang, {path: path, index: index}, function(result) {
-    if (result != null) print(result);
+  $.get('execute/'+lang, {path: path, index: index}, function(result) {
+    if (result != null) displayHUD(result);
     setExecutionSignal(false, codeDiv);
   });
 }
@@ -1990,11 +1998,11 @@ function setupPreShow(seconds) {
     $.each(data, function(i, n) {
       if(n == "preshow.json") {
         // has a descriptions file
-        $.getJSON("/file/_preshow/preshow.json", false, function(data) {
+        $.getJSON("file/_preshow/preshow.json", false, function(data) {
           preshow_des = data;
         })
       } else {
-        $('#preshow').append('<img ref="' + n + '" src="/file/_preshow/' + n + '"/>');
+        $('#preshow').append('<img ref="' + n + '" src="file/_preshow/' + n + '" class="preshow" />');
       }
     })
     preshow_images      = $('#preshow > img');
@@ -2059,7 +2067,7 @@ function stopPreShow() {
 	$('#tips').remove();
 	$('#preshow_timer').remove();
 
-	loadSlides(loadSlidesBool, loadSlidesPrefix);
+	loadSlides(loadSlidesBool);
 }
 
 function nextPreShowImage() {
@@ -2112,7 +2120,7 @@ function setupStats(data)
     }
   });
 
-  var location = window.location.pathname == '/presenter' ? '#' : '/#';
+  var location = window.location.pathname == 'presenter' ? '#' : '/#';
   var viewers  = data['viewers'];
   if (viewers) {
     if (viewers.length == 1 && viewers[0][3] == 'current') {

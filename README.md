@@ -18,15 +18,15 @@ In addition to the sources you can find the rendered material on
 [netways.github.io](https://netways.github.io/foreman-training)
 
 * [Presentation](https://netways.github.io/foreman-training)
-* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.7/foreman-training-handouts.pdf)
-* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.7/foreman-training-exercises.pdf)
-* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.7/foreman-training-solutions.pdf)
+* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.8/foreman-training-handouts.pdf)
+* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.8/foreman-training-exercises.pdf)
+* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.8/foreman-training-solutions.pdf)
 
 ## Provide your own training
 
 Feel free to use this material as it is to provide your own training.
 
-To run the presentation you will need [showoff 0.19.6](https://rubygems.org/gems/showoff/versions/0.19.6).
+To run the presentation you will need [showoff 0.20.4](https://rubygems.org/gems/showoff/versions/0.20.4).
 After installing it simply run showoff serve to get presenter mode with additional notes and display window to present to your students.
 
 For creating the rendered documents on your own run `showoff static print` (handouts),

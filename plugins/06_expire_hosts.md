@@ -74,7 +74,7 @@ Host would be expired on the date set
 
 ### Configure notifications in the settings menu
 
-Navigate to "Administer > Settings" and on the "ExpireHosts" tab set the "Expiry e-mail recipients" to
+Navigate to "Administer > Settings" and on the "Expire Hosts" tab set the "Expiry e-mail recipients" to
 admin@localdomain.
 
 ### Set a host to expire on its "Additional Information" tab

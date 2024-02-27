@@ -43,7 +43,7 @@ by contacting Foreman.
 When Foreman is told an installation is finished, it will clean up by changing the PXE configuration to local boot
 and change other configurations only need during provisioning.
 
-The Foreman manual provides some more detailed workflow diagrams: http://theforeman.org/manuals/3.5/index.html#4.4.6Workflow
+The Foreman manual provides some more detailed workflow diagrams: http://theforeman.org/manuals/3.9/index.html#4.4.6Workflow
 
 ~~~ENDSECTION~~~
 
@@ -140,10 +140,10 @@ This change needs a shutdown of the VM, it applys only to the VM after powering 
 * Objective:
  * Configure the system "pxe" in Foreman and start the installation
 * Steps:
- * Open Foreman's host dialog using "Host > Create Host"
+ * Open Foreman's host dialog using "Hosts > Create Host"
  * On the Host tab name it "pxe"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
- * On the Interface tab click edit to configure the interface with the MAC address, identifier "eth0", select Domain and Subnet and keep the suggested IP address.
+ * On the Interface tab click edit to configure the interface with the MAC address, select Domain and Subnet and keep the suggested IP address.
  * Unpause the VM
 
 ~~~SECTION:handouts~~~
@@ -176,10 +176,10 @@ in the Provisioning tab as Root password. This is an MD5 hash for being supporte
 
 ****
 
-* Open Foreman's host dialog using "Host > Create Host"
+* Open Foreman's host dialog using "Hosts > Create Host"
 * On the Host tab name it "pxe"
 * On the Operating system tab select the Architecture "x86_64", Operating System, Media, Partition table depending on your choice earlier and set a Root password of your choice
-* On the Interface tab click edit to configure the interface with the MAC address of the system created before, identifier "eth0", select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
+* On the Interface tab click edit to configure the interface with the MAC address of the system created before, select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
 * Unpause the virtual machine
 
 
@@ -192,7 +192,7 @@ in the Provisioning tab as Root password. This is an MD5 hash for being supporte
 
 ****
 
-### Open Foreman's host dialog using "Host > Create Host"
+### Open Foreman's host dialog using "Hosts > Create Host"
 
 ### On the Host tab name it "pxe"
 
@@ -202,10 +202,10 @@ Other options are not required yet
 
 Use "foreman1" if you have no preference for the root password.
 
-### On the Interface tab click edit to configure the interface with the MAC address of the system created before, identifier "eth0", select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
+### On the Interface tab click edit to configure the interface with the MAC address of the system created before, select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
 
 On the Interface tab click edit to configure the interface with the MAC address of the system created before (which could be found on the Details
-view on the NIC or if paused in the console), identifier "eth0", select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
+view on the NIC or if paused in the console), keep identifier empty, select Domain "localdomain" and Subnet "foreman" and keep the suggested IP address
 which will be a random one free in the range of the subnet.
 
 ### Unpause the virtual machine

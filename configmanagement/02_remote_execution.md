@@ -37,7 +37,7 @@ It also allows to schedule jobs or reoccurring execution.
 
 With the OpenSCAP plugin installed in addition an option to run scans on demand is added.
 
-More details on: https://docs.theforeman.org/3.5/Managing_Hosts/index-katello.html#Configuring_and_Setting_Up_Remote_Jobs_managing-hosts
+More details on: https://docs.theforeman.org/3.9/Managing_Hosts/index-katello.html#Configuring_and_Setting_Up_Remote_Jobs_managing-hosts
 
 ~~~ENDSECTION~~~
 
@@ -191,7 +191,7 @@ The default templates provided depend on the installed plugins and have evolved 
 
 ### Create a Job Template to run ping with default values for count and target and input field for target
 
-Navigate to "Hosts > Job templates" and click "New Job Templates". As a template use something like this:
+Navigate to "Hosts > Templates > Job templates" and click "New Job Templates". As a template use something like this:
 
     ping -c 10 <%= input("ping_target").blank? ? "8.8.8.8" : input("ping_target") %>
 
@@ -272,7 +272,7 @@ On Debian/Ubuntu:
 
     # apt install -y cockpit-system
 
-The websocket and access to it is not required, so installting this subpackage is enough, but you can add others for more features.
+The websocket and access to it is not required, so installing this subpackage is enough, but you can add others for more features.
 
 ### Access the webconsole from the host view
 

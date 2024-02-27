@@ -73,17 +73,17 @@ Furthermore you can set which organization and location should be his default on
 Navigate to "Administer > Roles" and press "Create role", name it "Selfservice", select Organization and Location and save it by clicking "Submit".
 Afterwards you can add filters to the role.
 
-Resource         | Permissions                                                       | Unlimited | Search
------------------|-------------------------------------------------------------------|-----------|----------------------
-Host             | build_hosts, create_hosts                                         |     X     | none
-Host             | edit_hosts, power_hosts, console_hosts, view_hosts, destroy_hosts |           | owner = current_user
-Compute Resource | view_compute_resources, create_compute_resources_vms              |     X     | none
-Architecture     | view_architectures                                                |     X     | none
-Operatingsystem  | view_operatingsystems                                             |     X     | none
-Ptable           | view_ptables                                                      |     X     | none
-Medium           | view_media                                                        |     X     | none
-Subnet           | view_subnets                                                      |     X     | none
-Domain           | view_domains                                                      |     X     | none
+Resource         | Permissions                                                                       | Unlimited | Search
+-----------------|-----------------------------------------------------------------------------------|-----------|----------------------
+Host             | build_hosts, create_hosts                                                         |     X     | none
+Host             | edit_hosts, power_hosts, console_hosts, view_hosts, destroy_hosts, cockpit_hosts  |           | owner = current_user
+Compute Resource | view_compute_resources, create_compute_resources_vms                              |     X     | none
+Architecture     | view_architectures                                                                |     X     | none
+Operatingsystem  | view_operatingsystems                                                             |     X     | none
+Ptable           | view_ptables                                                                      |     X     | none
+Medium           | view_media                                                                        |     X     | none
+Subnet           | view_subnets                                                                      |     X     | none
+Domain           | view_domains                                                                      |     X     | none
 
 The additional permissions for Compute Resource allow to create also a virtual machine on it. 
 Subnet permissions are at least required for getting a IP address suggestion.

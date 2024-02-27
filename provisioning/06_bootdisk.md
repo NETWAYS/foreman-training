@@ -42,7 +42,7 @@ Depending on the Compute resource used the plugin adds disk based provisioning a
  * Install and configure the Bootdisk plugin
 * Steps:
  * Run the Foreman installer to install the Bootdisk plugin
- * Associate iPXE template to operating systems
+ * Associate iPXE and PXEGrub2 template to operating systems
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Install and configure the Bootdisk plugin
@@ -58,7 +58,7 @@ Depending on the Compute resource used the plugin adds disk based provisioning a
 ****
 
 * Run the Foreman installer to install the Bootdisk plugin
-* Associate iPXE template to operating systems
+* Associate iPXE and PXEGrub2 template to operating systems
 
 
 !SLIDE supplemental solutions
@@ -78,11 +78,12 @@ Add the parameters to enable the Bootdisk plugin
 
 ### Associate iPXE template to operating systems
 
-Navigate to "Hosts > Provisioning Templates" and search for the iPXE templates.
-"Kickstart default iPXE" should already be associated to CentOS so associate "Preseed default iPXE" to Debian.
-A template for Ubuntu Autoinstall is not provided yet, but this issue is already addressed.
+Navigate to "Hosts > Templates > Provisioning Templates" and search for the iPXE templates.
+"Kickstart default iPXE" should already be associated to CentOS so associate "Preseed default iPXE" to Debian and "Preseed default iPXE Autoinstall" to Ubuntu.
 
-Navigate to "Hosts > Operating systems" and select the iPXE templates associated.
+Repeat the same with the Templates "Preseed Default PXEGrub2" for Debian and "Preseed PXEGrub2 Autoinstall" for Ubuntu.
+
+Navigate to "Hosts > Provisionings Setup > Operating systems" and select the iPXE and PXEGrub2 templates associated.
 
 
 !SLIDE smbullets small

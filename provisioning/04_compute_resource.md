@@ -125,11 +125,11 @@ Validate your settings with "Test Connection" before clicking on "Submit".
 * Objective:
  * Create the virtual machine "compute" from Foreman Web GUI and start an unattended installation
 * Steps:
- * Open Foreman's host dialog using "Host > Create Host"
+ * Open Foreman's host dialog using "Hosts > Create Host"
  * On the Host tab name it "compute" and select to deploy on the Compute resource
  * On the Virtual Machine tab change the Storage type to "QCOW2"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
- * On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep 
+ * On the Interface tab click edit to configure the interface, select Domain and Subnet and keep 
 the suggested IP address, for the Libvirt options choose the virtual network "foreman".
 
 ~~~SECTION:handouts~~~
@@ -157,11 +157,11 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 
 ****
 
-* Open Foreman's host dialog using "Host > Create Host"
+* Open Foreman's host dialog using "Hosts > Create Host"
 * On the Host tab name it "compute" and select to deploy on the Compute resource
 * On the Virtual Machine tab change the Storage type to "QCOW2"
 * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
-* On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
+* On the Interface tab click edit to configure the interface, select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Create the virtual machine "compute" from Foreman
@@ -172,7 +172,7 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 
 ****
 
-### Open Foreman's host dialog using "Host > Create Host"
+### Open Foreman's host dialog using "Hosts > Create Host"
 
 ### On the Host tab name it "compute" and select to deploy on the Compute resource
 
@@ -181,9 +181,11 @@ libvirt like the virtual network configuration or virtual hardware.
 
 ### On the Virtual Machine tab change the Storage type to "QCOW2"
 
+And if required adjust the resources for the VM.
+
 ### On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
 
-### On the Interface tab click edit to configure the interface with identifier "eth0", select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
+### On the Interface tab click edit to configure the interface, select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
 
 No Mac address is required this time, but do not forget to change the Libvirt options "Network type" to "Virtual (NAT)" and "Network"
 to "foreman". 
