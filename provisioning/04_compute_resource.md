@@ -100,9 +100,16 @@ Switch to the user foreman and create an passphraseless ssh-key using ssh-keygen
 
 ### Copy the public key to the root account of the host "host.localdomain" using ssh-copy-id
 
-If you know the password of the account in the remote system ssh-copy-id simplifies key management.
+If you know the password of the account and authentication by password is allowed in the remote system ssh-copy-id simplifies key management.
 
     $ ssh-copy-id root@host.localdomain
+
+To allow authentication by password "PasswordAuthentication yes" and "PermitRootLogin yes" must be set in /etc/ssh/sshd_config on the Host.
+
+As an alternative you can manually copy the public key to .ssh/authorized_keys.
+
+    foreman.localdomain$ cat .ssh/id_*.pub
+    host.localdomain# echo "KEY" >> .ssh/authorized_keys
 
 ### Configure the Compute resource in Foreman Web GUI
 

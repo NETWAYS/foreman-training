@@ -131,7 +131,7 @@ Click on "Submit".
  * Prepare the installation of Debian using PXE
 * Steps:
  * Change the Installation media "Debian mirror" to the local repo (if provided)
- * Create the Operating system "Debian" with Major version "11", Description "Debian bullseye", Family "Debian", Release name "bullseye"
+ * Create the Operating system "Debian" with Major version "12", Description "Debian bookworm", Family "Debian", Release name "bookworm"
  * Associate the PXELinux template "Preseed default PXELinux" with Debian
  * Associate the Provision template "Preseed default" with Debian
  * Associate the finish template "Preseed default finish" with Debian
@@ -221,7 +221,7 @@ Click on "Submit".
 * Steps:
  * Provide the LiveCD as ISO and in extraced form
  * Create the Installation media "Ubuntu Autoinstall"
- * Create the Operating system "Ubuntu" with Major version "22.04", Minor version "2", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"
+ * Create the Operating system "Ubuntu" with Major version "22.04", Minor version "4", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"
  * Associate the PXELinux template "Preseed default PXELinux Autoinstall" with Ubuntu
  * Associate the User data template "Preseed Autoinstall cloud-init user data" with Ubuntu
  * Associate the finish template "Preseed default finish" with Ubuntu
@@ -248,7 +248,7 @@ Click on "Submit".
 
 * Provide the LiveCD as ISO and in extraced form
 * Create the Installation media "Ubuntu Autoinstall"
-* Create the Operating system "Ubuntu" with Major version "22.04", Minor version "3", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"
+* Create the Operating system "Ubuntu" with Major version "22.04", Minor version "4", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"
 * Associate the PXELinux template "Preseed default PXELinux Autoinstall" with Ubuntu
 * Associate the User data template "Preseed Autoinstall cloud-init user data" with Ubuntu
 * Associate the finish template "Preseed default finish" with Ubuntu
@@ -272,23 +272,23 @@ To provided as extraced add a subdirectory "22.04.3-amd64" and bind mount the IS
 In the training setup you can do this manually, in production use an fstab entry.
 
     # mkdir /var/www/html/pub/ubuntu
-    # mv /path/to/iso /var/www/html/pub/ubuntu/22.04.3-amd64.iso
-    # mkdir /var/www/html/pub/ubuntu/22.04.3-amd64
-    # mount /var/www/html/pub/ubuntu/22.04.3-amd64.iso /var/www/html/pub/ubuntu/22.04.3-amd64
+    # mv /path/to/iso /var/www/html/pub/ubuntu/22.04.4-amd64.iso
+    # mkdir /var/www/html/pub/ubuntu/22.04.4-amd64
+    # mount /var/www/html/pub/ubuntu/22.04.4-amd64.iso /var/www/html/pub/ubuntu/22.04.4-amd64
     # cd /var/www/html/pub/ubuntu
-    # ln -s 22.04.3-amd64.iso 22.04.3-x86_64.iso
-    # ln -s 22.04.3-amd64 22.04.3-x86_64
+    # ln -s 22.04.4-amd64.iso 22.04.4-x86_64.iso
+    # ln -s 22.04.4-amd64 22.04.4-x86_64
 
 ### Create the Installation media "Ubuntu Autoinstall"
 
 Navigate to "Hosts > Provisioning Setup > Installation media", click on "Create Medium", name it "Ubuntu Autoinstall", as "Path" use "http://foreman.localdomain/pub/ubuntu/$major.$minor-$arch"
 (http is required, https will not work) and select "Debian" as "Operating System Family".
 
-### Create the Operating system "Ubuntu" with Major version "22.04", Minor version "3", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"
+### Create the Operating system "Ubuntu" with Major version "22.04", Minor version "4", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"
 
 Navigate to "Hosts > Provisioning Setup > Operating systems" and click on "Create operating system".
-In the dialog on the "Operating System" tab set the "Name" to "Ubuntu", "Major version" to "22.04", "Minor version" to "3"
-"Description" to "Ubuntu Jammy Jellyfish", "Family" to "Ubuntu", "Release name" to "jammy".
+In the dialog on the "Operating System" tab set the "Name" to "Ubuntu", "Major version" to "22.04", "Minor version" to "4"
+"Description" to "Ubuntu Jammy Jellyfish", "Family" to "Debian", "Release name" to "jammy".
 Click on "Submit".
 
 ### Associate the PXELinux template "Preseed default PXELinux Autoinstall" with Ubuntu

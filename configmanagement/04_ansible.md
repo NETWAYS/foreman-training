@@ -268,3 +268,23 @@ The setup module gathers facts about the system and via callback uploads them to
 
     # ansible -m setup all
 
+
+!SLIDE smbullets small
+# Managing Foreman with Ansible
+
+* Ansible Collections provided by Foreman Project
+* Collection "operations"
+ * Manages Repositories
+ * Runs the Foreman installer
+ * Additional operative tasks
+* Collection "foreman"
+ * Manages objects in Foreman
+ * Provides Callback
+ * Provides Inventory
+
+~~~SECTION:handouts~~~
+****
+
+The Foreman Project provides two Ansible Collections at the Ansible Galaxy (see https://galaxy.ansible.com/ui/namespaces/theforeman/). The Collection called "operations" is for the initial setup and additional operative tasks after installation, so it manages the repositories, runs the Foreman installer and could be used later for backup or creation of certificates. The Collection called "foreman" is for managing the configuration inside Foreman, so you can manage all the objects, but it also provides the callback and inventory plugin.
+~~~ENDSECTION~~~
+
