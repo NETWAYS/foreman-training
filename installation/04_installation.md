@@ -6,9 +6,7 @@
 * Steps:
  * Start the virtual machine "foreman.localdomain" and connect via SSH
  * Make Puppet vendor repository for Puppet available
- * Make Powertools repository available
  * Make Foreman and Katello repository available
- * Enable the modules for katello and pulpcore
  * Install foreman-installer-katello
 
 
@@ -33,15 +31,9 @@ via SSH as 'root' so you can copy and paste to the console.
 * Make Puppet vendor repository available
 
 Install the release package provided by the Puppet vendor repository to make it available for package
-installation of open source version of Puppet. We will use Puppet 7.
+installation of open source version of Puppet. We will use Puppet 8.
 
-URL: http://yum.puppet.com/puppet7
-
-* Make Powertools repository available
-
-The repository is already configured as disabled, so it only needs enabling.
-
-Command: dnf config-manager --set-enabled powertools
+URL: http://yum.puppet.com/puppet8
 
 * Make Foreman and Katello repository available
 
@@ -49,10 +41,6 @@ Install the release packages provided by the Foreman and Katello repository to m
 installation of Foreman and its components. We use Foreman 3.9 and Katello 4.11.
 
 URL: http://yum.theforeman.org
-
-* Enable the modules for katello and pulpcore
-
-The modules provided by the Foreman project will enable all module dependencies to get the correct software versions.
 
 * Install foreman-installer-katello
 
@@ -91,29 +79,16 @@ and paste to the console.
 Install the release package provided by the Puppet vendor repository to make it available for package
 installation of open source version of Puppet.
 
-    # dnf install http://yum.puppet.com/puppet7/el/8/x86_64/puppet7-release-7.0.0-11.el8.noarch.rpm -y
-
-### Make Powertools repository available
-
-You can simply use the dnf config-manager, but editing the configuration directly will also work.
-
-    # dnf config-manager --set-enabled powertools
+    # dnf install http://yum.puppet.com/puppet8/el/9/x86_64/puppet8-release-1.0.0-9.el9.noarch.rpm -y
 
 ### Make Foreman repository available
 
 Install the release packages provided by the Foreman and Katello repository to make it available for package
 installation of Foreman, Katello and its components. Taking the matching combination is required, for example
-Foreman 3.9 and Katello 4.11 form one release.
+Foreman 3.13 and Katello 4.15 form one release.
 
-    # dnf install http://yum.theforeman.org/releases/3.9/el8/x86_64/foreman-release.rpm \
-         http://yum.theforeman.org/katello/4.11/katello/el8/x86_64/katello-repos-latest.rpm -y
-
-### Enable the modules for katello and pulpcore
-
-Enabling the modules will enable module dependencies. If you see errors about conflicts with the default modules,
-you can ignore them as this will be solved after module activation.
-
-    # dnf module enable katello:el8 -y
+    # dnf install http://yum.theforeman.org/releases/3.13/el9/x86_64/foreman-release.rpm \
+         http://yum.theforeman.org/katello/4.15/katello/el9/x86_64/katello-repos-latest.rpm -y
 
 ### Install foreman-installer-katello
 
@@ -230,7 +205,7 @@ This will output on success something similar:
 
 With the provided credentials login to 'https://foreman.localdomain' using your browser.
 
-**Hint:** You can change password and language settings on the "My Account" page when clicking on the username in the upper right corner.
+**Hint:** You can also provide the password as an installer parameter or change it and language settings on the "My Account" page when clicking on the username in the upper right corner.
 
 
 !SLIDE smbullets small
@@ -362,7 +337,7 @@ Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'fo
 * IPAM: 'DHCP'
 * VLAN ID: *keep empty*
 * MTU: *keep default*
-* Link Delay: *keep default*
+* Link Delay: *keep empty*
 * Boot mode: 'DHCP'
 
 Press 'Submit' to store the configuration.
@@ -383,6 +358,6 @@ Afterwards we have to return to the configuration via 'Infrastructure > Subnets'
  * TFTP Proxy: 'foreman.localdomain'
  * Reverse DNS Proxy: 'foreman.localdomain'
 
-No parameters, "Default Organization" and "Default location" should be the default.
+Ignore the Remote Execution tab for now, also no parameters, "Default Organization" and "Default location" should be the default.
 
 Press 'Submit' to store the configuration with this change.

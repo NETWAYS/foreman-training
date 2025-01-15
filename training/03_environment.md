@@ -7,6 +7,7 @@
 ~~~SECTION:notes~~~
 
 * Note on the flipchart the address of the repos you are hosting
+* Monitoring is currently deactivated to decide on its future depending on it being fixed or not
 
 ~~~ENDSECTION~~~
 

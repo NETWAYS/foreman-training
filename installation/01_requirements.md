@@ -1,14 +1,12 @@
 !SLIDE smbullets small
 # Requirements - Operating System
 
-* Red Hat Enterprise Linux 8
+* Red Hat Enterprise Linux 9
  * No EPEL repository
- * Module Streams
-* CentOS Stream, AlmaLinux, Rocky Linux, Oracle Linux 8
+* CentOS Stream, AlmaLinux, Rocky Linux, Oracle Linux 9
  * No EPEL repository
- * Module Streams
-* Debian 11 (Bullseye)
-* Ubuntu 20.04 (Focal)
+* Debian 12 (Bookworm)
+* Ubuntu 22.04 (Jammy)
 * All need the Puppetlabs Repository
 
 ~~~SECTION:handouts~~~
@@ -30,7 +28,6 @@ Some plugins especially Katello will limit the available plattform.
 # Requirements - Puppet & Facter
 
 * Only All-in-one packaging model from Puppet is supported for Puppet 7 and 8
- * Puppet 6 is technically still supported, but EOL
  * Older Puppet versions are not supported
  * Puppet Enterprise is not supported
 * Puppetserver gets telemetry disabled by default
@@ -41,7 +38,6 @@ Some plugins especially Katello will limit the available plattform.
 ****
 
 Puppet 7 and 8 is supported with current versions for All-in-one packaging standard by Puppet.
-Support for Puppet 6 was not dropped yet, but this version has reached end of life, older versions are no longer supported.
 Puppet Enterprise is not supported, but can work with manual tweaking of the setup.
 
 ~~~PAGEBREAK~~~

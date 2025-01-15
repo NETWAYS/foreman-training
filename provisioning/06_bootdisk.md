@@ -79,9 +79,9 @@ Add the parameters to enable the Bootdisk plugin
 ### Associate iPXE template to operating systems
 
 Navigate to "Hosts > Templates > Provisioning Templates" and search for the iPXE templates.
-"Kickstart default iPXE" should already be associated to CentOS so associate "Preseed default iPXE" to Debian and "Preseed default iPXE Autoinstall" to Ubuntu.
+"Kickstart default iPXE" should already be associated to CentOS and "Preseed default iPXE" to Debian and so associate "Preseed default iPXE Autoinstall" to Ubuntu if needed.
 
-Repeat the same with the Templates "Preseed Default PXEGrub2" for Debian and "Preseed PXEGrub2 Autoinstall" for Ubuntu.
+Repeat the same with the Template "Preseed PXEGrub2 Autoinstall" for Ubuntu.
 
 Navigate to "Hosts > Provisionings Setup > Operating systems" and select the iPXE and PXEGrub2 templates associated.
 

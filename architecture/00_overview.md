@@ -30,7 +30,7 @@ Foreman was originally writen by Paul Kelly and Ohad Levy and initially released
 
 ~~~PAGEBREAK~~~
 
-Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Network Satellite and Red Hat OpenStack distribution.
+Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Satellite and Red Hat OpenStack distribution.
 
 It is writen in Ruby and Javascript to provide a Web based GUI for server lifecyclemanagement, from provisioning and
 configuration to orchestration and monitoring. For integration in the IT infrastructure it utilizes other tools via

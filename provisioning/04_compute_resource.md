@@ -93,7 +93,7 @@ This will install the required packages and restart Foreman.
 Switch to the user foreman and create an passphraseless ssh-key using ssh-keygen:
 
     # su - foreman -s /bin/bash
-    $ ssh-keygen
+    $ ssh-keygen -t ed25519
     [ENTER]
     [ENTER]
     [ENTER]
@@ -120,7 +120,7 @@ In the following dialog insert:
 * Name: "host.localdomain"
 * Provider: "Libvirt"
 * URL: "qemu+ssh://root@host.localdomain/system"
-* Display type: "VNC"
+* Display type: "VNC" or "SPICE"
 * Console password: unchecked
 
 Validate your settings with "Test Connection" before clicking on "Submit".

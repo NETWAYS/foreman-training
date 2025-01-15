@@ -65,7 +65,7 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
 
 * If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later
-* CentOS will require 1.5 GB at least
+* CentOS will require 3 GB at least
 * If the environment is not avialable, assign it to "Default Organization" and "Default Location".
 
 ~~~ENDSECTION~~~

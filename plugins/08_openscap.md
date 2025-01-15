@@ -188,13 +188,12 @@ Simply name the Hostgroup "CentOS" with only the "Name" and the "Openscap Proxy"
 
 Get the zip archive from https://github.com/ComplianceAsCode/content/releases which includes the Policy files.
 The Foreman plugin requires the datastream files which have "ds" in their name. You can upload them via
-"Hosts > Compliance > SCAP content" and name it matching your operatingsystem. We are choosing CentOS 8 which is an automatically
-adjusted file based on the one for RHEL 8. 
-Currently the URL of the OVAL files has to be adjusted to https://access.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2 or better to https://security.almalinux.org/oval/org.almalinux.alsa-8.xml.bz2.
+"Hosts > Compliance > SCAP contents" and name it matching your operatingsystem. We are choosing CentOS 9 which is an automatically
+adjusted file based on the one for RHEL 9.
 
 Content files are avaiable now so navigate to "Hosts > Compliance > Policies" to create a "New Policy".
 Choose "Puppet" or "Ansible" as Deployment Option, name it, choose SCAP Content provided and XCCDF Profile you prefer,
-schedule it "Weekly" on "Sunday" and assign it to Hostgroup "CentOS". If you have no preference, the "Standard System Security Profile"
+schedule it "Weekly" on "Sunday" and assign it to Hostgroup "CentOS". If you have no preference, the "Protection Profile for General Purpose Operating Systems "
 is a good one to start.
 
 To view the guide click on the "Show Guide" action from the drop down button next to the policy.

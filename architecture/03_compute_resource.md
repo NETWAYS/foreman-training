@@ -35,7 +35,6 @@ Google Compute Engine  | no                      | yes         | no           | 
 Libvirt                | yes                     | yes         | VNC or SPICE | yes              | no
 OpenStack Nova         | no                      | yes         | no           | yes              | no
 oVirt / RHEV           | yes                     | yes         | VNC or SPICE | yes              | no
-Rackspace              | no                      | yes         | no           | yes              | no
 VMware                 | yes                     | yes         | VNC or VMRC  | yes              | yes
 *Azure*                | no                      | yes         | no           | yes              | no
 *Kubevirt*             | no                      | yes         | planned      | yes              | no

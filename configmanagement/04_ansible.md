@@ -236,11 +236,11 @@ The setup module gathers facts about the system and via callback uploads them to
 
 ### Install Ansible using dnf
 
-    # dnf install ansible-core python3.12-requests -y
+    # dnf install ansible-core python3.11-requests -y
 
 ### Configure callback plugin 
 
-    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.9/el8/x86_64/
+    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.13/el9/x86_64/
     # dnf install ansible-collection-theforeman-foreman -y
     # vi /etc/ansible/ansible.cfg
     [defaults]

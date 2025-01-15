@@ -589,6 +589,7 @@ for Red Hat Satellite 6.</p>
 
 <ul>
 <li>Note on the flipchart the address of the repos you are hosting</li>
+<li>Monitoring is currently deactivated to decide on its future depending on it being fixed or not</li>
 </ul>
 
 </div>
@@ -657,7 +658,7 @@ for Red Hat Satellite 6.</p>
 
 <div class="pagebreak">continued...</div>
 
-<p>Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Network Satellite and Red Hat OpenStack distribution.</p>
+<p>Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Satellite and Red Hat OpenStack distribution.</p>
 
 <p>It is writen in Ruby and Javascript to provide a Web based GUI for server lifecyclemanagement, from provisioning and
 configuration to orchestration and monitoring. For integration in the IT infrastructure it utilizes other tools via
@@ -1177,14 +1178,6 @@ and additional providers in <em>italic</em> which are separate plugins and mostl
 <td>no</td>
 </tr>
 <tr>
-<td>Rackspace</td>
-<td>no</td>
-<td>yes</td>
-<td>no</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
 <td>VMware</td>
 <td>yes</td>
 <td>yes</td>
@@ -1266,7 +1259,7 @@ and additional providers in <em>italic</em> which are separate plugins and mostl
 <li>Upstream project for
 
 <ul>
-<li>Red Hat Network Satellite 6</li>
+<li>Red Hat Satellite</li>
 <li>orcharhino</li>
 </ul>
 </li>
@@ -1303,22 +1296,20 @@ and additional providers in <em>italic</em> which are separate plugins and mostl
 <h1>Requirements - Operating System</h1>
 
 <ul>
-<li>Red Hat Enterprise Linux 8
+<li>Red Hat Enterprise Linux 9
 
 <ul>
 <li>No EPEL repository</li>
-<li>Module Streams</li>
 </ul>
 </li>
-<li>CentOS Stream, AlmaLinux, Rocky Linux, Oracle Linux 8
+<li>CentOS Stream, AlmaLinux, Rocky Linux, Oracle Linux 9
 
 <ul>
 <li>No EPEL repository</li>
-<li>Module Streams</li>
 </ul>
 </li>
-<li>Debian 11 (Bullseye)</li>
-<li>Ubuntu 20.04 (Focal)</li>
+<li>Debian 12 (Bookworm)</li>
+<li>Ubuntu 22.04 (Jammy)</li>
 <li>All need the Puppetlabs Repository</li>
 </ul>
 
@@ -1357,7 +1348,6 @@ versions to use is based on user requirements.</p>
 <li>Only All-in-one packaging model from Puppet is supported for Puppet 7 and 8
 
 <ul>
-<li>Puppet 6 is technically still supported, but EOL</li>
 <li>Older Puppet versions are not supported</li>
 <li>Puppet Enterprise is not supported</li>
 </ul>
@@ -1378,7 +1368,6 @@ versions to use is based on user requirements.</p>
 <hr>
 
 <p>Puppet 7 and 8 is supported with current versions for All-in-one packaging standard by Puppet.
-Support for Puppet 6 was not dropped yet, but this version has reached end of life, older versions are no longer supported.
 Puppet Enterprise is not supported, but can work with manual tweaking of the setup.</p>
 
 <div class="pagebreak">continued...</div>
@@ -1842,9 +1831,7 @@ the project homepage. For the training we will the Katello scenario and add addi
 <ul>
 <li>Start the virtual machine "foreman.localdomain" and connect via SSH</li>
 <li>Make Puppet vendor repository for Puppet available</li>
-<li>Make Powertools repository available</li>
 <li>Make Foreman and Katello repository available</li>
-<li>Enable the modules for katello and pulpcore</li>
 <li>Install foreman-installer-katello</li>
 </ul>
 </li>
@@ -2474,7 +2461,7 @@ Partition tables are handled separately to allow the usage of the same host temp
     <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 4.1: Prepare PXE installation of CentOS Stream 8</h1>
+<h1>Lab 4.1: Prepare PXE installation of CentOS Stream 9</h1>
 
 <ul>
 <li>Objective:
@@ -2486,8 +2473,8 @@ Partition tables are handled separately to allow the usage of the same host temp
 <li>Steps:
 
 <ul>
-<li>Change the Installation media "CentOS Stream" to the local repo (if provided)</li>
-<li>Associate the installation media "CentOS Stream", verify the selected templates and set boolean parameter "enable-official-puppet7-repo" to "true"</li>
+<li>Change the Installation media "CentOS Stream 9 mirror" to the local repo (if provided)</li>
+<li>Associate the installation media "CentOS Stream 9 mirror", verify the selected templates and set boolean parameter "enable-official-puppet8-repo" to "true"</li>
 </ul>
 </li>
 </ul>
@@ -2518,11 +2505,9 @@ Partition tables are handled separately to allow the usage of the same host temp
 
 <ul>
 <li>Change the Installation media "Debian mirror" to the local repo (if provided)</li>
-<li>Create the Operating system "Debian" with Major version "11", Description "Debian bullseye", Family "Debian", Release name "bullseye"</li>
-<li>Associate the PXELinux template "Preseed default PXELinux" with Debian</li>
+<li>Create the Operating system "Debian" with Major version "12", Description "Debian bookworm", Family "Debian", Release name "bookworm"</li>
 <li>Associate the Provision template "Preseed default" with Debian</li>
-<li>Associate the finish template "Preseed default finish" with Debian</li>
-<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed default LVM" and "Preseed default", Installation media "Debian mirror" and set boolean parameter "enable-official-puppet7-repo" to "true"</li>
+<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed default LVM" and "Preseed default", Installation media "Debian mirror" and set boolean parameter "enable-official-puppet8-repo" to "true"</li>
 </ul>
 </li>
 </ul>
@@ -2563,11 +2548,10 @@ Partition tables are handled separately to allow the usage of the same host temp
 <ul>
 <li>Provide the LiveCD as ISO and in extraced form</li>
 <li>Create the Installation media "Ubuntu Autoinstall"</li>
-<li>Create the Operating system "Ubuntu" with Major version "22.04", Minor version "2", Description "Ubuntu Jammy Jellyfish", Family "Debian", Release name "jammy"</li>
+<li>Create the Operating system "Ubuntu" with Major version "24.04", Minor version "1", Description "Ubuntu Noble Numbat", Family "Debian", Release name "noble"</li>
 <li>Associate the PXELinux template "Preseed default PXELinux Autoinstall" with Ubuntu</li>
 <li>Associate the User data template "Preseed Autoinstall cloud-init user data" with Ubuntu</li>
-<li>Associate the finish template "Preseed default finish" with Ubuntu</li>
-<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed default autoinstall", Installation media "Ubuntu Autoinstall" and set boolean parameter "enable-official-puppet7-repo" to "true"</li>
+<li>Associate the operating system with the Templates and set Architecture "x86_64", Partition table "Preseed default autoinstall", Installation media "Ubuntu Autoinstall" and set boolean parameter "enable-official-puppet8-repo" to "true"</li>
 </ul>
 </li>
 </ul>
@@ -2659,7 +2643,7 @@ Partition tables are handled separately to allow the usage of the same host temp
 <ul>
 <li>If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later</li>
-<li>CentOS will require 1.5 GB at least</li>
+<li>CentOS will require 3 GB at least</li>
 <li>If the environment is not avialable, assign it to "Default Organization" and "Default Location".</li>
 </ul>
 
@@ -3711,6 +3695,56 @@ fields can be a free-form or list of values for a user to add, facts, variables 
 </div>
 <canvas class="annotations"></canvas>
 </div>
+<div data-section="configmanagement" data-title="02_remote_execution" id="configmanagement_02_remote_execution6" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/02_remote_execution:6">
+<div class="net-header">
+    <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
+</div>
+
+<h1>Remote Execution - Pull via MQTT</h1>
+
+<ul>
+<li>Limitation to Script provider only</li>
+<li>Requirements on the server side
+
+<ul>
+<li>Smart Proxy with Remote Execution enabled and the script mode set to <code>pull-mqtt</code>
+</li>
+<li>Assigned for this feature to the Subnet</li>
+<li>Communication allowed to MQTT (port 1883)</li>
+</ul>
+</li>
+<li>Requirements on the client side
+
+<ul>
+<li>Certificates for communication (so registration via <code>subscription-manager</code> is required)</li>
+<li>MQTT client with worker for Foreman (installed and configured via <code>katello-pull-transport-migrate</code> from client repo)</li>
+</ul>
+</li>
+</ul>
+
+
+
+<div class="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+<div class="notes-section  handouts">
+
+<hr>
+
+<p>If outgoing connections are not allowed or use of ssh is not wanted, the pull mode is quite easy to setup. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.</p>
+
+<p>On the server side you simple need a Smart Proxy with feature Remote Execution enabled and the script mode set to <code>pull-mqtt</code>. Then this Smart proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.</p>
+
+<p>On the client side it requires the certificates which are needed to authenticate and you get by registration via <code>subscription-manager</code> which should be done via "Register Host" wizard in the UI. Then you can simply install <code>katello-pull-transport-migrate</code> from the Foreman client repo which installs and configures the MQTT client <code>yggdrasil</code> with a worker for Foreman's Remote execution feature.</p>
+
+<p>So an implicit requirement is using Katello and with Katello a Smart Proxy has by default also the Content feature. If you do not want this feature also, some manual preparation for the Smart Proxy setup and a manual adjustment of the client configuration is required, but the feature still works.
+</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
 <div data-section="configmanagement" data-title="03_puppet" id="configmanagement_03_puppet1" class="slide smbullets small noprint" data-transition="none">
 <div class="content smbullets small noprint" ref="configmanagement/03_puppet:1">
 <div class="net-header">
@@ -4371,6 +4405,50 @@ independent from Foreman. Forthermore a script could be deployed to use Foreman 
 <li>The inventory should be created in an automatic way like export from a cmdb</li>
 </ul>
 
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="configmanagement" data-title="04_ansible" id="configmanagement_04_ansible5" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="configmanagement/04_ansible:5">
+<div class="net-header">
+    <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
+</div>
+
+<h1>Managing Foreman with Ansible</h1>
+
+<ul>
+<li>Ansible Collections provided by Foreman Project</li>
+<li>Collection "operations"
+
+<ul>
+<li>Manages Repositories</li>
+<li>Runs the Foreman installer</li>
+<li>Additional operative tasks</li>
+</ul>
+</li>
+<li>Collection "foreman"
+
+<ul>
+<li>Manages objects in Foreman</li>
+<li>Provides Callback</li>
+<li>Provides Inventory</li>
+</ul>
+</li>
+</ul>
+
+
+
+<div class="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+<div class="notes-section handouts">
+
+<hr>
+
+<p>The Foreman Project provides two Ansible Collections at the Ansible Galaxy (see <a href="https://galaxy.ansible.com/ui/namespaces/theforeman/" target="_blank">https://galaxy.ansible.com/ui/namespaces/theforeman/</a>). The Collection called "operations" is for the initial setup and additional operative tasks after installation, so it manages the repositories, runs the Foreman installer and could be used later for backup or creation of certificates. The Collection called "foreman" is for managing the configuration inside Foreman, so you can manage all the objects, but it also provides the callback and inventory plugin.
+</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
@@ -5294,103 +5372,6 @@ shutdown and deletion can not be automated but it will at least notify.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="plugins" data-title="07_monitoring" id="plugins_07_monitoring1" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="plugins/07_monitoring:1">
-<div class="net-header">
-    <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
-</div>
-
-<h1>Monitoring</h1>
-
-<ul>
-<li>
-<p>Integrates a monitoring solution</p>
-
-<ul>
-<li>Shows monitoring status in Foreman</li>
-<li>Manages monitoring objects during provisioning</li>
-</ul>
-</li>
-<li>
-<p>Supported monitoring solutions</p>
-
-<ul>
-<li>Icinga 2</li>
-<li>Icinga 2 and Icinga Web 2 Director</li>
-</ul>
-</li>
-<li>
-<p><u>Use case:</u></p>
-
-<ul>
-<li>Integrate monitoring into provisioning</li>
-<li>Get state for running systems from Foreman</li>
-</ul>
-</li>
-</ul>
-
-
-
-<div class="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-<div class="notes-section handouts">
-
-<hr>
-
-<p>The Monitoring integration is done via a Foreman plugin for the graphical part and a
-Smart proxy plugin for the communication. So it shows a global and detailed monitoring
-status for hosts, manages monitoring objects during provisioning and deprovisioning and
-allows to set downtimes.</p>
-
-<div class="pagebreak">continued...</div>
-
-<p>For now it only supports Icinga 2 as monitoring solution and if requiring a more comfortable
-administration Icinga 2 and in addition its graphical frontend Icinga Web 2 Director.</p>
-
-<p>More details on: <br>
- <a href="https://github.com/theforeman/foreman_monitoring" target="_blank">https://github.com/theforeman/foreman_monitoring</a> <br>
- <a href="https://github.com/theforeman/smart_proxy_monitoring" target="_blank">https://github.com/theforeman/smart_proxy_monitoring</a> <br></p>
-
-</div>
-<canvas class="annotations"></canvas>
-</div>
-<div data-section="plugins" data-title="07_monitoring" id="plugins_07_monitoring2" class="slide smbullets small" data-transition="none">
-<div class="content smbullets small" ref="plugins/07_monitoring:2">
-<div class="net-header">
-    <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
-</div>
-
-<h1>Lab 7.5: Monitoring Integration</h1>
-
-<ul>
-<li>Objective:
-
-<ul>
-<li>Integrate Monitoring into Foreman</li>
-</ul>
-</li>
-<li>Steps:
-
-<ul>
-<li>Install Foreman plugin and Smart proxy plugin</li>
-<li>Configure Smart proxy to communicate with Icinga 2 and Icinga Web 2 Director</li>
-<li>Configure Foreman default actions for monitoring</li>
-<li>Active integration for one host</li>
-<li>Verify monitoring integration</li>
-</ul>
-</li>
-</ul>
-
-<div class="net-footer">
-    <p id="footer-left">Official Foreman Training</p>
-    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
-</div>
-</div>
-<canvas class="annotations"></canvas>
-</div>
 <div data-section="plugins" data-title="08_openscap" id="plugins_08_openscap1" class="slide smbullets small" data-transition="none">
 <div class="content smbullets small" ref="plugins/08_openscap:1">
 <div class="net-header">
@@ -5470,7 +5451,7 @@ it is provided by the Foreman Webinterface.</p>
     <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 7.6: OpenSCAP - Serverside Preparation</h1>
+<h1>Lab 7.5: OpenSCAP - Serverside Preparation</h1>
 
 <ul>
 <li>Objective:
@@ -5519,7 +5500,7 @@ it is provided by the Foreman Webinterface.</p>
     <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
 </div>
 
-<h1>Lab 7.7: OpenSCAP - Clientside Preparation</h1>
+<h1>Lab 7.6: OpenSCAP - Clientside Preparation</h1>
 
 <ul>
 <li>Objective:
@@ -5549,6 +5530,60 @@ it is provided by the Foreman Webinterface.</p>
     <p id="footer-left">Official Foreman Training</p>
     <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
 </div>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="plugins" data-title="09_leapp" id="plugins_09_leapp" class="slide smbullets small" data-transition="none">
+<div class="content smbullets small" ref="plugins/09_leapp">
+<div class="net-header">
+    <img src="./file//global/_images/foreman/foremanhelmet.png" alt: width: height:>
+</div>
+
+<h1>Leapp</h1>
+
+<ul>
+<li>
+<p>Leapp is RHEL's tool for inplace upgrades</p>
+
+<ul>
+<li>ELevate is a fork by AlmaLinux supporting the community versions</li>
+<li>Oracle provides its own version</li>
+</ul>
+</li>
+<li>
+<p>Plugin provides Jobs (requiring Ansible)</p>
+
+<ul>
+<li>Preupgrade check with Leapp</li>
+<li>Run remediation plan via Leapp</li>
+<li>Upgrade with Leapp</li>
+</ul>
+</li>
+<li><p>Extends Job detail view with Leapp preupgrade report</p></li>
+<li><p><u>Use case:</u> Makes inplace updates much easier</p></li>
+</ul>
+
+
+
+<div class="net-footer">
+    <p id="footer-left">Official Foreman Training</p>
+    <p id="footer-right">by NETWAYS GmbH (www.netways.de)</p>
+</div>
+</div>
+<div class="notes-section handouts">
+
+<hr>
+
+<p>Leapp is the tool provided by Red Hat to upgrade Red Hat Enterprise Linux inplace. While you can argue for or against inplace updates it has its use cases and Leapp tries to make it as save as possible.
+As Leapp is only for RHEL, AlmaLinux created a fork with adjustments and upgrade data to make it run on all the community versions, so supports AlmaLinux, CentOS Stream and Rocky Linux, and also allows migration from CentOS and Scientific Linux.
+Oracle provides its own version for Oracle Linux.</p>
+
+<p>The Leapp plugin for Foreman provides Jobs to run the preupgrade check, remediate common inhibitors blocking the upgrade and run the upgrade itself. The upgrade job requires Ansible as it verifies also a successful reboot afterwards.</p>
+
+<p>After a preupgrade check reported by the job itself and after running some remediation the extended Job detail view provides a nice overview of upgrade information including the risk factor, possible remediation and blocking inhibitors.</p>
+
+<p>This makes inplace updates much easier, even if some additional steps may be required like making Leapp binary and data available in advance, manual remediation of some inhibitors, and post upgrade tasks.</p>
+
 </div>
 <canvas class="annotations"></canvas>
 </div>
@@ -6182,7 +6217,7 @@ their instructions.</p>
 <p>Operating System upgrade:</p>
 
 <ul>
-<li>Use Leapp for switching EL7 to EL8</li>
+<li>Use Leapp for switching operating system versions</li>
 </ul>
 </li>
 <li>
@@ -6210,7 +6245,8 @@ their instructions.</p>
 <p>In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages. 
 Run the foreman-installer to execute the database migration and seed script, clear the cache and existing sessions, and restarts the services.</p>
 
-<p>Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. In other cases nothing special is required for an operating system upgrade.</p>
+<p>Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. Support for this was again added for the upgrade from EL8 to EL9 and will likely be added also for future upgrades.
+In other cases nothing special is required for an operating system upgrade.</p>
 
 <p>Updating Katello requires to have both parts releases to be announced, so after a Foreman release was announced waiting normally 2 to 3 weeks for the corresponding Katello release is required.</p>
 

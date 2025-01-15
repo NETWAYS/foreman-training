@@ -128,7 +128,7 @@ Katello's additional services also need to be restored using foreman-maintain.
  * Restart the service
 
 * Operating System upgrade:
- * Use Leapp for switching EL7 to EL8
+ * Use Leapp for switching operating system versions
 
 * Katello:
  * No separate update of Foreman, always wait for Katello release
@@ -142,7 +142,8 @@ Always follow the instructions in the Foreman documentation providing release an
 In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages. 
 Run the foreman-installer to execute the database migration and seed script, clear the cache and existing sessions, and restarts the services.
 
-Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. In other cases nothing special is required for an operating system upgrade.
+Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. Support for this was again added for the upgrade from EL8 to EL9 and will likely be added also for future upgrades.
+In other cases nothing special is required for an operating system upgrade.
 
 Updating Katello requires to have both parts releases to be announced, so after a Foreman release was announced waiting normally 2 to 3 weeks for the corresponding Katello release is required.
 

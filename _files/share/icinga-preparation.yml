@@ -1,0 +1,238 @@
+---
+- name: Prepare Foreman Setup
+  hosts: monitoring.localdomain
+  become: true
+  gather_facts: true
+  vars:
+    icingaweb2_db:
+      type: mysql
+      name: icingaweb
+      host: 127.0.0.1
+      user: icingaweb
+      password: icingaweb
+    icingaweb2_db_import_schema: true
+
+    icingadb_database_type: mysql
+    icingadb_database_host: localhost
+    icingadb_database_user: icingadb
+    icingadb_database_password: icingadb
+    icingadb_database_import_schema: true
+
+    mysql_innodb_file_format: barracuda
+    mysql_innodb_large_prefix: 1
+    mysql_innodb_file_per_table: 1
+    mysql_users:
+      - name: icingaweb
+        host: "%"
+        password: icingaweb
+        priv: "icingaweb.*:ALL"
+      - name: icingadb
+        host: "%"
+        password: icingadb
+        priv: "*.*:SUPER,SESSION_VARIABLES_ADMIN/icingadb.*:ALL"
+      - name: director
+        host: "%"
+        password: director
+        priv: "director.*:ALL"
+    mysql_databases:
+      - name: icingadb
+      - name: icingaweb
+      - name: director
+
+    icinga2_confd: false
+    icinga2_features:
+      - name: icingadb
+        host: 127.0.0.1
+      - name: notification
+      - name: checker
+      - name: mainlog
+      - name: api
+        ca_host: none
+        endpoints:
+          - name: "{{ ansible_fqdn }}"
+        zones:
+          - name: "main"
+            endpoints:
+              - "{{ ansible_fqdn }}"
+          - name: "director-global"
+            global: true
+
+    icingaweb2_admin_username: icingaadmin
+    icingaweb2_admin_password: icingaadmin
+    icingaweb2_authentication:
+      icingaweb2:
+        backend: db
+        resource: icingaweb2_db
+      external:
+        backend: external
+    icingaweb2_roles:
+      Foreman:
+        users:
+          - foreman
+        permissions:
+          - module/director
+          - director/api
+          - director/*
+
+    icinga2_config_directories:
+      - zones.d/main/
+    icinga2_objects:
+      - name: icingadb
+        type: ApiUser
+        file: zones.d/main/api-users.conf
+        password: icingadb
+        permissions:
+          - "*"
+      - name: director
+        type: ApiUser
+        file: zones.d/main/api-users.conf
+        password: director
+        permissions:
+          - "*"
+      - name: foreman
+        type: ApiUser
+        file: zones.d/main/api-users.conf
+        password: foreman
+        permissions:
+          - "*"
+
+    icingaweb2_resources:
+      icingadb:
+        type: db
+        db: mysql
+        host: 127.0.0.1
+        dbname: icingadb
+        username: icingadb
+        password: icingadb
+      director:
+        type: db
+        db: mysql
+        host: 127.0.0.1
+        dbname: director
+        username: director
+        password: director
+        charset: utf8
+    icingaweb2_modules:
+      icingadb:
+        enabled: true
+        source: package
+        commandtransports:
+          instance01:
+            transport: api
+            host: 127.0.0.1
+            username: icingadb
+            password: icingadb
+        config:
+          icingadb:
+            resource: icingadb
+          redis:
+            tls: '0'
+        redis:
+          redis1:
+            host: 127.0.0.1
+      director:
+        enabled: true
+        source: package
+        import_schema: true
+        run_kickstart: true
+        kickstart:
+          config:
+            endpoint: "{{ ansible_fqdn }}"
+            host: 127.0.0.1
+            username: director
+            password: director
+        config:
+          db:
+            resource: director
+
+  tasks:
+    - name: Ensure hostname is set
+      ansible.builtin.hostname:
+        name: monitoring
+        use: systemd
+
+    - name: Ensure host entries
+      ansible.builtin.blockinfile:
+        path: /etc/hosts
+        append_newline: true
+        prepend_newline: true
+        block: |
+          10.0.0.1 host.localdomain host
+          10.0.0.2 foreman.localdomain foreman
+          10.0.0.3 monitoring.localdomain monitoring
+
+    - ansible.builtin.include_role:
+        name: icinga.icinga.repos
+    - ansible.builtin.include_role:
+        name: geerlingguy.mysql
+    - ansible.builtin.include_role:
+        name: icinga.icinga.icinga2
+    - ansible.builtin.include_role:
+        name: icinga.icinga.icingadb
+    - ansible.builtin.include_role:
+        name: icinga.icinga.icingadb_redis
+
+    - name: Install required acl package
+      ansible.builtin.apt:
+        name: acl
+        state: present
+    - name: Allow access to directory
+      ansible.posix.acl:
+        path: /var/lib/icinga2/
+        entity: training
+        etype: user
+        permissions: rX
+        state: present
+    - name: Allow access to certificates
+      ansible.posix.acl:
+        path: /var/lib/icinga2/certs/
+        entity: training
+        etype: user
+        permissions: rX
+        recursive: true
+        state: present
+
+  post_tasks:
+    - ansible.builtin.include_role:
+        name: icinga.icinga.icingaweb2
+
+    - name: Allow auto login for Foreman
+      ansible.builtin.blockinfile:
+        path: /etc/apache2/conf-available/icingaweb2.conf
+        insertafter: RewriteBase /icingaweb2/
+        append_newline: true
+        prepend_newline: true
+        block: |
+          RewriteCond %{REMOTE_ADDR} ^10\.0\.0\.2
+          RewriteRule ^(.*)$ - [E=REMOTE_USER:foreman]
+
+    - name: Prepare director - Host template - Verify
+      command: icingacli director host exists foreman_host
+      changed_when: false
+      failed_when: false
+      register: host_template_exists
+    - name: Prepare director - Host template - Create
+      command: icingacli director host create foreman_host --object_type template --check_command hostalive
+      when: '"does not exist" in host_template_exists.stdout'
+
+    - name: Prepare director - Service template - Verify
+      command: icingacli director service exists ssh-linux
+      changed_when: false
+      failed_when: false
+      register: service_template_exists
+    - name: Prepare director - Service template - Create
+      command: icingacli director service create ssh-linux --object_type template --check_command ssh
+      when: '"does not exist" in service_template_exists.stdout'
+
+    - name: Prepare director - Service apply - Verify
+      command: icingacli director service exists ssh
+      changed_when: false
+      failed_when: false
+      register: service_exists
+    - name: Prepare director - Service apply - Create
+      command: icingacli director service create ssh --object_type apply --imports ssh-linux --assign_filter "host.vars.osfamily=%22Redhat%22 || host.vars.osfamily=%22Debian%22"
+      when: '"does not exist" in service_exists.stdout'
+
+    - name: Prepare director - Deploy
+      command: icingacli director config deploy
+      changed_when: false

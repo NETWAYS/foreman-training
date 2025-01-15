@@ -82,7 +82,7 @@ Additional templates are available in the WebGUI.
 
 Change the settings on the "TemplateSync" tab of "Administer > Settings" to point to the new location.
 The repo is the clone URL of the project "https://github.com/theforeman/foreman.git" and the dirname is "/app/views/unattended".
-The branch can be set to the current version of Foreman like "3.9-stable" if you want to be sure to not get incompatible versions.
+The branch can be set to the current version of Foreman like "3.13-stable" if you want to be sure to not get incompatible versions.
 Filter and prefix can also help to manage the templates.
 
 ### Run the synchronisation job with (using UI, with Rake job or an API call)

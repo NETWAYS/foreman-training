@@ -1,0 +1,15 @@
+---
+foreman:
+  hosts:
+    foreman.localdomain:
+      ansible_host: 10.0.0.2
+      ansible_user: root
+      ldap_user: "cn=admin,dc=localdomain"
+      ldap_password: "netways"
+      ldap_password_encrypted: "{SSHA}pQjSq3J3wXsHahiaYh6UyQpCTFx4G80s"
+icinga:
+  hosts:
+    monitoring.localdomain:
+      ansible_host: 10.0.0.3
+      ansible_user: training
+      ansible_become_password: netways

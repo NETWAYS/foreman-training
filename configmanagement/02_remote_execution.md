@@ -278,3 +278,28 @@ The websocket and access to it is not required, so installing this subpackage is
 
 Navigate to the Host overview and click on one of the prepared hosts to get the host view. In the host view click on the three dots and then "Web Console" to enter Cockpit.
 You can see now some system information and control options depending on the installed Cockpit plugins, furthermore there is a terminal you can use.
+
+
+!SLIDE smbullets small
+# Remote Execution - Pull via MQTT
+
+* Limitation to Script provider only
+* Requirements on the server side
+ * Smart Proxy with Remote Execution enabled and the script mode set to `pull-mqtt`
+ * Assigned for this feature to the Subnet
+ * Communication allowed to MQTT (port 1883)
+* Requirements on the client side
+ * Certificates for communication (so registration via `subscription-manager` is required)
+ * MQTT client with worker for Foreman (installed and configured via `katello-pull-transport-migrate` from client repo)
+
+~~~SECTION: handouts~~~
+****
+
+If outgoing connections are not allowed or use of ssh is not wanted, the pull mode is quite easy to setup. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.
+
+On the server side you simple need a Smart Proxy with feature Remote Execution enabled and the script mode set to `pull-mqtt`. Then this Smart proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.
+
+On the client side it requires the certificates which are needed to authenticate and you get by registration via `subscription-manager` which should be done via "Register Host" wizard in the UI. Then you can simply install `katello-pull-transport-migrate` from the Foreman client repo which installs and configures the MQTT client `yggdrasil` with a worker for Foreman's Remote execution feature.
+
+So an implicit requirement is using Katello and with Katello a Smart Proxy has by default also the Content feature. If you do not want this feature also, some manual preparation for the Smart Proxy setup and a manual adjustment of the client configuration is required, but the feature still works.
+~~~ENDSECTION~~~

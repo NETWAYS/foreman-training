@@ -1,0 +1,177 @@
+---
+- name: Prepare Foreman Setup
+  hosts: foreman.localdomain
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Ensure hostname is set
+      ansible.builtin.hostname:
+        name: foreman
+        use: systemd
+
+    - name: Ensure host entries
+      ansible.builtin.blockinfile:
+        path: /etc/hosts
+        append_newline: true
+        prepend_newline: true
+        block: |
+          10.0.0.1 host.localdomain host
+          10.0.0.2 foreman.localdomain foreman
+          10.0.0.3 monitoring.localdomain monitoring
+
+    - name: Install epel-release
+      ansible.builtin.dnf:
+        name: epel-release
+        state: installed
+
+    - name: Disable repository {{ item }}
+      ansible.builtin.ini_file:
+        path: "/etc/yum.repos.d/{{ item }}.repo"
+        section: "{{ item }}"
+        option: enabled
+        value: 0
+      loop:
+        - epel
+        - epel-next
+        - epel-cisco-openh264
+
+    - name: Install OpenLDAP server
+      ansible.builtin.dnf:
+        name:
+          - openldap-servers
+          - openldap-clients
+          - python3-ldap
+        state: installed
+        enablerepo: epel
+
+    - name: Start OpenLDAP server
+      ansible.builtin.service:
+        name: slapd
+        state: started
+        enabled: true
+
+    - name: OpenLDAP - Define Suffix
+      community.general.ldap_attrs:
+        dn: olcDatabase={2}mdb,cn=config
+        attributes:
+          olcSuffix: dc=localdomain
+        state: exact
+
+    - name: OpenLDAP - Set up admin
+      community.general.ldap_attrs:
+        dn: olcDatabase={2}mdb,cn=config
+        attributes:
+          olcRootDN: "{{ ldap_user }}"
+          olcRootPW: "{{ ldap_password_encrypted }}"
+        state: exact
+
+    - name: OpenLDAP - Check for schema cosine
+      ansible.builtin.command: ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=schema,cn=config -s one '(cn={*}cosine)' dn
+      changed_when: false
+      register: schema_cosine_loaded
+
+    - name: OpenLDAP - Load schema cosine
+      ansible.builtin.command: ldapadd -Q -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+      when: not schema_cosine_loaded.stdout
+
+    - name: OpenLDAP - Check for schema inetorgperson
+      ansible.builtin.command: ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=schema,cn=config -s one '(cn={*}inetorgperson)' dn
+      changed_when: false
+      register: schema_inetorgperson_loaded
+
+    - name: OpenLDAP - Load schema inetorgperson
+      ansible.builtin.command: ldapadd -Q -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+      when: not schema_inetorgperson_loaded.stdout
+
+    - name: OpenLDAP - Check for schema nis
+      ansible.builtin.command: ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=schema,cn=config -s one '(cn={*}nis)' dn
+      changed_when: false
+      register: schema_nis_loaded
+
+    - name: OpenLDAP - Load schema nis
+      ansible.builtin.command: ldapadd -Q -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
+      when: not schema_nis_loaded.stdout
+
+    - name: OpenLDAP - Root
+      community.general.ldap_entry:
+        dn: dc=localdomain
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        objectClass:
+          - dcObject
+          - organizationalUnit
+        attributes:
+          ou: localdomain
+
+    - name: OpenLDAP - OU for User
+      community.general.ldap_entry:
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        dn: ou=users,dc=localdomain
+        objectClass: organizationalUnit
+
+    - name: OpenLDAP - User administrator
+      community.general.ldap_entry:
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        dn: cn=administrator,ou=users,dc=localdomain
+        objectClass: inetOrgPerson
+        attributes:
+          sn: User
+          description: Administrator
+          userPassword: "{{ ldap_password_encrypted }}"
+          givenName: Administrator
+          mail: administrator@localdomain
+          uid: administrator
+
+    - name: OpenLDAP - User viewer
+      community.general.ldap_entry:
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        dn: cn=viewer,ou=users,dc=localdomain
+        objectClass: inetOrgPerson
+        attributes:
+          sn: User
+          description: Viewer
+          userPassword: "{{ ldap_password_encrypted }}"
+          givenName: Viewer
+          mail: viewer@localdomain
+          uid: viewer
+
+    - name: OpenLDAP - User selfservice
+      community.general.ldap_entry:
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        dn: cn=selfservice,ou=users,dc=localdomain
+        objectClass: inetOrgPerson
+        attributes:
+          sn: User
+          description: Selfservice
+          userPassword: "{{ ldap_password_encrypted }}"
+          givenName: Selfservice
+          mail: selfservice@localdomain
+          uid: selfservice
+
+    - name: OpenLDAP - OU for Groups
+      community.general.ldap_entry:
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        dn: ou=groups,dc=localdomain
+        objectClass: organizationalUnit
+
+    - name: OpenLDAP - Group admins
+      community.general.ldap_entry:
+        bind_dn: "{{ ldap_user }}"
+        bind_pw: "{{ ldap_password }}"
+        dn: cn=admins,ou=groups,dc=localdomain
+        objectClass: posixGroup
+        attributes:
+          description: Admins
+          gidNumber: 666
+          memberUid: administrator
+
+    - name: Stop firewalld
+      ansible.builtin.service:
+        name: firewalld
+        state: stopped
+        enabled: false

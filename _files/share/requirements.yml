@@ -1,0 +1,7 @@
+---
+roles:
+- name: geerlingguy.mysql
+
+collections:
+  - name: community.general
+  - name: icinga.icinga
