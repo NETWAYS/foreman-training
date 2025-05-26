@@ -49,8 +49,8 @@ for non-administrative accounts after installing plugins.
 
 #### Expected result:
 
-* Login with the account "viewer" and password "netways" grants read-only privileges
-* Login with the account "selfservice" and password "netways" allows to created new hosts
+* Log in with the account "viewer" and password "netways" grants read-only privileges
+* Log in with the account "selfservice" and password "netways" allows to created new hosts
 
 
 !SLIDE supplemental solutions
@@ -64,9 +64,9 @@ for non-administrative accounts after installing plugins.
 
 ### Assign the role "Viewer" to the user "viewer"
 
-Login with the account "viewer" and password "netways" and you will have no privileges assigned to you.
+Log in with the account "viewer" and password "netways" and you will have no privileges assigned to you.
 This will create the account and you can assign the role "Viewer" to it in "Administer > Users" view.
-Furthermore you can set which organization and location should be his default on login.
+Furthermore you can set which organization and location should be the user's default on login.
 
 ### Create a role "Selfservice" to allow creation of new hosts and management of own hosts
 
@@ -85,10 +85,10 @@ Medium           | view_media                                                   
 Subnet           | view_subnets                                                                      |     X     | none
 Domain           | view_domains                                                                      |     X     | none
 
-The additional permissions for Compute Resource allow to create also a virtual machine on it. 
+The additional permissions for Compute Resource allow to also create a virtual machine on it.
 Subnet permissions are at least required for getting a IP address suggestion.
 
 ### Assign the new role "Selfservice" to the user "selfservice"
 
-Login with the account "selfservice" and password "netways" and you will have no privileges assigned to you.
+Log in with the account "selfservice" and password "netways" and you will have no privileges assigned to you.
 This will create the account and you can assign the role "Selfservice" to it in "Administer > Users" view.

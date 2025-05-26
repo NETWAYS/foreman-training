@@ -6,7 +6,7 @@
  * Shutdown on expiration date
  * Delete afterwards
 
-* _Use case:_ 
+* _Use case:_
  * Autoremove virtual machines of developers and testers
  * At least notify for hardware machines no longer required
 
@@ -16,9 +16,9 @@
 
 The Foreman Plugin Expire Hosts allows to add an expiration date on hosts and to
 configure notifications for owners and admins in advance, automatically shutdown
-when the hosts is expired and delete it also automatically afterwards. This is
+hosts when expired and also delete them automatically afterwards. This is
 quite useful on virtual machines used for development and testing, for hardware
-shutdown and deletion can not be automated but it will at least notify.
+shutdown and deletion cannot be automated but it will at least notify.
 
 ~~~PAGEBREAK~~~
 

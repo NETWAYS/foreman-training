@@ -7,7 +7,7 @@
  * Generic image
  * Subnet image
 * Based on iPXE for environments without control over network
-* Adds disk based provisioning to Compute resources
+* Adds disk based provisioning to Compute Resources
 
 ~~~SECTION:handouts~~~
 
@@ -19,18 +19,18 @@ Foreman Plugin Bootdisk provides 4 kinds of boot images based on iPXE.
 ~~~PAGEBREAK~~~
 
 The host image contains a static network configuration, loads the installer from the media configured in Foreman
-and the Provisioning configuration from Foreman itself. So it requires no DHCP and TFTP in the network.
+and the Provisioning configuration from Foreman itself. So it requires no DHCP or TFTP in the network.
 
 The full host image contains the operating system specific installer so it requires no downloading of it, and is
-configured to boot from DHCP or a static network configuration based on Subnet configuration . To get its Provisioning configuration
+configured to boot from DHCP or a static network configuration based on Subnet configuration. To get its Provisioning configuration
 from Foreman it identifies itself with a token only valid for one deployment.
 
 The generic image boots from a dynamic IP address of the DHCP pool and is identified by the MAC address for Foreman
 providing the correct installer via TFTP and Provisioning configuration to load.
 
-The subnet image is basicly the same as the generic image but uses another TFTP server specified for the subnet.
+The subnet image is basically the same as the generic image but uses another TFTP server specified for the subnet.
 
-Depending on the Compute resource used the plugin adds disk based provisioning as another option.
+Depending on the Compute Resource used the plugin adds disk based provisioning as another option.
 
 ~~~ENDSECTION~~~
 
@@ -81,7 +81,7 @@ Add the parameters to enable the Bootdisk plugin
 Navigate to "Hosts > Templates > Provisioning Templates" and search for the iPXE templates.
 "Kickstart default iPXE" should already be associated to CentOS and "Preseed default iPXE" to Debian and so associate "Preseed default iPXE Autoinstall" to Ubuntu if needed.
 
-Repeat the same with the Template "Preseed PXEGrub2 Autoinstall" for Ubuntu.
+Repeat the same with the Template "Preseed default PXEGrub2 Autoinstall" for Ubuntu.
 
 Navigate to "Hosts > Provisionings Setup > Operating systems" and select the iPXE and PXEGrub2 templates associated.
 
@@ -132,11 +132,11 @@ we do not associate the newer version which gets assigned from the facts provide
 
 ### Configure virtual machine to boot from image by adding a "CDROM" device and selecting it as boot media
 
-The system has to be powered off for this. Open the Details view of the virtual machine "pxe" in the Virtual
+The system has to be powered off for this. Open the details view of the virtual machine "pxe" in the Virtual
 Machine Manager. Add a new "CDROM" storage device, go to the newly added device and connect the downloaded
 host image. Go to the boot option, select the "CDROM" device and move it onto the first place of the boot order.
 
 ### Boot and reinstall the virtual machine
 
 When you boot from the image you will recognize it starts with a static network configuration and gets its
-installer via http from the configured installation media.
+installer via HTTP from the configured installation media.

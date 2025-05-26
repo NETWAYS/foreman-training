@@ -6,7 +6,7 @@
 
 # Training
 
-This training course will introduce the architectual concepts of Foreman, will cover installation, usage and administration.
+This training course will introduce the architectural concepts of Foreman, will cover installation, usage and administration.
 The configuration management solution used will be Puppet and/or Ansible.
 
 * Foreman architecture
@@ -27,7 +27,7 @@ This chapter will give you a basic understanding of the architecture of Foreman,
 
 ## Installation
 
-In this chapter you will get an idea on the different setups you can create, what is required for running foreman, 
+In this chapter you will get an idea on the different setups you can create, what is required for running foreman,
 how the installer works and will create an All-in-one setup including DNS and DHCP in preparation for unattended installations.
 
 ## Provisioning

@@ -1,7 +1,7 @@
 !SLIDE smbullets small
 # Templates
 
-* Creates a synchronisation job for templates
+* Creates a synchronization job for templates
  * Community Templates
  * Your own git repository
 
@@ -13,16 +13,16 @@
 
 ****
 
-By installing the plugin you get a synchronisation job for templates which per default
-import the community templates from https://github.com/theforeman/community-templates
-which was deprecated in favor of having provisioning templates in the main project underneath
-"/app/views/unattended" and other templates in their matching project. 
+By installing the plugin you get a synchronization job for templates which by default
+import the community templates from https://github.com/theforeman/community-templates.
+This repository was deprecated in favor of having provisioning templates in the main project
+underneath "/app/views/unattended" and other templates in their matching project.
 
 ~~~PAGEBREAK~~~
 
 This job can also be used to import your own git repository if you want to manage the templates on
 an external version control system. In addition the imported templates will also be associated
-to the existing operating systems. Another option is to use the export function for syncing
+with the existing operating systems. Another option is to use the export function for syncing
 changes back to a repository.
 
 More details on: https://theforeman.org/plugins/foreman_templates/8.0/index.html
@@ -42,7 +42,7 @@ For details visit: https://github.com/dm-drogeriemarkt/foreman_git_templates
 * Steps:
  * Install the Foreman Plugin Templates
  * Change settings to import from the current repository
- * Run the synchronisation job
+ * Run the synchronization job
 
 !SLIDE supplemental exercises
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Templates
@@ -59,7 +59,7 @@ For details visit: https://github.com/dm-drogeriemarkt/foreman_git_templates
 
 * Install the Foreman Plugin Templates using the foreman-installer
 * Change settings to import from the current repository
-* Run the synchronisation job (using UI, with Rake job or an API call)
+* Run the synchronization job (using UI, with Rake job or an API call)
 
 #### Expected result:
 
@@ -85,7 +85,7 @@ The repo is the clone URL of the project "https://github.com/theforeman/foreman.
 The branch can be set to the current version of Foreman like "3.13-stable" if you want to be sure to not get incompatible versions.
 Filter and prefix can also help to manage the templates.
 
-### Run the synchronisation job with (using UI, with Rake job or an API call)
+### Run the synchronization job with (using UI, with Rake job or an API call)
 
 Navigate to "Hosts > Templates > Sync Templates" and use the wizard to sync or as an alternative use one of the following commands.
 

@@ -22,10 +22,10 @@
 
 OpenSCAP is the Open Source implementation of Security Content Automation Protocol which combines
 different pre-existing security standards like CVE, CCE, CPE, CVSS, XCCDF, OVAL, OCIL, AI, ARF, CCSS
-and TMSAD.  All these informations are combined in datastream files which can contain different profiles
+and TMSAD.  All this information is combined in datastream files which can contain different profiles
 a system can be validated against. To get a compliant system a guide can be created or a compliance report
-including some remediation scripts. The required files can be created by hand but are in XML so best practice is to use
-a tool like the Workbench to tailor the existing files like of the one provided by the OpenSCAP project or
+including some remediation scripts. The required files can be created by hand but are in XML, so best practice is to use
+a tool like the Workbench to tailor the existing files like the ones provided by the OpenSCAP project or
 the "National Institute of Standards and Technology" (NIST).
 
 Not used by Foreman for now is the Anaconda Plugin OpenSCAP which can also add security compliance
@@ -35,8 +35,8 @@ for now.
 To customize the policy the Plugin was enhanced to support tailoring files.
 
 The Client is provided by the Foreman Project in a separate Client repository and for installation and configuration
-a Puppet module exists in the puppet Forge, an Ansible role in th Ansible galaxy, and instructions for manually doing
-it is provided by the Foreman Webinterface.
+a Puppet module exists in the Puppet Forge, an Ansible role in the Ansible galaxy, and instructions for manually doing
+it are provided by the Foreman web interface.
 
 ~~~PAGEBREAK~~~
 
@@ -53,9 +53,9 @@ More details on: https://docs.theforeman.org/3.9/Administering_Project/index-kat
  * Install the Foreman and Smart Proxy Plugin OpenSCAP
  * Make the Puppet Module "foreman_scap_client" or the Ansible Role "theforeman.foreman_scap_client" available
  * Parameterize the Puppet Module / Ansible Role
- * Create a Hostgroup
- * Create a Policy for CentOS and assign it to a Hostgroup
- * Assign the Hostgroup to the host
+ * Create a host group
+ * Create a Policy for CentOS and assign it to a host group
+ * Assign the host group to the host
  * Create an Activation key
 
 ~~~SECTION:handouts~~~
@@ -76,7 +76,7 @@ Examples for SCAP policy files provided by the ComplianceAsCode project can be f
 * Objective:
  * Prepare the client to inspect the Security compliance of your system
 * Steps:
- * Register the Host to get client certificates
+ * Register the host to get client certificates
  * Make the Foreman client repository available to one host
  * Initiate a Puppet agent run or play the Ansible roles on the host
  * Create a report on the host
@@ -99,9 +99,9 @@ Examples for SCAP policy files provided by the ComplianceAsCode project can be f
 * Install the Foreman and Smart Proxy Plugin OpenSCAP
 * Make the Puppet Module "foreman_scap_client" or the Ansible Role "theforeman.foreman_scap_client" available
 * Parameterize the Puppet Module / Ansible Role
-* Create a Hostgroup
-* Create a Policy for CentOS and assign it to a Hostgroup
-* Assign the Hostgroup to the host
+* Create a host group
+* Create a Policy for CentOS and assign it to a host group
+* Assign the host group to the host
 * Create an Activation key
 
 !SLIDE supplemental exercises
@@ -117,7 +117,7 @@ Examples for SCAP policy files provided by the ComplianceAsCode project can be f
 
 ****
 
-* Register the Host to get client certificates
+* Register the host to get client certificates
 * Make the Foreman client repository available to one host
 * Initiate a Puppet agent run or play the Ansible roles on the host
 * Create a report on the host
@@ -177,10 +177,10 @@ In the form select Override and set the Default Value to "true", then press "Sub
 For Ansible navigate to "Configure > Ansible > Variables" and select "foreman_scap_client_fetch_remote_resources" from the list.
 In the form select Override and set the Default Value to "true", then press "Submit".
 
-### Create a Hostgroup
+### Create a Host Group
 
-A Hostgroup is required to assign the Policy, so navigate to "Configure > Host Groups" and click on "Create Host Group".
-Simply name the Hostgroup "CentOS" with only the "Name" and the "Openscap Proxy" set.
+A host group is required to assign the Policy, so navigate to "Configure > Host Groups" and click on "Create Host Group".
+Simply name the host group "CentOS" with only the "Name" and the "Openscap Proxy" set.
 
 ~~~PAGEBREAK~~~
 
@@ -193,14 +193,14 @@ adjusted file based on the one for RHEL 9.
 
 Content files are avaiable now so navigate to "Hosts > Compliance > Policies" to create a "New Policy".
 Choose "Puppet" or "Ansible" as Deployment Option, name it, choose SCAP Content provided and XCCDF Profile you prefer,
-schedule it "Weekly" on "Sunday" and assign it to Hostgroup "CentOS". If you have no preference, the "Protection Profile for General Purpose Operating Systems "
+schedule it "Weekly" on "Sunday" and assign it to host group "CentOS". If you have no preference, the "Protection Profile for General Purpose Operating Systems "
 is a good one to start.
 
 To view the guide click on the "Show Guide" action from the drop down button next to the policy.
 
-### Assign the Hostgroup to the host
+### Assign the host group to the host
 
-Assign this Hostgroup to one off your matching systems.
+Assign this host group to one of your matching systems.
 
 ### Create an Activation key
 
@@ -226,7 +226,7 @@ Alternatively it could use Puppet certificates so feel free to skip this step if
 
 ###  Make the Foreman client repository available to one host
 
-Login to the host you assigned the Hostgroup with the Policy and execute
+Log in to the host you assigned the host group with the Policy and execute
 
    # yum install -y http://yum.theforeman.org/client/3.9/el8/x86_64/foreman-client-release.rpm
 
@@ -236,7 +236,7 @@ Depending on the Puppet Module or Ansible Role version this could also be done b
 
 Use Remote execution to "Run Puppet Once" or "Run Ansible roles" which will deploy the client components (can be found in the Host detail view).
 
-As an alternative login to the host you assigned the Hostgroup with the Policy and execute
+As an alternative login to the host you assigned the host group with the Policy and execute
 
     # puppet agent -t
 

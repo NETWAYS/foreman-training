@@ -23,21 +23,21 @@
 
 ****
 
-For the installation using PXE the identfier used is the mac address so it is required during configuration of
-the host in Foreman. For communication with Foreman a token is created as identifier. 
+For the installation using PXE the identfier used is the MAC address so it is required during configuration of
+the host in Foreman. For communication with Foreman a token is created as identifier.
 
 ~~~PAGEBREAK~~~
 
-After the host is created in Foreman, it reserves an IP address in DHCP, creates DNS records and places a PXE 
+After the host is created in Foreman, it reserves an IP address in DHCP, creates DNS records and places a PXE
 configuration on the TFTP server. If not already existing the Smart Proxy TFTP downloads the boot image to its
 directory.
 
-When the host is started it gets its IP address using DHCP which also tells him to boot via PXE from the TFTP server.
-The PXE configuration points also to the answer file provided by Foreman which will point to the configured
+When the host is started it gets its IP address using DHCP which also tells it to boot via PXE from the TFTP server.
+The PXE configuration also points to the answer file provided by Foreman which will point to the configured
 installation media for package installation.
 
 Additional communication to Foreman, Puppet and other systems will be required depending on the PXE configuration
-or answer file provided. Typically a system should register to all management systems and finish its installation 
+or answer file provided. Typically a system should register to all management systems and finish its installation
 by contacting Foreman.
 
 When Foreman is told an installation is finished, it will clean up by changing the PXE configuration to local boot
@@ -63,7 +63,7 @@ The Foreman manual provides some more detailed workflow diagrams: http://thefore
 
 ~~~SECTION:notes~~~
 
-* If a student did not pause the system, he has to add the NIC as Boot media and change the boot order, shutdown the machine
+* If a student did not pause the system, they have to add the NIC as Boot media and change the boot order, shutdown the machine
 and start it up again later
 * CentOS will require 3 GB at least
 * If the environment is not avialable, assign it to "Default Organization" and "Default Location".
@@ -109,19 +109,19 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 ### Select "Manual install"
 
-In the first step of the wizard select the manuall installation as network installation is meant for other protocols
+In the first step of the wizard select the manual installation as network installation is meant for other protocols.
 
 ### Type and then select the name of one of prepared operating systems according to your preferences
 
-As the list of operating system option has grown, you need to type at least one character before a list of all
+As the list of operating system options has grown, you need to type at least one character before a list of all
 matching operating systems is displayed. Select the matching one for the operating system you want to install
 to get the optimizations.
 
 ### Adjust the minimum requirements for RAM, CPU and Disk
 
-In the third step stick the minimum requirements for RAM and CPU are shown, but unfortunately this is for runtime and not enough for the installer.
+In the third step the minimum requirements for RAM and CPU are shown, but unfortunately this is for runtime and not enough for the installer.
 CentOS installer will require at least 3 GB instead of the default, Debian should also be fine with 3 GB, while Ubuntu requires 6 GB.
-In the forth step keep the disk as small as possible but it will not matter as long as it is thin provisioned.
+In the fourth step keep the disk as small as possible, though it will not matter as long as it is thin provisioned.
 
 ### Name your virtual machine "pxe" and select the network "foreman"
 
@@ -132,7 +132,7 @@ Name the virtual machine "pxe" so you know which system was deployed in which la
 Finish the wizard and immediately pause it before the boot times out.
 
 If you did not pause the system in time, you will have to add the NIC as Boot media and change the boot order on the details view of the virtual machine.
-This change needs a shutdown of the VM, it applys only to the VM after powering it off. Shut down the System and start it up again later for the next lab.
+This change needs a shutdown of the VM as it is only applied after powering off the VM. Shut down the System and start it up again later for the next lab.
 
 !SLIDE smbullets small
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Configure the system "pxe" in Foreman
@@ -226,13 +226,12 @@ When you unpause the virtual machine it will get the suggested IP address and th
 
 ~~~SECTION:handouts~~~
 
-Hostgroups are used to group hosts, the groups can be organized in a hierarchical way by nesting them.
+Host groups are used to group hosts, the groups can be organized in a hierarchical way by nesting them.
 
-The Hostgroups allows to add defaults for all options required by Foreman for provisioning and depending on your environment also
+The host groups allow to add defaults for all options required by Foreman for provisioning and depending on your environment also
 for configuration management and compute resources. Additional parameters can be set.
 
-Furthermore to providing defaults configured at the hostgroup "Provisioning templates" can be associated to change from the operating
-system default.
+In addition to providing defaults, "Provisioning templates" can be associated to change the operating system's default templates.
 
 ~~~ENDSECTION~~~
 

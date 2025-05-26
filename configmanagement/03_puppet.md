@@ -59,11 +59,11 @@
 Puppet is written in ruby and provided as a true Open Source version and as an Enterprise version with additional features and
 packages.
 
-Independently of the version it runs on Linux, Unix and Windows. It can also configure some network devices. For configuration
+Independent of the version it runs on Linux, Unix and Windows. It can also configure some network devices. For configuration
 it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
 The desired state is described in so called manifests which are stored on one or multiple central servers. To connect the different
 configuration items with the node to be configured these central servers can use an ENC (External Node Classifier). The agent runs
-on the nodes and collects system information using a tool named facter before contacting the central server. The server compiles then
+on the nodes and collects system information using a tool named facter before contacting the central server. The server then compiles
 a catalog based on the facts provided by the agent and the manifests. This catalog is then realized by the agent using an
 abstraction layer and also sends a report to the server. The server uses different handlers to send the report to other tools.
 
@@ -85,9 +85,9 @@ A diagram showing this workflow is provided on the next page.
 # Foreman Puppet Integration
 
 * Foreman -> Puppet
- * Smart proxy Puppet allows to import Puppet modules
- * Smart proxy Puppet allows to trigger agent runs
- * Smart proxy Puppet CA integrates certificate handling
+ * Smart Proxy Puppet allows to import Puppet modules
+ * Smart Proxy Puppet allows to trigger agent runs
+ * Smart Proxy Puppet CA integrates certificate handling
 
 * Puppet -> Foreman
  * Puppet uploads facts to Foreman
@@ -100,14 +100,14 @@ A diagram showing this workflow is provided on the next page.
 
 ~~~PAGEBREAK~~~
 
-Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled 
-using the Smart proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
-The Smart Proxy Puppet CA integrates certificate handling into provisioning so auto signing of the agents certificate requests during build
+Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled
+using the Smart Proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
+The Smart Proxy Puppet CA integrates certificate handling into provisioning, so auto signing of the agents' certificate requests during build
 is allowed and also allows to manage the complete CA in the WebGUI.
 
-On the Puppet master a script is deployed which integrates Foreman as an ENC so classes selected in the WebGUI are deployed on the system.
+On the Puppet master a script is deployed which integrates Foreman as an ENC, so classes selected in the WebGUI are deployed on the system.
 This mechanism is also used to upload the facts provided by the agent during Puppet agent run and creating a host entry if facts are provided
-for a not already existing system. Also Foreman is integrated as a reporting target to enable the web interface to show reports.
+for a not already existing system. Also, Foreman is integrated as a reporting target to enable the web interface to show reports.
 
 ~~~ENDSECTION~~~
 
@@ -182,8 +182,8 @@ All this can be done using the Foreman installer, but as Katello's certificates 
 ### Import the Puppet classes in Foreman using "Configure > Puppet ENC > Classes"
 
 Navigate to "Configure > Puppet ENC > Classes" in the WebGUI and click on "Import from foreman.localdomain".
-It will query you to select the changes you want to realize, so select the Environment "production" which should show you
-classes and press "Update". If you want to do the optional step press "Cancel" instead!
+It will ask you to select the changes you want to realize, so select the Environment "production" which should show you
+classes and press "Update". If you want to do the optional step, press "Cancel" instead!
 
 ### Configure Foreman to ignore the classes from stdlib module by creating "/usr/share/foreman/config/ignored_environments.yml"
 
@@ -194,7 +194,7 @@ Create the file "/usr/share/foreman/config/ignored_environments.yml" with the fo
 
 This will ignore all classes starting with "stdlib" if you run the import like described above.
 
-If you follow the Puppet Role Profile Pattern something like this could be helpful to ignore all internal classes.
+If you follow the Puppet Role Profile Pattern, something like this could be helpful to ignore all internal classes.
 
     :filters:
       - !ruby/regexp '/^(?!role|profile).*$/'
@@ -223,14 +223,14 @@ Foreman does differentiate between two kinds of parameters.
 ~~~PAGEBREAK~~~
 
 Parameters are global parameters in a very simple fashion. Their values can be of different types since 1.22, before that
-they could only be strings. Override is simply done by creating a parameter with the same name in a more specific scope.
+they could only be strings. Overriding is simply done by creating a parameter with the same name in a more specific scope.
 To Puppet they are presented as a global parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.
 
 Smart class parameters become available from imported Puppet classes and can have different types like boolean, hash
-or yaml. For this types an input validator can be created to verify user input. An override behavior and order can be
+or yaml. For these types an input validator can be created to verify user input. An override behavior and order can be
 defined to enable merging values depending on facts.
 
-Smart variables were a third type, meant for older puppet versions and are now removed.
+Smart variables were a third type, meant for older Puppet versions and are now removed.
 
 All types have to be created on the global scope to be available in more specific scopes and all allow to hide them
 from unprivileged users.
@@ -283,7 +283,7 @@ insert your name as Default Value for the id of the user, add a ssh public key a
 for the parameter sudo set the parameter type to boolean and the default to true.
 All this requires you to check the box next to Override!
 
-Hint: To create a ssh key pair run "ssh-keygen". The key string required for the puppet module is the second part
+Hint: To create a ssh key pair run "ssh-keygen". The key string required for the Puppet module is the second part
 of the pub file.
 
 ### Assign the Puppet class in the host menu to one host
@@ -336,7 +336,7 @@ Login to the host you assigned the class earlier and execute the following comma
     # puppet agent -t
 
 This will run the agent in test mode (one time in foreground with verbose output) so you will see the changes
-configured in the puppet class.
+configured in the Puppet class.
 
 An alternative would be to use "Run Puppet Once" on the host view to utilizie Remote Execution.
 
@@ -347,7 +347,7 @@ and if selected it will show you the same information you saw on the console whi
 meta data are visualized.
 
 Other entry points to the reports are the dashboard showing the last reports with any events in "Latest Events" and the
-Reports overview which filters by default only on the eventful reports.
+Reports overview which by default only filters on the eventful reports.
 
 
 !SLIDE smbullets small
@@ -425,9 +425,9 @@ $hosts = foreman('hosts',
 
 ****
 
-The Puppet module "foreman" provided by the Foreman project includes a function to query the Foreman API in a puppet class.
+The Puppet module "foreman" provided by the Foreman project includes a function to query the Foreman API in a Puppet class.
 This is an alternative for exported resources or a PuppetDB query. It takes the login data and the query options and returns
-a result hash including an array of hashes describing the hosts. 
+a result hash including an array of hashes describing the hosts.
 The hash is best used with a defined resource and create_resource function or within a template.
 Latest release of the function allow to provide a filter for reducing the data for easier handling.
 

@@ -8,7 +8,7 @@
  * Salt
 * Provides a Cockpit integration via SSH
 
-* _Use case:_ 
+* _Use case:_
  * Trigger configuration management runs immediately
  * Execute one-time or irregular commands
  * Orchestrate operations on servers
@@ -24,18 +24,18 @@
 The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
 It utilizes different providers.
 
-The Script provider runs per default commands via SSH as root, but can also be configure to run as unpriviledged
-user and run sudo to accquire elevated privileges. It also integrates Cockpit as a Webconsole using
-this credentials and a SSH socket. Also a pull mode using mqtt was introduced to it.
+The Script provider runs commands via SSH as root by default, but can also be configured to run as an unpriviledged
+user and run sudo to acquire elevated privileges. It also integrates Cockpit as a Webconsole using
+these credentials and an SSH socket. Also, a pull mode using MQTT was introduced to it.
 
 The Ansible provider uses the same SSH configuration but uses Ansible syntax for the jobs.
 The same goes for Salt.
 
-It is usefully to trigger configuration management runs immediately to get an adhoc deployment,
+Use cases are to trigger configuration management runs immediately to get an ad hoc deployment,
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.
 
-With the OpenSCAP plugin installed in addition an option to run scans on demand is added.
+With the OpenSCAP plugin installed an option to run scans on demand is added.
 
 More details on: https://docs.theforeman.org/3.9/Managing_Hosts/index-katello.html#Configuring_and_Setting_Up_Remote_Jobs_managing-hosts
 
@@ -75,7 +75,7 @@ In our environment Foreman is not using itself as DNS server so we need to chang
 
 #### Expected result:
 
-The Job is executed and the result is visible in the WebUI
+The Job is executed and the result is visible in the WebUI.
 
 
 !SLIDE supplemental solutions
@@ -89,7 +89,7 @@ The Job is executed and the result is visible in the WebUI
 
 ### Install the Foreman Plugin Remote Execution using the Foreman Installer
 
-This will install both the Foreman and Smart proxy Plugin, create a SSH key and restart the services.
+This will install both the Foreman and Smart Proxy Plugin, create an SSH key and restart the services.
 
     # foreman-installer --enable-foreman-plugin-remote-execution \
                         --enable-foreman-proxy-plugin-remote-execution-script
@@ -100,7 +100,7 @@ You can use the "ssh-copy-id":
 
     # ssh-copy-id -i ~foreman-proxy/.ssh/id_rsa_foreman_proxy root@foreman.localdomain
 
-Or get it via the Smart proxy (running on port 9090 on the Katello server instead of default 8443):
+Or get it via the Smart Proxy (running on port 9090 on the Katello server instead of default 8443):
 
     # curl -k https://foreman.localdomain:9090/ssh/pubkey >> ~/.ssh/authorized_keys
 
@@ -111,7 +111,7 @@ Navigate to "Administer > Settings" and on the tab "Remote Execution" switch "Co
 ### Schedule a Job executing the command "id"
 
 Navigate to the host and press "Schedule a Job". For multiple hosts the action is also available in the action menu
-of the "All Hosts" view. Keep the category "Commands" and the template "Run Command - Script default". 
+of the "All Hosts" view. Keep the category "Commands" and the template "Run Command - Script default".
 Keep the selected host and add the command "id". No need to change any advanced fields or the schedule, so on the review press "Run" to execute it and watch
 for the execution. By clicking on the host in the list, you can get the actual output of the Job run on the host.
 
@@ -139,9 +139,9 @@ for the execution. By clicking on the host in the list, you can get the actual o
 
 ~~~PAGEBREAK~~~
 
-It is also possible to write templates for jobs in a similar manner like Provisioning Templates. In this
-templates you can use a special function "input" to get the value of input fields associated to it. These
-fields can be a free-form or list of values for a user to add, facts, variables or Puppet parameters. 
+It is also possible to write templates for jobs in a similar manner like Provisioning Templates. In these
+templates you can use a special function "input" to get the value of input fields associated with it. These
+fields can be a free-form or list of values for a user to add, facts, variables or Puppet parameters.
 
 Furthermore you can reference another template, which you can also render in your newly created one with the
 "render_template" function.
@@ -204,7 +204,7 @@ the "Hosts" tab of the job.
 
 ### Run it with input and inspect the output
 
-Select a host to run the job, provide a different target as input and have a look on the output by clicking
+Select a host to run the job, provide a different target as input and have a look at the output by clicking
 the hostname on the "Hosts" tab of the job.
 
 
@@ -262,7 +262,7 @@ Run the `foreman-installer` with `--enable-foreman-plugin-remote-execution-cockp
 
 ### Install Cockpit on the client
 
-The client can be every system you prepared with the SSH key. The installation differs then based on the system.
+The client can be every system you prepared with the SSH key. The installation differs based on the system.
 
 On CentOS:
 
@@ -276,8 +276,8 @@ The websocket and access to it is not required, so installing this subpackage is
 
 ### Access the webconsole from the host view
 
-Navigate to the Host overview and click on one of the prepared hosts to get the host view. In the host view click on the three dots and then "Web Console" to enter Cockpit.
-You can see now some system information and control options depending on the installed Cockpit plugins, furthermore there is a terminal you can use.
+Navigate to the host overview and click on one of the prepared hosts to get the host view. In the host view click on the three dots and then "Web Console" to enter Cockpit.
+You can now see some system information and control options depending on the installed Cockpit plugins. Furthermore there is a terminal you can use.
 
 
 !SLIDE smbullets small
@@ -295,11 +295,11 @@ You can see now some system information and control options depending on the ins
 ~~~SECTION: handouts~~~
 ****
 
-If outgoing connections are not allowed or use of ssh is not wanted, the pull mode is quite easy to setup. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.
+If outgoing connections are not allowed or use of SSH is not wanted, the pull mode is quite easy to setup. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.
 
-On the server side you simple need a Smart Proxy with feature Remote Execution enabled and the script mode set to `pull-mqtt`. Then this Smart proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.
+On the server side you simply need a Smart Proxy with feature Remote Execution enabled and the script mode set to `pull-mqtt`. Then this Smart Proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.
 
-On the client side it requires the certificates which are needed to authenticate and you get by registration via `subscription-manager` which should be done via "Register Host" wizard in the UI. Then you can simply install `katello-pull-transport-migrate` from the Foreman client repo which installs and configures the MQTT client `yggdrasil` with a worker for Foreman's Remote execution feature.
+On the client side it requires the certificates which are needed to authenticate. You get these by registration via `subscription-manager` which should be done via "Register Host" wizard in the UI. Then you can simply install `katello-pull-transport-migrate` from the Foreman client repo which installs and configures the MQTT client `yggdrasil` with a worker for Foreman's Remote execution feature.
 
-So an implicit requirement is using Katello and with Katello a Smart Proxy has by default also the Content feature. If you do not want this feature also, some manual preparation for the Smart Proxy setup and a manual adjustment of the client configuration is required, but the feature still works.
+So an implicit requirement is using Katello. With Katello a Smart Proxy also has the Content feature by default. If you do not want this feature as well, some manual preparation for the Smart Proxy setup and a manual adjustment of the client configuration is required, but the feature still works.
 ~~~ENDSECTION~~~

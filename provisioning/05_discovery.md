@@ -1,7 +1,7 @@
 !SLIDE smbullets small noprint
 # Provisioning using Discovery plugin
 
-* Identifies itself as discovered host with its mac address by default
+* Identifies itself as discovered host with its MAC address by default
 
 <div style="text-align: center"><img src="./_images/discovery.png" style="float: center; margin-left: 125px; width: 767px; height: 437px;" alt="Provisioning Discovery"></div>
 
@@ -9,7 +9,7 @@
 !SLIDE smbullets small printonly
 # Provisioning using Discovery plugin
 
-* Identifies itself as discovered host with its mac address by default
+* Identifies itself as discovered host with its MAC address by default
 
 <img src="./_images/discovery.png" style="width: 450px; height: 256px;" alt="Provisioning Discovery">
 
@@ -20,9 +20,9 @@
 ~~~PAGEBREAK~~~
 
 For the installation the system boots a discovery image and identifies itself as "Discovered Host" in the Foreman Web GUI.
-As an identifier the host uses its mac address by default. Then configuration is done in Foreman and after submitting it the image 
+As an identifier the host uses its MAC address by default. Then configuration is done in Foreman and after submitting it the image
 is told to reboot and starts an installation via PXE afterwards.
-For this communication the discovery image uses the Smart proxy included in it.
+For this communication the discovery image uses the Smart Proxy included in it.
 
 ~~~ENDSECTION~~~
 
@@ -69,7 +69,7 @@ Add the parameters to enable the Discovery plugin and download the image to the 
     # foreman-installer --enable-foreman-plugin-discovery --enable-foreman-proxy-plugin-discovery \
       --foreman-proxy-plugin-discovery-install-images=true
 
-If the trainer provides a local copy of the image add the parameter --foreman-proxy-plugin-discovery-source-url and
+If the trainer provides a local copy of the image, add the parameter --foreman-proxy-plugin-discovery-source-url and
 the provided URL.
 
 ### Adjust and deploy the PXE default configuration
@@ -145,7 +145,7 @@ Open the "Virtual Machine Manager" application from the Gnome Application menu
 
 ### Select "Manual install"
 
-In the first step of the wizard select the manuall installation as network installation is meant for other protocols
+In the first step of the wizard select the manual installation as network installation is meant for other protocols.
 
 ### Type and then select the name of one of prepared operating systems according to your preferences
 
@@ -169,9 +169,9 @@ If you do not add the nic as boot option, it will not boot via PXE after initial
 
 ### Create the virtual machine and when the PXE menu appears select "Foreman Discovery Image"
 
-Finish the wizard and let it boot from the default PXE configuration when the PXE menu appears select "Foreman Discovery Image" instead of
-"Default local boot".  The discovery image should boot now and report status "SUCCESS" on the console, then a system
-appears in the Foreman Web GUI in the "Discovery widget" named after the mac address with prefix "mac".
+Finish the wizard and let it boot from the default PXE configuration. When the PXE menu appears select "Foreman Discovery Image" instead of
+"Default local boot".  The discovery image should now boot and report status "SUCCESS" on the console. Then a system
+appears in the Foreman Web GUI in the "Discovery widget" named after the MAC address with prefix "mac".
 
 
 !SLIDE smbullets small
@@ -241,7 +241,7 @@ Having "IPv4 subnet" set to "foreman" is also required.
  * Match on facts provided by the discovery image
  * Naming based on template
  * Installation and configuration based on hostgroup
- * Provides a limit and a priority for ordering 
+ * Provides a limit and a priority for ordering
 * Not enabled by default
  * Requires "Discovered" setting "Auto provisioning" changed to "true"
 
@@ -252,9 +252,9 @@ Having "IPv4 subnet" set to "foreman" is also required.
 ~~~PAGEBREAK~~~
 
 Discovery rules allow an automatic rule based installation. Depending on facts provided by the discovery image a rule is selected
-and the system is installed based on the configuration of the selected hostgroup. Naming is done based on a template using ERB which
-allows to use facts or random numbers, by default the macaddress is used. Setting a limit and a priority allows some ordering like
-deploy first two backend systems of this size and then two frontend systems.
+and the system is installed based on the configuration of the selected host group. Naming is done based on a template using ERB which
+allows to use facts or random numbers, by default the MAC address is used. Setting a limit and a priority allows some ordering like
+first deploying two backend systems of this size and then two frontend systems.
 
 Usage of the rule based installation is not enabled by default but simply switched on by changing the "Discovered" setting "Auto provisioning" to "true".
 
@@ -273,12 +273,12 @@ Usage of the rule based installation is not enabled by default but simply switch
 
 ****
 
-The discovery image is provided by the project also with corresponding tools and documentation on extending and remastering it.
+The discovery image is provided by the project including corresponding tools and documentation on extending and remastering it.
 
 It also allows to add custom facts in its interface, as boot parameter or as an extension which enables a workflow like booting the image
 and adding desired system type as fact.
 
-Furthermore it could be used in enviroments without PXE and DHCP by providing all settings including an ip address and boot directly
+Furthermore it could be used in environments without PXE and DHCP by providing all settings including an IP address and boot directly
 into a new kernel with kexec. This is only available for Red Hat derivates and Debian/Ubuntu (including one template for Autoinstall) at the moment.
 
 ~~~ENDSECTION~~~

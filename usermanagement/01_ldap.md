@@ -1,28 +1,28 @@
 !SLIDE smbullets small
 # LDAP
 
-* Natively supported including webbased configuration
+* Natively supported including web-based configuration
 * Supports:
- * Protocol: LDAP, LDAPS, no StartTLS
+ * Protocol: LDAP, LDAPS, no STARTTLS
  * Schema: POSIX, Active Directory, FreeIPA
 * Allows multiple backends
 * Autocreation of user possible
-* Optional synchronisation of group membership
+* Optional synchronization of group membership
 * Getting stored avatars
 
 ~~~SECTION:handouts~~~
 
 ****
 
-Foreman supports LDAP authentication natively and provides a webbased configuration for it.
+Foreman supports LDAP authentication natively and provides a web-based configuration for it.
 
 ~~~PAGEBREAK~~~
 
-Supported are LDAP and LDAPS as protocol, for now no StartTLS. If using certificate based encyrption
-trust to the certificate is mandatory. It supports the POSIX, Active Directory and FreeIPA schema
+LDAP and LDAPS are supported as protocol, currently no StartTLS though. If using certificate based encryption,
+trusting the certificate is mandatory. It supports the POSIX, Active Directory and FreeIPA schema
 for storing users and groups, but attribute mapping can be configured manually. For the autocreation
-of users the attributes "Login Name", "First Name", "Surname" and "Email" are required, optionally a
-avatar can be stored as base64 encoded string in a "Photo" attribute.
+of users the attributes "Login Name", "First Name", "Surname" and "Email" are required, optionally an
+avatar can be stored as a base64 encoded string in a "Photo" attribute.
 
 ~~~ENDSECTION~~~
 
@@ -57,7 +57,7 @@ avatar can be stored as base64 encoded string in a "Photo" attribute.
 ****
 
 * Configure the LDAP authentication including group synchronisation
-* Add a administrative group to grant the administrative accounts from the LDAP privileges
+* Add an administrative group to grant the administrative accounts from the LDAP privileges
 * Optional: Add a photo to the administrator account via ldapmodify
 
 #### Expected result:
@@ -119,7 +119,7 @@ Press "Submit" to store the configuration.
 
 ~~~PAGEBREAK~~~
 
-### Add a administrative group to grant the administrative accounts from the LDAP privileges
+### Add an administrative group to grant the administrative accounts from the LDAP privileges
 
 Navigate to "Administer > User groups" and open the group dialog by pressing "Create User group" and insert the values.
 
@@ -134,9 +134,9 @@ Navigate to "Administer > User groups" and open the group dialog by pressing "Cr
  * Name: admins
  * Auth source: LDAP-Foreman
 
-Create the group by clicking "Submit" and afterwards try to login with the credentials "administrator / netways".
-Login should work, grant permissions and you should find the user in "Administer > Users". If login fails check the
-"LDAP Authentication", if no permissions are granted check the "User group".
+Create the group by clicking "Submit" and afterwards try to log in with the credentials "administrator / netways".
+The login should work, grant permissions and you should find the user in "Administer > Users". If the login fails,
+check the "LDAP Authentication", if no permissions are granted, check the "User group".
 
 * Optional: Add a photo to the administrator account
 

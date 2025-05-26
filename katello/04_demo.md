@@ -10,7 +10,7 @@
 
 ****
 
-Setting up Katello is only a bit more challenging then Foreman, but the team provides an
+Setting up Katello is only a bit more challenging than Foreman, but the team provides an
 easy way to create a demo setup.
 
 Requirements:

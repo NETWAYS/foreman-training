@@ -3,7 +3,7 @@
 
 * Autonomous web-based component
  * Restful API to connect to various systems from Foreman
- * Decentralisation of some Foreman features (templates) for isolated networks
+ * Decentralization of some Foreman features (templates) for isolated networks
 * Supported Platforms: RHEL/CentOS, Debian/Ubuntu, (Linux, Windows)
 * Supported Subsystems:
  * DHCP - ISC DHCP, MS DHCP Servers, Libvirt, ...
@@ -11,7 +11,7 @@
  * BMC - IPMI
  * Puppet & Puppet CA / Salt / Chef / Ansible
  * Realm - FreeIPA, Active Directory
- * TFTP 
+ * TFTP
  * and many more via plugins
 
 ~~~SECTION:notes~~~
@@ -27,16 +27,16 @@
 
 ~~~PAGEBREAK~~~
 
-The smart proxy is an autonomous web-based component providing a restful API to connect to varios
-systems from higher ochestration tools such as Foreman. 
+The Smart Proxy is an autonomous web-based component providing a restful API to connect to various
+systems from higher ochestration tools such as Foreman.
 
 The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
-source allows to support other Linux distributions and also Windows which is required for some 
+source allows to support other Linux distributions and also Windows which is required for some
 implementations of subsystems.
 
-There are different implementations of various subsystems included in the smart proxy by default
+There are different implementations of various subsystems included in the Smart Proxy by default
 and it easily allows to add additional subsystems and implementations as plugins. For configuration
-management the solutions differ to much to be covered by one subsystem. For joining a realm support
+management the solutions differ too much to be covered by one subsystem. For joining a realm, support
 for FreeIPA (an Open Source aquivalent to Active Directory focused on Linux) is part of the Smart Proxy.
 Active directory is implemented as an additional provider in a separate package.
 
@@ -50,7 +50,7 @@ Active directory is implemented as an additional provider in a separate package.
 * Supports: ISC DHCP, MS DHCP, Libvirt
 * Additional providers: Infoblox, Dnsmasq, Bluecat, Device42
 * ISC DHCP:
- * uses OMAPI 
+ * uses OMAPI
 * MS DHCP:
  * uses netsh on a windows server
  * needs administrative privileges
@@ -69,13 +69,13 @@ Active directory is implemented as an additional provider in a separate package.
 ****
 
 The Smart Proxy DHCP is used to add and remove host reservations to preconfigured subnets and allows to
-import them to foreman.
+import them to Foreman.
 
-On Linux typically a ISC compatible implementation is used to manage DHCP which allows to send commands
-via OMAPI. For Microsoft DHCP installation of the Smart Proxy on Windows Server system is required which
-needs netsh command installed and the user running the service needs administrative privileges, but the
-server does not need to be the DHCP server. For testing enviroments also an implementation for Libvirt
-using libvirt API to manage the dnsmasq underneath is available, a productive use is not recommended.
+On Linux typically an ISC compatible implementation is used to manage DHCP which allows to send commands
+via OMAPI. For Microsoft DHCP, the Smart Proxy must be installed on a Windows Server system which has
+the netsh command installed. The user running the service needs administrative privileges, but the
+server does not need to be the DHCP server. For testing environments an implementation for Libvirt
+using libvirt API to manage the dnsmasq underneath is available as well, a productive use is not recommended.
 
 Additional providers like Infoblox, Dnsmasq, Bluecat, and Device42 are available as plugins.
 
@@ -84,15 +84,15 @@ Additional providers like Infoblox, Dnsmasq, Bluecat, and Device42 are available
 !SLIDE small smbullets
 # Smart Proxy - DNS
 
-* Adds and removes dns records of type A, AAAA and PTR
-* Requires zone to be configured as dynamic zones
+* Adds and removes DNS records of type A, AAAA and PTR
+* Requires zone to be configured as dynamic zone
 * Supports: Bind, MS DNS, Libvirt
 * Additional providers: Infoblox, Route53, PowerDNS, Dnsmasq
 * Bind:
  * uses nsupdate with preshared key or Kerberos principal
 * MS DNS:
  * uses nsupdate with Kerberos principal
- * alternativly: uses dnscmd on a windows server
+ * alternatively: uses dnscmd on a Windows server
 * Libvirt:
  * not for productive use
  * uses libvirt API to manage dnsmasq for libvirt
@@ -108,14 +108,14 @@ Additional providers like Infoblox, Dnsmasq, Bluecat, and Device42 are available
 
 ****
 
-The Smart Proxy DNS is used to add and remove dns records of type A and PTR. Foreman 1.12 introduced
+The Smart Proxy DNS is used to add and remove DNS records of type A and PTR. Foreman 1.12 introduced
 full support for IPv6, but the support for CNAME in the Smart Proxy is not yet utilized in Foreman.
-For doing such updates it requires the zone to be a dynamic zone.
+For doing such updates the zone is required to be a dynamic zone.
 
-Commonly used on Linux is Bind which takes updates via nsupdate with preshared keys or if used in FreeIPA
+On Linux, Bind is commonly used which takes updates via nsupdate with preshared keys or if used in FreeIPA
 with Kerberos principal. The same mechanism could be used for sending updates to Microsofts DNS. Another
 possibilty is to install the Smart Proxy on a Windows server and give it the privileges to run dnscmd.
-Other implementations like Infoblox, PowerDNS, Dnsmasq and Route53 are also supported via plugins. 
+Other implementations like Infoblox, PowerDNS, Dnsmasq and Route53 are also supported via plugins.
 Libvirt is again only supported as a testing environment.
 
 ~~~ENDSECTION~~~
@@ -135,13 +135,13 @@ Libvirt is again only supported as a testing environment.
 ****
 
 The Smart Proxy TFTP provides boot-images for PXE boot, these files are simply downloaded using wget the
-first time needed. PXE configuration is created during provisioning based on MAC address.
+first time they are needed. PXE configuration is created during provisioning based on MAC address.
 The support for different bootloaders has grown over the years from classic PXELinux over iPXE to using Grub2
 to work on systems with BIOS, UEFI and even UEFI with enabled SecureBoot.
 
 ~~~PAGEBREAK~~~
 
-For this subsystem in the most cases no additional configuration is required because it is completly included
+For this subsystem no additional configuration is required in most cases because it is completely included
 in the basic setup when activated via one parameter.
 
 ~~~ENDSECTION~~~
@@ -151,8 +151,8 @@ in the basic setup when activated via one parameter.
 # Smart Proxy - Puppet / Puppet CA
 
 * Puppet:
- * connects to Puppets API
- * allows to import puppet environments and classes
+ * connects to Puppet's API
+ * allows to import Puppet environments and classes
  * accepts facts and reports
  * uses Foreman as ENC
 
@@ -160,7 +160,7 @@ in the basic setup when activated via one parameter.
  * requires access to ssl directory, autosign configuration and puppet cert command
  * allows certificate management using the Web GUI
  * creates autosign entry for hosts during provisioning
- * alternative a tokenbased autosigning can be used
+ * alternatively a tokenbased autosigning can be used
 
 * Puppet integration requires also the Foreman plugin for full feature set
 
@@ -174,18 +174,18 @@ in the basic setup when activated via one parameter.
 
 ~~~PAGEBREAK~~~
 
-The Smart Proxy Puppet connects to the API of Puppet to query puppet environments and classes for import.
+The Smart Proxy Puppet connects to the API of Puppet to query Puppet environments and classes for import.
 
 Also it automatically allows a Puppet master known to Foreman as Smart Proxy to upload facts and reports. In addition
 the Puppet master can access Foreman as an External Node Classifier to build its catalog.
 
-The Smart Proxy Puppet CA is independent from the one for Puppet. It requires access to Puppet's ssl directory, the 
+The Smart Proxy Puppet CA is independent from the one for Puppet. It requires access to Puppet's ssl directory, the
 autosign configuration and puppet cert command via sudo. The Web GUI utilizes the Smart Proxy for certificate management
-and creates autosign entry for hosts during provisioning for accessing puppet without manual intervention.
+and creates autosign entries for hosts during provisioning for accessing Puppet without manual intervention.
 
 An alternative implementation using tokenbased autosigning exists, trading off the capability to manually create autosign entries
 for increased security and better debugging.
 
-To get the full feature set also the Foreman plugin needs to be installed as Puppet support was moved from core to a plugin with 3.0.
+To get the full feature set the Foreman plugin also needs to be installed as Puppet support was moved from core to a plugin with 3.0.
 
 ~~~ENDSECTION~~~

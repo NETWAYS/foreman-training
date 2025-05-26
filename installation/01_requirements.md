@@ -17,10 +17,12 @@
 
 On the mentioned operating systems packages are provided by the project, a installation from source
 is not recommended. On all platforms all updates should be applied before installation. Using the
-Puppetlabs Repository providing an up-to-date version of Puppet is required which of the supported
+Puppetlabs Repository providing an up-to-date version of Puppet is required. Choosing the supported
 versions to use is based on user requirements.
 
-Some plugins especially Katello will limit the available plattform.
+Some plugins especially Katello will limit the choices of available plattform.
+
+On Enterprise Linux distributions, EPEL is not only not required, but in fact must be disabled!
 
 ~~~ENDSECTION~~~
 
@@ -30,7 +32,7 @@ Some plugins especially Katello will limit the available plattform.
 * Only All-in-one packaging model from Puppet is supported for Puppet 7 and 8
  * Older Puppet versions are not supported
  * Puppet Enterprise is not supported
-* Puppetserver gets telemetry disabled by default
+* Puppetserver has its telemetry disabled by default
 * Structured Facts are used by default
 
 ~~~SECTION:handouts~~~
@@ -42,7 +44,7 @@ Puppet Enterprise is not supported, but can work with manual tweaking of the set
 
 ~~~PAGEBREAK~~~
 
-Puppetserver gets installed as central component and since the Foreman project wants to respect user’s privacy,
+Puppetserver is installed as a central component and since the Foreman project wants to respect user’s privacy,
 it disables the telemetry introduced by Puppetserver by default. You can opt-in if you want.
 
 Structured facts are used by default, so no need for legacy facts anymore.
@@ -69,7 +71,7 @@ Port        | Protocol  | Required For
 
 ****
 
-Depending on your installation the ports above or some additional ones are required to be accessable on the Foreman server,
+Depending on your installation the ports above or some additional ones are required to be accessible on the Foreman server,
 by Foreman or the managed systems.
 
 ~~~ENDSECTION~~~
