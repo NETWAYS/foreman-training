@@ -8,7 +8,7 @@
  * Log execution
  * Do not block Foreman
 
-* _Use case:_ 
+* _Use case:_
  * Extend the Foreman without writing a plugin
  * Work around the limitations and problems of existing tools
 
@@ -32,7 +32,7 @@ Another use case is to work around the limitations and problems of tools like ch
 VMs which is only available after the creation but are required before starting them.
 
 This plugin is a new solution replacing another one called Hooks, with some other design decisions
-like having it not blocking and rolling back the action in Foreman.
+like having it non-blocking and rolling back the action in Foreman.
 
 More details on: https://docs.theforeman.org/3.9/Administering_Project/index-katello.html#Using_Webhooks_admin
 

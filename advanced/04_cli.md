@@ -6,7 +6,7 @@
 
 * Written in Ruby based on clamp
 * Modular CLI
- * Basicly a framework
+ * Basically a framework
  * Plugins for Foreman
  * Some Foreman plugins provide a Hammer plugin
  * Other tools (especially around Katello)
@@ -18,7 +18,7 @@
 
 The commandline interface for Foreman is based on the Hammer CLI which is basicly a framework
 written in Ruby based on clamp. Foreman provides a plugin to manage most aspects of Foreman
-like the WebGUI and the API. Some of the Foreman plugins also provide a Hammer plugin, like 
+like the WebGUI and the API. Some of the Foreman plugins also provide a Hammer plugin, like
 some other tools especially around Katello do. But the framework is not limited to the Foreman
 environment, so feel free to create your own plugins to solve your own administrative tasks.
 
@@ -81,9 +81,9 @@ Adjust the configuration if required in `~/.hammer/cli.modules.d/foreman.yml`:
       :username: 'admin'
       :password: 'PASSWORD'
 
-### Create the new Operatingsystem entry for "CentOS Stream 9"
+### Create the new Operating system entry for "CentOS Stream 9"
 
-    # hammer os create --name CentOS --major 9 --description "CentOS Stream 9" --architectures x86_64 \ 
+    # hammer os create --name CentOS --major 9 --description "CentOS Stream 9" --architectures x86_64 \
     --family "Redhat" --password-hash SHA256 --media "CentOS Stream 9 mirror" --partition-tables "Kickstart default"
 
 ### Optionally add the parameter "enable-official-puppet7-repo"

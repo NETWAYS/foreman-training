@@ -18,7 +18,7 @@
 ****
 
 The Monitoring integration is done via a Foreman plugin for the graphical part and a
-Smart proxy plugin for the communication. So it shows a global and detailed monitoring
+Smart Proxy plugin for the communication. So it shows a global and detailed monitoring
 status for hosts, manages monitoring objects during provisioning and deprovisioning and
 allows to set downtimes.
 
@@ -39,8 +39,8 @@ More details on: <br/>
 * Objective:
  * Integrate Monitoring into Foreman
 * Steps:
- * Install Foreman plugin and Smart proxy plugin
- * Configure Smart proxy to communicate with Icinga 2 and Icinga Web 2 Director
+ * Install Foreman plugin and Smart Proxy plugin
+ * Configure Smart Proxy to communicate with Icinga 2 and Icinga Web 2 Director
  * Configure Foreman default actions for monitoring
  * Active integration for one host
  * Verify monitoring integration
@@ -58,11 +58,11 @@ More details on: <br/>
 
 ****
 
-* Install Foreman plugin and Smart proxy plugin using foreman-installer
+* Install Foreman plugin and Smart Proxy plugin using foreman-installer
 
 Active Icinga 2 and Icinga Web 2 Director provider.
 
-* Configure Smart proxy to communicate with Icinga 2 and Icinga Web 2 Director
+* Configure Smart Proxy to communicate with Icinga 2 and Icinga Web 2 Director
 * Configure Foreman default actions for monitoring
 * Active integration for one host
 * Verify monitoring integration at http://monitoring.localdomain/icingaweb2
@@ -78,14 +78,14 @@ Credentials are icinga:icinga.
 
 ****
 
-### Install Foreman plugin and Smart proxy plugin
+### Install Foreman plugin and Smart Proxy plugin
 
     # foreman-installer --enable-foreman-plugin-monitoring \
     --enable-foreman-proxy-plugin-monitoring \
     --foreman-proxy-plugin-monitoring-providers icinga2 \
     --foreman-proxy-plugin-monitoring-providers icingadirector
 
-### Configure Smart proxy to communicate with Icinga 2 and Icinga Web 2 Director
+### Configure Smart Proxy to communicate with Icinga 2 and Icinga Web 2 Director
 
     # scp training@monitoring.localdomain:/var/lib/icinga2/certs/ca.crt /etc/foreman-proxy/monitoring/ca.crt
     # vi /etc/foreman-proxy/settings.d/monitoring_icinga2.yml

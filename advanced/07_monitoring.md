@@ -5,19 +5,19 @@
 # Foreman & Smart Proxy
 
 * Foreman
- * Webinterface should be available using HTTPs include "LoginPage"
+ * Web interface should be available using HTTPs include "LoginPage"
  * Provisioning requires also HTTP requests being answered
  * Foreman log should not have entries "500 Internal Server Error"
 
-* Smart proxy
+* Smart Proxy
  * Query the feature list for expected features
- * Smart proxies log should not have entries "ERROR"
+ * Smart Proxies log should not have entries "ERROR"
 
 ~~~SECTION:handouts~~~
 
 ****
 
-For monitoring Foreman you should include a check to verify if the Webinterface is available using HTTPs and
+For monitoring Foreman you should include a check to verify if the web interface is available using HTTPs and
 if it includes the string "Welcome to foreman" as it is possible that it shows a stracktrace if something is
 goes wrong. If using monitoring plugins with Icinga or something similar you could use check_http.
 
@@ -38,7 +38,7 @@ to monitor.
     check_logfiles --logfile /var/log/foreman/production.log --rotation loglogdate8logdate8gz \
     --criticalpattern '500 Internal Server Error' --tag foreman
 
-To monitor the Smart proxy query the feature list for expected features as a feature will be deactivated if
+To monitor the Smart Proxy query the feature list for expected features as a feature will be deactivated if
 an error during startup occures. Remember the default port 8443 is changed to 9090 when using Katello because of Candlepin.
 
     check_http -H foreman.localdomain -S -p 8443 -u /features -s '["dhcp","dns","logs","puppet","puppetca","tftp"]'
@@ -68,7 +68,7 @@ Which are not accessable by an unprivileged user by default.
 
 For Puppet 7 this could look like this.
 
-    check_http -H foreman.localdomain -S -p 8140 \ 
+    check_http -H foreman.localdomain -S -p 8140 \
     -J /etc/puppetlabs/puppet/ssl/certs/foreman.localdomain.pem \
     -K /etc/puppetlabs/puppet/ssl/private_keys/foreman.localdomain.pem \
     -u '/puppet/v3/catalog/foreman.localdomain?environment=production' \

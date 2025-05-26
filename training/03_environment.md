@@ -20,17 +20,17 @@
 ~~~SECTION:handouts~~~
 
 The laptop provided for the training is running CentOS Stream 9.
-You can login with the unprivileged user "training" and password "netways". 
+You can login with the unprivileged user "training" and password "netways".
 The password for user "root" required for some exercises is "netways0815".<br/>
 For virtualization the laptop runs KVM with libvirt. A virtual network named "foreman"
-is configured with the IP address "10.0.0.1" assigned to the laptop and a host entry 
+is configured with the IP address "10.0.0.1" assigned to the laptop and a host entry
 "host.localdomain", the IP address "10.0.0.2" is assigned to an already existing VM
 used to install Foreman.
 
 ~~~PAGEBREAK~~~
 
 The virtual machine is named "foreman.localdomain" and allows login via SSH with user "root"
-and password "netways". Foreman will be installed on it including DNS and DHCP service. 
+and password "netways". Foreman will be installed on it including DNS and DHCP service.
 This system also runs a LDAP service which will be required for some exercises.
 
 A second virtual machine is named "monitoring.localdomain" and allows login via SSH with user "root"

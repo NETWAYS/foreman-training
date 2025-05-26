@@ -1,7 +1,7 @@
 !SLIDE smbullets small
 # Configuration in Foreman
 
-* Operating System Version must be associated to:
+* Operating system version must be associated to:
  * Architecture
  * Installation media
  * Partition tables
@@ -11,7 +11,7 @@
 
 ****
 
-In Foreman the provisioning is centred on the operating system which has to be associated to
+In Foreman the provisioning is centered on the operating system which has to be associated with
 the hardware architectures like i386 or x86_64, the installation media being the URL where
 to find the boot media and software packages, partition tables and provisioning templates.
 
@@ -35,7 +35,7 @@ to find the boot media and software packages, partition tables and provisioning 
 
 ~~~SECTION:notes~~~
 
-* Partition templates are similar but assign per host
+* Partition templates are similar but assigned per host
 
 
 ~~~ENDSECTION~~~
@@ -48,12 +48,12 @@ to find the boot media and software packages, partition tables and provisioning 
 
 The templates are using ERB (embedded ruby) which allows to use parameters in the files, basic scripting
 like conditionals and inclusion of snippets. Snippets can be everything from scripts to configuration files
-you want to maintain independently because it is the same configuration for inclusion in different other
-files or it will bloat up one file to render it unmaintainable.
+you want to maintain independently because it is the same configuration for inclusion in other files
+or because it would bloat up one file and render it unmaintainable.
 
 Depending on different provisioning mechanisms and methods other kinds of templates are required.
 
-* PXELinux - Deployed to the TFTP server to ensure the Host boots the correct installer with the correct kernel options for BIOS boot
+* PXELinux - Deployed to the TFTP server to ensure the host boots the correct installer with the correct kernel options for BIOS boot
 * PXEGrub / PXEGrub2 - Used in PXE environments in place of PXELinux for EFI boot
 * iPXE - Used in {g,i}PXE environments in place of PXELinux
 * Provision - The main unattended installation file, e.g. Kickstart or Preseed
@@ -64,9 +64,10 @@ Depending on different provisioning mechanisms and methods other kinds of templa
 
 ~~~PAGEBREAK~~~
 
-Templates can be associated to operating systems, host groups, environments or combinations of host group and environment.
+Templates can be associated with operating systems, host groups, environments or combinations of host group and environment.
 It will then select the templates to use on best match.
-Partition tables are handled separately to allow the usage of the same host template with different disk layouts. Depending on the Installer's capabilities Foreman allows also dynamic partitioning.
+Partition tables are handled separately to allow the usage of the same host template with different disk layouts.
+Depending on the Installer's capabilities Foreman also allows dynamic partitioning.
 
 ~~~ENDSECTION~~~
 
@@ -112,7 +113,7 @@ This was simplified with Foreman 3.5 as it automatically associates templates wi
 ### Change the Installation media "CentOS Stream 9 mirror" to the local repo (if provided)
 
 Navigate to "Hosts > Provisioning Setup > Installation media", select the entry "CentOS Stream 9 mirror", change the "Path" to the
-URL the trainer provided. 
+URL the trainer provided.
 
 ### Associate the installation media "CentOS Stream 9 mirror", verify the selected templates and set boolean parameter "enable-official-puppet8-repo" to "true"
 
@@ -120,7 +121,7 @@ Navigate to "Hosts > Provisioning Setup > Operating systems" and search the entr
 Click it and in the dialog on the "Partition table" tab you can verify that "Kickstart default" is selected. On the tab "Installation media"
 select "CentOS Stream 9 mirror" (which is the one for CentOS Stream 9 onwards). On the "Templates" tab you can verify that "Kickstart default" is selected as
 Provisioning template and "Kickstart default PXELinux" is the PXELinux template. These will be used in the next exercise, but there are more
-selected for other ways of Provisioning. And on the "Parameters" tab add the parameter "enable-official-puppet8-repo" as "boolean" with value "true".
+selected for other ways of provisioning. And on the "Parameters" tab add the parameter "enable-official-puppet8-repo" as "boolean" with value "true".
 Click on "Submit".
 
 
@@ -161,7 +162,7 @@ Click on "Submit".
 
 #### Notes:
 
-This was also simplified for other operating systems like it was for EL with Foreman 3.5 afterwards, but not to the same extend.
+This was also simplified for other operating systems like it was for EL from Foreman 3.5 onwards, but not to the same extent.
 
 
 !SLIDE supplemental solutions
@@ -176,7 +177,7 @@ This was also simplified for other operating systems like it was for EL with For
 ### Change the Installation media "Debian mirror" to the local repo (if provided)
 
 Navigate to "Hosts > Provisioning Setup > Installation media", select the entry "Debian mirror", change the "Path" to the
-URL the trainer provided. 
+URL the trainer provided.
 
 ### Create the Operating system "Debian" with Major version "12", Description "Debian bookworm", Family "Debian", Release name "bookworm"
 
@@ -195,7 +196,7 @@ Click on "Submit".
 
 Navigate to "Hosts > Provisioning Setup > Operating systems" and search the Debian entry.
 Click it and in the dialog on the "Operating System" tab select the "Architecture" to "x86_64", on the "Partition table"
-tab select "Preseed default LVM" and "Preseed default", on the tab "Installation media" select "Debian mirror", on the 
+tab select "Preseed default LVM" and "Preseed default", on the tab "Installation media" select "Debian mirror", on the
 "Templates" tab verify templates associated for Finish template and PXELinux template and select the Provisioning template associated earlier,
  and add the parameter "enable-official-puppet8-repo" as "boolean" with value "true".
 Click on "Submit".
@@ -243,7 +244,7 @@ Click on "Submit".
 
 #### Notes:
 
-This was also simplified for other operating systems like it was for EL with Foreman 3.5 afterwards, but not to the same extend.
+This was also simplified for other operating systems like it was for EL from Foreman 3.5 onwards, but not to the same extent.
 
 
 !SLIDE supplemental solutions
@@ -259,7 +260,7 @@ This was also simplified for other operating systems like it was for EL with For
 
 You need to download the Server ISO from the official download website (or a mirror provided by the trainer).
 Create a subdirectory "ubuntu" underneath "/var/www/html/pub/" and place the ISO there named "24.04.1-amd64.iso".
-To provided as extraced add a subdirectory "24.04.1-amd64" and bind mount the ISO.
+To provide the contents of the ISO directly add a subdirectory "24.04.1-amd64" and bind mount the ISO.
 In the training setup you can do this manually, in production use an fstab entry.
 
     # mkdir /var/www/html/pub/ubuntu
@@ -300,7 +301,7 @@ Click on "Submit".
 
 Navigate to "Hosts > Provisioning Setup > Operating systems" and search the Ubuntu entry.
 Click it and in the dialog on the "Operating System" tab select the "Architecture" to "x86_64", on the "Partition table"
-tab select "Preseed default autoinstall", on the tab "Installation media" select "Ubuntu Autoinstall", on the 
+tab select "Preseed default autoinstall", on the tab "Installation media" select "Ubuntu Autoinstall", on the
 "Templates" tab select the templates associated earlier for User data template and PXELinux template, verify the Finish template is set,
 and add the parameter "enable-official-puppet8-repo" as "boolean" with value "true".
 Click on "Submit".

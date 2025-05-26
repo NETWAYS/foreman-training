@@ -31,14 +31,14 @@ via SSH as 'root' so you can copy and paste to the console.
 * Make Puppet vendor repository available
 
 Install the release package provided by the Puppet vendor repository to make it available for package
-installation of open source version of Puppet. We will use Puppet 8.
+installation of the open source version of Puppet. We will use Puppet 8.
 
 URL: http://yum.puppet.com/puppet8
 
 * Make Foreman and Katello repository available
 
-Install the release packages provided by the Foreman and Katello repository to make it available for package
-installation of Foreman and its components. We use Foreman 3.9 and Katello 4.11.
+Install the release packages provided by the Foreman and Katello repositories to make it available for package
+installation of Foreman and its components. We use Foreman 3.13 and Katello 4.15.
 
 URL: http://yum.theforeman.org
 
@@ -54,7 +54,7 @@ from the virtual machine network to the host so no configuration is required.
 
 #### Expected result:
 
-The Foreman installer is installed and "foreman-installer --scenario katello --help" could be run from command line.
+The Foreman installer is installed and "foreman-installer --scenario katello --help" can be run from command line.
 
 
 !SLIDE supplemental solutions
@@ -83,7 +83,7 @@ installation of open source version of Puppet.
 
 ### Make Foreman repository available
 
-Install the release packages provided by the Foreman and Katello repository to make it available for package
+Install the release packages provided by the Foreman and Katello repositories to make it available for package
 installation of Foreman, Katello and its components. Taking the matching combination is required, for example
 Foreman 3.13 and Katello 4.15 form one release.
 
@@ -137,7 +137,7 @@ Install the package "foreman-installer-katello" from the now available repositor
 
 #### Notes:
 
-TFTP should explizitly set the servername to its IP address.
+TFTP should explicitly set the servername to its IP address.
 
 DNS should be enabled and configured with the following parameters:
 
@@ -157,7 +157,7 @@ Tuning allows to configure for system size, in our case we need "development" fo
 
 #### Expected result:
 
-The Foreman installer runs successfully and provides login credentials to login to 'https://foreman.localdomain'.
+The Foreman installer runs successfully and provides login credentials to log in to 'https://foreman.localdomain'.
 
 You can find your provided parameters in the answer file created in '/etc/foreman-installer/scenarios.d/foreman-answers.yaml'.
 
@@ -192,18 +192,18 @@ To install run the following command:
     --foreman-proxy-dhcp-nameservers="10.0.0.2" \
     --tuning development
 
-This will output on success something similar:
+On success this will output something similar:
 
     Success!
     * Foreman is running at https://foreman.localdomain
         Initial credentials are admin / PASSWORD
-    * To install an additional Foreman proxy on separate machine continue by running:
-  
+    * To install an additional Foreman proxy on a separate machine continue by running:
+
         foreman-proxy-certs-generate --foreman-proxy-fqdn "$FOREMAN_PROXY" --certs-tar "/root/$FOREMAN_PROXY-certs.tar"
     * Foreman Proxy is running at https://foreman.localdomain:9090
 
 
-With the provided credentials login to 'https://foreman.localdomain' using your browser.
+With the provided credentials log in to 'https://foreman.localdomain' using your browser.
 
 **Hint:** You can also provide the password as an installer parameter or change it and language settings on the "My Account" page when clicking on the username in the upper right corner.
 
@@ -212,9 +212,9 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add DNS configuration to Foreman
 
 * Objective:
- * Verify the domain 'localdomain' was created and associate Smart proxy
+ * Verify the domain 'localdomain' was created and associate Smart Proxy
 * Steps:
- * Login to Foreman
+ * Log in to Foreman
  * Navigate to 'Infrastructure > Domains'
  * Verify the domain 'localdomain' was created and associate Smart Proxy 'foreman.localdomain'
 
@@ -232,13 +232,13 @@ With the provided credentials login to 'https://foreman.localdomain' using your 
 
 ****
 
-* Verify the domain 'localdomain' was created and associate Smart proxy
+* Verify the domain 'localdomain' was created and associate Smart Proxy
 
 ## Steps:
 
 ****
 
-* Login to Foreman
+* Log in to Foreman
 * Navigate to 'Infrastructure > Domains'
 * Verify the domain 'localdomain' was created and associate Smart Proxy 'foreman.localdomain'
 
@@ -253,17 +253,17 @@ This is the reason we will see the domain already created but not associated to 
 
 ****
 
-## Verify the domain 'localdomain' was created and associate Smart proxy
+## Verify the domain 'localdomain' was created and associate Smart Proxy
 
 ****
 
-### Login to Foreman
+### Log in to Foreman
 
-With the provided credentials login to 'https://foreman.localdomain' using your browser.
+With the provided credentials log in to 'https://foreman.localdomain' using your browser.
 
 ### Navigate to 'Infrastructure > Domains'
 
-### Add the domain 'localdomain' and associate Smart proxy 'foreman.localdomain'
+### Add the domain 'localdomain' and associate Smart Proxy 'foreman.localdomain'
 
 As the domain 'localdomain' will already be created click on the domain name and change the
 DNS Proxy to 'foreman.localdomain'.
@@ -275,10 +275,10 @@ Press 'Submit' to store the configuration.
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Add DHCP configuration to Foreman
 
 * Objective:
- * Create the subnet 'foreman' and associate Smart proxies
+ * Create the subnet 'foreman' and associate Smart Proxies
 * Steps:
- * Navigate to 'Infrastructure > Smart proxies'
- * Add the subnet 'foreman' by importing from the Smart Proxy 
+ * Navigate to 'Infrastructure > Smart Proxies'
+ * Add the subnet 'foreman' by importing from the Smart Proxy
  * Adjust additional settings via 'Infrastructure > Subnets'
 
 ~~~SECTION:notes~~~
@@ -295,13 +295,13 @@ Press 'Submit' to store the configuration.
 
 ****
 
-* Create the subnet 'foreman' and associate Smart proxies
+* Create the subnet 'foreman' and associate Smart Proxies
 
 ## Steps:
 
 ****
 
-* Navigate to 'Infrastructure > Smart proxies'
+* Navigate to 'Infrastructure > Smart Proxies'
 * Add the subnet 'foreman' by importing from the Smart Proxy
 * Adjust additional settings via 'Infrastructure > Subnets'
 
@@ -315,7 +315,7 @@ We will use the complete DHCP range the DHCP server provides.
 
 ****
 
-## Create the subnet 'foreman' and associate Smart proxies
+## Create the subnet 'foreman' and associate Smart Proxies
 
 ****
 
@@ -328,11 +328,11 @@ Select 'Import IPv4 subnets' from the drop down menu next to the Smart Proxy 'fo
 * Name: 'foreman'
 * Description: *keep empty*
 * Protocol: IPv4
-* Network address: '10.0.0.0' 
-* Network prefix: '16' 
-* Network mask: '255.255.0.0' 
-* Gateway address: '10.0.0.1' 
-* Primary DNS server: '10.0.0.2' 
+* Network address: '10.0.0.0'
+* Network prefix: '16'
+* Network mask: '255.255.0.0'
+* Gateway address: '10.0.0.1'
+* Primary DNS server: '10.0.0.2'
 * Secondary DNS server: *keep empty*
 * IPAM: 'DHCP'
 * VLAN ID: *keep empty*

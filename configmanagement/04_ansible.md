@@ -1,7 +1,7 @@
 !SLIDE smbullets small
 # Ansible
 
-* Written in python
+* Written in Python
 * Runs on Linux, Unix, Windows
 * Describes desired state in yaml files
 
@@ -15,7 +15,7 @@
 </pre>
 
 * Workflow
- * Roles or Playbook stored on a system with Ansible installed
+ * Roles or Playbooks stored on a system with Ansible installed
  * Inventory is managed for Ansible
  * Ansible connects to a system and collects system information
  * Ansible runs tasks on the system
@@ -26,11 +26,11 @@
 ****
 <br/>
 
-Ansible is written in python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.
+Ansible is written in Python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.
 
 For configuration it uses yaml format for simple playbooks and some additional structure for roles. An example for one
-task is shown above. Those files are stored on one or more control machines which also need an inventory as a static
-file or script for dynamic inventory. There is no agent required as it utilizes SSH (or winrm for Windows), so the control machine
+task is shown above. Those files are stored on one or more control machines which also need an inventory provided as a static
+file or as script for dynamic inventory. There is no agent required as it utilizes SSH (or winrm for Windows), so the control machine
 connects to one or more systems to collect system information and run tasks on them. Afterwards callback plugins are used to report
 back to other tools.
 
@@ -42,8 +42,8 @@ back to other tools.
 # Foreman Ansible Integration
 
 * Foreman -> Ansible
- * Smart proxy Ansible allows to import Ansible roles
- * Smart proxy Ansible allows to play Ansible roles
+ * Smart Proxy Ansible allows to import Ansible roles
+ * Smart Proxy Ansible allows to play Ansible roles
 
 * Ansible -> Foreman
  * Ansible uploads facts to Foreman via callback
@@ -55,15 +55,15 @@ back to other tools.
 ****
 
 Foreman can integrate Ansible in several ways and can also integrate itself into Ansible. Communication from the WebGUI to Ansible is handled
-using the Smart proxy for Ansible. It allows to import Ansible roles known to Ansible and to play Ansible roles. The configuration automatically
+using the Smart Proxy for Ansible. It allows to import Ansible roles known to Ansible and to play Ansible roles. The configuration automatically
 includes the callback to upload facts and reports.
 
 ~~~PAGEBREAK~~~
 
 On a separate Ansible control machine a callback plugin can be activated to upload facts and reports to Foreman, if you still want to use Ansible
-independent from Foreman. Forthermore a script could be deployed to use Foreman as dynamic inventory.
+independently from Foreman. Furthermore a script could be deployed to use Foreman as dynamic inventory.
 
-For more information have a look at the plugin documentation: https://docs.theforeman.org/3.9/Managing_Configurations_Ansible/index-katello.html
+For more information have a look at the plugin documentation: https://docs.theforeman.org/3.13/Managing_Configurations_Ansible/index-katello.html
 
 ~~~ENDSECTION~~~
 
@@ -78,7 +78,7 @@ For more information have a look at the plugin documentation: https://docs.thefo
  * Download the collection "community.general"
  * Download the role "geerlingguy.ntp"
  * Import roles and assign them
- * Play roles using the webinterface 
+ * Play roles using the web interface
 * Optional:
  * Import variables and overwrite values
 
@@ -92,7 +92,7 @@ For more information have a look at the plugin documentation: https://docs.thefo
 
 ****
 
-Graphical integration uses Remote-Execution plugin which we covered earlier.
+Graphical integration uses Remote Execution plugin which we covered earlier.
 
 ~~~ENDSECTION~~~
 
@@ -116,11 +116,11 @@ Graphical integration uses Remote-Execution plugin which we covered earlier.
 Ansible roles and collections can be downloaded from Ansible Galaxy using the CLI or a Remote Execution Job.
 
 * Import roles and assign them
-* Play roles using the webinterface 
+* Play roles using the web interface
 
-Optional: 
+Optional:
 
-* Import variables and overwrite values to adjust the ntp configuration 
+* Import variables and overwrite values to adjust the ntp configuration
 
 
 ~~~ENDSECTION~~~
@@ -155,7 +155,7 @@ You can run this on the commandline or use the Job "Ansible Roles - Install from
 Navigate to "Configure > Ansible > Roles" and import using "Import from foreman.localdomain".
 Afterwards navigate to the host and edit them to assign the roles in the new tab group "Ansible" on the tab "Roles".
 
-### Play roles using the webinterface 
+### Play roles using the web interface
 
 Navigate to the host and press "Run Ansible roles" from the "Schedule Remote Job" selection. It is also available as action from the Host overview for bulk requests.
 
@@ -174,7 +174,7 @@ After the import set "ntp_manage_config" to "true" and "ntp_area" to your countr
  * Configure callback plugin
  * Add your host to the inventory
  * Create and distribute a SSH key
- * Run Ansibles setup module
+ * Run Ansible's setup module
 
 ~~~SECTION:notes~~~
 
@@ -201,12 +201,12 @@ After the import set "ntp_manage_config" to "true" and "ntp_area" to your countr
 Ansible is available from centos-extras repository, the callback plugin also requires python-requests.
 In our training setup Ansible is already installed on the Foreman system if you have done the previous exercise.
 
-* Configure callback plugin 
+* Configure callback plugin
 
-The callback plugin is moved to the Foreman Ansible Modules forming the Ansible collection "theforeman.foreman" since Ansible 2.10, 
-so easiest way to install it is via dnf as "ansible-collection-theforeman-foreman" from the client repository.
+The callback plugin is moved to the Foreman Ansible Modules forming the Ansible collection "theforeman.foreman" since Ansible 2.10,
+so the easiest way to install it is via dnf as "ansible-collection-theforeman-foreman" from the client repository.
 The plugin itself can be enabled in the default section of ansible.cfg and configured in a new section of the configuration.
-Furthermore a setting needs to be enabled so Ansible uses the callback also on the `ansible` command in addition to `ansible-playbook`.
+Furthermore a setting needs to be enabled for Ansible to also use the callback on the `ansible` command in addition to `ansible-playbook`.
 
 * Add your host to the inventory
 
@@ -238,7 +238,7 @@ The setup module gathers facts about the system and via callback uploads them to
 
     # dnf install ansible-core python3.11-requests -y
 
-### Configure callback plugin 
+### Configure callback plugin
 
     # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.13/el9/x86_64/
     # dnf install ansible-collection-theforeman-foreman -y

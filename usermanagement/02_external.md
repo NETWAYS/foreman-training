@@ -7,9 +7,9 @@
  * Manual configuration and tell Foreman to trust
 * PAM
  * Apache module to validate login form input against PAM
-* OpenID Connect 
- * Installation and configuration of Apache Modul and OpenID client
- * Settings in Foreman to point to OpenID provider 
+* OpenID Connect
+ * Installation and configuration of Apache module and OpenID client
+ * Settings in Foreman to point to OpenID provider
 * Autocreation of user possible
 * Differentiates between WebGUI and API
 
@@ -17,13 +17,13 @@
 
 ****
 
-Foreman can also be configure to use an external authentication provided by the webserver.
+Foreman can also be configured to use an external authentication provided by the webserver.
 
 In most cases this will be Kerberos to achieve a true Single Sign-On. If you use FreeIPA as your
-authentication provider the Foreman Installer can create the required configuration by passing the
+authentication provider, the Foreman Installer can create the required configuration by passing the
 corresponding parameters to it.
 
-If you use another provider like Active Directory or a manually managed Kerberos it is possible to
+If you use another provider like Active Directory or a manually managed Kerberos, it is possible to
 create the required Kerberos and PAM authentication on your own and tell Foreman to accept external
 users.
 
@@ -36,7 +36,7 @@ settings to integrate it.
 
 It is also possible to enable autocreation of users in Foreman for external authentication.
 
-Also note that Foreman differentiates between WebGUI and API login for external authentication
+Also note that Foreman differentiates between WebGUI and API login for external authentication,
 so it is possible to allow external users to only connect to one or both.
 
 ~~~ENDSECTION~~~

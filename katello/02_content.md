@@ -19,9 +19,9 @@
 ****
 
 In Katello the Content management is based on products which consist of one or more repositories of
-any content type. For packages different sync options are available which allow to sync packages also only on demand.
+any content type. For packages different sync options are available which also allow to sync packages on demand only.
 
-This allows to separate repository by vendor and having different sync plans based on their release policy
+This allows to separate repositories by vendor and having different sync plans based on their release policy
 while having all the provided content in one place, RPM, DEB, Container images, ...
 
 ~~~ENDSECTION~~~
@@ -81,14 +81,14 @@ different workflows of projects or departments.
 
 ****
 
-A Content View allows to create a versioned snapshot of one or more repositories and if required to filter
+A Content View allows to create a versioned snapshot of one or more repositories, and if required, to filter
 specific packages or problematic versions of a package. New versions of a content view can be published
 afterwards and be promoted to a Lifecyle Environment.
 
 Incremental updates allow to push a security hotfix or something similar directly to all snapshots.
 
-Composite Content Views are possible to combine existing Content Views in one.
-This can become handy for applications were a server needs to be always upgraded first.
+With Composite Content Views it is possible to combine existing Content Views into one.
+This can become handy for applications were a server always needs to be upgraded first.
 
 ~~~ENDSECTION~~~
 
@@ -96,7 +96,7 @@ This can become handy for applications were a server needs to be always upgraded
 !SLIDE smbullets small noprint
 # Content management - Content Hosts
 
-* Consumer of content and subscriptions 
+* Consumer of content and subscriptions
  * different view on a host than Hosts in Foreman
  * ongoing work to integrate this completely
 * Remote Execution allows to execute commands
@@ -107,7 +107,7 @@ This can become handy for applications were a server needs to be always upgraded
 !SLIDE smbullets small printonly
 # Content management - Content Hosts
 
-* Consumer of content and subscriptions 
+* Consumer of content and subscriptions
  * different view on a host than Hosts in Foreman
  * ongoing work to integrate this completely
 * Remote Execution allows to execute commands
@@ -121,8 +121,8 @@ This can become handy for applications were a server needs to be always upgraded
 
 ~~~PAGEBREAK~~~
 
-The Content Host is a different view on the host representing it as consumer of content and subscriptions
-for Katello. The Host in Foreman is used for provisioning and configuration management. A host is always
+The Content Host is a different view on the host representing it as a consumer of content and subscriptions
+for Katello. The host in Foreman is used for provisioning and configuration management. A host is always
 represented as both starting with the ongoing process to unify the views starting with Katello 3.0.
 Ongoing work has already integrated most of this to the normal host view leaving content host as an alternative, historical entrypoint.
 
@@ -133,5 +133,4 @@ By creating an Activation Key and using it to register a Content Host setting de
 possible.
 
 ~~~ENDSECTION~~~
-
 

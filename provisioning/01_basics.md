@@ -7,7 +7,7 @@
 
 * Definition:
  * *Server provisioning is a set of actions to prepare a server with appropriate systems, data and software,
-and make it ready for network operation.* 
+and make it ready for network operation.*
 
 * Task:
  * Automate it!
@@ -17,7 +17,7 @@ and make it ready for network operation.*
 ****
 
 Wikipedia defines server provisioning as *a set of actions to prepare a server with appropriate systems, data and software,
-and make it ready for network operation* and your task will be to automated it.
+and make it ready for network operation*. Your task will be to automate it.
 
 ~~~ENDSECTION~~~
 
@@ -35,7 +35,7 @@ and make it ready for network operation* and your task will be to automated it.
 
 ~~~SECTION:notes~~~
 
-* Simple installation than use configuration management
+* Simple installation, then use configuration management
 
 ~~~ENDSECTION~~~
 
@@ -45,18 +45,18 @@ and make it ready for network operation* and your task will be to automated it.
 ****
 
 For an automated installation it is required that the installer of the operating system allows to answer the questions
-normally asked to the users by providing an answer file. 
+users are normally asked by providing an answer file.
 
 ~~~PAGEBREAK~~~
 
 The different Linux installers can handle answer files provided via network protocols like http and ftp, network file
-systems or placed on the installation media. In this way basic configuration like timezone, language or network settings 
-can be handled, furthermore partition layout can be created, software is installed and depending on the solution also 
-registration to management tools is directly integrated. 
+systems or placed on the installation media. In this way basic configuration like timezone, language or network settings
+can be handled. Furthermore partition layout can be created, software installed and depending on the solution also
+registration to management tools is directly integrated.
 
 If the installer could not solve requirements directly, scripts could be provided to be executed during and after installation.
 
-The mechanism differs for the distributions.
+The mechanism differs by distribution.
 
 
 Operating system family | Installer        | Answer files
@@ -66,11 +66,11 @@ Debian                  | Debian-Installer | Preseed
 Ubuntu (since 20.04.3)  | Autoinstall      | Cloud-init
 SuSE                    | YaST2            | AutoYaST2
 
-Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires
-answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or usb.
+Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires the
+answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or USB.
 
-Regardless of the capabilities with configuration management in place do a simple installation and let the configuration
-management solution do its work.
+Regardless of the capabilities, with configuration management in place just do a simple installation and let the
+configuration management solution do its work.
 
 ~~~ENDSECTION~~~
 
@@ -87,7 +87,7 @@ management solution do its work.
 
 ~~~SECTION:notes~~~
 
-* If someone asks show them the file in Foreman, but we will have a look into in the exercise, too
+* If someone asks, show them the file in Foreman, but we will have a look into in the exercise, too
 
 ~~~ENDSECTION~~~
 
@@ -97,14 +97,14 @@ management solution do its work.
 
 Kickstart is the answer file to the installer used by Red Hat Enterprise Linux, CentOS, other derivates and Fedora.
 
-It is basicly a simple text file providing commands for basic configuration and partitioning in its main section
-and a list of packages and package groups to install in addition to the core system in a package section. Skripts
-can be added in separate sections to run as pre-installation task or post-installation on the installer or using
+It is basically a simple text file providing commands for basic configuration and partitioning in its main section
+and a list of packages and package groups to install in addition to the core system in a package section. Scripts
+can be added in separate sections to run as pre-installation or post-installation tasks on the installer or using
 chroot on the installed system.
 
 ~~~PAGEBREAK~~~
 
-Lastest versions allow to extend the installer with addons which can also provide its own kickstart section for
+Lastest versions allow to extend the installer with addons which can also provide their own kickstart section for
 automation. One example is the OSCAP Anaconda Addon which allows to validate against a security profile already
 during installation.
 
@@ -130,11 +130,11 @@ Additional information: https://access.redhat.com/documentation/en-us/red_hat_en
 ****
 
 Preseed is the answer file for the Debian Installer used by Debian and Ubuntu until version 20.04.3.
-It is basicly a simple text file providing answers to the installation questions. It uses for all types of 
-configuration the same syntax. Scripts can be downloaded to the system and be executed after the installation.
+It is basically a simple text file providing answers to the installation questions. It uses the same syntax for
+all types of configuration. Scripts can be downloaded to the system and be executed after the installation.
 
 The URL to the preseed file can be added to the boot menu entry or as a kernel parameter to the boot media for
-automation, an additional parameter tells the installer to run unattended or use the answers only as default.
+automation, an additional parameter tells the installer to either run unattended or use the answers only as default.
 
 Additional information: https://wiki.debian.org/DebianInstaller/Preseed
 
@@ -163,9 +163,9 @@ This file can be generated via a generator tool also capable of translating pres
 
 ~~~PAGEBREAK~~~
 
-By default it will fallback to default values if an answer is not provided, but sections can also be defined
-as interactive. It will also ask for confirmation to avoid accidential reformatting if not an additional
-kernel parameter `autoinstall` is given.
+By default it will fall back to default values if an answer is not provided, but sections can also be defined
+as interactive. It will also ask for confirmation to avoid accidential reformatting if the kernel parameter
+'autoinstall' is not given.
 
 Additional information: https://ubuntu.com/server/docs/install/autoinstall
 
@@ -181,20 +181,20 @@ Additional information: https://ubuntu.com/server/docs/install/autoinstall
  * Scripts during and after installation on different times
  * Configuration of selected software and devices
 * Added as kernel parameter to boot media
-  
+
 ~~~SECTION:handouts~~~
 
 ****
 
-AutoYaST2 is the answer file for SuSE Linux Enterprise Server, Desktop and openSuSE using YaST2 as installer.
+AutoYaST2 is the answer file for SUSE Linux Enterprise Server, Desktop and openSUSE using YaST2 as installer.
 
 ~~~PAGEBREAK~~~
 
 It is a structured XML file meant to be created by YaST and not by hand which provides answers to the installer
-quests. Different data structures are used for all kinds of configuration. It can run scripts before installation
-starts, after partitioning, after package installation using chroot, post installation on first boot before 
+questions. Different data structures are used for all kinds of configuration. It can run scripts before installation
+starts, after partitioning, after package installation using chroot, post installation on first boot before
 and after starting services. In addition it can configure selected software and devices like printing service
-or soundcards. Other services can be configured with an file based configuration management.
+or soundcards. Other services can be configured with a file based configuration management.
 
 The URL to the autoyast file has to be added as a kernel parameter to the boot media. Furthermore it allows
 to create a control server providing rules to automatically select autoyast files.

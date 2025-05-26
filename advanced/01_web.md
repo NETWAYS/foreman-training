@@ -34,8 +34,8 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 !SLIDE smbullets small
 # Trends
 
-* Graphs changes in your enviroment
-* Configured in the WebGUI and collected by a background task
+* Graphs changes in your environment
+* Configured in the Web GUI and collected by a background task
 * Internal Host parameters or Facts provided by Configuration Management
 * Moved to a separate plugin with Foreman 2.2
 
@@ -49,9 +49,9 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 
 <br/>
 Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
-"Monitor > Trends" and collected by the background task "Trend Counter Job". By default this tasks runs every 30 minutes matching 
+"Monitor > Trends" and collected by the background task "Trend Counter Job". By default this tasks runs every 30 minutes matching
 Puppet's default run interval because most trends will be based on the facts collected by the configuration management
-solution, another source are Foreman's internal parameters like the operatingsystem of the host.
+solution, another source are Foreman's internal parameters like the operating system of the host.
 
 This functionality was moved to a separate plugin with Foreman 2.2 which can enabled using `foreman-installer --enable-foreman-plugin-statistics`.
 

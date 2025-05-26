@@ -9,7 +9,7 @@ Furthermore user and permission management of Foreman is shown. And last but not
 Foreman's extensibility is shown by introducing some plugins from basic ones to Katello.
 
 Targeted audience are experienced Linux administrators in need of a provisioning and
-management solution for their systems. Knowledgement of Puppet is of advantage but not
+management solution for their systems. Knowledge of Puppet is an advantage but not
 required.
 
 ## Online Material
@@ -45,7 +45,7 @@ two day training, for example adding content about Docker integration is planed.
 can be included in your training material by changing 'showoff.json', too. In the same way
 remove content you do not want to show or change order if you feel it fits your need better.
 
-For some notes on setting up the training enviroment have a look at 'Setup.md'.
+For notes on setting up the training environment see 'Setup.md'.
 
 If you provide a training we would be happy to add it to the forthcoming trainings to give you
 some promotion on this site, simply contribute your date to the slides. In exchange we would like

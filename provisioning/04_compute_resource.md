@@ -1,29 +1,29 @@
 !SLIDE smbullets small noprint
-# Provisioning using Compute resource libvirt
+# Provisioning using Compute Resource libvirt
 
 * Identifier is the name of the system
 
-<div style="text-align: center"><img src="./_images/compute_resource.png" style="float: center; margin-left: 110px; width: 795px; height: 445px;" alt="Provisioning Compute resource libvirt"></div>
+<div style="text-align: center"><img src="./_images/compute_resource.png" style="float: center; margin-left: 110px; width: 795px; height: 445px;" alt="Provisioning Compute Resource libvirt"></div>
 
 
 !SLIDE smbullets small printonly
-# Provisioning using Compute resource libvirt
+# Provisioning using Compute Resource libvirt
 
 * Identifier is the name of the system
 
-<img src="./_images/compute_resource.png" style="width: 445px; height: 249px;" alt="Provisioning Compute resource libvirt">
+<img src="./_images/compute_resource.png" style="width: 445px; height: 249px;" alt="Provisioning Compute Resource libvirt">
 
 ~~~SECTION:handouts~~~
 
 ****
 
-For the installation using a Compute resource the identfier used is the name of the system.
-A virtual machine will be created with the name and the mac address will be returned to use for PXE.
+For the installation using a Compute Resource the identfier used is the name of the system.
+A virtual machine will be created with the name and the MAC address will be returned to use for PXE.
 For communication with Foreman a token is created as identifier.
 
 ~~~PAGEBREAK~~~
 
-After the host is created in Foreman, it creates the virtual machine, reserves an IP address in DHCP for the mac address returned,
+After the host is created in Foreman, it creates the virtual machine, reserves an IP address in DHCP for the MAC address returned,
 creates DNS records and places a PXE configuration on the TFTP server. If not already existing the Smart Proxy TFTP downloads the
 boot image to its directory.
 
@@ -32,57 +32,57 @@ Then the virtual machine is powered on and it works the same way like simple PXE
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare Compute resource libvirt
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare Compute Resource libvirt
 
 * Objective:
- * Prepare Compute resource libvirt to install a virtual machine
+ * Prepare Compute Resource libvirt to install a virtual machine
 * Steps:
- * Install the Compute resource using the Foreman installer
+ * Install the Compute Resource using the Foreman installer
  * Create a passphraseless ssh-key for user foreman
  * Copy the public key to the root account of the host "host.localdomain"
- * Configure the Compute resource in Foreman Web GUI
+ * Configure the Compute Resource in Foreman Web GUI
 
 ~~~SECTION:handouts~~~
 
 ****
 
-The Compute resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
-unmanaged systems and to deleted them from the virtualization platform. Also associating an unmanaged system to an already existing one
+The Compute Resource does not only provide the possibility to provision virtual machines, it also allows access to power management of
+unmanaged systems and to deleted them from the virtualization platform. Also, associating an unmanaged system to an already existing one
 is possible.
 
 ~~~ENDSECTION~~~
 
 
 !SLIDE supplemental exercises
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare Compute resource libvirt
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare Compute Resource libvirt
 
 ## Objective:
 
 ****
 
-* Prepare Compute resource libvirt
+* Prepare Compute Resource libvirt
 
 ## Steps:
 
 ****
 
-* Install the Compute resource using the Foreman installer
+* Install the Compute Resource using the Foreman installer
 * Create a passphraseless ssh-key for user foreman using ssh-keygen
 * Copy the public key to the root account of the host "host.localdomain" using ssh-copy-id
-* Configure the Compute resource in Foreman Web GUI
+* Configure the Compute Resource in Foreman Web GUI
 
 !SLIDE supplemental solutions
-# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare Compute resource libvirt
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Prepare Compute Resource libvirt
 
 ****
 
-## Prepare Compute resource libvirt to install a virtual machine
+## Prepare Compute Resource libvirt to install a virtual machine
 
 ****
 
-### Install the Compute resource using the Foreman installer
+### Install the Compute Resource using the Foreman installer
 
-Execute the Foreman Installer with the following parameter to enable the Compute resource libvirt:
+Execute the Foreman Installer with the following parameter to enable the Compute Resource libvirt:
 
     # foreman-installer --enable-foreman-compute-libvirt
 
@@ -100,7 +100,7 @@ Switch to the user foreman and create an passphraseless ssh-key using ssh-keygen
 
 ### Copy the public key to the root account of the host "host.localdomain" using ssh-copy-id
 
-If you know the password of the account and authentication by password is allowed in the remote system ssh-copy-id simplifies key management.
+If you know the password of the account and authentication by password is allowed in the remote system, ssh-copy-id simplifies key management.
 
     $ ssh-copy-id root@host.localdomain
 
@@ -111,9 +111,9 @@ As an alternative you can manually copy the public key to .ssh/authorized_keys.
     foreman.localdomain$ cat .ssh/id_*.pub
     host.localdomain# echo "KEY" >> .ssh/authorized_keys
 
-### Configure the Compute resource in Foreman Web GUI
+### Configure the Compute Resource in Foreman Web GUI
 
-Navigate to "Infrastructure > Compute resources" and click on "Create Compute Resource".
+Navigate to "Infrastructure > Compute Resources" and click on "Create Compute Resource".
 
 In the following dialog insert:
 
@@ -133,19 +133,19 @@ Validate your settings with "Test Connection" before clicking on "Submit".
  * Create the virtual machine "compute" from Foreman Web GUI and start an unattended installation
 * Steps:
  * Open Foreman's host dialog using "Hosts > Create Host"
- * On the Host tab name it "compute" and select to deploy on the Compute resource
+ * On the Host tab name it "compute" and select to deploy on the Compute Resource
  * On the Virtual Machine tab change the Storage type to "QCOW2"
  * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
- * On the Interface tab click edit to configure the interface, select Domain and Subnet and keep 
+ * On the Interface tab click edit to configure the interface, select Domain and Subnet and keep
 the suggested IP address, for the Libvirt options choose the virtual network "foreman".
 
 ~~~SECTION:handouts~~~
 
 ****
 
-Compute resource options depend on the used Compute resource so other options will be available for VMware than for libvirt.
+Compute Resource options depend on the used Compute Resource, so other options will be available for VMware than for libvirt.
 
-Defaults for the Compute resource options can be set using a Compute profile.
+Defaults for the Compute Resource options can be set using a Compute profile.
 
 Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 
@@ -165,7 +165,7 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 ****
 
 * Open Foreman's host dialog using "Hosts > Create Host"
-* On the Host tab name it "compute" and select to deploy on the Compute resource
+* On the Host tab name it "compute" and select to deploy on the Compute Resource
 * On the Virtual Machine tab change the Storage type to "QCOW2"
 * On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
 * On the Interface tab click edit to configure the interface, select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
@@ -181,24 +181,24 @@ Storage type "QCOW2" enables you to use snapshots unlike "RAW".
 
 ### Open Foreman's host dialog using "Hosts > Create Host"
 
-### On the Host tab name it "compute" and select to deploy on the Compute resource
+### On the Host tab name it "compute" and select to deploy on the Compute Resource
 
-For "Deploy on" use "host.localdomain (Libvirt)" instead of "Bare Metal" which will enable all the options of Compute resource
+For "Deploy on" use "host.localdomain (Libvirt)" instead of "Bare Metal" which will enable all the options of Compute Resource
 libvirt like the virtual network configuration or virtual hardware.
 
 ### On the Virtual Machine tab change the Storage type to "QCOW2"
 
-And if required adjust the resources for the VM.
+And if required, adjust the resources for the VM.
 
 ### On the Operating system tab select the Architecture, Operating System, Media, Partition table and set a Root password.
 
 ### On the Interface tab click edit to configure the interface, select Domain and Subnet and keep the suggested IP address, for the Libvirt options choose the virtual network "foreman"
 
-No Mac address is required this time, but do not forget to change the Libvirt options "Network type" to "Virtual (NAT)" and "Network"
-to "foreman". 
+No MAC address is required this time, but do not forget to change the Libvirt options "Network type" to "Virtual (NAT)" and "Network"
+to "foreman".
 
 Afterwards press "Submit" and Foreman will show the progress of virtual machine creation. Looking into "Virtual Machine Manager"
-will show you the virtual machine created with fqdn.
+will show you the virtual machine created with FQDN.
 
 
 !SLIDE smbullets small
@@ -206,23 +206,23 @@ will show you the virtual machine created with fqdn.
 
 * Used to provide defaults for virtual machine creation
 * Default provides three for different sized VMs
-* Same profile names could be used for different Compute resources
+* Same profile names could be used for different Compute Resources
  * Different defaults for same type of systems based on virtualization platform
- * Only available to Compute resource if configured
+ * Only available to Compute Resource if configured
 * Available in "New Host" dialog
 
 ~~~SECTION:handouts~~~
 
 ****
 
-Compute profiles are used to provide defaults for the virtual machine creation. Per default three profiles
+Compute profiles are used to provide defaults for the virtual machine creation. By default three profiles
 are available and only have to be configured, but you can create as many as needed. The same profile can differ
-based on the Compute resource used to provide defaults matching the virtualization platform.
+based on the Compute Resource used to provide defaults matching the virtualization platform.
 
 ~~~PAGEBREAK~~~
 
-If one is configured for a Compute resource option to choose from it is available on new host dialog after choosing
-the Compute resource to deploy on.
+If one is configured for a Compute Resource option to choose from, it is available on new host dialog after choosing
+the Compute Resource to deploy on.
 
 ~~~ENDSECTION~~~
 
@@ -232,7 +232,7 @@ the Compute resource to deploy on.
 
 * Available to install from instead of unattended installation
 * Image has to be configured
- * On Compute resource using "New image"
+ * On Compute Resource using "New image"
  * Has to provide access via ssh to run finish scripts
  * API can allow to run user_data scripts for additional changes
  * cloud_init can be installed to use the scripts of the same name
@@ -246,15 +246,15 @@ the Compute resource to deploy on.
 
 ~~~PAGEBREAK~~~
 
-Images are available as install source to all Compute resources, for some as the only source. To be available to Foreman
-it has also to be configured using the "New image" dialog after selecting a Compute resource. The image has to be created
-with an user which has shell access to run finish scripts and depending on the Compute resource also user_data scripts can run
+Images are available as install source to all Compute Resources, for some as the only source. To be available to Foreman
+it also has to be configured using the "New image" dialog after selecting a Compute Resource. The image has to be created
+with a user which has shell access to run finish scripts and depending on the Compute Resource also user_data scripts can run
 during virtual machine creation to change settings. Another option are cloud_init scripts if you installed cloud_init at the system
 and pointed it to Foreman.
 
-If a image is configured it is possible to choose it from the "Create host" dialog on the "Operating system" tab. In some cases
+If an image is configured, it is possible to choose it from the "Create host" dialog on the "Operating system" tab. In some cases
 it can speed up the installation process, but of course an unattended installation will give you a cleaner and more up to date
-system. If using a configuration management a very basic image should be prefered, but if required a image can be very featureful
+system. If using configuration management, a very basic image should be prefered. But if required, an image can be very featureful
 like having some proprietary software installed which is quite complicated to install with configuration management.
 
 ~~~ENDSECTION~~~
@@ -264,8 +264,8 @@ like having some proprietary software installed which is quite complicated to in
 # Console
 
 * Direct console access on virtual machines
-* Javascript library noVNC
-* Protocols: 
+* JavaScript library noVNC
+* Protocols:
  * VNC
  * SPICE
  * VMRC (for VMware)
@@ -278,24 +278,23 @@ like having some proprietary software installed which is quite complicated to in
 
 ****
 
-Foreman uses the javascript library noVNC to give the user direct access to the console
-of a virtual machine depending on the Compute Resource provider. 
+Foreman uses the JavaScript library noVNC to give the user direct access to the console
+of a virtual machine depending on the Compute Resource provider.
 The Foreman manual explains additional steps required on the Compute Resource if not available by default.
-The protocols available are VNC and SPICE, encryption and authentication depends on
-your setup.
+The protocols available are VNC and SPICE, with encryption and authentication depending on your setup.
 
-If you want to try it in the training environment you have to enable the connection by
+If you want to try it in the training environment, you have to enable the connection by
 executing the following command on the laptop.
 
     # iptables -I INPUT -p tcp -m multiport --dports 5901:6000 -i virbr1 -j ACCEPT
 
 <br/>
 
-Furthermore Firefox will block the websocket connection unless you change setting 
+Furthermore Firefox will block the websocket connection unless you change setting
 network.websocket.allowInsecureFromHTTPS to true in about:config.
 
 Another option is VMRC which is available for the Compute Resource VMware and provides a link to use
-with the client for a direct access instead of the embedded option via noVNC.
+with the client for direct access instead of the embedded option via noVNC.
 
 Furthermore there is the option to use the Cockpit-based webconsole as part of the Remote Execution plugin.
 

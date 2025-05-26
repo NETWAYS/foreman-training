@@ -1,7 +1,7 @@
 !SLIDE noprint center
 
 # Contributing
-Contribute to the Foreman training on [Github](https://github.com/NETWAYS/foreman-training) to make it even better.
+Contribute to the Foreman training on [GitHub](https://github.com/NETWAYS/foreman-training) to make it even better.
 
 Material is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).
 
@@ -17,6 +17,7 @@ Julien Pivotto
 Mark Hlawatschek
 Markus Opolka
 Markus Waldm&uuml;ller
+Matthias D&ouml;hler
 Simon H&ouml;nscheid
 Tobias Bauriedel
 </pre></center>

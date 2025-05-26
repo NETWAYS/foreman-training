@@ -45,20 +45,20 @@
 Katello is a defined set of Foreman plugins which add Content management and Subcription management.
 
 The Content management feature can manage YUM repositories to provide software in RPM package format and
-errata explaining the importance of the package updates, Debian packages are also supported just without errata yet,
-docker container to provide a local registry, ansible collection, python packages and ordinary files.
+errata explaining the importance of the package updates. Debian packages are also supported just without errata yet.
+The plugins also enables managing a local registry (Docker container), Ansible collections, Python packages and ordinary files.
 Before the switch to Pulp 3 a different set of formats was supported and with the plugin structure of it
 support for addtional formats will likely be added in the future.
 
-The Subscription management feature allows to subscribe to a software distributor which will be in most
-cases Red Hat. It also provides the possiblity to track the internal use of some software which can be very useful for support contracts or with multitenancy to handle customer environments.
+The Subscription management feature allows to subscribe to a software distributor which in most cases will be Red Hat.
+It also provides the possiblity to track the internal use of some software which can be very useful for support contracts or with multitenancy to handle customer environments.
 
 It uses the same technology for installation as the Foreman by providing a scenario to the Foreman installer. The usage of this
 installer is the supported way of installation for Katello, so there is no way of adding the plugin later to an existing Foreman installation for now.
 
-Katello is also the upstream project for Red Hat Satellite like Spacewalk was it before.
+Katello is also the upstream project for Red Hat Satellite like Spacewalk was before it.
 
-orcharhino is a product by ATIX AG based on Foreman and Katello and adds the possibility to manage Debian and Ubuntu content including errata support. It additionally provides content management for SUSE Linux Enterprise Server and Oracle Linux. 
+orcharhino is a product by ATIX AG based on Foreman and Katello and adds the possibility to manage Debian and Ubuntu content including errata support. It additionally provides content management for SUSE Linux Enterprise Server and Oracle Linux.
 
 For more information visit: https://orcharhino.com/ and https://docs.orcharhino.com
 

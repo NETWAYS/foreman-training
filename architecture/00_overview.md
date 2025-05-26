@@ -7,14 +7,14 @@
 * Open Source Project
  * Homepage: http://theforeman.org
  * Initial release: 10 September 2009
- * Written in Ruby and Javascript
-* Lifecyclemanagement for servers
+ * Written in Ruby and JavaScript
+* Lifecycle management for servers
  * provisioning
  * configuration
  * orchestration
  * monitoring
 * Web based GUI
-* Utilizes other tools via smart proxy
+* Utilizes other tools via Smart Proxy
 
 ~~~SECTION:notes~~~
 
@@ -30,13 +30,13 @@ Foreman was originally writen by Paul Kelly and Ohad Levy and initially released
 
 ~~~PAGEBREAK~~~
 
-Now it is sponsored by Red Hat who use it as base for many of their Enterprise solutions like Red Hat Satellite and Red Hat OpenStack distribution.
+Now it is sponsored by Red Hat who use it as the base for many of their Enterprise solutions like Red Hat Satellite and Red Hat OpenStack distribution.
 
-It is writen in Ruby and Javascript to provide a Web based GUI for server lifecyclemanagement, from provisioning and
+It is writen in Ruby and JavaScript to provide a Web based GUI for server lifecycle management, from provisioning and
 configuration to orchestration and monitoring. For integration in the IT infrastructure it utilizes other tools via
-its smart proxy architecture.
+its Smart Proxy architecture.
 
-The project provides an open bug tracker for bug reporting and feature requests, its code on github, IRC support to 
+The project provides an open bug tracker for bug reporting and feature requests, its code on GitHub, IRC support to
 help the community and consists of more than 200 contributors.
 
 ~~~ENDSECTION~~~
@@ -51,7 +51,7 @@ help the community and consists of more than 200 contributors.
 ~~~SECTION:notes~~~
 
 * Only required Foreman, all other optional
-* Next slides provide deeper information on Smart proxies and Compute resources 
+* Next slides provide deeper information on Smart Proxies and Compute Resources
 
 ~~~ENDSECTION~~~
 
@@ -65,9 +65,9 @@ help the community and consists of more than 200 contributors.
 
 ****
 
-Foreman provides a really flexible architecture and many optional components. Only required component is the central
+Foreman provides a really flexible architecture and many optional components. The only required component is the central
 Foreman installation, but depending on your needs it can manage every service required to fully automate the provisioning
-process. Basicly we have two kinds of additional components Smart proxies and Compute resources.
+process. Basically we have two kinds of additional components, Smart Proxies and Compute Resources.
 
 Image copyright by the Foreman project.
 

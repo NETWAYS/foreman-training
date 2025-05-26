@@ -42,14 +42,14 @@ those with events 'after 7 days'.
 
 * _In a regular interval, at least before an upgrade!_
 
-* Foreman 
+* Foreman
  * Configuration - Archive the configuration directory
  * Database - Backupjob provided by Foreman
-* Puppet 
- * CA - Archive the certificates 
+* Puppet
+ * CA - Archive the certificates
  * Puppet Code - Archive the modules
-* Smart proxies 
- * Smart proxies itself - Archive the Smart proxy configuration 
+* Smart Proxies
+ * Smart Proxies themselves - Archive the Smart Proxy configuration
  * Managed Service - Follow instructions for the service
 * Katello
  * Candlepin - Database backup
@@ -68,8 +68,8 @@ The Puppet backup should include the certificates which are located in "/var/lib
 Puppet Code underneath "/etc/puppet/environments". Other configuration management solutions will be handled in a similar
 way.
 
-To backup the Smart proxy, archive the folder "/etc/foreman-proxy" and do not forget about the managed service. 
-For this follow the instructions for the service. With the "Orchestration rebuilder" feature, the Foreman can also rebuild all configuration issued via the Smart proxy from the "All Hosts" menu as an action.
+To backup the Smart Proxy, archive the folder "/etc/foreman-proxy" and do not forget about the managed service.
+For this follow the instructions for the service. With the "Orchestration rebuilder" feature, the Foreman can also rebuild all configuration issued via the Smart Proxy from the "All Hosts" menu as an action.
 
 Katello adds to additional components requiring backup. Candlepin uses its own database which needs to be backuped. The same with Pulp which also requires you to archive the content if not everything could be downloaded again.
 The recommended way to run a backup for Katello is using foreman-maintain, we will discuss at the end of the section.
@@ -82,14 +82,14 @@ The recommended way to run a backup for Katello is using foreman-maintain, we wi
 
 * _Always stop the service before doing any restore!_
 
-* Foreman 
+* Foreman
  * Configuration - Restore the configuration directory
  * Database - Restorejob provided by Foreman
-* Puppet 
- * CA - Restore the certificates 
+* Puppet
+ * CA - Restore the certificates
  * Puppet Code - Restore the modules
-* Smart proxies 
- * Smart proxies itself - Restore the Smart proxy configuration 
+* Smart Proxies
+ * Smart Proxies themselves - Restore the Smart Proxy configuration
  * Managed Service - Follow instructions for the service
 * Katello
  * Candlepin - Database needs to be restored
@@ -105,7 +105,7 @@ Restore the configuration directory of the Foreman carefully and inspect it befo
 dump can be restored with the command "foreman-rake db:import_dump file=/usr/share/foreman/db/foreman.TIMESTAMP.sql". Drop
 an existing database in advance to have a clean restore.
 
-For Puppet restore simply copy back the files, the same goes for the Smart proxy. The managed services should be restored according to
+For Puppet restore simply copy back the files, the same goes for the Smart Proxy. The managed services should be restored according to
 their instructions.
 
 Katello's additional services also need to be restored using foreman-maintain.
@@ -139,7 +139,7 @@ Katello's additional services also need to be restored using foreman-maintain.
 
 Always follow the instructions in the Foreman documentation providing release and operating system specific steps to do.
 
-In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages. 
+In general you should start by creating an up-to-date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages.
 Run the foreman-installer to execute the database migration and seed script, clear the cache and existing sessions, and restarts the services.
 
 Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. Support for this was again added for the upgrade from EL8 to EL9 and will likely be added also for future upgrades.

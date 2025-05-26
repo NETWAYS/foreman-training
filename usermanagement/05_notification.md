@@ -13,7 +13,7 @@
 
 ****
 
-Foreman provides a new notification feature to notify about your own actions since 1.15 which is already used by Foreman and
+Since 1.15 Foreman provides a new notification feature to notify about your own actions which is already used by Foreman and
 many plugins. This allows to keep track of actions run independently.
 
 Furthermore it integrates the Foreman RSS feed to keep the user updated, but also to provide some numbers to the Foreman Project.
@@ -24,7 +24,7 @@ You can simply opt-out via the setting "RSS enable" on the "Administer > Setting
 !SLIDE smbullets small
 # Email Notifications
 
-* General configuration via Foreman Installer or configuration file 
+* General configuration via Foreman Installer or configuration file
 * Optional setting by user
 
 <div style="text-align:right">
