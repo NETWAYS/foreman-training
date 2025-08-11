@@ -45,7 +45,7 @@ two day training, for example adding content about Docker integration is planed.
 can be included in your training material by changing 'showoff.json', too. In the same way
 remove content you do not want to show or change order if you feel it fits your need better.
 
-For some notes on setting up the training environment have a look at 'Setup.md'.
+For notes on setting up the training environment see 'Setup.md'.
 
 If you provide a training we would be happy to add it to the forthcoming trainings to give you
 some promotion on this site, simply contribute your date to the slides. In exchange we would like
