@@ -228,7 +228,7 @@ When you unpause the virtual machine it will get the suggested IP address and th
 
 Host groups are used to group hosts, the groups can be organized in a hierarchical way by nesting them.
 
-The host groups allow to add defaults for all options required by Foreman for provisioning and depending on your environment also
+The host groups enables adding defaults for all options required by Foreman for provisioning and depending on your environment also
 for configuration management and compute resources. Additional parameters can be set.
 
 In addition to providing defaults, "Provisioning templates" can be associated to change the operating system's default templates.

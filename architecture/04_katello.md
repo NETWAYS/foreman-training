@@ -46,7 +46,7 @@ Katello is a defined set of Foreman plugins which add Content management and Sub
 
 The Content management feature can manage YUM repositories to provide software in RPM package format and
 errata explaining the importance of the package updates. Debian packages are also supported just without errata yet.
-The plugins also allow to manage a local registry (Docker container), Ansible collections, Python packages and ordinary files.
+The plugins also enables managing a local registry (Docker container), Ansible collections, Python packages and ordinary files.
 Before the switch to Pulp 3 a different set of formats was supported and with the plugin structure of it
 support for addtional formats will likely be added in the future.
 

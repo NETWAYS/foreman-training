@@ -139,7 +139,7 @@ Katello's additional services also need to be restored using foreman-maintain.
 
 Always follow the instructions in the Foreman documentation providing release and operating system specific steps to do.
 
-In general you should start by creating an up to date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages.
+In general you should start by creating an up-to-date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages.
 Run the foreman-installer to execute the database migration and seed script, clear the cache and existing sessions, and restarts the services.
 
 Foreman provided also support for using Leapp for switching from EL7 to EL8 to help with changing from SCL to Modules. Support for this was again added for the upgrade from EL8 to EL9 and will likely be added also for future upgrades.

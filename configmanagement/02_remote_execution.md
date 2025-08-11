@@ -31,7 +31,7 @@ these credentials and an SSH socket. Also, a pull mode using MQTT was introduced
 The Ansible provider uses the same SSH configuration but uses Ansible syntax for the jobs.
 The same goes for Salt.
 
-Use cases are to trigger configuration management runs immediately to get an ad hoc deployment,
+Use cases are to trigger configuration management runs immediately to get an ad-hoc deployment,
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.
 
@@ -297,7 +297,7 @@ You can now see some system information and control options depending on the ins
 
 If outgoing connections are not allowed or use of SSH is not wanted, the pull mode is quite easy to setup. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.
 
-On the server side you simply need a Smart Proxy with feature Remote Execution enabled and the script mode set to `pull-mqtt`. Then this Smart Proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.
+On the server side you need a Smart Proxy with feature Remote Execution enabled and the script mode set to `pull-mqtt`. Then this Smart Proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.
 
 On the client side it requires the certificates which are needed to authenticate. You get these by registration via `subscription-manager` which should be done via "Register Host" wizard in the UI. Then you can simply install `katello-pull-transport-migrate` from the Foreman client repo which installs and configures the MQTT client `yggdrasil` with a worker for Foreman's Remote execution feature.
 

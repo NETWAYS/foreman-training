@@ -16,12 +16,12 @@
 ****
 
 Compute Resource refers to a virtualization or cloud service which is integrated into Foreman
-as a plugin. Those plugins are based on the ruby cloud service library named fog and allow
-to create and manage virtual hosts. Some are based on a native SDK or API where no fog implementation
+as a plugin. Those plugins are based on the ruby cloud service library named fog and enable
+creating and managing virtual hosts. Some are based on a native SDK or API where no fog implementation
 exists or is well maintained.
 
 Depending on the provider machines are installed from an image or unattended in the same fashion
-as a bare metal host. It allows to access the console
+as a bare metal host. It enables access to the console
 and do power management operations like shutting down or resetting the system.
 Some providers also allow to change the virtual hardware afterwards.
 

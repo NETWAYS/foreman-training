@@ -31,7 +31,7 @@ The Smart Proxy is an autonomous web-based component providing a restful API to 
 systems from higher ochestration tools such as Foreman.
 
 The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
-source allows to support other Linux distributions and also Windows which is required for some
+source enables supporting other Linux distributions and also Windows which is required for some
 implementations of subsystems.
 
 There are different implementations of various subsystems included in the Smart Proxy by default

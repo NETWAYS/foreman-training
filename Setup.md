@@ -4,9 +4,9 @@
 
 To setup a new version of the virtual machine install CentOS Stream 9 from ISO, only configuration required is
 setting the network interface to manual, IP address 10.0.0.2, netmask 255.255.0.0, gateway 10.0.0.1,
-DNS 10.0.0.1. In addition you may want to allow SSH access for root.
+DNS 10.0.0.1. In addition you might want to allow SSH access for root.
 
-Afterwards run the Ansible playbook provided in the _files directory to setup host entries and OpenLDAP.
+Afterwards, run the Ansible playbook provided in the _files directory to setup host entries and OpenLDAP.
 
 ## Virtual machine monitoring.localdomain
 

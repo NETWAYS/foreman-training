@@ -20,7 +20,7 @@
 
 * Other Linux distributions are supported via source installation
 * Windows is now officially supported and documented
-* macOS is not officially supported but reported by the community
+* macOS is not officially supported but is supported by the community
 
 ~~~ENDSECTION~~~
 
@@ -62,7 +62,7 @@ The following operating systems are known to successfully install from Foreman:
 * Cisco NX-OS
 * Windows
 
-Also reported by the community is:
+Also supported by the community:
 
 * macOS
 

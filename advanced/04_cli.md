@@ -81,7 +81,7 @@ Adjust the configuration if required in `~/.hammer/cli.modules.d/foreman.yml`:
       :username: 'admin'
       :password: 'PASSWORD'
 
-### Create the new Operatingsystem entry for "CentOS Stream 9"
+### Create the new Operating system entry for "CentOS Stream 9"
 
     # hammer os create --name CentOS --major 9 --description "CentOS Stream 9" --architectures x86_64 \
     --family "Redhat" --password-hash SHA256 --media "CentOS Stream 9 mirror" --partition-tables "Kickstart default"
