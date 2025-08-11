@@ -17,7 +17,7 @@ and make it ready for network operation.*
 ****
 
 Wikipedia defines server provisioning as *a set of actions to prepare a server with appropriate systems, data and software,
-and make it ready for network operation*. Your task will be to automated it.
+and make it ready for network operation*. Your task will be to automate it.
 
 ~~~ENDSECTION~~~
 
