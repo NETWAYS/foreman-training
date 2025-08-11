@@ -9,7 +9,7 @@ Furthermore user and permission management of Foreman is shown. And last but not
 Foreman's extensibility is shown by introducing some plugins from basic ones to Katello.
 
 Targeted audience are experienced Linux administrators in need of a provisioning and
-management solution for their systems. Knowledge of Puppet is of advantage but not
+management solution for their systems. Knowledge of Puppet is an advantage but not
 required.
 
 ## Online Material
