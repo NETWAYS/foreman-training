@@ -18,7 +18,7 @@ Foreman supports LDAP authentication natively and provides a web-based configura
 
 ~~~PAGEBREAK~~~
 
-LDAP and LDAPS are supported as protocol, currently no StartTLS though. If using certificate based encryption,
+LDAP and LDAPS are supported as protocol, currently no STARTTLS though. If using certificate based encryption,
 trusting the certificate is mandatory. It supports the POSIX, Active Directory and FreeIPA schema
 for storing users and groups, but attribute mapping can be configured manually. For the autocreation
 of users the attributes "Login Name", "First Name", "Surname" and "Email" are required, optionally an

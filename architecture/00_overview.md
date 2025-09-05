@@ -51,7 +51,7 @@ help the community and consists of more than 200 contributors.
 ~~~SECTION:notes~~~
 
 * Only required Foreman, all other optional
-* Next slides provide deeper information on Smart Proxies and compute resources
+* Next slides provide deeper information on Smart Proxies and Compute Resources
 
 ~~~ENDSECTION~~~
 
@@ -67,7 +67,7 @@ help the community and consists of more than 200 contributors.
 
 Foreman provides a really flexible architecture and many optional components. The only required component is the central
 Foreman installation, but depending on your needs it can manage every service required to fully automate the provisioning
-process. Basically we have two kinds of additional components, Smart Proxies and compute resources.
+process. Basically we have two kinds of additional components, Smart Proxies and Compute Resources.
 
 Image copyright by the Foreman project.
 

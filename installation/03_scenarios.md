@@ -61,7 +61,7 @@ Puppet and Puppet CA so it can work as UI for Puppet.
 
 In addition it can prepare TFTP or another way of provisioning.
 
-Additional plugins including Compute resources can be enabled setting the corresponding parameter
+Additional plugins including Compute Resources can be enabled setting the corresponding parameter
 to true. Smart Proxies can also be added to the system hosting Foreman or on different machines which
 will be covered later.
 
