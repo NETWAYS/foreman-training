@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR=$(pwd)
 CLANG=${CLANG:-C.UTF-8}
-IMAGE=${IMAGE:-netways/showoff:0.20.4}
+IMAGE=${IMAGE:-ghcr.io/netways/foreman-training:0.20.4}
 CNAME=${CNAME:-showoff}
 TRAINING=${TRAINING:-$(basename "$DIR")}
 RUNTIME=${RUNTIME:-$(command -v docker)}
