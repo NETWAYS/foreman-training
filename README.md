@@ -27,6 +27,7 @@ In addition to the sources you can find the rendered material on
 Feel free to use this material as it is to provide your own training.
 
 To run the presentation you will need [showoff 0.20.4](https://rubygems.org/gems/showoff/versions/0.20.4).
+You can use the bundled showoff here: `ghcr.io/netways/foreman-training`.
 After installing it simply run showoff serve to get presenter mode with additional notes and display window to present to your students.
 
 For creating the rendered documents on your own run `showoff static print` (handouts),
