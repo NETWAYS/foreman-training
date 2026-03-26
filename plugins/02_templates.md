@@ -18,14 +18,14 @@ import the community templates from https://github.com/theforeman/community-temp
 This repository was deprecated in favor of having provisioning templates in the main project
 underneath "/app/views/unattended" and other templates in their matching project.
 
-~~~PAGEBREAK~~~
-
 This job can also be used to import your own git repository if you want to manage the templates on
 an external version control system. In addition the imported templates will also be associated
 with the existing operating systems. Another option is to use the export function for syncing
 changes back to a repository.
 
 More details on: https://theforeman.org/plugins/foreman_templates/8.0/index.html
+
+~~~PAGEBREAK~~~
 
 A different approach is provided by the plugin "foreman_git_templates" which directly
 uses the templates stored in git without syncing them to Foreman.
@@ -82,7 +82,7 @@ Additional templates are available in the WebGUI.
 
 Change the settings on the "TemplateSync" tab of "Administer > Settings" to point to the new location.
 The repo is the clone URL of the project "https://github.com/theforeman/foreman.git" and the dirname is "/app/views/unattended".
-The branch can be set to the current version of Foreman like "3.13-stable" if you want to be sure to not get incompatible versions.
+The branch can be set to the current version of Foreman like "3.18-stable" if you want to be sure to not get incompatible versions.
 Filter and prefix can also help to manage the templates.
 
 ### Run the synchronization job with (using UI, with Rake job or an API call)

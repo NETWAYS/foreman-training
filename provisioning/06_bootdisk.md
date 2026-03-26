@@ -9,14 +9,18 @@
 * Based on iPXE for environments without control over network
 * Adds disk based provisioning to Compute Resources
 
+~~~SECTION:notes~~~
+
+Currently broken because templates are not imported: https://projects.theforeman.org/issues/38640
+
+~~~ENDSECTION~~~
+
 ~~~SECTION:handouts~~~
 
 ****
 
 For the installation in an environment you do not have total control over the network infrastructure the
 Foreman Plugin Bootdisk provides 4 kinds of boot images based on iPXE.
-
-~~~PAGEBREAK~~~
 
 The host image contains a static network configuration, loads the installer from the media configured in Foreman
 and the Provisioning configuration from Foreman itself. So it requires no DHCP or TFTP in the network.
@@ -28,9 +32,12 @@ from Foreman it identifies itself with a token only valid for one deployment.
 The generic image boots from a dynamic IP address of the DHCP pool and is identified by the MAC address for Foreman
 providing the correct installer via TFTP and Provisioning configuration to load.
 
+~~~PAGEBREAK~~~
+
 The subnet image is basically the same as the generic image but uses another TFTP server specified for the subnet.
 
 Depending on the Compute Resource used the plugin adds disk based provisioning as another option.
+This is currently supported for VMware and Proxmox, while support for Libvirt is in development.
 
 ~~~ENDSECTION~~~
 

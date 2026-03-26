@@ -20,8 +20,6 @@ hosts when expired and also delete them automatically afterwards. This is
 quite useful on virtual machines used for development and testing, for hardware
 shutdown and deletion cannot be automated but it will at least notify.
 
-~~~PAGEBREAK~~~
-
 More details on: https://github.com/theforeman/foreman_expire_hosts
 
 ~~~ENDSECTION~~~

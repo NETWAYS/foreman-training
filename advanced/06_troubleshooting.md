@@ -36,6 +36,8 @@ Furthermore it is possible to enable additional specific loggers.
 * permissions - evaluation of user roles, filters and permissions when loading pages (default: false)
 * sql - SQL queries made through Rails ActiveRecord, only debug (default: false)
 
+~~~PAGEBREAK~~~
+
 For those add following to the configuration:
 
     :loggers:
@@ -85,6 +87,8 @@ In addition to the template preview at the host you can get the provisioning con
 
 In this URL you can change the template type provision to every other type to get those files.
 
+~~~PAGEBREAK~~~
+
 If everything here seems to be correct, check the communication in the Foreman log. Getting the exact URLs from the log
 and browsing them can help to find issues like token on a boot disk expired.
 
@@ -95,8 +99,6 @@ On the TFTP server have a look at the boot image, it is downloaded only once dur
 If somehow the image was already downloaded you will not find any new log entry about the failed download. Also in some rare
 cases distribution releases a newer version of the boot image to fix some installation issues. So check the size and checksum
 of the image if the boot fails.
-
-~~~PAGEBREAK~~~
 
 In the case there is no PXE configuration you can cancel and restart the build process or execute a rebuild from the "All Hosts" menu.
 
@@ -118,9 +120,7 @@ the agent has to run more than once to complete the full configuration.
 * Server fault
 * Youtube
 * Issue tracker
-* Gathering information
- * Debug tool (to be deprecated)
- * sosreport
+* Gathering information using sosreport
 
 ~~~SECTION:handouts~~~
 
@@ -133,8 +133,10 @@ First have a look into the Wiki page collecting common issues: http://projects.t
 If your problem is not covered there the fastest way to get in touch with the team is the IRC Channel. The channel #theforeman is
 hosted on irc.freenode.net, the developer channel #theforeman-dev is only for support on development of Foreman and plugins.
 
+~~~PAGEBREAK~~~
+
 The mailing lists have been replaced with Discourse to provide a Community Platform which is basicly a forum with mailing list support.
-You can get help here, discuss development and follow release workflow including test weeks.
+You can get help here, discuss development and follow release workflow including test weeks: https://community.theforeman.org/
 
 On 'Server Fault' you can ask questions and find answers tagged with foreman: http://serverfault.com/questions/tagged/foreman
 
@@ -142,14 +144,10 @@ On Youtube in the Foreman channel you can find introductions, deep dives, commun
 be very useful: https://www.youtube.com/channel/UCCo7AZ1oG6TbG0-dwjRqCmw
 
 Looking at all those resources will solve most issues, if not it is probably a bug, so search for it in the issue tracker
-and if you can not find a similar issue file create a new one with as much information as possible to help fixing the bug and others with the same issue.
+and if you cannot find a similar issue file create a new one with as much information as possible to help fixing the bug and others with the same issue.
 http://projects.theforeman.org/projects/foreman/issues
 
-Sometimes you could be asked to send a debug report which could be generated with "foreman-debug" including the complete
-configuration stripped of security data. With "foreman-debug -u" it could be uploaded to a location only accessable by the
-Foreman core developers. This tool is going to be deprecated and be replaced by a plugin for sosreport.
-
-Sosreport can collect even more system information and based other already existing plugins also those of required or managed
-services. The only feature missing is the built-in upload of the report.
+Sometimes you could be asked to send an sosreport. Sosreport can collect even more system information than those about Foreman based other plugins also those of required or managed services.
+Do not upload this data without verifying them for included passwords and then only to a trusted location.
 
 ~~~ENDSECTION~~~

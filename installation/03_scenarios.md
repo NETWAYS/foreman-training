@@ -14,7 +14,7 @@
 
 ****
 
-The Foreman installer allows to setup different scenarios depending on its parameters or answers in interactive mode.
+The Foreman installer allows to set up different scenarios depending on its parameters or answers in interactive mode.
 All the scenarios above are explained in the course material, commands required can be found in the Foreman manual on
 the project homepage. For the training we will use the Katello scenario and add additional Smart Proxies for Provisioning.
 
@@ -51,8 +51,6 @@ the project homepage. For the training we will use the Katello scenario and add 
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 The Foreman installer by default installs an all-in-one scenario with Apache httpd and Puma
 serving the Foreman Web GUI and API, and the Puppet server including the certificate authority.
@@ -141,8 +139,6 @@ DNS alias
 
 ****
 
-~~~PAGEBREAK~~~
-
 This is nearly the same setup as before but removes the load created by being a Puppet server
 from the Foreman server. You still have to remember to create only the first Puppet server as a
 certificate authority and set up a solution to load balance the agents.
@@ -180,8 +176,6 @@ This could be done on the Foreman host itself or any other host from which commu
 This will require the certificate to be created in advance to allow the communication. For authentication
 it uses OAuth provided by Foreman available to the administrators.
 
-~~~PAGEBREAK~~~
-
 It can also install and configure the corresponding service like Bind for DNS, ISC DHCP or TFTP but this
 is a very basic setup and will typically require some additional configuration.
 
@@ -214,7 +208,7 @@ is required.
 ~~~SECTION:handouts~~~
 ****
 The Foreman installer allows to add PuppetDB as reporting target and storeconfigs backend
-to the Puppet servers. It does not setup PuppetDB server!<br/>
+to the Puppet servers. It does not set up PuppetDB server!<br/>
 PuppetDB is not required in a typical setup with Foreman. Instead of using storeconfigs
 or PuppetDB queries Foreman's own database could also be used for queries. The required
 function is part of the Puppet module "foreman" provided by the Foreman Project.
@@ -255,8 +249,6 @@ It is also possible to install Foreman without Puppet (it will still need Puppet
 but only the agent). But as Foreman is using the Puppet CA by default for certificate generation,
 you will need to provide your own certificates. The source can be every CA, even a self-signed one.
 
-~~~PAGEBREAK~~~
-
 As Ansible uses a push model instead of a pull based one like Puppet, it uses the Remote Execution stack
 consisting of the task engine Dynflow on the Foreman server and Smart Proxy getting the jobs from there
 to run Ansible. You can watch the job status, but it will also send reports back to Foreman.
@@ -294,8 +286,6 @@ to run Ansible. You can watch the job status, but it will also send reports back
 
 ~~~SECTION:handouts~~~
 ****
-
-~~~PAGEBREAK~~~
 
 Katello adds completely new functionality to Foreman by integrating Pulp for Content Management and Candlepin for Subscription Management. This of course adds additional complexity to the setup.
 To reduce this complexity support-wise it is only supported to directly install this setup by adding `--scenario katello` to the Installer and not to later add it as a plugin.

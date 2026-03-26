@@ -25,14 +25,14 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 The Smart Proxy is an autonomous web-based component providing a restful API to connect to various
 systems from higher ochestration tools such as Foreman.
 
 The Project provides packages for installation on RHEL/CentOS and Debian/Ubuntu. Installing from
 source enables supporting other Linux distributions and also Windows which is required for some
 implementations of subsystems.
+
+~~~PAGEBREAK~~~
 
 There are different implementations of various subsystems included in the Smart Proxy by default
 and it easily allows to add additional subsystems and implementations as plugins. For configuration
@@ -61,6 +61,7 @@ Active directory is implemented as an additional provider in a separate package.
 ~~~SECTION:notes~~~
 
 * Libvirt is recommended for local test environments (desktop running kvm and libvirt)
+* A community plugin for KEA exists, still needs review, packaging and installer support: https://gitlab.surrey.ac.uk/sm0049/smart-proxy-dhcp-kea-api
 
 ~~~ENDSECTION~~~
 
@@ -71,6 +72,8 @@ Active directory is implemented as an additional provider in a separate package.
 The Smart Proxy DHCP is used to add and remove host reservations to preconfigured subnets and allows to
 import them to Foreman.
 
+~~~PAGEBREAK~~~
+
 On Linux typically an ISC compatible implementation is used to manage DHCP which allows to send commands
 via OMAPI. For Microsoft DHCP, the Smart Proxy must be installed on a Windows Server system which has
 the netsh command installed. The user running the service needs administrative privileges, but the
@@ -78,6 +81,8 @@ server does not need to be the DHCP server. For testing environments an implemen
 using libvirt API to manage the dnsmasq underneath is available as well, a productive use is not recommended.
 
 Additional providers like Infoblox, Dnsmasq, Bluecat, and Device42 are available as plugins.
+
+Support for KEA to replace ISC DHCP is unfortunately not ready yet.
 
 ~~~ENDSECTION~~~
 
@@ -112,6 +117,8 @@ The Smart Proxy DNS is used to add and remove DNS records of type A and PTR. For
 full support for IPv6, but the support for CNAME in the Smart Proxy is not yet utilized in Foreman.
 For doing such updates the zone is required to be a dynamic zone.
 
+~~~PAGEBREAK~~~
+
 On Linux, Bind is commonly used which takes updates via nsupdate with preshared keys or if used in FreeIPA
 with Kerberos principal. The same mechanism could be used for sending updates to Microsofts DNS. Another
 possibilty is to install the Smart Proxy on a Windows server and give it the privileges to run dnscmd.
@@ -138,8 +145,6 @@ The Smart Proxy TFTP provides boot-images for PXE boot, these files are simply d
 first time they are needed. PXE configuration is created during provisioning based on MAC address.
 The support for different bootloaders has grown over the years from classic PXELinux over iPXE to using Grub2
 to work on systems with BIOS, UEFI and even UEFI with enabled SecureBoot.
-
-~~~PAGEBREAK~~~
 
 For this subsystem no additional configuration is required in most cases because it is completely included
 in the basic setup when activated via one parameter.
@@ -172,12 +177,12 @@ in the basic setup when activated via one parameter.
 
 ****
 
-~~~PAGEBREAK~~~
-
 The Smart Proxy Puppet connects to the API of Puppet to query Puppet environments and classes for import.
 
 Also it automatically allows a Puppet master known to Foreman as Smart Proxy to upload facts and reports. In addition
 the Puppet master can access Foreman as an External Node Classifier to build its catalog.
+
+~~~PAGEBREAK~~~
 
 The Smart Proxy Puppet CA is independent from the one for Puppet. It requires access to Puppet's ssl directory, the
 autosign configuration and puppet cert command via sudo. The Web GUI utilizes the Smart Proxy for certificate management

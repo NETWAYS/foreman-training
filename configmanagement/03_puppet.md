@@ -1,9 +1,12 @@
 !SLIDE smbullets small noprint
-# Puppet
+# Puppet / OpenVox
 
-* Written in ruby
-* Choice between Open Source or Enterprise version
- * Enterprise edition is not supported by Foreman
+* Written in Ruby
+* Choice between:
+ * OpenVox - true Open Source Fork
+ * Puppet Open Source - no longer maintained
+ * Puppet Core - not Open Source, so cannot be tested by Foreman
+ * Puppet Enterprise edition is not supported by Foreman
 * Runs on Linux, Unix, Windows, …
 * Describes desired state in its own declarative language
 
@@ -14,14 +17,14 @@
 </pre>
 
 !SLIDE smbullets small noprint
-#Puppet Workflow
+# Puppet Workflow
 
-* Manifests stored on a central Puppet Server
+* Manifests stored on a central Puppet / OpenVox Server
 * Agent collects system information using facter
 * Agent contacts central server with this information
 * Server compiles catalog for agent to realize using an abstraction layer
 * Agent reports back to server
-* Puppet Server transfers reports to other tools
+* Server transfers reports to other tools
 
 ~~~SECTION:notes~~~
 
@@ -32,9 +35,12 @@
 !SLIDE smbullets small printonly
 # Puppet
 
-* Written in ruby
-* Choice between Open Source or Enterprise version
- * Enterprise edition is not supported by Foreman
+* Written in Ruby
+* Choice between:
+ * OpenVox - true Open Source Fork
+ * Puppet Open Source - no longer maintained
+ * Puppet Core - not Open Source, so cannot be tested by Foreman
+ * Puppet Enterprise edition is not supported by Foreman
 * Runs on Linux, Unix, Windows, …
 * Describes desired state in its own declarative language
 
@@ -56,8 +62,11 @@
 
 ****
 
-Puppet is written in ruby and provided as a true Open Source version and as an Enterprise version with additional features and
-packages.
+~~~PAGEBREAK~~~
+
+Puppet / OpenVox is written in Ruby. Puppet is no longer provided as a true Open Source version, so this version is still available but unmaintained.
+Puppet Core is a hardened version you can access by signing a restrictive EULA and the Enterprise version adds additional features and packages, but both versions cannot be tested and supported by Foreman.
+OpenVox is a true Open Source fork of Puppet, maintained by the community and backed by several companies.
 
 Independent of the version it runs on Linux, Unix and Windows. It can also configure some network devices. For configuration
 it uses its own declarative language called Puppet DSL (Domain Specific Language) you can see above (example).
@@ -97,8 +106,6 @@ A diagram showing this workflow is provided on the next page.
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 Foreman integrates Puppet in several ways and also integrates itself into Puppet. Communication from the WebGUI to Puppet is handled
 using the Smart Proxy for Puppet. It allows to import Puppet modules known to Puppet and to trigger Puppet agent runs using several protocols.
@@ -220,8 +227,6 @@ If you follow the Puppet Role Profile Pattern, something like this could be help
 
 Foreman does differentiate between two kinds of parameters.
 
-~~~PAGEBREAK~~~
-
 Parameters are global parameters in a very simple fashion. Their values can be of different types since 1.22, before that
 they could only be strings. Overriding is simply done by creating a parameter with the same name in a more specific scope.
 To Puppet they are presented as a global parameter via the ENC, in Foreman they can also be used in the Provisioning Templates.
@@ -229,6 +234,8 @@ To Puppet they are presented as a global parameter via the ENC, in Foreman they 
 Smart class parameters become available from imported Puppet classes and can have different types like boolean, hash
 or yaml. For these types an input validator can be created to verify user input. An override behavior and order can be
 defined to enable merging values depending on facts.
+
+~~~PAGEBREAK~~~
 
 Smart variables were a third type, meant for older Puppet versions and are now removed.
 
@@ -390,8 +397,6 @@ assignment via another layer of abstraction.
 
 ****
 
-~~~PAGEBREAK~~~
-
 It is also possible to manage Foreman and/or its Smart Proxies using Puppet. The modules to do so are provided by the
 Foreman Project itself and are already used in the Foreman Installer. The modules are written to be compatible with
 all supported platforms. For compatibility of the modules with the Foreman or Smart Proxy version observe the notes
@@ -432,3 +437,98 @@ The hash is best used with a defined resource and create_resource function or wi
 Latest release of the function allow to provide a filter for reducing the data for easier handling.
 
 ~~~ENDSECTION~~~
+
+
+!SLIDE smbullets small
+# Integration of OpenBolt
+
+* OpenBolt is the orchestration solution of Puppet
+ * Written in Ruby
+ * Tasks use Puppet DSL
+ * Tasks are part of Puppet modules
+* Integration allows to run Tasks
+ * Foreman plugin provides the UI
+ * Smart Proxy plugin run the task
+ * Tasks are executed via ssh or winrm on hosts
+
+~~~SECTION:handouts~~~
+
+****
+
+OpenBolt (the Open Source version provided by OpenVox) or Bolt (the version by Puppet) adds orchestration to the Puppet world.
+It is written in Ruby and runs tasks which use Puppet DSL and are distributed as part of Puppet modules
+
+The integration with Foreman allows to run tasks. The UI for this is provided as a Foreman plugin which requires at least one Smart proxy with the plugin installed.
+The Smart proxy runs the task which is then executed via ssh or winrm on hosts, support for choria is on the todo list.
+
+~~~ENDSECTION~~~
+
+
+!SLIDE smbullets small
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Run tasks using OpenBolt
+
+* Objective:
+ * Install the OpenBolt integration to run tasks on your systems
+* Steps:
+ * Install OpenBolt
+ * Install the Foreman and Smart Proxy plugins to integrate it
+ * Configure it to use the already existing setup from Remote Execution
+ * Run a task
+
+
+!SLIDE supplemental exercises
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Run tasks using OpenBolt
+
+## Objective:
+
+****
+
+* Install the OpenBolt integration to run tasks on your systems
+
+## Steps:
+
+****
+
+* Install OpenBolt provided by the OpenVox repository as package
+* Install the Foreman and Smart Proxy plugins to integrate it
+* Configure it to use the already existing setup from Remote Execution via global settings
+* Run a task included in the OpenBolt package
+
+
+!SLIDE supplemental solutions
+# Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Run tasks using OpenBolt
+
+****
+
+## Install the OpenBolt integration to run tasks on your systems
+
+****
+
+### Install OpenBolt
+
+The package `openbolt` provided by the OpenVox repository is not installed by the Foreman Installer, so a manual installation is required.
+
+    # dnf install -y openbolt
+
+### Install the Foreman and Smart Proxy plugins to integrate it
+
+The plugin installation is similar to what we already did with other integrations.
+
+    # foreman-installer --enable-foreman-plugin-openbolt \
+    --enable-foreman-proxy-plugin-openbolt
+
+### Configure it to use the already existing setup from Remote Execution
+
+Navigate to "Administration > Settings", on the newly added tab "OpenBolt" set "User" and "SSH Private Key" like it is used by Remote Execution.
+By default "root" is used as user and the private key stored in "/usr/share/foreman-proxy/.ssh/id_rsa_foreman_proxy" for the SSH authentication.
+This will allow you to run tasks on all the systems you prepared for Remote Execution already.
+
+### Run a task
+
+Navigate to "OpenBolt > Launch Task" and select your Smart proxy "foreman.localdomain", one or more hosts to run the task on and the task "package".
+The task allows to set some parameters. The allowed values and a description is provided when opening the parameter details.
+Set the action to "install" and the name to "vim-enhanced".
+With the settings already containing all the options needed, just press "Launch Task" in the top right corner.
+
+You should see now the task being executed and after some second a success message with details.
+If some error message is shown, verify your connection settings.

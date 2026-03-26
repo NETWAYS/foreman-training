@@ -24,7 +24,6 @@
 ~~~SECTION:handouts~~~
 
 ****
-<br/>
 
 Ansible is written in Python and its control machine runs on Linux while it is possible to manage Linux, Unix and Windows.
 
@@ -50,6 +49,12 @@ back to other tools.
  * Ansible transfers reports to Foreman via callback
  * Ansible can use Foreman as dynamic inventory
 
+~~~SECTION:notes~~~
+
+There is a new plugin Foreman Ansible Director in development which wants to do enterprise-grade management of Ansible code: https://github.com/ATIX-AG/foreman_ansible_director
+
+~~~ENDSECTION~~~
+
 ~~~SECTION:handouts~~~
 
 ****
@@ -58,12 +63,10 @@ Foreman can integrate Ansible in several ways and can also integrate itself into
 using the Smart Proxy for Ansible. It allows to import Ansible roles known to Ansible and to play Ansible roles. The configuration automatically
 includes the callback to upload facts and reports.
 
-~~~PAGEBREAK~~~
-
 On a separate Ansible control machine a callback plugin can be activated to upload facts and reports to Foreman, if you still want to use Ansible
 independently from Foreman. Furthermore a script could be deployed to use Foreman as dynamic inventory.
 
-For more information have a look at the plugin documentation: https://docs.theforeman.org/3.13/Managing_Configurations_Ansible/index-katello.html
+For more information have a look at the plugin documentation: https://docs.theforeman.org/3.18/Managing_Configurations_Ansible/index-katello.html
 
 ~~~ENDSECTION~~~
 
@@ -198,13 +201,14 @@ After the import set "ntp_manage_config" to "true" and "ntp_area" to your countr
 
 * Install Ansible-Core using dnf
 
-Ansible is available from centos-extras repository, the callback plugin also requires python-requests.
+Ansible is available from the Foreman or centos-extras repository, the callback plugin also requires python-requests.
 In our training setup Ansible is already installed on the Foreman system if you have done the previous exercise.
 
 * Configure callback plugin
 
 The callback plugin is moved to the Foreman Ansible Modules forming the Ansible collection "theforeman.foreman" since Ansible 2.10,
 so the easiest way to install it is via dnf as "ansible-collection-theforeman-foreman" from the client repository.
+Of course it is also available to download from the Ansible galaxy.
 The plugin itself can be enabled in the default section of ansible.cfg and configured in a new section of the configuration.
 Furthermore a setting needs to be enabled for Ansible to also use the callback on the `ansible` command in addition to `ansible-playbook`.
 
@@ -236,18 +240,18 @@ The setup module gathers facts about the system and via callback uploads them to
 
 ### Install Ansible using dnf
 
-    # dnf install ansible-core python3.11-requests -y
+    # dnf install ansible-core python3.12-requests -y
 
 ### Configure callback plugin
 
-    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.13/el9/x86_64/
+    # dnf config-manager --add-repo http://yum.theforeman.org/plugins/3.18/el9/x86_64/
     # dnf install ansible-collection-theforeman-foreman -y
     # vi /etc/ansible/ansible.cfg
     [defaults]
     callbacks_enabled = foreman
     bin_ansible_callbacks = True
     [callback_foreman]
-    url = 'https://foreman.localdomain'
+    url = https://foreman.localdomain
     ssl_cert = /etc/foreman-proxy/foreman_ssl_cert.pem
     ssl_key = /etc/foreman-proxy/foreman_ssl_key.pem
     verify_certs = /etc/foreman-proxy/foreman_ssl_ca.pem

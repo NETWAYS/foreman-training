@@ -21,8 +21,6 @@ For the installation using a Compute Resource the identfier used is the name of 
 A virtual machine will be created with the name and the MAC address will be returned to use for PXE.
 For communication with Foreman a token is created as identifier.
 
-~~~PAGEBREAK~~~
-
 After the host is created in Foreman, it creates the virtual machine, reserves an IP address in DHCP for the MAC address returned,
 creates DNS records and places a PXE configuration on the TFTP server. If not already existing the Smart Proxy TFTP downloads the
 boot image to its directory.
@@ -219,8 +217,6 @@ Compute profiles are used to provide defaults for the virtual machine creation. 
 are available and only have to be configured, but you can create as many as needed. The same profile can differ
 based on the Compute Resource used to provide defaults matching the virtualization platform.
 
-~~~PAGEBREAK~~~
-
 If one is configured for a Compute Resource option to choose from, it is available on new host dialog after choosing
 the Compute Resource to deploy on.
 
@@ -243,8 +239,6 @@ the Compute Resource to deploy on.
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 Images are available as install source to all Compute Resources, for some as the only source. To be available to Foreman
 it also has to be configured using the "New image" dialog after selecting a Compute Resource. The image has to be created
@@ -288,7 +282,7 @@ executing the following command on the laptop.
 
     # iptables -I INPUT -p tcp -m multiport --dports 5901:6000 -i virbr1 -j ACCEPT
 
-<br/>
+~~~PAGEBREAK~~~
 
 Furthermore Firefox will block the websocket connection unless you change setting
 network.websocket.allowInsecureFromHTTPS to true in about:config.

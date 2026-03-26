@@ -1,17 +1,18 @@
 !SLIDE smbullets small
-# Subscription management - Classic
+# Subscription management - Accessing vendor repositories
 
 * Red Hat
  * Subscription Manifest - certificates for communication and subscription data
+ * Add Subscriptions to the manifest
  * Red Hat Repositories - available products and repositories
  * Products and Repositories on click
- * Content Hosts consume subscriptions
+ * Reporting via plugin RH Cloud and virt-who
 
-* SUSE
- * Similar workflow to Red Hat via Plugin
+* SUSE - Similar workflow to Red Hat via Plugin
 
-* Other software
- * Tracks subscribed Content Hosts for products
+* Ubuntu ESM - Extract information from registered host
+
+* Other software - Multiple authentication mechanisms are supported
 
 ~~~SECTION:handouts~~~
 
@@ -19,30 +20,27 @@
 
 Subscription management is primarily implemented for cosuming Red Hat Content you subscribed to.
 
-~~~PAGEBREAK~~~
+Red Hat allows to create a Subscription Manifest to move Subscription management from Red Hat Network to your environment.
+This manifest includes the certificates required for communication and the subscription data. 
+Which subscriptions you want to manage on Katello you can decide by adding them to the manifest.
+Red Hat Repositories View shows available products and repositories covered by the subscription data and allows to select them which will automatically create and synchronize them to your system.
+Reporting of the consumed subscriptions is done via the plugin RH Cloud and this also gets information for Virtual Subscriptions via virt-who.
 
-Red Hat allows to create a Subscription Manifest to move Subscription management from Red Hat
-Network to your environment. This manifest includes the certificates required for communication
-and the subscription data. Red Hat Repositories View shows available products and repositories
-covered by the subscription data and allows to select them which will automatically create and
-synchronize them to your system.
+~~~PAGEBREAK~~~
 
 For SUSE a similar workflow can be enabled when using the Foreman SCC Manager plugin which is
 available as package and can be found upstream at https://github.com/ATIX-AG/foreman_scc_manager.
 
-The Content Hosts consume these subscriptions in the same way like they were directly connected to
-the Red Hat Network. If you purchased Virtual Subscriptions, it is required to run virt-what and
-report your virtualization hosts before you can consume subscriptions with the virtual machines.
+To access Ubuntu ESM you get a subscription token which you can use to register one system and then extract the information needed to sync the repositories.
 
-For other software Subscription Management can also be useful, e.g. simply tracking all subscribed
-Content Hosts for products.
+For other software restricting the access to the repository multiple authentication mechanisms are supported, like user/password, token or client certificates.
 
 ~~~ENDSECTION~~~
 
 !SLIDE smbullets small
 # Subscription management - Simple Content Access
 
-* New option which is default since Katello 4.7
+* New way to handle content access which is default since Katello 4.7
 * Subscriptions are only required for upstream access
 * No Subscription assigned to clients
 * Access to all repositories by default

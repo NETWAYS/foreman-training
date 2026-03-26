@@ -22,8 +22,6 @@
 The configuration management solution sends reports to Foreman which are then stored in the database afterwards.
 Depending on the solution, configuration and interval the required storage space can differ.
 
-~~~PAGEBREAK~~~
-
 Foreman provides a cleanup job for this in form of a cronjob. Best Practice would be to adjust is based on your needs. The command takes parameters
 for the maximum age to keep the status of the reports.
 
@@ -33,6 +31,12 @@ those with events 'after 7 days'.
     # vi /etc/cron.d/foreman
     foreman-rake reports:expire days=1 status=0
     foreman-rake reports:expire days=7
+
+~~~PAGEBREAK~~~
+
+Similar jobs exist for other data like the audit events. In case of audits the age is set via a setting in the UI.
+
+This will change in the future as Foreman is moving the cronjobs to an internal mechanism for easier containerization.
 
 ~~~ENDSECTION~~~
 
@@ -45,7 +49,7 @@ those with events 'after 7 days'.
 * Foreman
  * Configuration - Archive the configuration directory
  * Database - Backupjob provided by Foreman
-* Puppet
+* Puppet / OpenVox
  * CA - Archive the certificates
  * Puppet Code - Archive the modules
 * Smart Proxies
@@ -64,7 +68,9 @@ Backup should be done in a regular interval, but at least performed before any u
 Foreman backup can be done by archiving the configuration directory "/etc/foreman" and for the database a dump can
 be generated with the following command "foreman-rake db:dump" provided by the Foreman.
 
-The Puppet backup should include the certificates which are located in "/var/lib/puppet/ssl" on the Puppet CA server and the
+~~~PAGEBREAK~~~
+
+The Puppet / OpenVox backup should include the certificates which are located in "/var/lib/puppet/ssl" on the Puppet / OpenVox CA server and the
 Puppet Code underneath "/etc/puppet/environments". Other configuration management solutions will be handled in a similar
 way.
 
@@ -85,7 +91,7 @@ The recommended way to run a backup for Katello is using foreman-maintain, we wi
 * Foreman
  * Configuration - Restore the configuration directory
  * Database - Restorejob provided by Foreman
-* Puppet
+* Puppet / OpenVox
  * CA - Restore the certificates
  * Puppet Code - Restore the modules
 * Smart Proxies
@@ -105,7 +111,9 @@ Restore the configuration directory of the Foreman carefully and inspect it befo
 dump can be restored with the command "foreman-rake db:import_dump file=/usr/share/foreman/db/foreman.TIMESTAMP.sql". Drop
 an existing database in advance to have a clean restore.
 
-For Puppet restore simply copy back the files, the same goes for the Smart Proxy. The managed services should be restored according to
+~~~PAGEBREAK~~~
+
+For Puppet / OpenVox restore simply copy back the files, the same goes for the Smart Proxy. The managed services should be restored according to
 their instructions.
 
 Katello's additional services also need to be restored using foreman-maintain.
@@ -139,6 +147,8 @@ Katello's additional services also need to be restored using foreman-maintain.
 
 Always follow the instructions in the Foreman documentation providing release and operating system specific steps to do.
 
+~~~PAGEBREAK~~~
+
 In general you should start by creating an up-to-date backup of the old configuration. Afterwards you have to change the package repository to the newest release because Foreman is always providing a separate repository for any major release. Then cleanup the package metadata and update the packages.
 Run the foreman-installer to execute the database migration and seed script, clear the cache and existing sessions, and restarts the services.
 
@@ -165,7 +175,7 @@ Updating Katello requires to have both parts releases to be announced, so after 
 
 ****
 
-Foreman Maintain is a newly developed tool which tries to automate the previous tasks. It can handle multiple strategies for backup and restore,
+Foreman Maintain is an additional tool which tries to automate the previous tasks. It can handle multiple strategies for backup and restore,
 like offline and online, full and incremental. It ensures system health during Update and its maintenance mode prevents access to Foreman.
 
 The yum plugin "foreman-protector" is created to prevent accidental updates of packages from unexpected sources.

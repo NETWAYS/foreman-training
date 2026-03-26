@@ -26,8 +26,6 @@
 For the installation using PXE the identfier used is the MAC address so it is required during configuration of
 the host in Foreman. For communication with Foreman a token is created as identifier.
 
-~~~PAGEBREAK~~~
-
 After the host is created in Foreman, it reserves an IP address in DHCP, creates DNS records and places a PXE
 configuration on the TFTP server. If not already existing the Smart Proxy TFTP downloads the boot image to its
 directory.
@@ -36,6 +34,8 @@ When the host is started it gets its IP address using DHCP which also tells it t
 The PXE configuration also points to the answer file provided by Foreman which will point to the configured
 installation media for package installation.
 
+~~~PAGEBREAK~~~
+
 Additional communication to Foreman, Puppet and other systems will be required depending on the PXE configuration
 or answer file provided. Typically a system should register to all management systems and finish its installation
 by contacting Foreman.
@@ -43,7 +43,7 @@ by contacting Foreman.
 When Foreman is told an installation is finished, it will clean up by changing the PXE configuration to local boot
 and change other configurations only need during provisioning.
 
-The Foreman manual provides some more detailed workflow diagrams: http://theforeman.org/manuals/3.9/index.html#4.4.6Workflow
+The Foreman manual provides some more detailed workflow diagrams: http://theforeman.org/manuals/3.18/index.html#4.4.6Workflow
 
 ~~~ENDSECTION~~~
 
@@ -120,7 +120,7 @@ to get the optimizations.
 ### Adjust the minimum requirements for RAM, CPU and Disk
 
 In the third step the minimum requirements for RAM and CPU are shown, but unfortunately this is for runtime and not enough for the installer.
-CentOS installer will require at least 3 GB instead of the default, Debian should also be fine with 3 GB, while Ubuntu requires 6 GB.
+CentOS installer will require at least 4 GB instead of the default, Debian should also be fine with 3 GB, while Ubuntu requires 6 GB.
 In the fourth step keep the disk as small as possible, though it will not matter as long as it is thin provisioned.
 
 ### Name your virtual machine "pxe" and select the network "foreman"
@@ -150,15 +150,14 @@ This change needs a shutdown of the VM as it is only applied after powering off 
 
 ****
 
-~~~PAGEBREAK~~~
-
 In the Interface tab it is possible to add multiple interfaces and also virtual interfaces like VLAN tagged interfaces or aliases.
 Only one can be assigned as the primary interface mapped to the DNS record and only one as provisioning interface for PXE configuration
 or connecting for executing scripts during installation. This can be the same interface but does not have to be in cases you have a
 dedicated installation network.
 
 Instead of setting the root password for every host created, a default can be set by providing a password hash on "Administer > Settings"
-in the Provisioning tab as Root password. This is an MD5 hash for being supported by every Linux distribution.
+in the Provisioning tab as Root password. For this being a supported hash look into what is supported for every Linux distribution you want to use.
+Nowadays SHA-512 should be a good default.
 
 ~~~ENDSECTION~~~
 
@@ -212,6 +211,8 @@ which will be a random one free in the range of the subnet.
 
 When you unpause the virtual machine it will get the suggested IP address and the boot media and will start the unattended installation.
 
+If you did not manage to pause it quick enough, shut it down and in the Details at the nic as first boot option.
+
 !SLIDE smbullets small
 # Hostgroups
 
@@ -225,7 +226,7 @@ When you unpause the virtual machine it will get the suggested IP address and th
 * Allows to associate templates
 
 ~~~SECTION:handouts~~~
-
+****
 Host groups are used to group hosts, the groups can be organized in a hierarchical way by nesting them.
 
 The host groups enables adding defaults for all options required by Foreman for provisioning and depending on your environment also

@@ -20,13 +20,13 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 Foreman provides a web based JSON API which is shared with Katello. This is Version 2 of the
 API which is favored instead of the already deprecated version 1. It requires an authentication
 by username and password. Perhaps unusal is the handling of collections which are paged in the
 same way like in the web interface. The same way it handles search strings like they are provided
 in the WebGUI but they have to be URL encoded.
+
+~~~PAGEBREAK~~~
 
 Another API was introduced with GraphQL in 1.22. This API is more intended for development of
 plugins instead of scripting and still considered experimental, but should cover all objects

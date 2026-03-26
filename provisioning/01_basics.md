@@ -47,8 +47,6 @@ and make it ready for network operation*. Your task will be to automate it.
 For an automated installation it is required that the installer of the operating system allows to answer the questions
 users are normally asked by providing an answer file.
 
-~~~PAGEBREAK~~~
-
 The different Linux installers can handle answer files provided via network protocols like http and ftp, network file
 systems or placed on the installation media. In this way basic configuration like timezone, language or network settings
 can be handled. Furthermore partition layout can be created, software installed and depending on the solution also
@@ -56,15 +54,17 @@ registration to management tools is directly integrated.
 
 If the installer could not solve requirements directly, scripts could be provided to be executed during and after installation.
 
-The mechanism differs by distribution.
+~~~PAGEBREAK~~~
 
+The mechanism differs by distribution.
 
 Operating system family | Installer        | Answer files
 ------------------------|------------------|--------------
 Red Hat                 | Anaconda         | Kickstart
 Debian                  | Debian-Installer | Preseed
 Ubuntu (since 20.04.3)  | Autoinstall      | Cloud-init
-SuSE                    | YaST2            | AutoYaST2
+SuSE (up to 15)         | YaST2            | AutoYaST2
+SuSE (since 16)         | Agama            | JSON
 
 Other operating systems have similar mechanisms but not all the capabilities. Microsoft Windows for example requires the
 answer file to be placed on the installation media or a "physical" disk mounted during installation like floppy or USB.
@@ -102,8 +102,6 @@ and a list of packages and package groups to install in addition to the core sys
 can be added in separate sections to run as pre-installation or post-installation tasks on the installer or using
 chroot on the installed system.
 
-~~~PAGEBREAK~~~
-
 Lastest versions allow to extend the installer with addons which can also provide their own kickstart section for
 automation. One example is the OSCAP Anaconda Addon which allows to validate against a security profile already
 during installation.
@@ -111,7 +109,7 @@ during installation.
 The URL to the kickstart file can be provided during installation or for automation added as a kernel parameter
 to the boot media. Necessary answers missing will be queried.
 
-Additional information: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_installation/performing_an_automated_installation_using_kickstart
+Additional information: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/automatically_installing_rhel/index
 
 ~~~ENDSECTION~~~
 
@@ -161,8 +159,6 @@ This runs from a LiveCD loaded by the kernel which will then query an URL for Cl
 Cloud-init is a YAML formatted standard which supports different schemas including one for autoinstall.
 This file can be generated via a generator tool also capable of translating preseed data.
 
-~~~PAGEBREAK~~~
-
 By default it will fall back to default values if an answer is not provided, but sections can also be defined
 as interactive. It will also ask for confirmation to avoid accidential reformatting if the kernel parameter
 'autoinstall' is not given.
@@ -182,13 +178,17 @@ Additional information: https://ubuntu.com/server/docs/install/autoinstall
  * Configuration of selected software and devices
 * Added as kernel parameter to boot media
 
+~~~SECTION:notes~~~
+
+SUSE switches to Agama installer with version 16, support for this is already in nightly but not in the current version. 
+
+~~~ENDSECTION~~~
+
 ~~~SECTION:handouts~~~
 
 ****
 
 AutoYaST2 is the answer file for SUSE Linux Enterprise Server, Desktop and openSUSE using YaST2 as installer.
-
-~~~PAGEBREAK~~~
 
 It is a structured XML file meant to be created by YaST and not by hand which provides answers to the installer
 questions. Different data structures are used for all kinds of configuration. It can run scripts before installation

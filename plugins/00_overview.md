@@ -24,8 +24,6 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 Plugins can extend Foreman and the Smart Proxy in many different ways and depending on the needs
 it can be very simple or highly complex.
 

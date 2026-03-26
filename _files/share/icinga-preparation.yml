@@ -162,15 +162,15 @@
           10.0.0.3 monitoring.localdomain monitoring
 
     - ansible.builtin.include_role:
-        name: icinga.icinga.repos
+        name: netways.icinga.repos
     - ansible.builtin.include_role:
         name: geerlingguy.mysql
     - ansible.builtin.include_role:
-        name: icinga.icinga.icinga2
+        name: netways.icinga.icinga2
     - ansible.builtin.include_role:
-        name: icinga.icinga.icingadb
+        name: netways.icinga.icingadb
     - ansible.builtin.include_role:
-        name: icinga.icinga.icingadb_redis
+        name: netways.icinga.icingadb_redis
 
     - name: Install required acl package
       ansible.builtin.apt:
@@ -194,7 +194,7 @@
 
   post_tasks:
     - ansible.builtin.include_role:
-        name: icinga.icinga.icingaweb2
+        name: netways.icinga.icingaweb2
 
     - name: Allow auto login for Foreman
       ansible.builtin.blockinfile:

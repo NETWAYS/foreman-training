@@ -14,13 +14,13 @@ required.
 
 ## Online Material
 
-In addition to the sources you can find the rendered material on 
+In addition to the sources you can find the rendered material on
 [netways.github.io](https://netways.github.io/foreman-training)
 
 * [Presentation](https://netways.github.io/foreman-training)
-* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.9/foreman-training-handouts.pdf)
-* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.9/foreman-training-exercises.pdf)
-* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.9/foreman-training-solutions.pdf)
+* [Handouts](https://github.com/NETWAYS/foreman-training/releases/download/v1.10/foreman-training-handouts.pdf)
+* [Exercises](https://github.com/NETWAYS/foreman-training/releases/download/v1.10/foreman-training-exercises.pdf)
+* [Solutions](https://github.com/NETWAYS/foreman-training/releases/download/v1.10/foreman-training-solutions.pdf)
 
 ## Provide your own training
 
@@ -32,7 +32,7 @@ After installing it simply run showoff serve to get presenter mode with addition
 
 For creating the rendered documents on your own run `showoff static print` (handouts),
 `showoff static supplemental exercises` (exercises) or `showoff static supplemental solutions`
-(solutions) followed by 
+(solutions) followed by
 `wkhtmltopdf -s A5 --print-media-type --footer-left [page] --footer-right 'Foreman Training' static/index.html handouts.pdf`
 
 As alternative you can run the `./global/wizard.sh` script which requires docker. It will give you some options how to serve your presentation

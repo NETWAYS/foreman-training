@@ -19,8 +19,6 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 The Foreman Plugin Remote Execution adds WebGUI and workflow for executing jobs on remote systems.
 It utilizes different providers.
 
@@ -31,13 +29,15 @@ these credentials and an SSH socket. Also, a pull mode using MQTT was introduced
 The Ansible provider uses the same SSH configuration but uses Ansible syntax for the jobs.
 The same goes for Salt.
 
+~~~PAGEBREAK~~~
+
 Use cases are to trigger configuration management runs immediately to get an ad-hoc deployment,
 execute one-time or irregular commands and also to orchestrate operations like updates on your servers.
 It also allows to schedule jobs or reoccurring execution.
 
 With the OpenSCAP plugin installed an option to run scans on demand is added.
 
-More details on: https://docs.theforeman.org/3.9/Managing_Hosts/index-katello.html#Configuring_and_Setting_Up_Remote_Jobs_managing-hosts
+More details on: https://docs.theforeman.org/3.18/Managing_Hosts/index-katello.html#configuring-and-setting-up-remote-jobs
 
 ~~~ENDSECTION~~~
 
@@ -112,7 +112,7 @@ Navigate to "Administer > Settings" and on the tab "Remote Execution" switch "Co
 
 Navigate to the host and press "Schedule a Job". For multiple hosts the action is also available in the action menu
 of the "All Hosts" view. Keep the category "Commands" and the template "Run Command - Script default".
-Keep the selected host and add the command "id". No need to change any advanced fields or the schedule, so on the review press "Run" to execute it and watch
+Keep the selected host and add the command "id". No need to change any advanced fields or the schedule, so on the review press "Submit" to execute it and watch
 for the execution. By clicking on the host in the list, you can get the actual output of the Job run on the host.
 
 
@@ -136,8 +136,6 @@ for the execution. By clicking on the host in the list, you can get the actual o
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 It is also possible to write templates for jobs in a similar manner like Provisioning Templates. In these
 templates you can use a special function "input" to get the value of input fields associated with it. These
@@ -273,6 +271,7 @@ On Debian/Ubuntu:
     # apt install -y cockpit-system
 
 The websocket and access to it is not required, so installing this subpackage is enough, but you can add others for more features.
+Also a Job to enable the webconsole is provided with the Ansible plugin.
 
 ### Access the webconsole from the host view
 
@@ -295,9 +294,11 @@ You can now see some system information and control options depending on the ins
 ~~~SECTION: handouts~~~
 ****
 
-If outgoing connections are not allowed or use of SSH is not wanted, the pull mode is quite easy to setup. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.
+If outgoing connections are not allowed or use of SSH is not wanted, the pull mode is quite easy to set up. It is currently limited to the Script provider, so work for support for the Ansible provider is ongoing.
 
 On the server side you need a Smart Proxy with feature Remote Execution enabled and the script mode set to `pull-mqtt`. Then this Smart Proxy has to be assigned to the Subnet which should communicate with it and of course this communication needs to be possible.
+
+~~~PAGEBREAK~~~
 
 On the client side it requires the certificates which are needed to authenticate. You get these by registration via `subscription-manager` which should be done via "Register Host" wizard in the UI. Then you can simply install `katello-pull-transport-migrate` from the Foreman client repo which installs and configures the MQTT client `yggdrasil` with a worker for Foreman's Remote execution feature.
 

@@ -41,14 +41,14 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 Foreman provides in addition to the Web Interface an API and CLI.
 
 For platforms, it supports RHEL/CentOS and Debian/Ubuntu via packages and via installation from source.
 Installation from source is also a way for other Linux distributions as well.
 
 As the database backend only PostgreSQL is supported to allow optimization for it. This was changed with version 2.0.
+
+~~~PAGEBREAK~~~
 
 The following operating systems are known to successfully install from Foreman:
 

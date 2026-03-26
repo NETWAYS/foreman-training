@@ -27,8 +27,6 @@ is configured with the IP address "10.0.0.1" assigned to the laptop and a host e
 "host.localdomain", the IP address "10.0.0.2" is assigned to an already existing VM
 used to install Foreman.
 
-~~~PAGEBREAK~~~
-
 The virtual machine is named "foreman.localdomain" and allows login via SSH with user "root"
 and password "netways". Foreman will be installed on it including DNS and DHCP service.
 This system also runs a LDAP service which will be required for some exercises.

@@ -5,7 +5,7 @@
  * Prepare the installation of Foreman
 * Steps:
  * Start the virtual machine "foreman.localdomain" and connect via SSH
- * Make Puppet vendor repository for Puppet available
+ * Make OpenVox repository available
  * Make Foreman and Katello repository available
  * Install foreman-installer-katello
 
@@ -28,17 +28,17 @@
 You can start the virtual machine "foreman.localdomain" with Virt-Manager from the Systemtools and connect
 via SSH as 'root' so you can copy and paste to the console.
 
-* Make Puppet vendor repository available
+* Make OpenVox repository available
 
-Install the release package provided by the Puppet vendor repository to make it available for package
-installation of the open source version of Puppet. We will use Puppet 8.
+Install the release package provided by the OpenVox repository to make it available for package
+installation of OpenVox, the open source fork of Puppet. We will use OpenVox 8.
 
-URL: http://yum.puppet.com/puppet8
+URL: https://yum.voxpupuli.org/
 
 * Make Foreman and Katello repository available
 
 Install the release packages provided by the Foreman and Katello repositories to make it available for package
-installation of Foreman and its components. We use Foreman 3.13 and Katello 4.15.
+installation of Foreman and its components. We use Foreman 3.18 and Katello 4.20.
 
 URL: http://yum.theforeman.org
 
@@ -74,21 +74,21 @@ and paste to the console.
 
     # ssh root@foreman.localdomain
 
-### Make Puppet vendor repository available
+### Make OpenVox repository available
 
-Install the release package provided by the Puppet vendor repository to make it available for package
-installation of open source version of Puppet.
+Install the release package provided by the OpenVox repository to make it available for package
+installation of Foreman and its components. We use Foreman 3.18 and Katello 4.20.
 
-    # dnf install http://yum.puppet.com/puppet8/el/9/x86_64/puppet8-release-1.0.0-9.el9.noarch.rpm -y
+    # dnf install https://yum.voxpupuli.org/openvox8-release-el-9.noarch.rpm -y
 
 ### Make Foreman repository available
 
 Install the release packages provided by the Foreman and Katello repositories to make it available for package
 installation of Foreman, Katello and its components. Taking the matching combination is required, for example
-Foreman 3.13 and Katello 4.15 form one release.
+Foreman 3.18 and Katello 4.20 form one release.
 
-    # dnf install http://yum.theforeman.org/releases/3.13/el9/x86_64/foreman-release.rpm \
-         http://yum.theforeman.org/katello/4.15/katello/el9/x86_64/katello-repos-latest.rpm -y
+    # dnf install http://yum.theforeman.org/releases/3.18/el9/x86_64/foreman-release.rpm \
+         http://yum.theforeman.org/katello/4.20/katello/el9/x86_64/katello-repos-latest.rpm -y
 
 ### Install foreman-installer-katello
 
@@ -357,6 +357,8 @@ Afterwards we have to return to the configuration via 'Infrastructure > Subnets'
  * DHCP Proxy: 'foreman.localdomain'
  * TFTP Proxy: 'foreman.localdomain'
  * Reverse DNS Proxy: 'foreman.localdomain'
+
+~~~PAGEBREAK~~~
 
 Ignore the Remote Execution tab for now, also no parameters, "Default Organization" and "Default location" should be the default.
 

@@ -1,7 +1,7 @@
 !SLIDE smbullets small
 # Foreman Installer
 
-* Based on a separate project named kafo (ruby gem)
+* Based on a separate project named kafo (Ruby gem)
 * Recommended way of installation
 * Utilizes Puppet modules to install and configure
  * Foreman web UI
@@ -19,8 +19,6 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 The Foreman installer is based on a separate project named kafo (Katello/Foreman Installer) which could also
 be used by other projects. It utilizes existing Puppet modules to install and configure all required
 components. Module parameters are provided as commandline arguments to the installer,
@@ -28,10 +26,12 @@ as an answers file formatted in yaml (can be autosaved) or by running the instal
 in interactive mode. The installer also supports predefined scenarios which is only used by Katello for now.
 For advanced use cases the installer will also take some custom hiera.
 
+~~~PAGEBREAK~~~
+
 In a default installation of the Foreman scenario this would be:
 
 * Apache HTTP with SSL (using a certificate signed by Puppet CA, proxying to Foreman)
-* Foreman running via Puma (ruby webserver)
+* Foreman running via Puma (Ruby webserver)
 * Smart Proxy using SSL configured for enabled features
 * Puppet server
 

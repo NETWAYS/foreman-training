@@ -2,7 +2,7 @@
 # Compute Resource
 
 * Plugin to create and manage virtual hosts
- * based on fog (ruby cloud service library)
+ * based on fog (Ruby cloud service library)
  * or native SDK / API
 * Depending on virtualization provider
  * Unattended / Image-based installation
@@ -11,12 +11,18 @@
  * Changing virtual machine configuration
 * Compute Profiles - predefined template for virtual hardware
 
+~~~SECTION:notes~~~
+
+ATIX is currently working on a generic openTOFU-based compute resource: https://github.com/ATIX-AG/foreman_opentofu
+
+~~~ENDSECTION~~~
+
 ~~~SECTION:handouts~~~
 
 ****
 
 Compute Resource refers to a virtualization or cloud service which is integrated into Foreman
-as a plugin. Those plugins are based on the ruby cloud service library named fog and enable
+as a plugin. Those plugins are based on the Ruby cloud service library named fog and enable
 creating and managing virtual hosts. Some are based on a native SDK or API where no fog implementation
 exists or is well maintained.
 
@@ -24,6 +30,8 @@ Depending on the provider machines are installed from an image or unattended in 
 as a bare metal host. It enables access to the console
 and do power management operations like shutting down or resetting the system.
 Some providers also allow to change the virtual hardware afterwards.
+
+~~~PAGEBREAK~~~
 
 The table shows the providers directly supported by the Foreman Project and their respective capabilities.
 Additional providers are listed in *italic* and integrated through separate plugins mostly contributed by the community.

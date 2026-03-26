@@ -18,8 +18,6 @@ Foreman logs almost all changes from the WebGUI and API including the user, a ti
 the parent object like the host or a parameter being changed. For templates an additional diff of the changes
 is provided.
 
-~~~PAGEBREAK~~~
-
 All this auditing data is browsable and searchable in the WebGUI via "Monitor > Audits". To get detailed
 auditing data or specific change history simply select an entry.
 

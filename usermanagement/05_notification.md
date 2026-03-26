@@ -6,7 +6,7 @@
 * Also integrates the Foreman RSS feed
 
 <div style="text-align:right">
-<img src="./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 95px; margin-right: 95px; border-style: solid; border-width: 1px;" alt="Foreman Notification"/>
+<img src="./_images/foreman_notification.png" style="float: right, max-width:200px; max-height: 300px; width: auto; height: auto; margin-top: 85px; margin-right: 95px; border-style: solid; border-width: 1px;" alt="Foreman Notification"/>
 </div>
 
 ~~~SECTION:handouts~~~

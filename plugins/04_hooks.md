@@ -21,8 +21,6 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 The Foreman plugin Webhooks allows to add scripts on events handled by the Foreman. Typically it is used
 to integrate other tools during the orchestration process of deploying new hosts instead of writing
 a new plugin. This can be done by calling a webhook or by utilizing the Smart Proxy plugin Shellhook to
@@ -33,6 +31,8 @@ VMs which is only available after the creation but are required before starting 
 
 This plugin is a new solution replacing another one called Hooks, with some other design decisions
 like having it non-blocking and rolling back the action in Foreman.
+
+~~~PAGEBREAK~~~
 
 More details on: https://docs.theforeman.org/3.9/Administering_Project/index-katello.html#Using_Webhooks_admin
 

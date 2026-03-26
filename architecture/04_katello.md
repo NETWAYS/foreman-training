@@ -13,7 +13,7 @@
  * ...
 * Subscription Management
  * Red Hat Subscriptions
- * Track internal use
+ * SUSE Subscriptions (via an additional plugin)
 * Defined scenario for Foreman Installer
 * Upstream project for
  * Red Hat Satellite
@@ -30,7 +30,7 @@
  * ...
 * Subscription Management
  * Red Hat Subscriptions
- * Track internal use
+ * SUSE Subscriptions (via an additional plugin)
 * Defined scenario for Foreman Installer
 * Upstream project for
  * Red Hat Satellite
@@ -40,9 +40,9 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 Katello is a defined set of Foreman plugins which add Content management and Subcription management.
+
+~~~PAGEBREAK~~~
 
 The Content management feature can manage YUM repositories to provide software in RPM package format and
 errata explaining the importance of the package updates. Debian packages are also supported just without errata yet.
@@ -51,7 +51,7 @@ Before the switch to Pulp 3 a different set of formats was supported and with th
 support for addtional formats will likely be added in the future.
 
 The Subscription management feature allows to subscribe to a software distributor which in most cases will be Red Hat.
-It also provides the possiblity to track the internal use of some software which can be very useful for support contracts or with multitenancy to handle customer environments.
+But with an additional plugin also SUSE is added.
 
 It uses the same technology for installation as the Foreman by providing a scenario to the Foreman installer. The usage of this
 installer is the supported way of installation for Katello, so there is no way of adding the plugin later to an existing Foreman installation for now.

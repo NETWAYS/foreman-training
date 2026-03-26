@@ -22,8 +22,6 @@ like the WebGUI and the API. Some of the Foreman plugins also provide a Hammer p
 some other tools especially around Katello do. But the framework is not limited to the Foreman
 environment, so feel free to create your own plugins to solve your own administrative tasks.
 
-<br/>
-
 An possibly incomplete list of plugins is provided by the Github page of the framework: https://theforeman.github.io/foreman-plugin-overview/
 
 ~~~ENDSECTION~~~
@@ -42,7 +40,7 @@ An possibly incomplete list of plugins is provided by the Github page of the fra
 
 ****
 
-For CentOS no need to associate templates occurs as there is a new feature handling this provided since Foreman 3.5, other Distributions than RHEL derivates still lack this feature, so additional steps are required.
+For CentOS no need to associate templates occurs as there is a new feature handling this provided since Foreman 3.5, other Distributions than RHEL derivates are not fully covered by this feature, so additional steps may be required.
 
 ~~~ENDSECTION~~~
 
@@ -60,8 +58,8 @@ For CentOS no need to associate templates occurs as there is a new feature handl
 ****
 
 * Make sure to provide the correct credentials.
-* Create the new Operatingsystem entry for "CentOS Stream 9"
-* Optionally add the parameter "enable-official-puppet7-repo"
+* Create the new Operatingsystem entry for "CentOS Stream 10"
+* Optionally add the parameter "enable-openvox8"
 
 !SLIDE supplemental solutions
 # Lab ~~~SECTION:MAJOR~~~.~~~SECTION:MINOR~~~: Working with the CLI
@@ -81,17 +79,17 @@ Adjust the configuration if required in `~/.hammer/cli.modules.d/foreman.yml`:
       :username: 'admin'
       :password: 'PASSWORD'
 
-### Create the new Operating system entry for "CentOS Stream 9"
+### Create the new Operating system entry for "CentOS Stream 10"
 
-    # hammer os create --name CentOS --major 9 --description "CentOS Stream 9" --architectures x86_64 \
+    # hammer os create --name CentOS --major 10 --description "CentOS Stream 10" --architectures x86_64 \
     --family "Redhat" --password-hash SHA256 --media "CentOS Stream 9 mirror" --partition-tables "Kickstart default"
 
-### Optionally add the parameter "enable-official-puppet7-repo"
+### Optionally add the parameter "enable-openvox8"
 
 Instead of running a separate command later you can add the parameter "--os-parameters-attributes" on the initial run, take key value or json as imput
 
-    # ... --os-parameters-attributes '[{"name":"enable-official-puppet7-repo","value":"true","parameter_type":"boolean"}]'
+    # ... --os-parameters-attributes '[{"name":"enable-openvox8","value":"true","parameter_type":"boolean"}]'
 
 Otherwise you can use the same parameter with `hammer os update` or use the command `hammer os set-parameter` instead.
 
-    # hammer os set-parameter --operatingsystem "CentOS Stream 9" --name enable-official-puppet7-repo --value true --parameter-type boolean
+    # hammer os set-parameter --operatingsystem "CentOS Stream 10" --name enable-openvox8 --value true --parameter-type boolean

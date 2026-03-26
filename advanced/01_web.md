@@ -17,12 +17,12 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 In the Foreman WebGUI almost all views are simple unfiltered lists, some views like the "Reports" view are filtered by
 default using a search and most provide additional searches to quickly filter for typically views like 'all hosts
 out of sync'. But the WebGUI is not limited to these searches you can always create your own and bookmark it for later.
 Setting a bookmark to public allows to share it with other users.
+
+~~~PAGEBREAK~~~
 
 The search field can be used for a free text search but gets more powerful if using the autosuggestions. It provides
 different comparison operators depending on the type of the field compared including SQL like wildcard matching.
@@ -47,7 +47,8 @@ For more details see: http://theforeman.org/manuals/latest/index.html#4.1.5Searc
 
 ****
 
-<br/>
+~~~PAGEBREAK~~~
+
 Foreman can provide graphs about changes in your environment. Those are configured and displayed in the WebGUI in
 "Monitor > Trends" and collected by the background task "Trend Counter Job". By default this tasks runs every 30 minutes matching
 Puppet's default run interval because most trends will be based on the facts collected by the configuration management

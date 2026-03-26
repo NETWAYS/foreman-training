@@ -96,9 +96,10 @@ This can become handy for applications were a server always needs to be upgraded
 !SLIDE smbullets small noprint
 # Content management - Content Hosts
 
-* Consumer of content and subscriptions
- * different view on a host than Hosts in Foreman
- * ongoing work to integrate this completely
+* A new card "Content" in the Host detail view
+ * Installed Packages
+ * Applicable Errata
+ * Repository Management
 * Remote Execution allows to execute commands
 * Client tools report installed packages and required restarts
 
@@ -107,9 +108,10 @@ This can become handy for applications were a server always needs to be upgraded
 !SLIDE smbullets small printonly
 # Content management - Content Hosts
 
-* Consumer of content and subscriptions
- * different view on a host than Hosts in Foreman
- * ongoing work to integrate this completely
+* A new card "Content" in the Host detail view
+ * Installed Packages
+ * Applicable Errata
+ * Repository Management
 * Remote Execution allows to execute commands
 * Client tools report installed packages and required restarts
 
@@ -119,12 +121,7 @@ This can become handy for applications were a server always needs to be upgraded
 
 ****
 
-~~~PAGEBREAK~~~
-
-The Content Host is a different view on the host representing it as a consumer of content and subscriptions
-for Katello. The host in Foreman is used for provisioning and configuration management. A host is always
-represented as both starting with the ongoing process to unify the views starting with Katello 3.0.
-Ongoing work has already integrated most of this to the normal host view leaving content host as an alternative, historical entrypoint.
+A new card "Content" is added to the Host detail view showing installed packages and applicable errata, and allowing to manage repositories.
 
 Remote Execution allows to execute commands issued in the WebGUI on the host like installing a package or updating
 all packages. The client tools will then report back the installed packages and required restarts of a service or the system.

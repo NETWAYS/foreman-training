@@ -2,19 +2,19 @@
 
 ## Virtual machine foreman.localdomain
 
-To setup a new version of the virtual machine install CentOS Stream 9 from ISO, only configuration required is
+To set up a new version of the virtual machine install CentOS Stream 9 from ISO, only configuration required is
 setting the network interface to manual, IP address 10.0.0.2, netmask 255.255.0.0, gateway 10.0.0.1,
 DNS 10.0.0.1. In addition you might want to allow SSH access for root.
 
-Afterwards, run the Ansible playbook provided in the '_files' directory to setup host entries and OpenLDAP.
+Afterwards, run the Ansible playbook provided in the '_files' directory to set up host entries and OpenLDAP.
 
 ## Virtual machine monitoring.localdomain
 
-To setup a new version of the virtual machine install Ubuntu 24.04 Server from ISO, only configuration required is
+To set up a new version of the virtual machine install Ubuntu 24.04 Server from ISO, only configuration required is
 setting the network interface to manual, IP address 10.0.0.3, netmask 255.255.0.0, gateway 10.0.0.1,
 DNS 10.0.0.1 and creating a user training with the default password.
 
-Afterwards run the Ansible playbook provided in the '_files' directory to setup host including Icinga 2, Icinga Web 2 and Director with preparations for the exercise.
+Afterwards run the Ansible playbook provided in the '_files' directory to set up host including Icinga 2, Icinga Web 2 and Director with preparations for the exercise.
 
 ## Local mirror
 
@@ -25,13 +25,13 @@ You can also use on-demand downloading to save space, just run all the exercises
 
 ## Katello Demo
 
-To setup the Katello demo follow this guide (it requires vagrant and ansible to be installed):
+To set up the Katello demo follow this guide (it requires vagrant and ansible to be installed):
 
     # git clone https://github.com/Katello/forklift.git
     # cd forklift
     # vagrant up centos9-stream-katello-4.15
 
-This will setup your Katello server, login with the provided credentials and add the following content:
+This will set up your Katello server, login with the provided credentials and add the following content:
 
 * GPG Key "RPM-GPG-KEY-centosofficial" by uploading the key from a CentOS Stream system
 * Product "CentOS" with the key assigned

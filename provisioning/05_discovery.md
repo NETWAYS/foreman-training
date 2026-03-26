@@ -17,8 +17,6 @@
 
 ****
 
-~~~PAGEBREAK~~~
-
 For the installation the system boots a discovery image and identifies itself as "Discovered Host" in the Foreman Web GUI.
 As an identifier the host uses its MAC address by default. Then configuration is done in Foreman and after submitting it the image
 is told to reboot and starts an installation via PXE afterwards.
@@ -248,8 +246,6 @@ Having "IPv4 subnet" set to "foreman" is also required.
 ~~~SECTION:handouts~~~
 
 ****
-
-~~~PAGEBREAK~~~
 
 Discovery rules allow an automatic rule based installation. Depending on facts provided by the discovery image a rule is selected
 and the system is installed based on the configuration of the selected host group. Naming is done based on a template using ERB which
